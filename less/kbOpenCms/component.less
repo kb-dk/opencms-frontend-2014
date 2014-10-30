@@ -1,0 +1,47 @@
+.component{
+    display:inline-block;
+    background: @component-bg;
+    margin-bottom:@grid-gutter-width - 2;
+
+    img{
+        object-fit: cover;
+    }
+
+    .caption{
+        label{
+           text-transform: uppercase;
+           display: block;
+        }
+        time{
+        }
+
+    }
+    .row{
+        margin:0px;
+    }
+
+}
+
+
+.spot{
+
+    background:#5b2320;
+    display:inline-block;
+    a {
+        color:#FFF;
+    }
+
+    img{
+        .make-md-column(6);
+        .make-xs-column(12);
+        padding: 0px;
+    }
+    .caption{
+        .make-md-column(6);
+        .make-xs-column(12);
+    }
+    .row{
+        margin:0px;
+    }
+
+}
