@@ -1,13 +1,136 @@
-.component{
-    display:inline-block;
+
+.deck{
+
+    header{
+        border-top:1px solid #CCCCCC;
+        padding:98px 0px 73px 0px;
+        @media (max-width: @screen-sm-min) {
+            padding:59px 0px 35px 0px;
+        }
+
+        h1{
+            font-family: "RobotoBold", Helvetica, Arial, sans-serif;
+            text-align:center;
+            font-size: 30px;
+            line-height: 28px;
+            @media (max-width: @screen-sm-min) {
+                padding:0px 20px;
+            }
+        }
+
+        p{
+            font-family: "RobotoSlabLight", Helvetica, Arial, sans-serif;
+            text-align:center;
+            font-size: 26px;
+            padding-top:30px;
+            @media (max-width: @screen-sm-min) {
+                font-size: 20px;
+                padding:23px 20px 0px 20px;
+            }
+        }
+
+    }
+
+
+@bannerColor01:           #5b2320; //Red/Brown
+@bannerColor02:           #07162e; //Dark blue
+    .banner{
+        a{
+            color:@body-bg;
+        }
+        color:@body-bg;
+        background:@bannerColor02;
+        height:472px;
+        max-height:472px;
+        overflow: hidden;
+        display:block;
+        position:relative;
+        padding:0px;
+        margin:0px;
+
+        .text{
+            min-height: 100%;
+            padding:30px 40px !important;
+            .pull-right;
+            .make-xs-column(6);
+            @media (max-width: @screen-md-min) {
+                padding:0px;
+            }
+
+            h1{
+                font-family: "RobotoBlack", Helvetica, Arial, sans-serif;
+                font-size: 65px;
+                line-height: 75px;
+                padding:0px;
+                margin:0px;
+                @media (max-width: @screen-md-max) {
+
+                     font-size: 40px;
+                     line-height: 50px;
+                    }
+            }
+            p{
+                font-family: "RobotoSlabLight", Helvetica, Arial, sans-serif;
+                font-size: 24px;
+                line-height: 34px;
+                padding:30px 0px 0px 0px;
+                margin:0px;
+                @media (max-width: @screen-md-min) {
+                    font-size: 16px;
+                    line-height: 22px;
+                    }
+            }
+            button{
+                border:1px solid @body-bg;
+                background: @bannerColor02;
+                color: @body-bg;
+                font-family: "RobotoSlab", Helvetica, Arial, sans-serif;
+                font-size: 20px;
+                line-height: 40px;
+                width:280px;
+                margin:30px 0px 0px 0px;
+                @media (max-width: @screen-md-min) {
+                    font-size: 16px;
+                    line-height: 40px;
+                    width:200px;
+                }
+
+            }
+        }
+        img{
+            padding:0px;
+            object-fit: cover;
+            .make-xs-column(6);
+            min-height:100%;
+            position: absolute;
+            padding:0px;
+            left:0px;
+
+        }
+    }
+
+
+}
+
+
+
+
+.teaser{
     background: @component-bg;
-    margin-bottom:@grid-gutter-width - 2;
+    display:inline-block;
+    height: 475px;
+    max-height:475px;
+    min-height:475px;
+    overflow: hidden;
+    margin-bottom:30px;
 
     img{
         object-fit: cover;
+        padding:0px !important;
     }
 
     .caption{
+        padding:0px !important;
         label{
            text-transform: uppercase;
            display: block;
@@ -16,32 +139,11 @@
         }
 
     }
-    .row{
-        margin:0px;
-    }
+
 
 }
 
 
-.spot{
 
-    background:#5b2320;
-    display:inline-block;
-    a {
-        color:#FFF;
-    }
 
-    img{
-        .make-md-column(6);
-        .make-xs-column(12);
-        padding: 0px;
-    }
-    .caption{
-        .make-md-column(6);
-        .make-xs-column(12);
-    }
-    .row{
-        margin:0px;
-    }
 
-}

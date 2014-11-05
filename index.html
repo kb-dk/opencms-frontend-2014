@@ -23,12 +23,18 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-
+    <script src="js/object-fit/polyfill.object-fit.min.js"></script>
+    <script>
+        // Call polyfill to fit in images
+        objectFit.polyfill({
+            selector: 'img',
+            fittype: 'cover'
+        });
+    </script>
 
 </head>
 
 <body>
-<div class="hest"></div>
 
 
 <header>
@@ -36,148 +42,34 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">
-                    <img alt="Brand" src="img/kroneLogo.png" height="100%">
+                    KB
                 </a>
             </div>
         </div>
     </nav>
 </header>
 
+<section class="deck pattern01">
 
-
-
-<section class="container pattern01">
-
-        <div class="page-header">
-            <h1>Example page header</h1>
-            <small>Subtext for header</small>
+    <!--DECK HEADER -->
+    <header>
+        <div class="container">
+            <div></div>
+            <h1>Det kan du finde på Det Kongelige Bibliotek</h1>
+            <p>
+                Fra pergament til E-bog lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.
+            </p>
         </div>
+    </header>
 
+    <div class="container">
         <div class="row">
 
-            <div class="wrapper">
-                <a href="" class="component">
-                    <div class="row">
-                          <img src="http://mortenahlburg.dk/wp-content/uploads/2014/04/stor-hest.png" alt="...">
-                          <div class="caption">
-                            <label>KonCert</label>
-                            <time>mandag 3. november 2014 kl. 19:00</time>
-                            <h3>Krigens kulturhistoriske konsekvenser </h3>
-                            <p>
-                                FOREDRAG Den store fortællings sammenbrud - 1864, 1. verdenskrig, i dag (3:4). Forfatter Henrik Jensen om 1. verdenskrigs kulturhistoriske konsekvenser
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="wrapper">
-                <a href="" class="component">
-                    <div class="row">
-                        <img src="http://www.kb.dk/export/sites/kb_dk/da/Billedgalleri/KULT/Foredrag/portugisere-beskaret.jpg_572702374.jpg" alt="...">
-                        <div class="caption">
-                            <label>Koncert</label>
-                            <time>mandag 3. november 2014 kl. 19:00</time>
-                            <h3>Krigens kulturhistoriske konsekvenser </h3>
-                            <p>
-                                FOREDRAG Den store fortælliiske konsekvenser   iha aøoijvøp aø vø aøs vøa øspdv øa øsdv øa øpsjv
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="wrapper">
-                <a href="" class="component">
-                    <div class="row">
-                        <img src="http://www.kb.dk/export/sites/kb_dk/da/Billedgalleri/KULT/Foredrag/portugisere-beskaret.jpg_572702374.jpg" alt="...">
-                        <div class="caption">
-                            <label>KonCert</label>
-                            <time>mandag 3. november 2014 kl. 19:00</time>
-                            <h3>Krigens kulturhistoriske konsekvenser </h3>
-                            <p>
-                                FOREDRAG Den store fortællings sammenbrud - 1864, 1. verdenskrig, i dag (3:4). Forfatter Henrik Jensen om 1. verdenskrigs kulturhistoriske konsekvenser
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="wrapper">
-                <a href="" class="component">
-                    <div class="row">
-                        <img src="http://www.kb.dk/export/sites/kb_dk/da/Billedgalleri/KULT/Foredrag/portugisere-beskaret.jpg_572702374.jpg" alt="...">
-                        <div class="caption">
-                            <label>Koncert</label>
-                            <time>mandag 3. november 2014 kl. 19:00</time>
-                            <h3>Krigens kulturhistoriske konsekvenser </h3>
-                            <p>
-                                FOREDRAG Den store fortælliiske konsekvenser
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="wrapper">
-                <a href="" class="component">
-                    <div class="row">
-                        <img src="http://www.kb.dk/export/sites/kb_dk/da/Billedgalleri/KULT/Foredrag/portugisere-beskaret.jpg_572702374.jpg" alt="...">
-                        <div class="caption">
-                            <label>Koncert</label>
-                            <time>mandag 3. november 2014 kl. 19:00</time>
-                            <h3>Krigens kulturhistoriske konsekvenser </h3>
-                            <p>
-                                FOREDRAG Den store fortælliiske konsekvenser   iha aøoijvøp aø vø aøs vøa øspdv øa øsdv øa øpsjv
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="wrapper">
-                <a href="" class="component">
-                    <div class="row">
-                        <img src="http://www.kb.dk/export/sites/kb_dk/da/Billedgalleri/KULT/Foredrag/portugisere-beskaret.jpg_572702374.jpg" alt="...">
-                        <div class="caption">
-                            <label>KonCert</label>
-                            <time>mandag 3. november 2014 kl. 19:00</time>
-                            <h3>Krigens kulturhistoriske konsekvenser </h3>
-                            <p>
-                                FOREDRAG Den store fortællings sammenbrud - 1864, 1. verdenskrig, i dag (3:4). Forfatter Henrik Jensen om 1. verdenskrigs kulturhistoriske konsekvenser
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </div>
 
 
-        </div>
-</section>
-
-<section class="container-fluid " style="border:1px solid black;background: silver url(http://www.dagens.dk/sites/default/files/field/image/Hest_foto_Colourbox.jpg) no-repeat 100% 0%; background-size:cover; ">
-    <div class="row">
-        <div class="container">
-            <div class="col-md-6 col-xs-6" style="padding:0px;">
-                <h4>header</h4>
-                <p>content</p>
-            </div>
-
-        </div>
-    </div>
-
-</section>
-<section class="container pattern01">
-
-    <div class="page-header">
-        <h1>Example page header</h1>
-        <small>Subtext for header</small>
-    </div>
-
-    <div class="row">
-
-        <div class="wrapper">
-            <a href="" class="component">
-                <div class="row">
-                    <img src="http://www.kb.dk/export/sites/kb_dk/da/Billedgalleri/KULT/Foredrag/portugisere-beskaret.jpg_572702374.jpg" alt="...">
+            <article role="teaser">
+                <a href="" class="teaser">
+                    <img src="http://mortenahlburg.dk/wp-content/uploads/2014/04/stor-hest.png" alt="...">
                     <div class="caption">
                         <label>KonCert</label>
                         <time>mandag 3. november 2014 kl. 19:00</time>
@@ -186,26 +78,120 @@
                             FOREDRAG Den store fortællings sammenbrud - 1864, 1. verdenskrig, i dag (3:4). Forfatter Henrik Jensen om 1. verdenskrigs kulturhistoriske konsekvenser
                         </p>
                     </div>
-                </div>
-            </a>
-        </div>
+                </a>
+            </article>
 
-        <div class="wrapper">
-            <a href="" class="component">
-                <div class="row">
-                    <img src="http://www.kb.dk/export/sites/kb_dk/da/Billedgalleri/KULT/Foredrag/portugisere-beskaret.jpg_572702374.jpg" alt="...">
+            <article role="teaser">
+                <a href="" class="teaser">
+                    <img src="http://mortenahlburg.dk/wp-content/uploads/2014/04/stor-hest.png" alt="...">
                     <div class="caption">
-                        <label>Koncert</label>
+                        <label>KonCert</label>
                         <time>mandag 3. november 2014 kl. 19:00</time>
                         <h3>Krigens kulturhistoriske konsekvenser </h3>
                         <p>
-                            FOREDRAG Den store fortælliiske konsekvenser   iha aøoijvøp aø vø aøs vøa øspdv øa øsdv øa øpsjv
+                            FOREDRAG Den store fortællings sammenbrud - 1864, 1. verdenskrig, i dag (3:4). Forfatter Henrik Jensen om 1. verdenskrigs kulturhistoriske konsekvenser
                         </p>
                     </div>
-                </div>
-            </a>
+                </a>
+            </article>
+
+            <article role="teaser">
+                <a href="" class="teaser">
+                    <img src="http://mortenahlburg.dk/wp-content/uploads/2014/04/stor-hest.png" alt="...">
+                    <div class="caption">
+                        <label>KonCert</label>
+                        <time>mandag 3. november 2014 kl. 19:00</time>
+                        <h3>Krigens kulturhistoriske konsekvenser </h3>
+                        <p>
+                            FOREDRAG Den store fortællings sammenbrud - 1864, 1. verdenskrig, i dag (3:4). Forfatter Henrik Jensen om 1. verdenskrigs kulturhistoriske konsekvenser
+                        </p>
+                    </div>
+                </a>
+            </article>
+            <article role="teaser">
+                <a href="" class="teaser">
+                    <img src="http://mortenahlburg.dk/wp-content/uploads/2014/04/stor-hest.png" alt="...">
+                    <div class="caption">
+                        <label>KonCert</label>
+                        <time>mandag 3. november 2014 kl. 19:00</time>
+                        <h3>Krigens kulturhistoriske konsekvenser </h3>
+                        <p>
+                            FOREDRAG Den store fortællings sammenbrud - 1864, 1. verdenskrig, i dag (3:4). Forfatter Henrik Jensen om 1. verdenskrigs kulturhistoriske konsekvenser
+                        </p>
+                    </div>
+                </a>
+            </article>
+
+            <article role="teaser">
+                <a href="" class="teaser">
+                    <img src="http://mortenahlburg.dk/wp-content/uploads/2014/04/stor-hest.png" alt="...">
+                    <div class="caption">
+                        <label>KonCert</label>
+                        <time>mandag 3. november 2014 kl. 19:00</time>
+                        <h3>Krigens kulturhistoriske konsekvenser </h3>
+                        <p>
+                            FOREDRAG Den store fortællings sammenbrud - 1864, 1. verdenskrig, i dag (3:4). Forfatter Henrik Jensen om 1. verdenskrigs kulturhistoriske konsekvenser
+                        </p>
+                    </div>
+                </a>
+            </article>
+
+            <article role="teaser">
+                <a href="" class="teaser">
+                    <img src="http://mortenahlburg.dk/wp-content/uploads/2014/04/stor-hest.png" alt="...">
+                    <div class="caption">
+                        <label>KonCert</label>
+                        <time>mandag 3. november 2014 kl. 19:00</time>
+                        <h3>Krigens kulturhistoriske konsekvenser </h3>
+                        <p>
+                            FOREDRAG Den store fortællings sammenbrud - 1864, 1. verdenskrig, i dag (3:4). Forfatter Henrik Jensen om 1. verdenskrigs kulturhistoriske konsekvenser
+                        </p>
+                    </div>
+                </a>
+            </article>
+
+
+
+
         </div>
+    </div>
 </section>
+
+
+<section class="deck">
+
+    <!--DECK HEADER -->
+    <header>
+        <div class="container">
+            <h1>Det kan du finde på Det Kongelige Bibliotek</h1>
+            <p>
+                Fra pergament til E-bog lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.
+            </p>
+        </div>
+    </header>
+
+
+    <!--BANNER COMPONENT -->
+    <article role="banner" class="banner">
+        <a href="">
+          <div class="container">
+              <div class="row">
+                  <div class="text">
+                      <h1>Bliv medlem af Diamantklubben</h1>
+                      <p>
+                          Som medlem afår du mange fordelagtige tilbud og rabat på foredrag, International Forfatterscene, debatter og koncerter samt gratis adgang til udstillinger, udstillingsåbninger og eksklusive arrangementer kun for medlemmer.
+                      </p>
+                      <button>Læs mere</button>
+                  </div>
+                  <img src="http://d1oi7t5trwfj5d.cloudfront.net/be/54/49bc60e340598f930865080a69d8/of-horses-and-men.jpg">
+              </div>
+          </div>
+        </a>
+    </article>
+
+</section>
+
+
 
 
 
@@ -214,13 +200,6 @@
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.min.js"></script>
 
-<script src="js/object-fit/polyfill.object-fit.min.js"></script>
-<script>
-    // Call polyfill to fit in images
-    objectFit.polyfill({
-        selector: 'img',
-        fittype: 'cover'
-    });
-</script>
+
 </body>
 </html>

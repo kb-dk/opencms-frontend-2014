@@ -50,6 +50,18 @@
     src: url('../fonts/Roboto/Roboto-Regular.ttf') format('truetype');
 }
 @font-face {
+    font-family: 'RobotoBold';
+    src: url('../fonts/Roboto/Roboto-Bold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'RobotoBlack';
+    src: url('../fonts/Roboto/Roboto-Black.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'RobotoSlabLight';
+    src: url('../fonts/Roboto_Slab/RobotoSlab-Light.ttf') format('truetype');
+}
+@font-face {
     font-family: 'RobotoSlab';
     src: url('../fonts/Roboto_Slab/RobotoSlab-Regular.ttf') format('truetype');
 }
@@ -299,7 +311,7 @@
 
 // Large screen / wide desktop
 //** Deprecated `@screen-lg` as of v3.0.1
-@screen-lg:                  1200px;
+@screen-lg:                  1485px;
 @screen-lg-min:              @screen-lg;
 //** Deprecated `@screen-lg-desktop` as of v3.0.1
 @screen-lg-desktop:          @screen-lg-min;
@@ -317,7 +329,7 @@
 //** Number of columns in the grid.
 @grid-columns:              12;
 //** Padding between columns. Gets divided in half for the left and right.
-@grid-gutter-width:         30px;
+@grid-gutter-width:         32px;
 // Navbar collapse
 //** Point at which the navbar becomes uncollapsed.
 @grid-float-breakpoint:     @screen-sm-min;
@@ -340,7 +352,7 @@
 @container-md:                 @container-desktop;
 
 // Large screen / wide desktop
-@container-large-desktop:      ((1140px + @grid-gutter-width));
+@container-large-desktop:      ((1421px + @grid-gutter-width));
 //** For `@screen-lg-min` and up.
 @container-lg:                 @container-large-desktop;
 
