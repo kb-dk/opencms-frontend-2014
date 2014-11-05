@@ -389,6 +389,7 @@
 // Default navbar
 .navbar-default {
   background-color: @navbar-default-bg;
+  border-width: @navbar-default-border-width;
   // tjan no need border-color: @navbar-default-border;
 
   .navbar-brand {
@@ -652,4 +653,39 @@
       }
     }
   }
+}
+
+//
+// KB Navbar
+// --------------------------------------------------
+
+.navbar{
+    min-height:120px;
+    .navbar-header{
+        width:100%;
+    }
+    .logo{
+        width:91px;
+        height:88px;
+        background-image:url(../images/kb_logo.png);
+    }
+    .logo-text{
+        width:392px;
+        height:41px;
+        background-image:url(../images/kb_logo_text.png);
+    }
+    .kb-navbar{
+        margin-top:70px;
+        margin-left:100px;
+        font-family: @font-family-sans-serif;
+        .kb-nav{
+            text-transform: uppercase;
+        }
+        .kb-left-nav{
+            margin-top: 5px;
+        }
+        .kb-left-nav > li{
+            float:left;
+        }
+    }
 }
