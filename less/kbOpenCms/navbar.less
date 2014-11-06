@@ -678,14 +678,35 @@
         margin-top:70px;
         margin-left:100px;
         font-family: @font-family-sans-serif;
+        a{
+            color: @navbar-default-link-color;
+        }
         .kb-nav{
             text-transform: uppercase;
+            .activeLine{
+                display:none;
+                position:absolute;
+                left:@navbar-padding-horizontal;
+                bottom:floor(@navbar-padding-vertical - 1);
+                width:floor(@navbar-padding-horizontal * 1.2);
+                border:1px solid @navbar-default-link-active-color;
+            }
+            li.active > a:hover{
+                color:@navbar-default-link-hover-color;
+            }
+            li.active > .activeLine{
+                display:block;
+            }
         }
         .kb-nav-left{
             margin-top: 5px;
         }
         .kb-nav-left > li{
             float:left;
+            a:hover{
+                background-color: @navbar-default-bg;
+                color:@navbar-default-link-hover-color;
+            }
         }
     }
 }
