@@ -79,6 +79,7 @@
 @font-size-base:          14px;
 @font-size-large:         ceil((@font-size-base * 1.25)); // ~18px
 @font-size-small:         ceil((@font-size-base * 0.85)); // ~12px
+@font-size-xsmall:        ceil((@font-size-base * 0.7)); // ~10px
 
 @font-size-h1:            floor((@font-size-base * 2.6)); // ~36px
 @font-size-h2:            floor((@font-size-base * 2.15)); // ~30px
@@ -172,9 +173,10 @@
 
 @btn-font-weight:                normal;
 
-@btn-default-color:              #333;
+@btn-default-color:              #888; // HAFE: was #333
 @btn-default-bg:                 #fff;
 @btn-default-border:             #ccc;
+@btn-default-color-hover:        #000; // HAFE: Added
 
 @btn-primary-color:              #fff;
 @btn-primary-bg:                 @brand-primary;
@@ -367,22 +369,23 @@
 
 // Basics of a navbar
 @navbar-height:                    50px;
-@navbar-margin-bottom:             @line-height-computed;
-@navbar-border-radius:             @border-radius-base;
+@navbar-margin-bottom:             0; // HAFE: was @line-height-computed;
+@navbar-border-radius:             0; // HAFE: was @border-radius-base;
 @navbar-padding-horizontal:        floor((@grid-gutter-width / 2));
 @navbar-padding-vertical:          ((@navbar-height - @line-height-computed) / 2);
 @navbar-collapse-max-height:       340px;
 
 @navbar-default-color:             #777;
-@navbar-default-bg:                #f8f8f8;
-@navbar-default-border:            darken(@navbar-default-bg, 6.5%);
+@navbar-default-bg:                #fff; // HAFE: was #f8f8f8;
+@navbar-default-border:            #fff; // HAFE: was darken(@navbar-default-bg, 6.5%);
+@navbar-default-border-width:      0; // HAFE: was not set
 
 // Navbar links
 @navbar-default-link-color:                #777;
 @navbar-default-link-hover-color:          #333;
 @navbar-default-link-hover-bg:             transparent;
 @navbar-default-link-active-color:         #555;
-@navbar-default-link-active-bg:            darken(@navbar-default-bg, 6.5%);
+@navbar-default-link-active-bg:            #fff; // HAFE: was darken(@navbar-default-bg, 6.5%);
 @navbar-default-link-disabled-color:       #ccc;
 @navbar-default-link-disabled-bg:          transparent;
 

@@ -1,0 +1,86 @@
+.jumbotron{
+    margin-top:0;
+    margin-bottom:0;
+}
+
+.jumbotron.top{
+    color: #fff;
+    font-family: @font-family-sans-serif;
+    height: 540px;
+    background-image: url(../images/jumbotron_bg.jpg);
+    padding-top: 130px;
+
+    h1{
+        font-weight: bold;
+    }
+    h1, h2{
+        white-space: nowrap;
+        margin-left: 0;
+    }
+
+    @media (min-width: @screen-xs) {
+        padding-left: 30px;
+        h1{
+            font-size: 50px;
+        }
+    }
+    @media (min-width: @screen-sm) {
+        padding-left: 110px;
+        h1{
+            font-size: 68px;
+        }
+    }
+    @media (min-width: @screen-md) {
+        padding-left: 210px;
+        h1{
+            font-size: 80px;
+        }
+    }
+
+}
+.jumbotron.subJumbo{
+    background-color:#ffffff;
+    .quoteContainer, .funfactContainer{
+        float:left;
+    }
+    .quoteContainer{
+        width:40%;
+        blockquote{
+            border:0;
+            padding:0;
+        }
+        .quoteBy{
+            color:@gray-light;
+        }
+        button{
+            text-align:center;
+            padding:10px;
+            color:@btn-default-color;
+            background-color:@btn-default-bg;
+            border:1px solid @btn-default-border;
+            border-radius:0;
+            &:hover{
+                color:@btn-default-color-hover;
+            }
+        }
+    }
+    .funfactContainer{
+        width: 60%;
+        li{
+            line-height:70px;
+            list-style:none;
+        }
+        .factText{
+            vertical-align:middle;
+        }
+        .factNumber{
+            display:inline-block;
+            font-weight:bold;
+            font-size:60px;
+            width:250px;
+            margin-right:20px;
+            vertical-align:middle;
+            text-align:right;
+        }
+    }
+}

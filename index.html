@@ -38,15 +38,68 @@
 
 
 <header>
-    <nav class="navbar navbar-default" role="navigation">
-        <div class="container-fluid">
+    <nav class="navbar navbar-default topnavigation" role="navigation">
+        <div class="container">
+            <div class="row">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">
-                    KB
+                <a class="navbar-brand navbar-left">
+                    <div class="logo"></div>
                 </a>
+                <a class="navbar-brand navbar-left">
+                    <div class="logo-text"></div>
+                </a>
+                <div class="kb-navbar">
+                    <div class="navbar-right">
+                        <ul class="nav kb-nav-left">
+                            <li><a href="#">English</a></li>
+                            <li><a href="#">Søg <span class="glyphicon glyphicon-search"></span></a>
+                        </ul>
+                    </div>
+                    <ul class="nav navbar-nav kb-nav">
+                        <li><a href="#">Om os</a><div class="activeLine"></div></li>
+                        <li><a href="#">Materialer</a><div class="activeLine"></div></li>
+                        <li><a href="#">Udlån</a><div class="activeLine"></div></li>
+                        <li class="active"><a href="#">Kultur</a><div class="activeLine"></div></li>
+                        <li><a href="#">Nyheder</a><div class="activeLine"></div></li>
+                        <li><a href="#">Museer</a><div class="activeLine"></div></li>
+                        <li><a href="#">Mediekanal</a><div class="activeLine"></div></li>
+                        <li><a href="#">Service</a><div class="activeLine"></div></li>
+                        <li><a href="#">Søg/Lån</a><div class="activeLine"></div></li>
+                    </ul>
+                </div>
+            </div>
             </div>
         </div>
     </nav>
+    <div class="jumbotron top">
+        <div class="container">
+            <h1>
+                Det Kongelige Bibliotek<br>
+                er fyldt med skatte
+            </h1>
+            <h2>- se dem online her</h2>
+        </div>
+    </div>
+    <div class="jumbotron subJumbo">
+        <div class="container">
+            <div class="row">
+                <div class="quoteContainer">
+                    <blockquote>
+                        "Vidste du at vores Kort- og Billedsamling rummer mere end 18 millioner kort og billeder. De tidligste er modtaget ved bibliotekets grundlæggelse i 1653."
+                    </blockquote>
+                    <p class="quoteBy">Erland Kolding Nielsen</p>
+                    <p><button class="btn">Læs mere her</button></p>
+                </div>
+                <div class="funfactContainer">
+                    <ul>
+                        <li><span class="factNumber">31.000</span><span class="factText">Millioner digitaliserede magasiner</span></li>
+                        <li><span class="factNumber">1.455</span><span class="factText">Året vores ældste bog er fra</span></li>
+                        <li><span class="factNumber">210</span><span class="factText">Antal af koncerter sidste år</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 </header>
 
 <section class="deck pattern01">
@@ -57,7 +110,7 @@
             <div></div>
             <h1>Det kan du finde på Det Kongelige Bibliotek</h1>
             <p>
-                Fra pergament til E-bog lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.
+                Fra pergament til E-bog lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.
             </p>
         </div>
     </header>
@@ -190,15 +243,58 @@
 
 </section>
 
-
-
-
-
-
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+                <ul>
+                    <li><a href="#">Åbningstider</a></li>
+                    <li><a href="#">Besøg os</a></li>
+                    <li><a href="#">Adresser</a></li>
+                    <li><a href="#">Søg medarbejder</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2">
+                <ul>
+                    <li><a href="#">Ny låner?</a></li>
+                    <li><a href="#">Søg/lån</a></li>
+                    <li><a href="#">Log på REX</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2">
+                <ul>
+                    <li><a href="#">Presse</a></li>
+                    <li><a href="#">Nyhedsbrev</a></li>
+                    <li><a href="#">Ophavsret</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2">
+                <ul>
+                    <li><a href="#">Om webstedet</a></li>
+                    <li><a href="#">Handicaphjælp</a></li>
+                    <li><a href="#">Cookie og privatlivspolitik</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <div class="bottom-right">
+                    <p class="name-info">
+                        Det Kongelige Bibliotek<br>
+                        Nationalbibliotek og<br>
+                        Københavns Universitetsbibliotek
+                    </p>
+                    <p class="contact-info">
+                        Postbox 2149<br>
+                        1016 København K<br>
+                        Tlf: (+45) 33 47 47 47
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.min.js"></script>
-
 
 </body>
 </html>
