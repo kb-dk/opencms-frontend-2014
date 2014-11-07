@@ -702,12 +702,16 @@
                 display:none;
                 position:absolute;
                 left:@navbar-padding-horizontal;
-                bottom:floor(@navbar-padding-vertical - 1);
+                bottom:floor(@navbar-padding-vertical - 2);
                 width:floor(@navbar-padding-horizontal * 1.2);
                 border:1px solid @navbar-default-link-active-color;
             }
             li.active > a:hover{
                 color:@navbar-default-link-hover-color;
+            }
+            li:hover > .activeLine{
+                display:block;
+                border-color: @navbar-default-link-hover-line-color;
             }
             li.active > .activeLine{
                 display:block;
