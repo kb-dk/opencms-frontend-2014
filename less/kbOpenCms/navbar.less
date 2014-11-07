@@ -677,7 +677,21 @@
     .kb-navbar{
         margin-top:70px;
         margin-left:100px;
-        font-family: @font-family-sans-serif;
+        font-family:  "RobotoCondensedRegular", Helvetica, Arial, sans-serif;
+        font-size:20px;
+        @media (max-width: @screen-lg-min) {
+                font-size: 14px;
+            }
+
+        .navbar-right{ a{
+            font-family:  "RobotoSlab-Regular", Helvetica, Arial, sans-serif;
+            font-size:14px;
+            @media (max-width: @screen-lg-min) {
+                font-size: 12px;
+            }
+         }
+        }
+
         a{
             color: @navbar-default-link-color;
         }
