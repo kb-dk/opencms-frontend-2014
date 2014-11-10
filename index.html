@@ -39,7 +39,7 @@
             //setTimeout(function () { $('#kbMenuToggler').click(); }, 500); // FIXME: only for test!
         });
     </script>
-</head>Overview
+</head>
 <body>
 
 <header>
@@ -72,7 +72,7 @@
                         <li><a href="#">Service</a><div class="activeLine"></div></li>
                         <li><a href="#">Søg/Lån</a><div class="activeLine"></div></li>
                     </ul>
-                    <ul class="nav navbar-nav navbar-right">
+                    <ul class="nav navbar-nav navbar-right visible-lg-block">
                         <li><a href="#">English</a></li>
                         <li><a href="#">Søg <span class="glyphicon glyphicon-search"></span></a>
                     </ul>
@@ -81,6 +81,31 @@
             </div>
         </div>
     </nav>
+
+</header>
+<div class="canvasContainer">
+    <div id="kb-navbar-mobile" class="kb-navbar-mobile collapse in navbar-collapse visible-xs hidden-md hidden-lg">
+        <div class="searchbox-container">
+            <div class="searchbox"><input type="text" placeholder="Søg på Det Kgl. Biblioteks website"> <span class="glyphicon glyphicon-search"></span></div>
+        </div>
+        <ul class="nav navbar-nav kb-nav">
+            <li></li>
+            <li><a href="#">Om os</a><div class="activeLine"></div></li>
+            <li><a href="#">Materialer</a><div class="activeLine"></div></li>
+            <li><a href="#">Udlån</a><div class="activeLine"></div></li>
+            <li class="active"><a href="#">Kultur</a><div class="activeLine"></div></li>
+            <li><a href="#">Nyheder</a><div class="activeLine"></div></li>
+            <li><a href="#">Museer</a><div class="activeLine"></div></li>
+            <li><a href="#">Mediekanal</a><div class="activeLine"></div></li>
+            <li><a href="#">Service</a><div class="activeLine"></div></li>
+            <li><a href="#">Søg/Lån</a><div class="activeLine"></div></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right visible-lg visible-xs">
+            <li><a href="#">English</a></li>
+            <li><a href="#">Søg <span class="glyphicon glyphicon-search"></span></a>
+        </ul>
+    </div>
+
     <div class="jumbotron top">
         <div class="container">
             <h1>
@@ -90,25 +115,26 @@
             <h2>- se dem online her</h2>
         </div>
     </div>
-    <div class="jumbotron subJumbo">
-        <div class="container">
-            <div class="row">
-                <div class="quoteContainer col-md-6">
-                    <blockquote>
-                        "Vidste du at vores Kort- og Billedsamling rummer mere end 18 millioner kort og billeder. De tidligste er modtaget ved bibliotekets grundlæggelse i 1653."
-                    </blockquote>
-                    <p class="quoteBy">Erland Kolding Nielsen</p>
-                    <p><button class="btn">Læs mere her</button></p>
-                </div>
-                <div class="funfactContainer col-md-6">
-                    <ul>
-                        <li><span class="factNumber">31.000</span><span class="factText">Millioner digitaliserede magasiner</span></li>
-                        <li><span class="factNumber">1.455</span><span class="factText">Året vores ældste bog er fra</span></li>
-                        <li><span class="factNumber">210</span><span class="factText">Antal af koncerter sidste år</span></li>
-                    </ul>
-                </div>
+
+    <!--div class="jumbotron subJumbo"-->
+    <div class="container subJumbo">
+        <div class="row">
+            <div class="quoteContainer col-md-6">
+                <blockquote>
+                    "Vidste du at vores Kort- og Billedsamling rummer mere end 18 millioner kort og billeder. De tidligste er modtaget ved bibliotekets grundlæggelse i 1653."
+                </blockquote>
+                <p class="quoteBy">Erland Kolding Nielsen</p>
+                <p><button class="btn">Læs mere her</button></p>
+            </div>
+            <div class="funfactContainer col-md-6">
+                <ul>
+                    <li><span class="factNumber">31.000</span><span class="factText">Millioner digitaliserede magasiner</span></li>
+                    <li><span class="factNumber">1.455</span><span class="factText">Året vores ældste bog er fra</span></li>
+                    <li><span class="factNumber">210</span><span class="factText">Antal af koncerter sidste år</span></li>
+                </ul>
             </div>
         </div>
+    </div>
     <!--/div-->
 
 <section class="deck pattern00">
