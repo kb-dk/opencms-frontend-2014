@@ -38,7 +38,7 @@
             });
             //setTimeout(function () { $('#kbMenuToggler').click(); }, 500); // FIXME: only for test!
             $(window).resize(function (){
-                if ($('#kbCanvasContainer').hasClass('showMenu') && $(window).outerWidth() > 768) {
+                if ($('#kbCanvasContainer').hasClass('showMenu') && $(window).innerWidth() > 752) { // magic-number 752 = 768 - 2 * 8px (window borders)
                     // collapse all open submenus in mobile menu, and close off canvas menu
                     $('#kbCanvasContainer').removeClass('showMenu');
                 }
