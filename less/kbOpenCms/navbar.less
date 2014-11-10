@@ -685,44 +685,72 @@ body{
     cursor:pointer;
 }
 .kb-navbar-mobile{
+    @nav-mobile-left-padding:30px;
     position: absolute;
     left:100%;
     width:90%;
     padding:0;
+    border-left:1px solid @gray-lighter;
     font-family:  "RobotoCondensedRegular", Helvetica, Arial, sans-serif;
     font-size:20px;
+    overflow:hidden;
+    background-color:#fff;
     @media (max-width: @screen-lg-min) {
         font-size: 16px;
+    }
+    li{
+        height:50px;
+        border-bottom:1px solid @gray-lighter;
+        padding-left:@nav-mobile-left-padding;
+        height:50px;
+        .directLink{
+            padding-top:15px;
+        }
     }
     .searchbox-container{
         //width:90%;
         padding:20px;
         border-top: 1px solid @gray-lighter;
         border-bottom: 1px solid @gray-lighter;
+        kb-nav{
+            margin-top:0;
+        }
     }
     .searchbox{
         border:1px solid @gray-dark;
         white-space:nowrap;
         padding:4px 15px;
+        //span{
+        //    margin-top:5px;
+        //}
         input{
             border:0;
             width:90%;
-            //margin-right:-30px;
+            margin-right:30px;
             outline:none;
             &:active{
                 border:0;
             }
-            border:1px solid red;
-
         }
     }
+    ul{
+        margin:0;
+    }
     .kb-nav{
+        margin:0;
         text-transform: uppercase;
+        .chevronpart{
+            float:right;
+            height:50px;
+            width:50px;
+            border-left:1px solid @gray-lighter;
+            padding-top:16px;
+        }
     }
     .activeLine{
         display:none;
         position:absolute;
-        left:@navbar-padding-horizontal;
+        left:@navbar-padding-horizontal + @nav-mobile-left-padding - 1;
         bottom:floor(@navbar-padding-vertical - 5);
         width:floor(@navbar-padding-horizontal * 1.2);
         border:1px solid @navbar-default-link-active-color;
@@ -730,7 +758,7 @@ body{
     li > a{
         white-space: nowrap;
         &:hover{
-            background-color: #fff;
+            background-color: inherit;
         }
     }
     li.active > a:hover{

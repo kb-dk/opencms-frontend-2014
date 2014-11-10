@@ -36,7 +36,7 @@
             $('#kbMenuToggler').click(function () {
                 $('.canvasContainer').toggleClass('showMenu');
             });
-            //setTimeout(function () { $('#kbMenuToggler').click(); }, 500); // FIXME: only for test!
+            setTimeout(function () { $('#kbMenuToggler').click(); }, 500); // FIXME: only for test!
         });
     </script>
 </head>
@@ -89,20 +89,18 @@
             <div class="searchbox"><input type="text" placeholder="Søg på Det Kgl. Biblioteks website"> <span class="glyphicon glyphicon-search"></span></div>
         </div>
         <ul class="nav navbar-nav kb-nav">
-            <li></li>
-            <li><a href="#">Om os</a><div class="activeLine"></div></li>
-            <li><a href="#">Materialer</a><div class="activeLine"></div></li>
-            <li><a href="#">Udlån</a><div class="activeLine"></div></li>
-            <li class="active"><a href="#">Kultur</a><div class="activeLine"></div></li>
-            <li><a href="#">Nyheder</a><div class="activeLine"></div></li>
-            <li><a href="#">Museer</a><div class="activeLine"></div></li>
-            <li><a href="#">Mediekanal</a><div class="activeLine"></div></li>
-            <li><a href="#">Service</a><div class="activeLine"></div></li>
-            <li><a href="#">Søg/Lån</a><div class="activeLine"></div></li>
+            <li><a class="chevronpart"><span class="glyphicon glyphicon-chevron-down"></span></a><a class="directLink" href="#">Om os</a><div class="activeLine"></div></li>
+            <li><a class="chevronpart"><span class="glyphicon glyphicon-chevron-down"></span></a><a class="directLink" href="#">Materialer</a><div class="activeLine"></div></li>
+            <li><a class="chevronpart"><span class="glyphicon glyphicon-chevron-down"></span></a><a class="directLink" href="#">Udlån</a><div class="activeLine"></div></li>
+            <li class="active"><a class="chevronpart"><span class="glyphicon glyphicon-chevron-down"></span></a><a class="directLink" href="#">Kultur</a><div class="activeLine"></div></li>
+            <li><a class="chevronpart"><span class="glyphicon glyphicon-chevron-down"></span></a><a class="directLink" href="#">Nyheder</a><div class="activeLine"></div></li>
+            <li><a class="chevronpart"><span class="glyphicon glyphicon-chevron-down"></span></a><a class="directLink" href="#">Museer</a><div class="activeLine"></div></li>
+            <li><a class="chevronpart"><span class="glyphicon glyphicon-chevron-down"></span></a><a class="directLink" href="#">Mediekanal</a><div class="activeLine"></div></li>
+            <li><a class="chevronpart"><span class="glyphicon glyphicon-chevron-down"></span></a><a class="directLink" href="#">Service</a><div class="activeLine"></div></li>
+            <li><a class="chevronpart"><span class="glyphicon glyphicon-chevron-down"></span></a><a class="directLink" href="#">Søg/Lån</a><div class="activeLine"></div></li>
         </ul>
-        <ul class="nav navbar-nav navbar-right visible-lg visible-xs">
+        <ul class="nav navbar-nav navbar-right visible-xs">
             <li><a href="#">English</a></li>
-            <li><a href="#">Søg <span class="glyphicon glyphicon-search"></span></a>
         </ul>
     </div>
 
