@@ -1,37 +1,256 @@
+// VAR Component colors
+@teaser-bg:          #f8f8f8;
+@teaser-label:       #969696;
+
+@media (min-width: @screen-xs-min) {
+    body{
+        padding-top: 0px;
+    }
+}
+@media (min-width: @screen-sm-min) {
+    body{
+        padding-top: 120px;
+    }
+}
 
 .deck{
+// GLOBAL
 
+// DECK HEADER Global
+//**********************************************************************
     header{
+        padding: 60px 0px;
         border-top:1px solid #CCCCCC;
-        padding:98px 0px 73px 0px;
-        @media (max-width: @screen-sm-min) {
-            padding:59px 0px 35px 0px;
-        }
-
+        diplay:block    ;
         h1{
             font-family: "Roboto-Regular", Helvetica, Arial, sans-serif;
             font-weight: bolder;
             text-align:center;
-            font-size: 30px;
-            line-height: 28px;
-            @media (max-width: @screen-sm-min) {
-                padding:0px 20px;
-            }
+            margin:0px;
+            padding:0px;
         }
-
         p{
             font-family: "RobotoSlab-Regular", Helvetica, Arial, sans-serif;
             text-align:center;
             font-weight: lighter;
-            font-size: 26px;
-            line-height:50px;
-            @media (max-width: @screen-sm-min) {
-                font-size: 20px;
-                padding:23px 20px 0px 20px;
+            margin:0px;
+            padding:0px;
+        }
+    }
+
+// TEASER Global
+//**********************************************************************
+    .teaser{
+        background: @teaser-bg;
+        display:block;
+        overflow: hidden;
+        margin-bottom:32px;
+        text-decoration:none;
+        position:relative;
+
+        img{
+            object-fit: cover;
+            padding:0px !important;
+            width: 100%;
+        }
+        .caption:after{
+            content: "";
+            position: absolute;
+            background: transparent;
+            box-shadow:0px -48px 51px -23px @teaser-bg inset;
+            width:100%;
+            height:80px;
+            bottom: 0px;
+            left:0px;
+            border-bottom:30px solid @teaser-bg;
+        }
+        .caption{
+
+           overflow: hidden;
+
+           padding:30px 20px;
+            label{
+                text-transform: uppercase;
+                display: block;
+                font-family: "RobotoSlab-Regular", Helvetica, Arial, sans-serif;
+                font-weight: bolder;
+                color:@teaser-label;
+            }
+            time{
+                display: block;
+                font-family: "Roboto-Regular", Helvetica, Arial, sans-serif;
+                font-weight: bold;
+            }
+            h1{
+                padding: 0 0 7px 0;
+                margin:0px;
+                font-weight: bolder;
+                font-family: "RobotoSlab-Regular", Helvetica, Arial, sans-serif;
+            }
+            p{
+                padding:0px;
+                margin:0px;
+                font-family: "Roboto-Regular", Helvetica, Arial, sans-serif;
             }
         }
 
     }
+
+
+// RESPONSIVE STYLE
+
+// XTRA SMALL UNDER 768px
+//**********************************************************************
+@media (max-width: @screen-xs-max) {
+
+// DECK HEADER
+    header{
+        h1{
+            font-size: 20px;
+            line-height: 28px;
+        }
+        p{
+            padding-top:11px;
+            font-size: 20px;
+            line-height: 26px;
+        }
+    }
+
+// TEASER
+    .teaser {
+        img{
+            height:250px;
+        }
+        .caption{
+            height:250px;
+            label, time, p{
+                font-size:18px;
+                line-height:26px;
+            }
+            h1{
+                font-size:24px;
+                line-height:32px;
+            }
+        }
+    }
+
+}
+
+// SMALL 768px AND UP
+//**********************************************************************
+@media (min-width: @screen-sm-min) {
+
+        // DECK HEADER
+        header{
+            h1{
+                font-size: 20px;
+                line-height: 28px;
+            }
+            p{
+                padding-top:11px;
+                font-size: 20px;
+                line-height: 26px;
+            }
+        }
+
+        // TEASER
+        .teaser {
+            img{
+                height:250px;
+            }
+            .caption{
+                height:250px;
+
+                label, time, p{
+                    font-size:18px;
+                    line-height:26px;
+                }
+                h1{
+                    font-size:24px;
+                    line-height:32px;
+                }
+            }
+        }
+
+}
+
+// MEDIUM 1200ox AND UP
+//**********************************************************************
+@media (min-width: @screen-md-min) {
+
+        // DECK HEADER
+        header{
+            h1{
+                font-size: 26px;
+                line-height: 32px;
+            }
+            p{
+
+                font-size: 20px;
+                line-height: 26px;
+            }
+        }
+
+        // TEASER
+        .teaser {
+            img{
+                height:201px;
+            }
+            .caption{
+                height:201px;
+
+                label, time, p{
+                    font-size:14px;
+                    line-height:20px;
+                }
+                h1{
+                    font-size:20px;
+                    line-height:26px;
+                }
+            }
+        }
+
+}
+
+// LARGE 1420px AND UP
+//**********************************************************************
+@media (min-width: @screen-lg-min) {
+
+        // DECK HEADER
+        header{
+            h1{
+                font-size: 30px;
+                line-height: 40px;
+            }
+            p{
+                font-size: 24px;
+                line-height: 30px;
+            }
+        }
+
+        // TEASER
+        .teaser {
+            img{
+                height:236px;
+            }
+            .caption{
+                height:236px;
+
+                label, time, p{
+                    font-size:16px;
+                    line-height:22px;
+                }
+                h1{
+                    font-size:20px;
+                    line-height:26px;
+                }
+            }
+        }
+
+
+}
+
+
 
 
 @bannerColor01:           #5b2320; //Red/Brown
@@ -118,66 +337,6 @@
 
 
 
-
-.teaser{
-    background: @component-bg;
-    display:inline-block;
-    height: 475px;
-    max-height:475px;
-    min-height:475px;
-    overflow: hidden;
-    padding-bottom: 30px;
-    margin-bottom:30px;
-
-    img{
-        object-fit: cover;
-        padding:0px !important;
-    }
-
-    .caption{
-        padding:30px 20px !important;
-
-    }
-    label{
-        text-transform: uppercase;
-        display: block;
-        font-family: "RobotoSlabBold", Helvetica, Arial, sans-serif;
-        color:#969696;
-        font-size: 16px;
-        font-weight: normal;
-        line-height: 30px;
-        padding: 0px;
-        margin:0px;
-    }
-    time{
-        display: block;
-        font-family: "RobotoBold", Helvetica, Arial, sans-serif;
-        font-size: 16px;
-        line-height: 150%;
-        padding: 0px;
-        margin:0px;
-    }
-    h1{
-        font-size: 24px;
-        line-height: 30px;
-        font-weight: normal;
-        font-family: "RobotoSlabBold", Helvetica, Arial, sans-serif;
-        padding: 0px;
-        margin:0px;
-    }
-
-
-}
-.list{
-    display:block;
-    ul{
-        display: block;
-        article{
-            .make-md-column(12);
-            .make-xs-column(12);
-        }
-    }
-}
 
 
 
