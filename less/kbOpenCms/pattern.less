@@ -1,4 +1,21 @@
- .pattern01{
+.pattern00{
+
+    article{
+        .make-md-column(3);
+
+        img{
+            .make-md-column(12);
+            .make-xs-column(12);
+            height:236px;
+        }
+        .caption{
+            .make-md-column(12);
+            .make-xs-column(12);
+
+        }
+    }
+}
+.pattern01{
 
     article{
 
@@ -15,6 +32,7 @@
         .caption{
             .make-md-column(12);
             .make-xs-column(12);
+
 
         }
     }
@@ -82,6 +100,108 @@
 
 
 }
+ .pattern02{
+
+     article{
+
+     }
+
+     article:nth-child(1) {
+         .make-md-column(12);
+         h1{
+             font-size: 50px;
+             line-height: 55px;
+         }
+         img{
+             .make-md-column(6);
+             .make-xs-column(6);
+             height:472px;
+         }
+         .caption{
+             .make-md-column(6);
+             .make-xs-column(6);
+
+         }
+     }
+
+     article:nth-child(n+2) {
+         .make-md-column(3);
+         .make-xs-column(6);
+
+         img{
+             .make-md-column(12);
+             .make-xs-column(12);
+             height:236px;
+         }
+         .caption{
+             .make-md-column(12);
+             .make-xs-column(12);
+
+         }
+     }
+     article:nth-child(4) {
+         .make-md-column(6);
+         .make-xs-column(12);
+
+         img{
+             .make-md-column(12);
+             .make-xs-column(12);
+             height:236px;
+         }
+         .caption{
+             .make-md-column(12);
+             .make-xs-column(12);
+
+         }
+     }
+     article:nth-child(5) {
+         .make-md-column(6);
+         .make-xs-column(12);
+
+         img{
+             .make-md-column(6);
+             .make-xs-column(6);
+             height:472px;
+         }
+         .caption{
+             .make-md-column(6);
+             .make-xs-column(6);
+
+         }
+     }
+     article:nth-child(6) {
+         .make-md-column(3);
+         .make-xs-column(12);
+
+         img{
+             .make-md-column(12);
+             .make-xs-column(12);
+             height:236px;
+         }
+         .caption{
+             .make-md-column(12);
+             .make-xs-column(12);
+
+         }
+     }
+     article:nth-child(7) {
+         .make-md-column(3);
+         .make-xs-column(12);
+
+         img{
+             .make-md-column(12);
+             .make-xs-column(12);
+             height:236px;
+         }
+         .caption{
+             .make-md-column(12);
+             .make-xs-column(12);
+
+         }
+     }
+
+
+ }
 
    //.teaser:nth-child(n+2) {
    //     .make-md-column(4);
