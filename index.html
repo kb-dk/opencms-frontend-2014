@@ -34,9 +34,15 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $('#kbMenuToggler').click(function () {
-                $('.canvasContainer').toggleClass('showMenu');
+                $('#kbCanvasContainer').toggleClass('showMenu');
             });
             //setTimeout(function () { $('#kbMenuToggler').click(); }, 500); // FIXME: only for test!
+            $(window).resize(function (){
+                if ($('#kbCanvasContainer').hasClass('showMenu') && $(window).outerWidth() > 768) {
+                    // collapse all open submenus in mobile menu, and close off canvas menu
+                    $('#kbCanvasContainer').removeClass('showMenu');
+                }
+            });
         });
     </script>
 </head>
@@ -83,8 +89,8 @@
     </nav>
 
 </header>
-<div class="canvasContainer">
-    <div id="kb-navbar-mobile" class="kb-navbar-mobile collapse in navbar-collapse visible-xs hidden-md hidden-lg">
+<div id="kbCanvasContainer">
+    <div id="kb-navbar-mobile" class="kb-navbar-mobile visible-xs hidden-md hidden-lg">
         <div class="searchbox-container">
             <div class="searchbox"><input type="text" placeholder="Søg på Det Kgl. Biblioteks website"> <span class="glyphicon glyphicon-search"></span></div>
         </div>
@@ -160,6 +166,7 @@
                             Fabulerende fotokunst: Ny udstilling med maleriske fotografier af kunstnerduoen Cooper & Gorfer fra den nordatlantiske modescene, hvor vejret er en særlig kreativ drivkraft. I forbindelse med Nordic Fashion Biennale 2014 fik Sarah Cooper og Nina Gorfer en bestillingsopgave af arrangørerne: de skulle skildre den nordatlantiske modescene og dens kreativitet. De to kunstnere gennemrejste Færøerne, Grønland og Island, og resultatet af rejsen kan ses i udstillingen The Weather Diaries i Den Sorte Diamant. Læs mere her.
                         </p>
                     </div>
+        border-left:1px solid @gray-lighter;
                 </a>
             </article>
 
