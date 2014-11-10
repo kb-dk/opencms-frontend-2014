@@ -659,6 +659,92 @@
 // KB Navbar
 // --------------------------------------------------
 
+body{
+    overflow-x:hidden;
+}
+.canvasContainer{
+    width:100%;
+    position:absolute;
+    right:0;
+    transition:right 300ms ease-in-out;
+}
+.canvasContainer.showMenu{
+    right:90%;
+}
+
+#kbMenuToggler{
+    width:91px;
+    height:88px;
+    box-sizing:border-box;
+    border-top: 10px solid black;
+    border-bottom: 10px solid black;
+    padding-top: 11px;
+    font-size:32px;
+    text-align:center;
+    vertical-align:middle;
+    cursor:pointer;
+}
+.kb-navbar-mobile{
+    position: absolute;
+    left:100%;
+    width:90%;
+    padding:0;
+    font-family:  "RobotoCondensedRegular", Helvetica, Arial, sans-serif;
+    font-size:20px;
+    @media (max-width: @screen-lg-min) {
+        font-size: 16px;
+    }
+    .searchbox-container{
+        //width:90%;
+        padding:20px;
+        border-top: 1px solid @gray-lighter;
+        border-bottom: 1px solid @gray-lighter;
+    }
+    .searchbox{
+        border:1px solid @gray-dark;
+        white-space:nowrap;
+        padding:4px 15px;
+        input{
+            border:0;
+            width:90%;
+            //margin-right:-30px;
+            outline:none;
+            &:active{
+                border:0;
+            }
+            border:1px solid red;
+
+        }
+    }
+    .kb-nav{
+        text-transform: uppercase;
+    }
+    .activeLine{
+        display:none;
+        position:absolute;
+        left:@navbar-padding-horizontal;
+        bottom:floor(@navbar-padding-vertical - 5);
+        width:floor(@navbar-padding-horizontal * 1.2);
+        border:1px solid @navbar-default-link-active-color;
+    }
+    li > a{
+        white-space: nowrap;
+        &:hover{
+            background-color: #fff;
+        }
+    }
+    li.active > a:hover{
+        color:@navbar-default-link-hover-color;
+    }
+    li:hover > .activeLine{
+        display:block;
+        border-color: @navbar-default-link-hover-line-color;
+    }
+    li.active > .activeLine{
+        display:block;
+    }
+}
+
 .navbar{
     min-height:120px;
     .navbar-header{
@@ -680,16 +766,17 @@
         font-family:  "RobotoCondensedRegular", Helvetica, Arial, sans-serif;
         font-size:20px;
         @media (max-width: @screen-lg-min) {
-                font-size: 14px;
-            }
+            font-size: 16px;
+        }
 
-        .navbar-right{ a{
-            font-family:  "RobotoSlab-Regular", Helvetica, Arial, sans-serif;
-            font-size:14px;
-            @media (max-width: @screen-lg-min) {
-                font-size: 12px;
+        .navbar-right{
+            a{
+                font-family:  "RobotoSlab-Regular", Helvetica, Arial, sans-serif;
+                font-size:14px;
+                @media (max-width: @screen-lg-min) {
+                    font-size: 12px;
+                }
             }
-         }
         }
 
         a{
@@ -701,12 +788,19 @@
                 display:none;
                 position:absolute;
                 left:@navbar-padding-horizontal;
-                bottom:floor(@navbar-padding-vertical - 1);
+                bottom:floor(@navbar-padding-vertical - 2);
                 width:floor(@navbar-padding-horizontal * 1.2);
                 border:1px solid @navbar-default-link-active-color;
             }
+            li > a{
+                white-space: nowrap;
+            }
             li.active > a:hover{
                 color:@navbar-default-link-hover-color;
+            }
+            li:hover > .activeLine{
+                display:block;
+                border-color: @navbar-default-link-hover-line-color;
             }
             li.active > .activeLine{
                 display:block;

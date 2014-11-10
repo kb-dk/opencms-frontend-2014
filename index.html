@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Off Canvas Template for Bootstrap</title>
+    <title>Det Kongelige Bibliotek</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/kbOpenCMS.css" rel="stylesheet">
@@ -31,25 +31,36 @@
             fittype: 'cover'
         });
     </script>
-
-</head>
-
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#kbMenuToggler').click(function () {
+                $('.canvasContainer').toggleClass('showMenu');
+            });
+            //setTimeout(function () { $('#kbMenuToggler').click(); }, 500); // FIXME: only for test!
+        });
+    </script>
+</head>Overview
 <body>
-
 
 <header>
     <nav class="navbar navbar-default topnavigation" role="navigation">
         <div class="container">
             <div class="row">
             <div class="navbar-header">
-                <a class="navbar-brand navbar-left">
+                <a class="navbar-brand navbar-left" href="#">
                     <div class="logo"></div>
                 </a>
-                <a class="navbar-brand navbar-left">
+                <a class="navbar-brand navbar-left hidden-xs" href="#">
                     <div class="logo-text"></div>
                 </a>
-                <div class="kb-navbar">
-
+                <div id="kbMenuToggler" class="pull-right visible-xs" style="margin-top:15px;margin-right:15px;">
+                    Menu
+                </div>
+                <ul class="nav navbar-nav navbar-right hidden-lg hidden-xs">
+                    <li><a href="#">English</a></li>
+                    <li><a href="#">Søg <span class="glyphicon glyphicon-search"></span></a>
+                </ul>
+                <div class="kb-navbar hidden-xs">
                     <ul class="nav navbar-nav kb-nav">
                         <li><a href="#">Om os</a><div class="activeLine"></div></li>
                         <li><a href="#">Materialer</a><div class="activeLine"></div></li>
@@ -61,8 +72,6 @@
                         <li><a href="#">Service</a><div class="activeLine"></div></li>
                         <li><a href="#">Søg/Lån</a><div class="activeLine"></div></li>
                     </ul>
-
-
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#">English</a></li>
                         <li><a href="#">Søg <span class="glyphicon glyphicon-search"></span></a>
@@ -72,7 +81,7 @@
             </div>
         </div>
     </nav>
-    <div class="jumbotron top hide">
+    <div class="jumbotron top">
         <div class="container">
             <h1>
                 Det Kongelige Bibliotek<br>
@@ -81,17 +90,17 @@
             <h2>- se dem online her</h2>
         </div>
     </div>
-    <div class="jumbotron subJumbo hide">
+    <div class="jumbotron subJumbo">
         <div class="container">
             <div class="row">
-                <div class="quoteContainer">
+                <div class="quoteContainer col-md-6">
                     <blockquote>
                         "Vidste du at vores Kort- og Billedsamling rummer mere end 18 millioner kort og billeder. De tidligste er modtaget ved bibliotekets grundlæggelse i 1653."
                     </blockquote>
                     <p class="quoteBy">Erland Kolding Nielsen</p>
                     <p><button class="btn">Læs mere her</button></p>
                 </div>
-                <div class="funfactContainer">
+                <div class="funfactContainer col-md-6">
                     <ul>
                         <li><span class="factNumber">31.000</span><span class="factText">Millioner digitaliserede magasiner</span></li>
                         <li><span class="factNumber">1.455</span><span class="factText">Året vores ældste bog er fra</span></li>
@@ -100,8 +109,7 @@
                 </div>
             </div>
         </div>
-    </div>
-</header>
+    <!--/div-->
 
 <section class="deck pattern00">
 
@@ -472,9 +480,9 @@
         </div>
     </div>
 </footer>
-
+</div>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap/bootstrap.min.js"></script>
 
 </body>
 </html>
