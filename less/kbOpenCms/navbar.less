@@ -668,7 +668,7 @@ body{
     right:0;
     transition:right 300ms ease-in-out;
 }
-#kbCanvasContainer.showMenu{
+body.mobile #kbCanvasContainer{
     right:90%;
 }
 
@@ -772,7 +772,11 @@ body{
         display:block;
     }
 }
-
+@media (min-width: @screen-sm) {
+    body .navbar{
+        .navbar-fixed-top;
+    }
+}
 .navbar{
     min-height:120px;
     box-shadow: 0 5px 5px rgba(0,0,0,0.14);
