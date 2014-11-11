@@ -685,6 +685,10 @@ body.mobile #kbCanvasContainer{
     cursor:pointer;
 }
 .kb-navbar-mobile{
+    ul{
+        margin:0;
+        padding:0;
+    }
     @nav-mobile-left-padding:30px;
     position: absolute;
     left:100%;
@@ -698,13 +702,42 @@ body.mobile #kbCanvasContainer{
     @media (max-width: @screen-lg-min) {
         font-size: 16px;
     }
-    li{
-        height:50px;
-        border-bottom:1px solid @gray-lighter;
-        padding-left:@nav-mobile-left-padding;
-        height:50px;
-        .directLink{
+    .kb-nav > li{
+        width:100%;
+        a{
+            position:relative;
+            width:100%;
+            border-bottom:1px solid #d8d8d8;
+            padding-left:@nav-mobile-left-padding;
+            height:50px;
             padding-top:15px;
+            .activeLine{
+                display:none;
+                position:absolute;
+                //left:@navbar-padding-horizontal + @nav-mobile-left-padding - 1;
+                //bottom:floor(@navbar-padding-vertical - 5);
+                width:floor(@navbar-padding-horizontal * 1.2);
+                border:1px solid @navbar-default-link-active-color;
+            }
+            &:hover{
+                color:@navbar-default-link-hover-color;
+                & > .activeLine{
+                    display:block;
+                    border-color:@navbar-default-link-hover-color;
+                }
+            }
+            li.active a > .activeLine{
+                display:block;
+            }
+        }
+    }
+    li.submenu{
+        background-color:#eee;
+        ul{
+            list-style:none;
+            li a{
+                display:block;
+            }
         }
     }
     .searchbox-container{
@@ -733,27 +766,30 @@ body.mobile #kbCanvasContainer{
             }
         }
     }
-    ul{
-        margin:0;
-    }
     .kb-nav{
         margin:0;
         text-transform: uppercase;
         .chevronpart{
             float:right;
+            z-index:10; // has to be on top of the directLink for clicks
             height:50px;
             width:50px;
             border-left:1px solid @gray-lighter;
             padding-top:16px;
+            padding-left:16px;
+
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -o-user-select: none;
+            user-select: none;
         }
-    }
-    .activeLine{
-        display:none;
-        position:absolute;
-        left:@navbar-padding-horizontal + @nav-mobile-left-padding - 1;
-        bottom:floor(@navbar-padding-vertical - 5);
-        width:floor(@navbar-padding-horizontal * 1.2);
-        border:1px solid @navbar-default-link-active-color;
+        .submenu{
+            text-transform:none;
+            a{
+                padding-left:40px;
+            }
+        }
     }
     li > a{
         white-space: nowrap;
@@ -763,13 +799,6 @@ body.mobile #kbCanvasContainer{
     }
     li.active > a:hover{
         color:@navbar-default-link-hover-color;
-    }
-    li:hover > .activeLine{
-        display:block;
-        border-color:@navbar-default-link-hover-color;
-    }
-    li.active > .activeLine{
-        display:block;
     }
 }
 @media (min-width: @screen-sm) {
@@ -828,7 +857,7 @@ body.mobile #kbCanvasContainer{
             li > a{
                 white-space: nowrap;
             }
-            li.active > a:hover{
+            & > li.active > a:hover{
                 color:@navbar-default-link-hover-color;
             }
             li:hover > .activeLine{
