@@ -809,18 +809,42 @@ body.mobile #kbCanvasContainer{
 .navbar{
     min-height:120px;
     box-shadow: 0 5px 5px rgba(0,0,0,0.14);
+    transition: top 200ms ease-out;
     .navbar-header{
         width:100%;
+        position:relative;
     }
     .logo{
         width:91px;
         height:88px;
         background-image:url(../images/kb_logo.png);
+        transition: all 200ms ease-out;
+    }
+    &.minified{
+        top:-70px;
+        .kb-navbar{
+            margin-left:60px;
+        }
+        .navbar-brand .logo{
+            height:50px;
+            width:52px;
+            margin-top:55px;
+            background-size:cover;
+        }
+        .navbar-brand .logo-text-container{
+            opacity: 0;
+        }
+    }
+    .logo-text-container{
+        position:absolute;
+        left:115px;
     }
     .logo-text{
+        position:relative;
         width:392px;
         height:41px;
         background-image:url(../images/kb_logo_text.png);
+        transition: all 200ms ease-out;//top 2s ease-in, opacity 2s ease-in;
     }
     .kb-navbar{
         margin-top:70px;
