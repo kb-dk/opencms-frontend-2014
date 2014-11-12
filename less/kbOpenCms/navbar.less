@@ -834,6 +834,13 @@ body.mobile #kbCanvasContainer{
         .navbar-brand .logo-text-container{
             opacity: 0;
         }
+        li > a{
+            padding: 16px 10px 10px 10px;
+            & .activeLine{
+                left:10px !important;
+                bottom:10px !important;
+            }
+        }
     }
     .logo-text-container{
         position:absolute;
@@ -870,26 +877,28 @@ body.mobile #kbCanvasContainer{
         }
         .kb-nav{
             text-transform: uppercase;
-            .activeLine{
-                display:none;
-                position:absolute;
-                left:@navbar-padding-horizontal;
-                bottom:floor(@navbar-padding-vertical - 2);
-                width:floor(@navbar-padding-horizontal * 1.2);
-                border:1px solid @navbar-default-link-active-color;
-            }
             li > a{
+                position:relative;
                 white-space: nowrap;
-            }
-            & > li.active > a:hover{
-                color:@navbar-default-link-hover-color;
-            }
-            li:hover > .activeLine{
-                display:block;
-                border-color: @navbar-default-link-hover-color;
-            }
-            li.active > .activeLine{
-                display:block;
+                transition: padding 200ms ease-out;
+                .activeLine{
+                    display:none;
+                    position:absolute;
+                    left:@navbar-padding-horizontal;
+                    bottom:floor(@navbar-padding-vertical - 2);
+                    width:floor(@navbar-padding-horizontal * 1.2);
+                    border:1px solid @navbar-default-link-active-color;
+                }
+                &.active > a:hover{
+                    color:@navbar-default-link-hover-color;
+                }
+                &:hover > .activeLine{
+                    display:block;
+                    border-color: @navbar-default-link-hover-color;
+                }
+                &.active > .activeLine{
+                    display:block;
+                }
             }
         }
         .kb-nav-left{
