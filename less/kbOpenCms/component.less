@@ -167,7 +167,6 @@
 
     [class*="col-"] {
         padding: 0 @grid-gutter-width-xs  / 2;
-        margin-bottom: @grid-gutter-width-xs  / 2;
     }
     [class="row"] {
         margin: 0 -@grid-gutter-width-xs / 2;
@@ -189,6 +188,9 @@
     }
 
 // TEASER
+    [role="teaser"] {
+        margin-bottom: @grid-gutter-width-xs;
+    }
     .teaser a {
         img{
             height:250px;
@@ -223,7 +225,6 @@
 
         [class*="col-"] {
             padding: 0 @grid-gutter-width-sm  / 2;
-            margin-bottom: @grid-gutter-width-sm;
         }
         [class="row"] {
             margin: 0 -@grid-gutter-width-sm / 2;
@@ -243,6 +244,9 @@
         }
 
         // TEASER
+        [role="teaser"] {
+            margin-bottom: @grid-gutter-width-sm;
+        }
         .teaser a {
             img{
                 height:250px;
@@ -275,7 +279,6 @@
 
         [class*="col-"] {
             padding: 0 @grid-gutter-width-md  / 2;
-            margin-bottom: @grid-gutter-width-md;
         }
         [class="row"] {
             margin: 0 -@grid-gutter-width-md / 2;
@@ -295,6 +298,9 @@
         }
 
         // TEASER
+        [role="teaser"] {
+            margin-bottom: @grid-gutter-width-md;
+        }
         .teaser a {
             img{
                 height:201px;
@@ -326,7 +332,6 @@
 
     [class*="col-"] {
         padding: 0 @grid-gutter-width-lg  / 2;
-        margin-bottom: @grid-gutter-width-lg;
     }
     [class="row"] {
         margin: 0 -@grid-gutter-width-lg / 2;
@@ -345,6 +350,9 @@
         }
 
         // TEASER
+        [role="teaser"] {
+            margin-bottom: @grid-gutter-width-lg;
+        }
         .teaser a {
             img{
                 height:236px;
@@ -375,9 +383,9 @@
 //**********************************************************************
 @media (min-width: @screen-xl-min) {
 
+
     [class*="col-"] {
         padding: 0 @grid-gutter-width-xl  / 2;
-        margin-bottom: @grid-gutter-width-xl;
     }
     [class="row"] {
         margin: 0 -@grid-gutter-width-xl / 2;
@@ -397,6 +405,9 @@
     }
 
 // TEASER
+    [role="teaser"] {
+        margin-bottom: @grid-gutter-width-xl;
+    }
     .teaser a {
         img{
             height:236px;
