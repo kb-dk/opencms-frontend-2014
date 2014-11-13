@@ -1,31 +1,68 @@
 $(document).ready(function() {
     $('#kbMenuToggler').click(function () {
-        $('body').toggleClass('mobile');
+        $('body').toggleClass('showMenu');
     });
 
     //setTimeout(function () { $('#kbMenuToggler').click(); }, 500); // FIXME: only for test!
-    
-    $(window).resize(function (){
-        if ($('body').hasClass('mobile') && $(window).innerWidth() > 752) { // magic-number 752 = 768 - 2 * 8px (window borders)
-            // collapse all open submenus in mobile menu, and close off canvas menu
-            $('body').removeClass('mobile');
-        }
-    });
-    
-    //scrollspy
-    $(window).scroll(function (e) {
-        var topNavigation = $('.topnavigation'),
-            scrollTop = $(window).scrollTop();
-console.log('scrollTop: ', scrollTop);
-        if (topNavigation.hasClass('minified')) {
-            if (scrollTop <= 100) {
-                topNavigation.removeClass('minified');
+
+    var MOBILESTR = 'mobile',
+        TABLETSTR = 'tablet',
+        DESKTOPSTR = 'desktop',
+        $body = $('body'),
+        $topnavigation = $('.topnavigation'),
+        MOBILE = 752, // magic-number 752 = 768 - 2 * 8px (window-borders?)
+        TABLET = 1008, // magic-number 1008 = 1024 - 2 * 8px
+        initialWidth = $(window).innerWidth(); // FIXME: switch to outerWidth instead?
+    kbModus = initialWidth < MOBILE ? MOBILESTR : initialWidth < TABLET ? TABLETSTR : DESKTOPSTR;
+
+    var setModus = function (modus) {
+        $('body').removeClass(kbModus);
+        kbModus = modus;
+        $('body').addClass(kbModus);
+    };
+
+    var ajustHeaderHeight = function () {
+        var scrollTop = $(window).scrollTop();
+        if ((kbModus === DESKTOPSTR) && (scrollTop <= 100)) {
+            if ($topnavigation.hasClass('minified')) {
+                $topnavigation.removeClass('minified');
             }
         } else {
-            if (scrollTop > 100) {
-                topNavigation.addClass('minified');
+            if (!$topnavigation.hasClass('minified')) {
+                $topnavigation.addClass('minified');
+            }
+        }
+    }
+
+    $body.addClass(kbModus); // Set the initial class on body
+
+    $(window).resize(function (){
+        var innerWidth = $(window).innerWidth();
+        if (innerWidth < MOBILE) {
+            if (kbModus !== MOBILESTR) {
+                setModus(MOBILESTR);
+                ajustHeaderHeight();
+            }
+        } else if (innerWidth < TABLET) {
+            if (kbModus !== TABLETSTR) {
+                if (kbModus === MOBILESTR) { // if we come from the mobile view, close menu (if it is present).
+                    $body.removeClass('showMenu');
+                }
+                setModus(TABLETSTR);
+                ajustHeaderHeight();
+            }
+        } else {
+            if (kbModus !== DESKTOPSTR) {
+                setModus(DESKTOPSTR);
+                ajustHeaderHeight();
             }
         }
     });
+
+    // initialize the header size
+    ajustHeaderHeight();
+
+    //scrollspy
+    $(window).scroll(ajustHeaderHeight);
 });
 
