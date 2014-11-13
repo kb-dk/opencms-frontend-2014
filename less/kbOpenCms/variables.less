@@ -294,44 +294,45 @@ body {
 @zindex-modal-background:  1040;
 @zindex-modal:             1050;
 
-
 //== Media queries breakpoints
 //
 //## Define the breakpoints at which your layout will change, adapting to different screen sizes.
 
 // Extra small screen / phone
-//** Deprecated `@screen-xs` as of v3.0.1
+// Note: Deprecated @screen-xs and @screen-phone as of v3.0.1
 @screen-xs:                  480px;
-//** Deprecated `@screen-xs-min` as of v3.2.0
 @screen-xs-min:              @screen-xs;
-//** Deprecated `@screen-phone` as of v3.0.1
 @screen-phone:               @screen-xs-min;
 
 // Small screen / tablet
-//** Deprecated `@screen-sm` as of v3.0.1
-@screen-sm:                  832px;
+// Note: Deprecated @screen-sm and @screen-tablet as of v3.0.1
+@screen-sm:                  768px;
 @screen-sm-min:              @screen-sm;
-//** Deprecated `@screen-tablet` as of v3.0.1
 @screen-tablet:              @screen-sm-min;
 
 // Medium screen / desktop
-//** Deprecated `@screen-md` as of v3.0.1
-@screen-md:                  1264px;
+// Note: Deprecated @screen-md and @screen-desktop as of v3.0.1
+@screen-md:                  1024px;
 @screen-md-min:              @screen-md;
-//** Deprecated `@screen-desktop` as of v3.0.1
 @screen-desktop:             @screen-md-min;
 
 // Large screen / wide desktop
-//** Deprecated `@screen-lg` as of v3.0.1
-@screen-lg:                  1484px;
+// Note: Deprecated @screen-lg and @screen-lg-desktop as of v3.0.1
+@screen-lg:                  1200px;
 @screen-lg-min:              @screen-lg;
-//** Deprecated `@screen-lg-desktop` as of v3.0.1
 @screen-lg-desktop:          @screen-lg-min;
+
+// Extra Large screen / wide desktop
+// Note: Deprecated @screen-xl and @screen-xl-desktop as of v3.0.1
+@screen-xl:                  1400px;
+@screen-xl-min:              @screen-xl;
+@screen-xl-desktop:          @screen-xl-min;
 
 // So media queries don't overlap when required, provide a maximum
 @screen-xs-max:              (@screen-sm-min - 1);
 @screen-sm-max:              (@screen-md-min - 1);
 @screen-md-max:              (@screen-lg-min - 1);
+@screen-lg-max:              (@screen-xl-min - 1);
 
 
 //== Grid system
@@ -339,10 +340,14 @@ body {
 //## Define your custom responsive grid.
 
 //** Number of columns in the grid.
-@grid-columns:              12;
+@grid-columns:              4;
 //** Padding between columns. Gets divided in half for the left and right.
-@grid-gutter-width:         32px;
-
+@grid-gutter-width:            20px;
+@grid-gutter-width-xs:         20px;
+@grid-gutter-width-sm:         25px;
+@grid-gutter-width-md:         25px;
+@grid-gutter-width-lg:         28px;
+@grid-gutter-width-xl:         31px;
 
 // Navbar collapse
 //** Point at which the navbar becomes uncollapsed.
@@ -356,20 +361,24 @@ body {
 //## Define the maximum width of `.container` for different screen sizes.
 
 // Small screen / tablet
-@container-tablet:             ((768px + @grid-gutter-width));
+@container-tablet:             ((768px - @grid-gutter-width-sm * 2));
 //** For `@screen-sm-min` and up.
 @container-sm:                 @container-tablet;
 
 // Medium screen / desktop
-@container-desktop:            ((1200px + @grid-gutter-width));
+@container-desktop:            ((1024px - @grid-gutter-width-md * 2));
 //** For `@screen-md-min` and up.
 @container-md:                 @container-desktop;
 
 // Large screen / wide desktop
-@container-large-desktop:      ((1420px + @grid-gutter-width));
+@container-large-desktop:      ((1200px - @grid-gutter-width-lg * 2));
 //** For `@screen-lg-min` and up.
 @container-lg:                 @container-large-desktop;
 
+// Extra Large screen / wide desktop
+@container-extralarge-desktop: ((1400px - @grid-gutter-width-xl * 2 ));
+//** For `@screen-lg-min` and up.
+@container-xl:                 @container-extralarge-desktop;
 
 //== Navbar
 //
@@ -632,6 +641,7 @@ body {
 //** Modal footer border color
 @modal-footer-border-color:   @modal-header-border-color;
 
+@modal-xlg:                  1200px;
 @modal-lg:                    900px;
 @modal-md:                    600px;
 @modal-sm:                    300px;
