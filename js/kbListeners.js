@@ -62,6 +62,18 @@ $(document).ready(function() {
     // initialize the header size
     ajustHeaderHeight();
 
+    //initialize listeners that toggles chevrons
+    $.each($('.chevronpart'), function(index, chevron) {
+        $(chevron).click(function (e) {
+            debugger;
+            if ($($(this).attr('data-target')).hasClass('in')) {
+                $('.glyphicon', this).removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+            } else {
+                $('.glyphicon', this).removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+            }
+        });
+    });
+
     //scrollspy
     $(window).scroll(ajustHeaderHeight);
 });
