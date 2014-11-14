@@ -45,14 +45,14 @@ $(document).ready(function() {
             }
         } else if (innerWidth < TABLET) {
             if (kbModus !== TABLETSTR) {
-                if (kbModus === MOBILESTR) { // if we come from the mobile view, close menu (if it is present).
-                    $body.removeClass('showMenu');
-                }
                 setModus(TABLETSTR);
                 ajustHeaderHeight();
             }
         } else {
             if (kbModus !== DESKTOPSTR) {
+                if (kbModus === TABLETSTR) { // if we come from the tablet view, close menu (if it is present).
+                    $body.removeClass('showMenu');
+                }
                 setModus(DESKTOPSTR);
                 ajustHeaderHeight();
             }
