@@ -46,7 +46,7 @@
         float:left;
     }
     .quoteContainer{
-        width:40%;
+        //width:40%;
         blockquote{
             border:0;
             padding:0;
@@ -67,13 +67,20 @@
         }
     }
     .funfactContainer{
-        width: 60%;
+        //width: 60%;
         li{
             line-height:70px;
             list-style:none;
         }
         .factText{
             vertical-align:middle;
+            @media (max-width:@screen-sm-max) {
+                width:100%;
+                text-align:center;
+            }
+            @media (max-width:@screen-xs-max) {
+                text-align:center;
+            }
         }
         .factNumber{
             display:inline-block;
@@ -83,6 +90,14 @@
             margin-right:20px;
             vertical-align:middle;
             text-align:right;
+            @media (max-width:@screen-sm-max) {
+                width:100%;
+                text-align:center;
+            }
+            @media (max-width:@screen-xs-max) {
+                width:100%;
+                text-align:center;
+            }
         }
     }
 }
