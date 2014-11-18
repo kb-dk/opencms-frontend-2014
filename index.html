@@ -35,9 +35,8 @@
 </head>
 <body>
 
-
 <header>
-    <nav class="navbar navbar-default topnavigation" role="navigation">
+    <div class="navbar navbar-default topnavigation" role="navigation">
         <section class="alert alert-dismissible" role="alert">
             <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
             <div class="container">
@@ -46,7 +45,7 @@
 
             </div>
         </section>
-        <div class="container">
+        <section class="container kb-navbar-container">
             <div class="navbar-header">
                 <div id="kbMenuToggler" class="pull-right visible-xs visible-sm">
                     Menu
@@ -57,7 +56,7 @@
                 <a class="logo-text-container navbar-brand navbar-left" href="#">
                     <div class="logo-text"></div>
                 </a>
-                <div class="kb-navbar hidden-xs hidden-sm">
+                <nav class="kb-navbar hidden-xs hidden-sm">
                     <ul class="nav navbar-nav kb-nav">
                         <li><a href="#">Om os<div class="activeLine"></div></a></li>
                         <li><a href="#">Materialer<div class="activeLine"></div></a></li>
@@ -73,17 +72,14 @@
                         <li><a href="#">English</a></li>
                         <li><a href="#">Søg <span class="glyphicon glyphicon-search"></span></a>
                     </ul>
-                </div>
+                </nav>
             </div>
-        </div>
-
-    </nav>
-
-
+        </section>
+    </div>
 </header>
 
 <div id="kbCanvasContainer">
-    <div id="kb-navbar-mobile" class="kb-navbar-mobile visible-xs visible-sm hidden-md hidden-lg">
+    <nav id="kb-navbar-mobile" class="kb-navbar-mobile visible-xs visible-sm hidden-md hidden-lg">
         <div class="searchbox-container">
             <div class="searchbox"><input type="text" placeholder="Søg på Det Kgl. Biblioteks website"> <span class="glyphicon glyphicon-search"></span></div>
         </div>
@@ -206,9 +202,7 @@
         <ul class="nav navbar-nav navbar-right visible-xs">
             <li><a href="#">English</a></li>
         </ul>
-    </div>
-
-
+    </nav>
     <section class="topBanner">
         <img src="images/jumbotron_bg.jpg" class="col-xs-4">
         <div class="container">
