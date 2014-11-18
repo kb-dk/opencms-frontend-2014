@@ -684,6 +684,10 @@ body.showMenu #kbCanvasContainer{
     vertical-align:middle;
     cursor:pointer;
     z-index:25; // neeed to be above the rest of the header to catch clicks
+    &:hover{
+        border-color: @gray-light;
+        color: @gray-light;
+    }
 }
 .kb-navbar-container{
     position:relative;
