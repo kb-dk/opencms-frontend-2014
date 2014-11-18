@@ -789,32 +789,33 @@ body.showMenu #kbCanvasContainer{
         padding:20px;
         border-top: 1px solid @gray-lighter;
         border-bottom: 1px solid @gray-lighter;
-        kb-nav{
-            margin-top:0;
-        }
-    }
-    .searchbox{
-        position:relative;
-        border:1px solid @gray-dark;
-        white-space:nowrap;
-        padding:4px 15px;
-        //span{
-        //    margin-top:5px;
-        //}
-        input{
-            border:0;
-            min-width:267px; // FIXME: this is as long as the placeholder is in danish - terrible random number!
-            width:90%;
-            margin-right:30px;
-            outline:none;
-            &:active{
-                border:0;
+        .input-group{
+            color:#000;
+            kb-nav{
+                margin-top:0;
             }
-        }
-        .glyphicon{
-            position:absolute;
-            top:10px;
-            right:10px;
+            input, button{
+                border-radius:0;
+                border:1px solid #000;
+                &.btn-default{
+                    color:#000;
+                }
+                &:hover{
+                    background-color: inherit;
+                }
+            }
+            input{
+                border:1px solid #000;
+                border-right:0;
+                &.form-control{
+                    border:1px 0 1px 1px solid #123;
+                    box-shadow:none;
+                }
+            }
+            button{
+                border-left:0;
+                background-color:#fff;
+            }
         }
     }
     .kb-nav{
