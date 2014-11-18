@@ -794,6 +794,7 @@ body.showMenu #kbCanvasContainer{
         }
     }
     .searchbox{
+        position:relative;
         border:1px solid @gray-dark;
         white-space:nowrap;
         padding:4px 15px;
@@ -802,12 +803,18 @@ body.showMenu #kbCanvasContainer{
         //}
         input{
             border:0;
+            min-width:267px; // FIXME: this is as long as the placeholder is in danish - terrible random number!
             width:90%;
             margin-right:30px;
             outline:none;
             &:active{
                 border:0;
             }
+        }
+        .glyphicon{
+            position:absolute;
+            top:10px;
+            right:10px;
         }
     }
     .kb-nav{
