@@ -1,0 +1,36 @@
+//
+// KB Footer
+//
+//------------------------------------------------------
+
+footer.kbFooter{
+    background-color: @footer-background;
+    color: @footer-color;
+    margin-top: @footer-margin-top;
+    padding: @footer-padding-vertical @footer-padding-horizontal;
+    font-family: @font-family-sans-serif;
+    font-size: @font-size-xsmall;
+    a{
+        color: @footer-color;
+        &:hover{
+            text-decoration: none;
+            color: @footer-color-hover;
+        }
+    }
+    .footer-info{
+        text-align: right;
+        @media (max-width: @screen-xs-max){
+            margin-top:@footer-content-margin;
+            margin-left:@footer-content-margin;
+            text-align:left;
+        }
+        .info-name{
+            font-size: @font-size-small;
+            font-weight: bold;
+            padding-bottom: @padding-base-vertical;
+        }
+    }
+    ul{
+        margin-bottom:0;
+    }
+}
