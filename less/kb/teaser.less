@@ -1,0 +1,90 @@
+@teaser-caption-padding-lg: 30px 20px;
+
+.teaser{
+    a{
+      display: block;
+    }
+    picture, .caption{
+      padding:0px !important;
+      overflow: hidden !important;
+    }
+    .caption:after{
+      content: " ";
+      position:absolute;
+      width:100%;
+      height:100%;
+      box-shadow:-0px -100px 75px -25px  @component-bg inset;
+      bottom: 0px;
+      right:0px;
+      z-index:2;
+    }
+
+    label,time{
+      .show;
+    }
+
+    img{
+      width: 100%;
+      object-fit: cover;
+      overflow: hidden;
+    }
+
+    /* Small devices (tablets, 768px and up) */
+    @media (min-width: @screen-sm-min) {
+      picture, .caption{
+        height:@comp-height-sm/2;
+      }
+    }
+
+    /* Medium devices (desktops, 992px and up) */
+    @media (min-width: @screen-md-min) {
+      picture, .caption{
+        height:@comp-height-md/2;
+      }
+    }
+
+    /* Large devices (large desktops, 1200px and up) */
+    @media (min-width: @screen-lg-min) {
+      picture, .caption{
+        height:@comp-height-lg/2;
+        background:yellow;
+      }
+    }
+
+ }
+
+.col-sm-12{
+  picture, .caption{
+    .make-sm-column(6);
+  }
+  @media (min-width: @screen-sm-min) {
+    .teaser{
+      picture, .caption{
+        .make-sm-column(6);
+        height:@comp-height-sm;
+      }
+
+    }
+  }
+  @media (min-width: @screen-md-min) {
+    .teaser{
+      picture, .caption{
+        height:@comp-height-md;
+      }
+    }
+  }
+  @media (min-width: @screen-lg-min) {
+    .teaser{
+      picture, .caption{
+        height:@comp-height-lg;
+      }
+    }
+  }
+
+}
+
+
+
+
+
+
