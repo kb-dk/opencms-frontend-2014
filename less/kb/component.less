@@ -1,22 +1,17 @@
-// BP 1200px
-@comp-height-lg:      388px;
-// BP 992px
-@comp-height-md:      311px;
-// BP 768px
-@comp-height-sm:      414px;
-// BP 480px
-@comp-height-xs:      414px;
-
 @component-bg:       #f8f8f8;
+
+// Handels component height vs. breakpoints
+@comp-height-lg:      388px;
+@comp-height-md:      311px;
+@comp-height-sm:      414px;
+@comp-height-xs:      420px;
+
 
 .comp{
   background: @component-bg;
   margin-bottom:@grid-gutter-width;
   overflow:hidden;
   height:@comp-height-xs;
-  position: relative;
-  border:5px solid black;
-
 }
 
 /* Small devices (tablets, 768px and up) */
@@ -25,6 +20,7 @@
     background: @body-bg;
   }
 }
+
 /* Small devices (tablets, 768px and up) */
 @media (min-width: @screen-sm-min) {
   .comp  {
