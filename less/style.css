@@ -6289,9 +6289,7 @@ button.close {
   background: #f8f8f8;
   margin-bottom: 30px;
   overflow: hidden;
-  height: 414px;
-  position: relative;
-  border: 5px solid black;
+  height: 420px;
 }
 /* Small devices (tablets, 768px and up) */
 @media (max-width: 480px) {
@@ -6327,11 +6325,22 @@ button.close {
 }
 .teaser a {
   display: block;
+  margin: 0px !important;
 }
-.teaser picture,
+.teaser figure,
 .teaser .caption {
   padding: 0px !important;
   overflow: hidden !important;
+  height: 210px;
+  position: relative;
+  float: left;
+  width: 100%;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.teaser .caption {
+  padding: 30px 20px !important;
 }
 .teaser .caption:after {
   content: " ";
@@ -6349,29 +6358,27 @@ button.close {
 }
 .teaser img {
   width: 100%;
-  object-fit: cover;
-  overflow: hidden;
 }
 @media (min-width: 768px) {
-  .teaser picture,
+  .teaser figure,
   .teaser .caption {
     height: 207px;
+    overflow: hidden;
   }
 }
 @media (min-width: 992px) {
-  .teaser picture,
+  .teaser figure,
   .teaser .caption {
     height: 155.5px;
   }
 }
 @media (min-width: 1200px) {
-  .teaser picture,
+  .teaser figure,
   .teaser .caption {
     height: 194px;
-    background: yellow;
   }
 }
-.col-sm-12 picture,
+.col-sm-12 figure,
 .col-sm-12 .caption {
   position: relative;
   min-height: 1px;
@@ -6379,14 +6386,14 @@ button.close {
   padding-right: 15px;
 }
 @media (min-width: 768px) {
-  .col-sm-12 picture,
+  .col-sm-12 figure,
   .col-sm-12 .caption {
     float: left;
     width: 50%;
   }
 }
 @media (min-width: 768px) {
-  .col-sm-12 .teaser picture,
+  .col-sm-12 .teaser figure,
   .col-sm-12 .teaser .caption {
     position: relative;
     min-height: 1px;
@@ -6396,20 +6403,20 @@ button.close {
   }
 }
 @media (min-width: 768px) and (min-width: 768px) {
-  .col-sm-12 .teaser picture,
+  .col-sm-12 .teaser figure,
   .col-sm-12 .teaser .caption {
     float: left;
     width: 50%;
   }
 }
 @media (min-width: 992px) {
-  .col-sm-12 .teaser picture,
+  .col-sm-12 .teaser figure,
   .col-sm-12 .teaser .caption {
     height: 311px;
   }
 }
 @media (min-width: 1200px) {
-  .col-sm-12 .teaser picture,
+  .col-sm-12 .teaser figure,
   .col-sm-12 .teaser .caption {
     height: 388px;
   }
