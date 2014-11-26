@@ -6290,8 +6290,9 @@ button.close {
   margin-bottom: 30px;
   overflow: hidden;
   height: 420px;
+  position: relative;
 }
-/* Small devices (tablets, 768px and up) */
+/* Extra small devices (0px and up) */
 @media (max-width: 480px) {
   .comp {
     background: #ffffff;
@@ -6325,9 +6326,8 @@ button.close {
 }
 .teaser a {
   display: block;
-  margin: 0px !important;
 }
-.teaser figure,
+.teaser picture,
 .teaser .caption {
   padding: 0px !important;
   overflow: hidden !important;
@@ -6357,28 +6357,32 @@ button.close {
   display: block !important;
 }
 .teaser img {
-  width: 100%;
+  min-width: 100%;
+  object-fit: cover;
+  overflow: hidden;
 }
 @media (min-width: 768px) {
-  .teaser figure,
+  .teaser picture,
   .teaser .caption {
     height: 207px;
-    overflow: hidden;
+  }
+  .teaser img {
+    min-height: 207px;
   }
 }
 @media (min-width: 992px) {
-  .teaser figure,
+  .teaser picture,
   .teaser .caption {
     height: 155.5px;
   }
 }
 @media (min-width: 1200px) {
-  .teaser figure,
+  .teaser picture,
   .teaser .caption {
     height: 194px;
   }
 }
-.col-sm-12 figure,
+.col-sm-12 picture,
 .col-sm-12 .caption {
   position: relative;
   min-height: 1px;
@@ -6386,14 +6390,14 @@ button.close {
   padding-right: 15px;
 }
 @media (min-width: 768px) {
-  .col-sm-12 figure,
+  .col-sm-12 picture,
   .col-sm-12 .caption {
     float: left;
     width: 50%;
   }
 }
 @media (min-width: 768px) {
-  .col-sm-12 .teaser figure,
+  .col-sm-12 .teaser picture,
   .col-sm-12 .teaser .caption {
     position: relative;
     min-height: 1px;
@@ -6403,20 +6407,20 @@ button.close {
   }
 }
 @media (min-width: 768px) and (min-width: 768px) {
-  .col-sm-12 .teaser figure,
+  .col-sm-12 .teaser picture,
   .col-sm-12 .teaser .caption {
     float: left;
     width: 50%;
   }
 }
 @media (min-width: 992px) {
-  .col-sm-12 .teaser figure,
+  .col-sm-12 .teaser picture,
   .col-sm-12 .teaser .caption {
     height: 311px;
   }
 }
 @media (min-width: 1200px) {
-  .col-sm-12 .teaser figure,
+  .col-sm-12 .teaser picture,
   .col-sm-12 .teaser .caption {
     height: 388px;
   }

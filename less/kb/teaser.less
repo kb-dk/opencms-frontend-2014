@@ -3,9 +3,8 @@
 .teaser{
     a{
       display: block;
-      margin:0px !important;
     }
-    figure, .caption{
+    picture, .caption{
       padding:0px !important;
       overflow: hidden !important;
       height:@comp-height-xs/2;
@@ -30,27 +29,31 @@
     }
 
     img{
-      width: 100%;
+      min-width:100%;
+      object-fit: cover;
+      overflow: hidden;
     }
 
     /* Small devices (tablets, 768px and up) */
     @media (min-width: @screen-sm-min) {
-      figure, .caption{
+      picture, .caption{
         height:@comp-height-sm/2;
-        overflow: hidden;
+      }
+      img{
+         min-height:@comp-height-sm/2;
       }
     }
 
     /* Medium devices (desktops, 992px and up) */
     @media (min-width: @screen-md-min) {
-      figure, .caption{
+      picture, .caption{
         height:@comp-height-md/2;
       }
     }
 
     /* Large devices (large desktops, 1200px and up) */
     @media (min-width: @screen-lg-min) {
-      figure, .caption{
+      picture, .caption{
         height:@comp-height-lg/2;
       }
     }
@@ -59,29 +62,32 @@
 // Handling top teaser col-*-12 */
 // ******************************************************************************
 .col-sm-12{
-  figure, .caption{
+  picture, .caption{
     .make-sm-column(6);
   }
   @media (min-width: @screen-sm-min) {
     .teaser{
-      figure, .caption{
+      picture, .caption{
         .make-sm-column(6);
         height:@comp-height-sm;
       }
+
     }
   }
   @media (min-width: @screen-md-min) {
     .teaser{
-      figure, .caption{
+      picture, .caption{
         height:@comp-height-md;
       }
+
     }
   }
   @media (min-width: @screen-lg-min) {
     .teaser{
-      figure, .caption{
+      picture, .caption{
         height:@comp-height-lg;
       }
+
     }
   }
 
