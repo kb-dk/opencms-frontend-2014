@@ -1,40 +1,39 @@
-@component-bg:       #f8f8f8;
-
-// Handels component height vs. breakpoints
+// Breakpoints height for components
+//1200px
 @comp-height-lg:      388px;
+//992px
 @comp-height-md:      311px;
+//768px
 @comp-height-sm:      414px;
+//480px
 @comp-height-xs:      420px;
 
-
+@component-bg:       #f8f8f8;
 .comp{
   background: @component-bg;
   margin-bottom:@grid-gutter-width;
   overflow:hidden;
   height:@comp-height-xs;
+  position: relative;
 }
-
-/* Small devices (tablets, 768px and up) */
+/* Extra small devices (0px and up) */
 @media (max-width: @screen-xs-min) {
   .comp  {
     background: @body-bg;
   }
 }
-
 /* Small devices (tablets, 768px and up) */
 @media (min-width: @screen-sm-min) {
   .comp  {
     height:@comp-height-sm;
   }
 }
-
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: @screen-md-min) {
   .comp  {
     height:@comp-height-md;
   }
 }
-
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: @screen-lg-min) {
   .comp  {
