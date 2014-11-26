@@ -1,0 +1,75 @@
+//
+// KB Spots
+//
+//------------------------------------------------------
+
+@spot-caption-padding-lg: 30px 20px;
+
+@spotColor01:           #5b2320; //Red/Brown
+@spotColor02:           #5d92ab; //Light blue
+
+.spotBg01{
+  background:@spotColor01 !important;
+}
+.spotBg02{
+  background:@spotColor02;
+}
+
+.spot{
+  color:@body-bg;;
+  position:relative;
+  padding:0px;
+  margin:0px;
+
+  picture{
+    position: absolute;
+    top:0;
+    left:0;
+    .make-sm-column(6);
+    padding:0px;
+    img{
+      width: 100%;
+      object-fit: cover;
+
+    }
+  }
+
+  .caption{
+    .container;
+    .wrapper{
+      .make-sm-column-offset(6);
+      .make-sm-column(6);
+      float:none !important;
+      padding: 0px!important;
+    }
+
+    h1{
+      font-family: "Roboto-Regular", Helvetica, Arial, sans-serif;
+      font-weight: bolder;
+      padding:0px;
+      margin:0px
+    }
+    p{
+      font-family: "RobotoSlab-Regular", Helvetica, Arial, sans-serif;
+      font-weight: lighter;
+      padding:30px 0px 0px 0px;
+      margin:0px;
+    }
+    button{
+      border:1px solid @body-bg;
+      background: transparent;
+      color: @body-bg;
+      font-family: "RobotoSlab", Helvetica, Arial, sans-serif;
+      width:280px;
+      margin:30px 0px 0px 0px;
+    }
+  }
+
+}
+
+
+
+
+
+
+
