@@ -3,69 +3,140 @@
 //
 //------------------------------------------------------
 
+// Variables
 @spot-caption-padding-lg: 30px 20px;
 
-@spotColor01:           #5b2320; //Red/Brown
-@spotColor02:           #5d92ab; //Light blue
+// SPOT COLOR
+@dark-blue:               #07162e;
+@light-blue:              #5d92ab;
+@dark-green:              #213b24;
+@dark-red:                #5b2320;
+@dark-gold:               #977d4b;
+@light-gold:              #ab9b63;
 
-.spotBg01{
-  background:@spotColor01 !important;
+.spot-dark-blue{
+  background-color:@dark-blue;
 }
-.spotBg02{
-  background:@spotColor02;
+.spot-light-blue{
+  background-color:@light-blue;
+}
+.spot-dark-green{
+  background-color:@dark-green;
+}
+.spot-dark-red{
+  background-color:@dark-red;
+}
+.spot-dark-gold{
+  background-color:@dark-gold;
+}
+.spot-light-gold{
+  background-color:@light-gold;
 }
 
-.spot{
-  color:@body-bg;;
-  position:relative;
+// Fullscreen spot
+// Need .container-fluid as wrapper
+.container-fluid{
   padding:0px;
-  margin:0px;
-
-  picture{
-    position: absolute;
-    top:0;
-    left:0;
-    .make-sm-column(6);
-    padding:0px;
-    img{
-      width: 100%;
-      object-fit: cover;
-
+  .spot{
+    /* Small devices (tablets, 768px and up) */
+    @media (min-width: @screen-sm-min) {
+      .caption{
+        width:@container-sm / 2 -@grid-gutter-width;
+      }
     }
-  }
-
-  .caption{
-    .container;
-    .wrapper{
-      .make-sm-column-offset(6);
-      .make-sm-column(6);
-      float:none !important;
-      padding: 0px!important;
+    /* Medium devices (desktops, 992px and up) */
+    @media (min-width: @screen-md-min) {
+      .caption{
+        width:@container-md / 2 - @grid-gutter-width;
+      }
     }
-
-    h1{
-      font-family: "Roboto-Regular", Helvetica, Arial, sans-serif;
-      font-weight: bolder;
-      padding:0px;
-      margin:0px
-    }
-    p{
-      font-family: "RobotoSlab-Regular", Helvetica, Arial, sans-serif;
-      font-weight: lighter;
-      padding:30px 0px 0px 0px;
-      margin:0px;
-    }
-    button{
-      border:1px solid @body-bg;
-      background: transparent;
-      color: @body-bg;
-      font-family: "RobotoSlab", Helvetica, Arial, sans-serif;
-      width:280px;
-      margin:30px 0px 0px 0px;
+    /* Large devices (large desktops, 1200px and up) */
+    @media (min-width: @screen-lg-min) {
+      .caption{
+        width:@container-lg / 2 - @grid-gutter-width;
+      }
     }
   }
 
 }
+
+// Fallback mobil first
+.spot{
+  picture, .caption{
+    overflow:hidden;
+    height:@comp-height-sm / 2;
+    .make-xs-column(12);
+    padding:0px !important;
+  }
+  .caption{
+    color:@body-bg;
+    padding:@spot-caption-padding-lg !important;
+  }
+  img{
+    object-fit: cover;
+    min-width:100%;
+    overflow: hidden;
+  }
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: @screen-sm-min) {
+  .spot{
+    picture, .caption{
+      height:@comp-height-sm;
+      .make-sm-column(6);
+    }
+  }
+  .col-md-3{
+    .spot{
+      picture, .caption{
+        height:@comp-height-sm / 2;
+        .make-sm-column(12);
+      }
+    }
+  }
+}
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: @screen-md-min) {
+  .spot{
+      picture, .caption{
+        height:@comp-height-md;
+        .make-sm-column(6);
+      }
+    }
+  .col-md-3{
+    .spot{
+      picture, .caption{
+        height:@comp-height-md / 2;
+        .make-md-column(12);
+      }
+    }
+  }
+}
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: @screen-lg-min) {
+  .spot{
+      picture, .caption{
+        height:@comp-height-lg;
+        .make-sm-column(6);
+      }
+    }
+  .col-md-3{
+    .spot{
+      picture, .caption{
+        height:@comp-height-lg / 2;
+        .make-lg-column(12);
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
 
 
 
