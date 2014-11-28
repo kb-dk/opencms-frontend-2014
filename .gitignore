@@ -2,4 +2,5 @@
 3rdparty/
 css/
 *.css
+node_modules/
 
