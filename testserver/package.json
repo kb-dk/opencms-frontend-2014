@@ -1,0 +1,16 @@
+{
+  "name": "ajaxMenu",
+  "version": "0.0.0",
+  "description": "Webserver for testing a menu that loads via ajax.",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "The Royal Library, Denmark",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "minimist": "~1.1.0",
+    "node-static": "~0.7.6"
+  }
+}
