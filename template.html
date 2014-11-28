@@ -15,6 +15,7 @@
     <link href="css/style.css" rel="stylesheet" />
 
     <!-- JAVASCRIPT -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Cookie policy -->
     <script src="js/kb/cookieInformerBooklet_da_DK.js"></script>
     <!--Responsive image -->
@@ -25,6 +26,8 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+        <script src="js/kb/kbMenu.js"></script>
+        <script src="js/kb/kbListeners.js"></script>
     <!-- Google Analytics www.kb.dk -->
     <script>
         var _gaq = _gaq || [];
@@ -42,7 +45,7 @@
     <header class="kbHeader">
         <div class="navbar navbar-default topnavigation">
             <section class="alert alert-dismissible" role="alert">
-                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button><!-- FIXME i18n -->
                 <div class="container">
                     <strong>OBS: </strong>Læsesalen er lukket i dag. , consectetur adipiscing elit. Nulla luctus faucibus pellentesque. Morbi hendrerit eleifend arcu.
                 </div>
@@ -52,10 +55,10 @@
                     <div id="kbMenuToggler" class="pull-right visible-xs visible-sm">
                         Menu
                     </div>
-                    <a class="navbar-brand navbar-left" href="#">
+                        <a class="navbar-brand navbar-left" href="#" title="Til forsiden"><!-- FIXME i18n -->
                         <div class="logo"></div>
                     </a>
-                    <a class="logo-text-container navbar-brand navbar-left" href="#">
+                        <a class="logo-text-container navbar-brand navbar-left" href="#" title="Til forsiden"><!-- FIXME i18n -->
                         <div class="logo-text"></div>
                     </a>
                     <nav class="kb-navbar hidden-xs hidden-sm">
@@ -66,7 +69,7 @@
                             <li><a class="active" href="#">Kultur<div class="activeLine"></div></a></li>
                             <li><a href="#">Nyheder<div class="activeLine"></div></a></li>
                             <li><a href="#">Museer<div class="activeLine"></div></a></li>
-                            <li><a href="#">Mediekanal<div class="activeLine"></div></a></li>
+                                <!--li><a href="#">Mediekanal<div class="activeLine"></div></a></li-->
                             <li><a href="#">Rex<div class="activeLine"></div></a></li>
                             <li><a href="#">Tjenester<div class="activeLine"></div></a></li>
                         </ul>
@@ -79,8 +82,55 @@
             </section>
         </div>
     </header>
-<!-- content start -->
-<main>
+<div id="kbCanvasContainer">
+    <!-- Mobile menu complex start -->
+    <nav id="kb-navbar-mobile" class="kb-navbar-mobile visible-xs visible-sm hidden-md hidden-lg">
+        <!-- searchbox in top of mobile menu -->
+        <div class="searchbox-container">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Søg på Det Kgl. Biblioteks website"><!-- FIXME: i18n -->
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+            </div>
+        </div>
+        <!-- mobile menu -->
+        <ul class="nav navbar-nav kb-nav">
+            <li>
+                <a class="chevronpart" data-src="bogusSubMenu.html"><span class="glyphicon glyphicon-chevron-down"></span></a>
+                <a class="directLink" href="#">Om os<div class="activeLine"></div></a></li>
+            <li>
+                <a class="chevronpart" data-src="bogusSubMenu.html"><span class="glyphicon glyphicon-chevron-down"></span></a>
+                <a class="directLink" href="#">Materialer<div class="activeLine"></div></a></li>
+            <li>
+                <a class="chevronpart" data-src="bogusSubMenu.html"><span class="glyphicon glyphicon-chevron-down"></span></a>
+                <a class="directLink" href="#">Udlån<div class="activeLine"></div></a></li>
+            <li class="active">
+                <a class="chevronpart" data-src="bogusSubMenu.html"><span class="glyphicon glyphicon-chevron-down"></span></a>
+                <a class="directLink" href="#">Kultur<div class="activeLine"></div></a></li>
+            <li>
+                <a class="chevronpart" data-src="bogusSubMenu.html"><span class="glyphicon glyphicon-chevron-down"></span></a>
+                <a class="directLink" href="#">Nyheder<div class="activeLine"></div></a></li>
+            <li>
+                <a class="chevronpart" data-src="bogusSubMenu.html"><span class="glyphicon glyphicon-chevron-down"></span></a>
+                <a class="directLink" href="#">Museer<div class="activeLine"></div></a></li>
+            <!--li>
+                <a class="chevronpart" data-target="#submenu6"><span class="glyphicon glyphicon-chevron-down"></span></a>
+                <a class="directLink" href="#">Mediekanal<div class="activeLine"></div></a></li-->
+            <li>
+                <a class="directLink" href="#">Rex<div class="activeLine"></div></a></li>
+            <li>
+                <a class="chevronpart" data-src="bogusSubMenu.html"><span class="glyphicon glyphicon-chevron-down"></span></a>
+                <a class="directLink" href="#">Tjenester<div class="activeLine"></div></a></li>
+        </ul>
+        <!-- language selection -->
+        <ul class="nav navbar-nav navbar-right visible-xs">
+            <li><a href="#">English</a></li><!-- FIXME: i18n -->
+        </ul>
+    </nav>
+    <!-- Mobile menu end -->
+        <!-- content start -->
+        <main>
 
     <section class="deck">
         <header class="text-center">
@@ -587,9 +637,8 @@
             </div>
         </div>
     </div>
-</footer>
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        </footer>
+</div>
         <!-- bootstrap js FIXME: all these files shall be concatenated and minified in the production build! For debug purposes we keep them apart for now -->
         <script src="js/bootstrap331/alert.js"></script>
         <script src="js/bootstrap331/transition.js"></script>
