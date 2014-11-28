@@ -1,0 +1,29 @@
+//
+// KB List
+//
+//------------------------------------------------------
+// Variables
+@list-bg-color:         #f8f8f8;
+@list-border-color:     #ebebeb;
+
+.list{
+  background:@list-bg-color ;
+  border-top:6px solid @list-border-color;
+  border-bottom:3px solid @list-border-color;
+  header h1{
+    border-bottom:1px solid @list-border-color;
+  }
+  .caption{
+    padding:  20px;
+  }
+  .caption:after{
+    content: " ";
+    position:absolute;
+    width:100%;
+    height:40px;
+    bottom: 0px;
+    right:0px;
+    background: linear-gradient(transparent, @list-bg-color);
+    border-bottom:20px solid @list-bg-color;
+  }
+}
