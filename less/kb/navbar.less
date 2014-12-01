@@ -106,12 +106,6 @@ body.showMenu #kbCanvasContainer{
     .kb-nav{
         margin:0;
         text-transform: uppercase;
-        ul li.submenu.collapse{ // FIXME: This ought to be something we got automatically from bootstrap, but it somehow does not happen, so now I have written it out explicitly.
-            display:none;
-            &.in{
-                display:block !important;
-            }
-        }
         .chevronpart{
             display:none; // NOTE: They start out hidden, and are shown when the submenu is actually loaded.
             float:right;
