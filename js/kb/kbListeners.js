@@ -18,7 +18,7 @@ $(document).ready(function() {
         $topnavigation = $('.topnavigation'),
         $kbNavbarContainer = $('.kb-navbar-container'),
         MOBILE = 752, // magic-number 752 = 768 - 2 * 8px (window-borders?)
-        TABLET = 1008, // magic-number 1008 = 1024 - 2 * 8px
+        TABLET = 977, // magic-number 976 = 992 - 2 * 8px
         initialWidth = $(window).innerWidth(); // FIXME: switch to outerWidth instead?
     kbModus = initialWidth < MOBILE ? MOBILESTR : initialWidth < TABLET ? TABLETSTR : DESKTOPSTR;
 
