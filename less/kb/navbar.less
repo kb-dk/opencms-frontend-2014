@@ -137,9 +137,11 @@ body.showMenu #kbCanvasContainer{
             user-select: none;
         }
         .submenu{
-            display:none;
-            &.in, &.collapsing{
-                display:block;
+            &.collapse{
+                display:none;
+                &.in{
+                    display:block;
+                }
             }
             text-transform:none;
             a{
