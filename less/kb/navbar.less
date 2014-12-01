@@ -1,6 +1,16 @@
 //
 // KB Navbar
 // --------------------------------------------------
+@menu-background-color: #fff;
+@menu-l2-background-color: darken(@menu-background-color, 10%);
+@menu-l3-background-color: darken(@menu-l2-background-color, 10%);
+@menu-l4-background-color: darken(@menu-l3-background-color, 10%);
+@menu-l5-background-color: darken(@menu-l4-background-color, 10%);
+@menu-padding-left: 30px;
+@menu-l2-padding-left: 40px;
+@menu-l3-padding-left: 50px;
+@menu-l4-padding-left: 60px;
+@menu-l5-padding-left: 70px;
 
 body{
     overflow-x:hidden;
@@ -55,15 +65,6 @@ body.showMenu #kbCanvasContainer{
                 }
             }
             li.active a > .activeLine{
-                display:block;
-            }
-        }
-    }
-    li.submenu{
-        background-color:#eee;
-        ul{
-            list-style:none;
-            li a{
                 display:block;
             }
         }
@@ -136,6 +137,30 @@ body.showMenu #kbCanvasContainer{
             -o-user-select: none;
             user-select: none;
         }
+        .nav > li{
+            .nav > li{
+                .nav > li{
+                    .nav > li{
+                        a.directLink{
+                            background-color: @menu-l5-background-color;
+                            padding-left: @menu-l5-padding-left;
+                        }
+                    }
+                    a.directLink{
+                        background-color: @menu-l4-background-color;
+                        padding-left: @menu-l4-padding-left;
+                    }
+                }
+                a.directLink{
+                    background-color: @menu-l3-background-color;
+                    padding-left: @menu-l3-padding-left;
+                }
+            }
+            a.directLink{
+                background-color: @menu-l2-background-color;
+                padding-left: @menu-l2-padding-left;
+            }
+        }
         .submenu{
             &.collapse{
                 display:none;
@@ -144,9 +169,6 @@ body.showMenu #kbCanvasContainer{
                 }
             }
             text-transform:none;
-            a{
-                padding-left:40px;
-            }
         }
     }
     li > a{
