@@ -137,6 +137,10 @@ body.showMenu #kbCanvasContainer{
             user-select: none;
         }
         .submenu{
+            display:none;
+            &.in, &.collapsing{
+                display:block;
+            }
             text-transform:none;
             a{
                 padding-left:40px;
