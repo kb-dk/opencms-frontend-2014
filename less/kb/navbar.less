@@ -109,6 +109,7 @@ body.showMenu #kbCanvasContainer{
     .kb-nav{
         margin:0;
         text-transform: uppercase;
+        // Chevrons at the right of mobile menu
         .chevronpart{
             display:none; // NOTE: They start out hidden, and are shown when the submenu is actually loaded.
             float:right;
@@ -134,6 +135,7 @@ body.showMenu #kbCanvasContainer{
             -o-user-select: none;
             user-select: none;
         }
+        // Colors and paddings for level 2-5 submenus
         .nav > li{
             .nav > li{
                 .nav > li{
@@ -158,6 +160,7 @@ body.showMenu #kbCanvasContainer{
                 padding-left: @nav-mobile-l2-padding-left;
             }
         }
+        // Submenu collapse behaviour
         .submenu{
             &.collapse{
                 display:none;
