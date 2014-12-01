@@ -181,4 +181,141 @@ body.showMenu #kbCanvasContainer{
         color:@navbar-default-link-hover-color;
     }
 }
+@media (min-width: @screen-md) {
+    body .topnavigation{
+        .navbar-fixed-top;
+    }
+}
+.kb-navbar-container{
+    position:relative;
+    height:120px;
+    overflow:hidden;
+    .navbar-header{
+        position:relative;
+        width:100%;
+        top:0;
+        .logo{
+            width:91px;
+            height:88px;
+            margin-top:0;
+            background-image:url(../images/kb_logo.png);
+            background-size:cover;
+            border: 1px dashed red;
+        }
+        .logo-text-container{
+            top: 1px;
+            left: 115px;
+            border: 1px dashed red;
+        }
+    }
+    &.mini{
+        height:70px;
+        .navbar-header{
+            top: -50px;
+            .logo{
+                width:46px;
+                height:45px;
+                margin-top:48px;
+            }
+            .logo-text-container{
+                top:53px;
+                left:55px;
+            }
+        }
+    }
+    &.micro{
+        height:50px;
+        .navbar-header{
+            top: -70px;
+            .logo{
+                width:46px;
+                height:45px;
+                margin-top:57px;
+            }
+        }
+    }
+    .logo-text-container{
+        display:block;
+        @media (max-width: 600px) {
+            display: none;
+        }
+        position:absolute;
+        left:115px;
+        transition: opacity 200ms ease-in;
+    }
+    .logo-text{
+        position:relative;
+        width:392px;
+        height:41px;
+        background-image:url(../images/kb_logo_text.png);
+    }
+
+    // FIXME: SAKSET fra mockup'en
+@screen-xl:                  1400px;
+@screen-xl-min:              @screen-xl;
+
+    .kb-navbar{
+        margin-top:70px;
+        margin-left:100px;
+        font-family:  "RobotoCondensedRegular", Helvetica, Arial, sans-serif;
+        font-size:20px;
+        .kb-nav{
+            @media (max-width: @screen-xl-min) {
+                font-size: 16px;
+            }
+            @media (max-width: @screen-lg-min) {
+                font-size: 14px;
+            }
+        }
+        .navbar-right{
+            a{
+                font-family:  "RobotoSlab-Regular", Helvetica, Arial, sans-serif;
+                font-size:14px;
+                @media (max-width: @screen-lg-min) {
+                    font-size: 12px;
+                }
+            }
+        }
+
+        a{
+            color: @navbar-default-link-color;
+        }
+        .kb-nav{
+            text-transform: uppercase;
+            li > a{
+                position:relative;
+                white-space: nowrap;
+                transition: padding 200ms ease-out;
+                .activeLine{
+                    display:none;
+                    position:absolute;
+                    left:@navbar-padding-horizontal * 1.5;
+                    bottom:floor(@navbar-padding-vertical - 2);
+                    width:floor(@navbar-padding-horizontal * 1.2);
+                    border:1px solid @navbar-default-link-active-color;
+                }
+                &.active > a:hover{
+                    color:@navbar-default-link-hover-color;
+                }
+                &:hover > .activeLine{
+                    display:block;
+                    border-color: @navbar-default-link-hover-color;
+                }
+                &.active > .activeLine{
+                    display:block;
+                }
+            }
+        }
+        .kb-nav-left{
+            margin-top: 5px;
+        }
+        .kb-nav-left > li{
+            float:left;
+            a:hover{
+                background-color: @navbar-default-bg;
+                color:@navbar-default-link-hover-color;
+            }
+        }
+    }
+}
 
