@@ -12,7 +12,21 @@ function (window, $, undefined) {
         if (!$(this).closest('li').next().hasClass('collapsing')) { // only change if not under transition!
             $('.glyphicon', this).toggleClass('open');
         }
-        target.collapse('toggle');
+        if (target.hasClass('in')) {
+            target.collapse('hide');
+            if (!$.support.transition) { // if IE8 or IE9, change chevrons instead of rotating them
+                (e.target.tagName === 'SPAN' ? $(e.target) : $('.glyphicon', e.target)) // either user has clicked on the a tag or the span - either way we wanna change the span tag classes
+                    .removeClass('glyphicon-chevron-up')
+                    .addClass('glyphicon-chevron-down');
+            }
+        } else  {
+            target.collapse('show');
+            if (!$.support.transition) { // if IE8 or IE9, change chevrons instead of rotating them
+                (e.target.tagName === 'SPAN' ? $(e.target) : $('.glyphicon', e.target)) // same as above
+                    .removeClass('glyphicon-chevron-down')
+                    .addClass('glyphicon-chevron-up');
+            }
+        }
     };
 
     KbMenu.prototype = {
