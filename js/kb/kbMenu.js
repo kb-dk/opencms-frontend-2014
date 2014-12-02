@@ -34,14 +34,14 @@ function (window, $, undefined) {
             function () {
                 var index = 0;
                 return function () {
-                    return index++;    
+                    return index++;
                 };
             }()),
         /**
          * Fetches and injects all submenupoints under elem.
          * Note: We drop a true in elem.data('subMenusLoaded') when submenus for a given element is loaded, to prevent loading the same submenu more than once pr session.
          * @param elem {jQueryElement|String/selector} The element to search for submenus under. Submenus are defined by the presence of a data-src attribute in a .chevronpart
-         */ 
+         */
         fetchSubMenus: function (elem) {
             //console.log('finding submenus in element: ', (elem.attr('id') || 'outerNav'));
             $('.chevronpart[data-src]', elem).each(function (index, element, allElements) {
