@@ -206,17 +206,28 @@ body.showMenu #kbCanvasContainer{
         width:100%;
         top:0;
         .logo{
+            display:block;
+            position:absolute;
             width:91px;
             height:88px;
-            margin-top:0;
-            background-image:url(../images/kb_logo.png);
+            top:16px;
+            background-image:url(../img/kb_logo.png);
             background-size:cover;
-            border: 1px dashed red;
+            @media (max-width: (@screen-sm-min - 1)){
+                left: 16px;
+            }
         }
-        .logo-text-container{
-            top: 1px;
+        .logo-text{
+            display:block;
+            position:absolute;
+            width:426px;
+            height:41px;
+            top: 16px;
             left: 115px;
-            border: 1px dashed red;
+            background-image:url(../img/kb_logo_text.png);
+            @media (max-width: 585px) {
+                display: none;
+            }
         }
     }
     &.mini{
@@ -226,11 +237,15 @@ body.showMenu #kbCanvasContainer{
             .logo{
                 width:46px;
                 height:45px;
-                margin-top:48px;
+                top:63px;
+                background-image:url(../img/kb_logo_small.png);
             }
-            .logo-text-container{
-                top:53px;
+            .logo-text{
+                top:66px;
                 left:55px;
+                @media (max-width: (@screen-sm-min - 1)){
+                    left: 55px + 16px;
+                }
             }
         }
     }
@@ -241,26 +256,11 @@ body.showMenu #kbCanvasContainer{
             .logo{
                 width:46px;
                 height:45px;
-                margin-top:57px;
+                top:73px;
+                background-image:url(../img/kb_logo_small.png);
             }
         }
     }
-    .logo-text-container{
-        display:block;
-        @media (max-width: 600px) {
-            display: none;
-        }
-        position:absolute;
-        left:115px;
-        transition: opacity 200ms ease-in;
-    }
-    .logo-text{
-        position:relative;
-        width:392px;
-        height:41px;
-        background-image:url(../images/kb_logo_text.png);
-    }
-
     .kb-navbar{
         margin-top:@kbNavbar-margin-top;
         margin-left:@kbNavbar-margin-left;
