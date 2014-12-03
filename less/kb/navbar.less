@@ -1,21 +1,6 @@
 //
 // KB Navbar
 // --------------------------------------------------
-@nav-mobile-font-family: "RobotoCondensedRegular", Helvetica, Arial, sans-serif;
-@nav-mobile-font-size: 20px;
-@nav-mobile-li-height: 50px;
-@nav-mobile-background-color: #fff;
-@nav-mobile-l2-background-color: darken(@nav-mobile-background-color, 10%);
-@nav-mobile-l3-background-color: darken(@nav-mobile-l2-background-color, 10%);
-@nav-mobile-l4-background-color: darken(@nav-mobile-l3-background-color, 10%);
-@nav-mobile-l5-background-color: darken(@nav-mobile-l4-background-color, 10%);
-@nav-mobile-padding-left: 30px;
-@nav-mobile-padding-step: 10px;
-@nav-mobile-l2-padding-left: @nav-mobile-padding-left + @nav-mobile-padding-step;
-@nav-mobile-l3-padding-left: @nav-mobile-padding-left + (2 * @nav-mobile-padding-step);
-@nav-mobile-l4-padding-left: @nav-mobile-padding-left + (3 * @nav-mobile-padding-step);
-@nav-mobile-l5-padding-left: @nav-mobile-padding-left + (4 * @nav-mobile-padding-step);
-
 body{
     overflow-x:hidden;
 }
@@ -43,21 +28,19 @@ body.showMenu #kbCanvasContainer{
     font-family:@nav-mobile-font-family;
     font-size:@nav-mobile-font-size;
     overflow:hidden;
-    background-color:#fff;
+    background-color:@color-white;
     .kb-nav > li{
         width:100%;
         a{
             position:relative;
             width:100%;
-            border-bottom:1px solid #d8d8d8;
-            padding-left:@nav-mobile-left-padding;
+            border-bottom:1px solid @nav-mobile-separator-border-color;
+            padding-left:@nav-mobile-padding-left;
             height:@nav-mobile-li-height;
             padding-top:(@nav-mobile-li-height - @nav-mobile-font-size) / 2;
             .activeLine{
                 display:none;
                 position:absolute;
-                //left:@navbar-padding-horizontal + @nav-mobile-left-padding - 1;
-                //bottom:floor(@navbar-padding-vertical - 5);
                 width:floor(@navbar-padding-horizontal * 1.2);
                 border:1px solid @navbar-default-link-active-color;
             }
@@ -74,25 +57,25 @@ body.showMenu #kbCanvasContainer{
         }
     }
     .searchbox-container{
-        padding:20px;
-        border-bottom: 1px solid @gray-lighter;
+        padding:@nav-mobile-searchbox-padding;
+        border-bottom:1px solid @gray-lighter;
         .input-group{
-            color:#000;
+            color:@color-black;
             kb-nav{
                 margin-top:0;
             }
             input, button{
                 border-radius:0;
-                border:1px solid #000;
+                border:1px solid @color-black;
                 &.btn-default{
-                    color:#000;
+                    color:@color-black;
                 }
                 &:hover{
                     background-color: inherit;
                 }
             }
             input{
-                border:1px solid #000;
+                border:1px solid @color-black;
                 border-right:0;
                 &.form-control{
                     box-shadow:none;
@@ -100,7 +83,7 @@ body.showMenu #kbCanvasContainer{
             }
             button{
                 border-left:0;
-                background-color:#fff;
+                background-color:@color-white;
             }
         }
     }
@@ -113,11 +96,11 @@ body.showMenu #kbCanvasContainer{
             float:right;
             cursor:pointer;
             z-index:10; // has to be on top of the directLink for clicks
-            height:50px;
-            width:50px;
+            height:@nav-mobile-li-height;
+            width:@nav-mobile-li-height;
             border-left:1px solid @gray-lighter;
-            padding-top:16px;
-            padding-left:16px;
+            padding-top:(@nav-mobile-li-height - @nav-mobile-font-size) / 2 + 1; // +1 = + border (~16px)
+            padding-left:(@nav-mobile-li-height - @nav-mobile-font-size) / 2 + 1;
 
             &>.glyphicon{
                 transition: transform 200ms ease-out;
@@ -254,15 +237,11 @@ body.showMenu #kbCanvasContainer{
         background-image:url(../images/kb_logo_text.png);
     }
 
-    // FIXME: SAKSET fra mockup'en
-@screen-xl:                  1400px;
-@screen-xl-min:              @screen-xl;
-
     .kb-navbar{
-        margin-top:70px;
-        margin-left:100px;
-        font-family:  "RobotoCondensedRegular", Helvetica, Arial, sans-serif;
-        font-size:20px;
+        margin-top:@kbNavbar-margin-top;
+        margin-left:@kbNavbar-margin-left;
+        font-family: "RobotoCondensedRegular", Helvetica, Arial, sans-serif;
+        font-size:@nav-mobile-font-size;
         .kb-nav{
             @media (max-width: @screen-xl-min) {
                 font-size: 16px;
@@ -273,7 +252,7 @@ body.showMenu #kbCanvasContainer{
         }
         .navbar-right{
             a{
-                font-family:  "RobotoSlab-Regular", Helvetica, Arial, sans-serif;
+                font-family: "RobotoSlab-Regular", Helvetica, Arial, sans-serif;
                 font-size:14px;
                 @media (max-width: @screen-lg-min) {
                     font-size: 12px;
