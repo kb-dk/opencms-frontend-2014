@@ -15,6 +15,27 @@ body.showMenu #kbCanvasContainer{
     transition:right 300ms ease-in-out;
 }
 
+#kbMenuToggler{
+    width:45px;
+    height:45px;
+    box-sizing:border-box;
+    border-top: 4px solid black;
+    border-bottom: 4px solid black;
+    padding-top: 7px;
+    margin-top:63px;
+    margin-bottom:10px;
+    margin-right:15px;
+    font-size:16px;
+    text-align:center;
+    vertical-align:middle;
+    cursor:pointer;
+    z-index:25; // neeed to be above the rest of the header to catch clicks
+    &:hover{
+        border-color: @gray-light;
+        color: @gray-light;
+    }
+}
+
 .kb-navbar-mobile{
     ul{
         margin:0;
