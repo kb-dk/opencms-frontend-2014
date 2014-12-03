@@ -201,10 +201,12 @@ body.showMenu #kbCanvasContainer{
     position:relative;
     height:120px;
     overflow:hidden;
+    transition:height 200ms ease-out;
     .navbar-header{
         position:relative;
         width:100%;
         top:0;
+        transition:top 200ms ease-out;
         .logo{
             display:block;
             position:absolute;
@@ -213,6 +215,7 @@ body.showMenu #kbCanvasContainer{
             top:16px;
             background-image:url(../img/kb_logo.png);
             background-size:cover;
+            transition:top 200ms ease-out;
             @media (max-width: (@screen-sm-min - 1)){
                 left: 16px;
             }
@@ -253,11 +256,13 @@ body.showMenu #kbCanvasContainer{
         height:50px;
         .navbar-header{
             top: -70px;
+            transition:top 200ms ease-out;
             .logo{
                 width:46px;
                 height:45px;
                 top:73px;
                 background-image:url(../img/kb_logo_small.png);
+                transition:top 200ms ease-out;
             }
         }
     }
