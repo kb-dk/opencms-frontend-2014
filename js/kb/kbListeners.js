@@ -28,6 +28,23 @@ $(document).ready(function() {
         $('body').addClass(window.kbModus);
     };
 
+    var ajustBodyMarginTop = function () {
+        // ajust top margin to fit alert + header
+        var alertHeight = $('section.alert', $topnavigation).outerHeight(),
+            allNavHeaderHeight =  alertHeight + $('section.kb-navbar-container .navbar-header', $topnavigation).outerHeight(); // used to be without .navbar-header
+        if ($body.hasClass('desktop')) { // body.desktop
+            if (allNavHeaderHeight !== $('body').data('margin-top')) {
+                $body.css('margin-top', allNavHeaderHeight);
+                $body.data('margin-top', allNavHeaderHeight);
+            }
+        } else { // body.tablet or body.mobile
+            if ($('body').data('margin-top') !== 0) {
+                $body.css('margin-top', 0);
+                $body.data('margin-top', 0);
+            }
+        }
+    }
+
     /**
      * Ajust header height according to scrollTop and screen width
      * We have 3 different sizes of headers: normal (big), mini and micro
@@ -53,20 +70,6 @@ $(document).ready(function() {
         } else {
             if (!$kbNavbarContainer.hasClass('mini')) {
                 $kbNavbarContainer.addClass('mini');
-            }
-        }
-        // ajust top margin to fit alert + header
-        var alertHeight = $('section.alert', $topnavigation).outerHeight(),
-            allNavHeaderHeight =  alertHeight + $('section.kb-navbar-container', $topnavigation).outerHeight();
-        if ($body.hasClass('desktop')) { // body.desktop
-            if (allNavHeaderHeight !== $('body').data('margin-top')) {
-                $body.css('margin-top', allNavHeaderHeight);
-                $body.data('margin-top', allNavHeaderHeight);
-            }
-        } else { // body.tablet or body.mobile
-            if ($('body').data('margin-top') !== 0) {
-                $body.css('margin-top', 0);
-                $body.data('margin-top', 0);
             }
         }
     }
@@ -96,11 +99,16 @@ $(document).ready(function() {
                 ajustHeaderHeight();
             }
         }
+        ajustBodyMarginTop();
     });
 
     // initialize the header size
     $('body').data('margin-top', 120); // initial margin-top : 120; // we keep the margin-top in data, to avoid having to set a new margin-top unless it is necessary
     ajustHeaderHeight();
+
+    ajustBodyMarginTop();
+
+    $('.topnavigation .alert button[class=close]').click(function () { setTimeout(ajustBodyMarginTop, 0);}); // When alert is dismissed (AFTER the alert has gone) - recalculate body margin-top
 
     //scrollspy
     $(window).scroll(ajustHeaderHeight);
