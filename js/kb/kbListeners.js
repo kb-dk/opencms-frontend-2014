@@ -20,14 +20,23 @@ $(document).ready(function() {
         MOBILE = 752, // magic-number 752 = 768 - 2 * 8px (window-borders?)
         TABLET = 977, // magic-number 976 = 992 - 2 * 8px
         initialWidth = $(window).innerWidth(); // FIXME: switch to outerWidth instead?
-    kbModus = initialWidth < MOBILE ? MOBILESTR : initialWidth < TABLET ? TABLETSTR : DESKTOPSTR;
+    window.kbModus = initialWidth < MOBILE ? MOBILESTR : initialWidth < TABLET ? TABLETSTR : DESKTOPSTR; // in window.kbModus we keep track of mobile/tablet/desktop width
 
     var setModus = function (modus) {
-        $('body').removeClass(kbModus);
-        kbModus = modus;
-        $('body').addClass(kbModus);
+        $('body').removeClass(window.kbModus);
+        window.kbModus = modus;
+        $('body').addClass(window.kbModus);
     };
 
+    /**
+     * Ajust header height according to scrollTop and screen width
+     * We have 3 different sizes of headers: normal (big), mini and micro
+     * normal is with huge logo, logotype and horizontal menu
+     * mini is with little logo, logotype and a menu button, and
+     * micro is with little logo and horizontal menu
+     * if the screen is desktop width, the header should be normal until 100px down scrolled, where it should change to micro
+     * if the screen is tablet or mobile width, the header should be mini (it won't get micro when scrolling down, since it is no longer fixed at top
+     */
     var ajustHeaderHeight = function () {
         var scrollTop = $(window).scrollTop(),
             $body = $('body');
