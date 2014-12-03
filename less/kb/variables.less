@@ -1,12 +1,39 @@
 // overriding bootstraps font path
 @icon-font-path: "../fonts/bootstrap331/";
-
 @font-size-xsmall: ceil((@font-size-base * 0.7)); // ~10px;
 
-// KB navbar
-@nav-mobile-left-padding:30px;
-@nav-mobile-show-width:90%;
+@screen-xl: 1400px;
+@screen-xl-min: @screen-xl;
 
+
+// colors
+@color-white: #fff;
+@color-black: #000;
+
+// KB navbar
+@kbNavbar-margin-top: 70px;
+@kbNavbar-margin-left: 100px;
+@kbNavbar-height: 120px;
+@kbNavbar-mini-height: 70px;
+@kbNavbar-micro-height: 50px;
+
+@nav-mobile-show-width: 90%;
+@nav-mobile-font-family: "RobotoCondensedRegular", Helvetica, Arial, sans-serif;
+@nav-mobile-font-size: 20px;
+@nav-mobile-li-height: 50px;
+@nav-mobile-background-color: #fff;
+@nav-mobile-l2-background-color: darken(@nav-mobile-background-color, 10%);
+@nav-mobile-l3-background-color: darken(@nav-mobile-l2-background-color, 10%);
+@nav-mobile-l4-background-color: darken(@nav-mobile-l3-background-color, 10%);
+@nav-mobile-l5-background-color: darken(@nav-mobile-l4-background-color, 10%);
+@nav-mobile-separator-border-color: #d8d8d8;
+@nav-mobile-padding-left: 30px;
+@nav-mobile-padding-step: 10px;
+@nav-mobile-l2-padding-left: @nav-mobile-padding-left + @nav-mobile-padding-step;
+@nav-mobile-l3-padding-left: @nav-mobile-padding-left + (2 * @nav-mobile-padding-step);
+@nav-mobile-l4-padding-left: @nav-mobile-padding-left + (3 * @nav-mobile-padding-step);
+@nav-mobile-l5-padding-left: @nav-mobile-padding-left + (4 * @nav-mobile-padding-step);
+@nav-mobile-searchbox-padding: 20px;
 
 // KB Footer
 @footer-background: #1b1b1b;
