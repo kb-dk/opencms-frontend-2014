@@ -51,7 +51,7 @@ function (window, $, undefined) {
                     success: function (data, stat) {
                         var submenu = $(data),
                             uid = 'kbSubmenu-' + kbMenu.uidGen(),
-                            chevronpart = this.find('.chevronpart'); // FIXME: XXX XXX XXX Hvis du indsætter en selector, så kan du vist nøjes med at sætte denne listener på kb-navbar-mobile, så finder den selv ned til de rette elementer? XXX Første level skal IKKE loades på onload, men først når brugeren rent faktisk interagerer med menuen - dvs. første gang der klikkes på menuToggler! :-)
+                            chevronpart = this.find('.chevronpart'); // FIXME: Might wanna catch event on a parent object, instead of having several listeners!
                         submenu.attr('id', uid);
                         chevronpart.attr('data-target', '#' + uid);
                         this.after(submenu);
