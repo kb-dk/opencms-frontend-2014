@@ -11,7 +11,9 @@ $(document).ready(function() {
 
     //setTimeout(function () { $('#kbMenuToggler').click(); }, 500); // FIXME: only for test!
 
-    var SCREEN_SM_STR = 'mobile',
+    var PX_FROM_TOP_TO_COLLAPSE_MENU = 100,
+        INITIAL_BODY_MARGIN_TOP = 120,
+        SCREEN_SM_STR = 'mobile',
         SCREEN_MD_STR = 'tablet',
         SCREEN_LG_STR = 'desktop',
         $body = $('body'),
@@ -58,7 +60,7 @@ $(document).ready(function() {
         var scrollTop = $(window).scrollTop(),
             $body = $('body');
         if (kbModus === SCREEN_LG_STR) {
-            if (scrollTop <= 100) {
+            if (scrollTop <= PX_FROM_TOP_TO_COLLAPSE_MENU) {
                 if ($kbNavbarContainer.hasClass('micro')) {
                     $kbNavbarContainer.removeClass('micro');
                 }
@@ -103,7 +105,7 @@ $(document).ready(function() {
     });
 
     // initialize the header size
-    $('body').data('margin-top', 120); // initial margin-top : 120; // we keep the margin-top in data, to avoid having to set a new margin-top unless it is necessary
+    $('body').data('margin-top', INITIAL_BODY_MARGIN_TOP);
     ajustHeaderHeight();
 
     ajustBodyMarginTop();
