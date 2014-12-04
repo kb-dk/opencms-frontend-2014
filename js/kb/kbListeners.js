@@ -11,16 +11,16 @@ $(document).ready(function() {
 
     //setTimeout(function () { $('#kbMenuToggler').click(); }, 500); // FIXME: only for test!
 
-    var MOBILESTR = 'mobile',
-        TABLETSTR = 'tablet',
-        DESKTOPSTR = 'desktop',
+    var SCREEN-SM-STR = 'mobile',
+        SCREEN-MD-STR = 'tablet',
+        SCREEN-LG-STR = 'desktop',
         $body = $('body'),
         $topnavigation = $('.topnavigation'),
         $kbNavbarContainer = $('.kb-navbar-container'),
-        MOBILE = 752, // magic-number 752 = 768 - 2 * 8px (window-borders?)
-        TABLET = 977, // magic-number 976 = 992 - 2 * 8px
+        SCREEN-SM = 752, // magic-number 752 = 768 - 2 * 8px (window-borders?)
+        SCREEN-MD = 977, // magic-number 976 = 992 - 2 * 8px
         initialWidth = $(window).innerWidth(); // FIXME: switch to outerWidth instead?
-    window.kbModus = initialWidth < MOBILE ? MOBILESTR : initialWidth < TABLET ? TABLETSTR : DESKTOPSTR; // in window.kbModus we keep track of mobile/tablet/desktop width
+    window.kbModus = initialWidth < SCREEN-SM ? SCREEN-SM-STR : initialWidth < SCREEN-MD ? SCREEN-MD-STR : SCREEN-LG-STR; // in window.kbModus we keep track of mobile/tablet/desktop width
 
     var setModus = function (modus) {
         $('body').removeClass(window.kbModus);
@@ -57,7 +57,7 @@ $(document).ready(function() {
     var ajustHeaderHeight = function () {
         var scrollTop = $(window).scrollTop(),
             $body = $('body');
-        if (kbModus === DESKTOPSTR) {
+        if (kbModus === SCREEN-LG-STR) {
             if (scrollTop <= 100) {
                 if ($kbNavbarContainer.hasClass('micro')) {
                     $kbNavbarContainer.removeClass('micro');
@@ -78,24 +78,24 @@ $(document).ready(function() {
 
     $(window).resize(function (){
         var innerWidth = $(window).innerWidth();
-        if (innerWidth < MOBILE) {
-            if (kbModus !== MOBILESTR) {
-                setModus(MOBILESTR);
+        if (innerWidth < SCREEN-SM) {
+            if (kbModus !== SCREEN-SM-STR) {
+                setModus(SCREEN-SM-STR);
                 ajustHeaderHeight();
             }
-        } else if (innerWidth < TABLET) {
-            if (kbModus !== TABLETSTR) {
+        } else if (innerWidth < SCREEN-MD) {
+            if (kbModus !== SCREEN-MD-STR) {
                 $kbNavbarContainer.removeClass('micro').addClass('mini');
-                setModus(TABLETSTR);
+                setModus(SCREEN-MD-STR);
                 ajustHeaderHeight();
             }
         } else {
-            if (kbModus !== DESKTOPSTR) {
-                if (kbModus === TABLETSTR) { // if we come from the tablet view, close menu (if it is present).
+            if (kbModus !== SCREEN-LG-STR) {
+                if (kbModus === SCREEN-MD-STR) { // if we come from the tablet view, close menu (if it is present).
                     $body.removeClass('showMenu');
                 }
                 $kbNavbarContainer.removeClass('mini');
-                setModus(DESKTOPSTR);
+                setModus(SCREEN-LG-STR);
                 ajustHeaderHeight();
             }
         }
