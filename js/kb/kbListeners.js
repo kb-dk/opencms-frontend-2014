@@ -11,6 +11,11 @@ $(document).ready(function() {
 
     //setTimeout(function () { $('#kbMenuToggler').click(); }, 500); // FIXME: only for test!
 
+    // focusing sliding search bar on search clicks
+    $('.kbSearchToggler').click(function () {
+        setTimeout(function () { $('#search-slidedown input').focus(); }, 0);
+    });
+
     var PX_FROM_TOP_TO_COLLAPSE_MENU = 100,
         INITIAL_BODY_MARGIN_TOP = 120,
         SCREEN_SM_STR = 'mobile',
