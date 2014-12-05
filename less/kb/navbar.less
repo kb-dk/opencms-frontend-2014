@@ -328,6 +328,28 @@ body.showMenu #kbCanvasContainer{
                 color:@navbar-default-link-hover-color;
             }
         }
+        .kbSearchToggler{
+            cursor:pointer;
+        }
+    }
+}
+#search-slidedown{
+    background-color:@color-black;
+    .kb-search-box{
+        margin-top:5px;
+        margin-bottom:5px;
+        button{
+            border:none;
+            border-radius:0;
+        }
+        input{
+            border:1px solid @color-black;
+            border-radius:0;
+            border-right:0;
+            &.form-control{
+                box-shadow:none;
+            }
+        }
     }
 }
 
