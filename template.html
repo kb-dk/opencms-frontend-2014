@@ -79,12 +79,14 @@
                     </div>
                 </section>
                 <section id="search-slidedown" class="search-slidedown collapse container-fluid hidden-xs hidden-sm">
-                    <div class="input-group kb-search-box container">
-                        <input type="text" class="form-control" placeholder="Søg på Det Kgl. Biblioteks website" /><!-- FIXME i18n -->
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
-                        </span>
-                    </div>
+                    <form action="/da/soeg/" method="get">
+                        <div class="input-group kb-search-box container">
+                            <input type="text" name="query" class="form-control" placeholder="Søg på Det Kgl. Biblioteks website" /><!-- FIXME i18n -->
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                            </span>
+                        </div>
+                    </form>
                 <section>
             </div>
         </header>
