@@ -71,11 +71,21 @@
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a href="#">English</a></li>
-                                <li><a href="#">Søg <span class="glyphicon glyphicon-search"></span></a>
+                                <li><a data-toggle="collapse" data-target="#searchSlidedown" aria-expanded="false">
+                                    Søg <span class="glyphicon glyphicon-search"></span>
+                                </a></li>
                             </ul>
                         </nav>
                     </div>
                 </section>
+                <section id="searchSlidedown" class="searchSlidedown collapse">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Søg på Det Kgl. Biblioteks website" /><!-- FIXME i18n -->
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                        </span>
+                    </div>
+                <section>
             </div>
         </header>
         <div id="kbCanvasContainer">
