@@ -47,7 +47,7 @@ function (window, $, undefined) {
                 var $element = $(element),
                     url = $element.attr('data-src');
                 $.ajax({
-                    url: url,
+                    url: '/system/modules/dk.kb.responsive.menu/elements/localmenu-mobile.jsp?getMenu=' + url,
                     success: function (data, stat) {
                         var submenu = $(data),
                             uid = 'kbSubmenu-' + kbMenu.uidGen(),
