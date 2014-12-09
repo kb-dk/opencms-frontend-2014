@@ -213,11 +213,19 @@ body.showMenu #kbCanvasContainer{
             width:91px;
             height:88px;
             top:16px;
-            background-image:url(../img/kb_logo.png);
-            background-size:cover;
             transition:top 200ms ease-out;
-            @media (max-width: (@screen-sm-min - 1)){
+            picture img{
+                transition: width 200ms ease-out, height 200ms ease-out;
+            }
+        }
+        &.micro{
+            .logo picture img{
                 left: 16px;
+                width: 45px;
+                height: 44px;
+            }
+            .logo-text{
+                // XXX XXX XXX here goes what should happen to logo-text under micro (might be nothing?)
             }
         }
         .logo-text{
@@ -227,7 +235,6 @@ body.showMenu #kbCanvasContainer{
             height:41px;
             top: 16px;
             left: 115px;
-            background-image:url(../img/kb_logo_text.png);
             @media (max-width: 585px) {
                 display: none;
             }

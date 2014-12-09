@@ -55,8 +55,23 @@
                         <div id="kbMenuToggler" class="pull-right visible-xs visible-sm">
                             Menu
                         </div>
-                        <a class="logo" href="#" title="Til forsiden"></a><!-- FIXME i18n -->
-                        <a class="logo-text" href="#" title="Til forsiden"></a><!-- FIXME i18n -->
+                        <a class="logo" href="#" title="Til forsiden"><!-- FIXME i18n -->
+                            <picture alt="Til forsiden"><!-- FIXME i18n -->
+                                <!--[if IE 9]><video style="display: none;"><![endif]-->
+                                <source srcset="img/kb_logo_small.png, img/kb_logo_smallX2.png 2x" media="(max-width: 991px)"/>
+                                <source srcset="img/kb_logo.png, img/kb_logoX2.png 2x" media="(min-width: 992px)"/>
+                                <!--[if IE 9]></video><![endif]-->
+                                <img src="img/kb_logo.png" alt="Til forsiden"/><!-- FIXME i18n -->
+                            </picture>
+                        </a>
+                        <a class="logo-text" href="#" title="Til forsiden"><!-- FIXME i18n -->
+                            <picture alt="Til forsiden"><!-- FIXME i18n -->
+                                <!--[if IE 9]><video style="display: none;"><![endif]-->
+                                <source srcset="img/kb_logo_text.png, img/kb_logo_textX2.png 2x"/>
+                                <!--[if IE 9]></video><![endif]-->
+                                <img src="img/kb_logo.png" alt="Til forsiden"/><!-- FIXME i18n -->
+                            </picture>
+                        </a>
                         <nav class="kb-navbar hidden-xs hidden-sm">
                             <ul class="nav navbar-nav kb-nav">
                                 <li><a href="#">Om os<div class="activeLine"></div></a></li>
