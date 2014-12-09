@@ -95,12 +95,14 @@
             <nav id="kb-navbar-mobile" class="kb-navbar-mobile visible-xs visible-sm hidden-md hidden-lg">
                 <!-- searchbox in top of mobile menu -->
                 <div class="searchbox-container">
-                    <div class="input-group">
-                        <input type="search" class="form-control" placeholder="Søg på Det Kgl. Biblioteks website"><!-- FIXME: i18n -->
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
-                        </span>
-                    </div>
+                    <form action="/da/soeg/" method="get">
+                        <div class="input-group">
+                            <input type="search" name="query" class="form-control" placeholder="Søg på Det Kgl. Biblioteks website"><!-- FIXME: i18n -->
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                            </span>
+                        </div>
+                    </form>
                 </div>
                 <!-- mobile menu -->
                 <ul class="nav navbar-nav kb-nav">
