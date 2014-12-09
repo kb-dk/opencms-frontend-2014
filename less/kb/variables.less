@@ -1,10 +1,67 @@
+//== Colors
+//
+//## Gray and brand colors for use across Bootstrap.
+
+@black:                   #000000;
+@white:                   #FFFFFF;
+
+@dark-blue:               #07162e;
+@light-blue:              #5d92ab;
+@dark-green:              #213b24;
+@dark-red:                #5b2320;
+@dark-gold:               #977d4b;
+@light-gold:              #ab9b63;
+
+
+//== Scaffolding
+//
+//## Settings for some of the most global styles.
+
+//** Background color for `<body>`.
+@body-bg:               @white;
+//** Global text color on `<body>`.
+@text-color:            @black;
+
+//** Global textual link color.
+@link-color:            @black;
+//** Link hover color set via `darken()` function.
+@link-hover-color:      lighten(@link-color, 20%);
+//** Link hover decoration.
+@link-hover-decoration: underline;
+
+@reset-padding:               0px;
+@reset-margin:                0px;
+
+@font-style-normal:        normal;
+@font-style-bold:            bold;
+
+
+//== Typography
+//
+//## Font, line-height, and color for body text, headings, and more.
+// overriding bootstraps font
+
+@font-face {
+  font-family: Roboto-Regular;
+  src: url(../../fonts/kb/Roboto-Regular.ttf);
+}
+@font-face {
+  font-family: RobotoSlab-Regular;
+  src: url(../../fonts/kb/RobotoSlab-Regular.ttf);
+}
+@font-family-sans-serif:  Roboto-Regular, Helvetica, Arial, sans-serif;
+@font-family-serif:       RobotoSlab-Regular, "Times New Roman", Times, serif;
+@font-family-base:        @font-family-sans-serif;
+
+// overriding bootstraps
+@headings-font-family:    @font-family-serif;
+
 // overriding bootstraps font path
 @icon-font-path: "../fonts/bootstrap331/";
 @font-size-xsmall: ceil((@font-size-base * 0.7)); // ~10px;
 
 @screen-xl: 1400px;
 @screen-xl-min: @screen-xl;
-
 
 // colors
 @color-white: #fff;
@@ -36,7 +93,73 @@
 @nav-mobile-l5-padding-left: @nav-mobile-padding-left + (4 * @nav-mobile-padding-step);
 @nav-mobile-searchbox-padding: 20px;
 
+// KB DECK
+//--------------------------------------------------
+@deck-padding:                                                           20px;
+// Header font-size/line-height
+@deck-header-style:     @font-style-normal @font-style-bold;
+@deck-header-xs:               @deck-header-style 30px/40px @font-family-sans-serif;
+@deck-header-sm:               @deck-header-style 20px/28px @font-family-sans-serif;
+@deck-header-md:               @deck-header-style 26px/32px @font-family-sans-serif;
+@deck-header-lg:               @deck-header-style 26px/32px @font-family-sans-serif;
+
+@deck-p-style:                           @font-style-normal @font-style-normal;
+@deck-p-xs:                                    @deck-p-style 26px/36px @font-family-base;
+@deck-p-sm:                                    @deck-p-style 20px/26px @font-family-base;
+@deck-p-md:                                    @deck-p-style 20px/26px @font-family-base;
+@deck-p-lg:                                    @deck-p-style 20px/26px @font-family-base;
+
+// KB TEASER
+//--------------------------------------------------
+
+@teaser-caption-padding: 30px 20px;
+//color
+@teaser-background:                                    #f8f8f8;
+@teaser-label:                                         #969696;
+
+// Header font-size/line-height
+@teaser-header-style:                       @font-style-normal @font-style-bold;
+@teaser-header-xs:            @teaser-header-style 44px/54px @font-family-serif;
+@teaser-header-sm:            @teaser-header-style 22px/30px @font-family-serif;
+@teaser-header-md:            @teaser-header-style 16px/22px @font-family-serif;
+@teaser-header-lg:            @teaser-header-style 20px/26px @font-family-serif;
+
+// Paragraph font-size/line-height
+@teaser-p-style:                          @font-style-normal @font-style-normal;
+@teaser-p-xs:                                  @teaser-p-style 30px/40px @font-family-base;
+@teaser-p-sm:                                 @teaser-p-style 16px/22px @font-family-base;
+@teaser-p-md:                                 @teaser-p-style 13px/18px @font-family-base;
+@teaser-p-lg:                                  @teaser-p-style 14px/20px @font-family-base;
+
+// Stamp/Time font-size/line-height
+@teaser-stamp-style: @font-style-normal @font-style-normal;
+@teaser-stamp-xs:        @teaser-stamp-style 24px/34px @font-family-serif;
+@teaser-stamp-sm:        @teaser-stamp-style 15px/22px @font-family-serif;
+@teaser-stamp-md:        @teaser-stamp-style 12px/16px @font-family-serif;
+@teaser-stamp-lg:        @teaser-stamp-style 14px/20px @font-family-serif;
+
+
+// KB SPOT
+//--------------------------------------------------
+
+@spot-caption-padding: 30px 20px;
+
+// Header font-size/line-height
+@spot-header-style:         @font-style-normal @font-style-bold;
+@spot-header-xs:            @spot-header-style 55px/65px @font-family-base;
+@spot-header-sm:            @spot-header-style 55px/65px @font-family-base;
+@spot-header-md:            @spot-header-style 40px/50px @font-family-base;
+@spot-header-lg:            @spot-header-style 55px/65px @font-family-base;
+
+// Paragraph font-size/line-height
+@spot-p-style:                          @font-style-normal @font-style-normal;
+@spot-p-xs:                                  @teaser-p-style 24px/34px @font-family-serif;
+@spot-p-sm:                                 @teaser-p-style 22px/28px @font-family-serif;
+@spot-p-md:                                 @teaser-p-style 15px/22px @font-family-serif;
+@spot-p-lg:                                  @teaser-p-style 18px/26px @font-family-serif;
+
 // KB Footer
+//--------------------------------------------------
 @footer-background: #1b1b1b;
 @footer-color: #c9c9c9;
 @footer-color-hover: #fff;

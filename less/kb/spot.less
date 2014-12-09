@@ -3,16 +3,7 @@
 //
 //------------------------------------------------------
 
-// Variables
-@spot-caption-padding-lg: 30px 20px;
-
-// SPOT COLOR
-@dark-blue:               #07162e;
-@light-blue:              #5d92ab;
-@dark-green:              #213b24;
-@dark-red:                #5b2320;
-@dark-gold:               #977d4b;
-@light-gold:              #ab9b63;
+// Background for spots
 
 .spot-dark-blue{
   background-color:@dark-blue;
@@ -33,99 +24,187 @@
   background-color:@light-gold;
 }
 
-// Fullscreen spot
-// Need .container-fluid as wrapper
-.container-fluid{
-  padding:0px;
+
+
+// Fallback mobil first
+
   .spot{
-    /* Small devices (tablets, 768px and up) */
+    height:@comp-height-xs;
+    background:@dark-blue;
+
+    a{
+      display: block;
+    }
+    picture{
+      height:@comp-height-xs / 2;
+    }
+    picture, .caption{
+      padding: @reset-padding!important;
+      overflow: hidden !important;
+      .make-xs-column(12);
+    }
+    img{
+      width:100%;
+      object-fit: cover;
+      overflow: hidden;
+      height:@comp-height-xs / 2;
+    }
+    .caption{
+      padding:  @spot-caption-padding!important;
+      *{
+        padding: @reset-padding;
+        margin: @reset-margin;
+        color:@white;
+      }
+    }
+    h3{
+      font:@spot-header-xs;
+    }
+    p{
+      font:@spot-p-xs;
+    }
+
+  }
+
+// Small devices (tablets, 768px and up)
+@media (min-width: @screen-sm-min) {
+  .spot{
+    height:@comp-height-sm;
+    picture, .caption{
+      height:@comp-height-sm;
+      .make-sm-column(6);
+    }
+    img{
+      min-height:@comp-height-sm;
+    }
+    h3{
+      font:@spot-header-sm;
+    }
+    p{
+      font:@spot-p-sm;
+    }
+  }
+  .col-md-3, .col-sm-6, .col-md-9 .col-md-4 {
+    .spot{
+      height:@comp-height-sm;
+      picture, .caption{
+        height:@comp-height-sm / 2;
+        .make-sm-column(12)
+      }
+      img{
+        height:@comp-height-sm / 2;
+      }
+    }
+  }
+}
+
+// Medium devices (desktops, 992px and up)
+@media (min-width: @screen-md-min) {
+  .spot{
+    height:@comp-height-md;
+    picture, .caption{
+      height:@comp-height-md;
+      .make-sm-column(6);
+    }
+    img{
+      height:@comp-height-md;
+    }
+    h3{
+      font:@spot-header-md;
+    }
+    p{
+      font:@spot-p-md;
+    }
+  }
+  .col-sm-6 {
+    .spot{
+      height:@comp-height-md;
+      picture, .caption{
+        height:@comp-height-md;
+        .make-md-column(6)
+      }
+      img{
+        height:@comp-height-md;
+      }
+    }
+  }
+  .col-md-3 {
+    .spot{
+      height:@comp-height-md;
+      picture, .caption{
+        height:@comp-height-md / 2;
+        .make-md-column(12)
+      }
+      img{
+        height:@comp-height-md / 2;
+      }
+    }
+  }
+}
+
+// Large devices (large desktops, 1200px and up)
+@media (min-width: @screen-lg-min) {
+  .spot{
+    height:@comp-height-lg;
+    picture, .caption{
+      height:@comp-height-lg;
+      .make-sm-column(6);
+    }
+    img{
+      height:@comp-height-lg;
+    }
+    h3{
+      font:@spot-header-lg;
+    }
+    p{
+      font:@spot-p-lg;
+    }
+  }
+  .col-sm-6 {
+    .spot{
+      h3{
+        font:@spot-header-lg;
+        font-size: 30px;
+      }
+      p{
+        font:@spot-p-lg;
+      }
+    }
+  }
+  .col-md-3 {
+    .spot{
+      height:@comp-height-md;
+      picture, .caption{
+        height:@comp-height-md / 2;
+        .make-md-column(12)
+      }
+      img{
+        height:@comp-height-md / 2;
+      }
+    }
+  }
+}
+// Handling Spot component full browser width  (Need .container-fluid as wrapper)*/
+// ******************************************************************************
+.container-fluid{
+  padding:@reset-padding;
+  .spot{
+    // Small devices (tablets, 768px and up)
     @media (min-width: @screen-sm-min) {
       .caption{
         width:@container-sm / 2 -@grid-gutter-width;
       }
     }
-    /* Medium devices (desktops, 992px and up) */
+    // Medium devices (desktops, 992px and up)
     @media (min-width: @screen-md-min) {
       .caption{
         width:@container-md / 2 - @grid-gutter-width;
       }
     }
-    /* Large devices (large desktops, 1200px and up) */
+    // Large devices (large desktops, 1200px and up)
     @media (min-width: @screen-lg-min) {
       .caption{
         width:@container-lg / 2 - @grid-gutter-width;
-      }
-    }
-  }
-
-}
-
-// Fallback mobil first
-.spot{
-  picture, .caption{
-    overflow:hidden;
-    height:@comp-height-sm / 2;
-    .make-xs-column(12);
-    padding:0px !important;
-  }
-  .caption{
-    color:@body-bg;
-    padding:@spot-caption-padding-lg !important;
-  }
-  img{
-    object-fit: cover;
-    min-width:100%;
-    overflow: hidden;
-  }
-}
-
-/* Small devices (tablets, 768px and up) */
-@media (min-width: @screen-sm-min) {
-  .spot{
-    picture, .caption{
-      height:@comp-height-sm;
-      .make-sm-column(6);
-    }
-  }
-  .col-md-3, .col-sm-3 *, .col-md-9 *{
-    .spot{
-      picture, .caption{
-        height:@comp-height-sm / 2;
-        .make-sm-column(12);
-      }
-    }
-  }
-}
-/* Medium devices (desktops, 992px and up) */
-@media (min-width: @screen-md-min) {
-  .spot{
-      picture, .caption{
-        height:@comp-height-md;
-        .make-sm-column(6);
-      }
-    }
-  .col-md-3, .col-sm-3 *, .col-md-9 *{
-    .spot{
-      picture, .caption{
-        height:@comp-height-md / 2;
-        .make-md-column(12);
-      }
-    }
-  }
-}
-/* Large devices (large desktops, 1200px and up) */
-@media (min-width: @screen-lg-min) {
-  .spot{
-      picture, .caption{
-        height:@comp-height-lg;
-        .make-sm-column(6);
-      }
-    }
-  .col-md-3, .col-sm-3 *, .col-md-9 *{
-    .spot{
-      picture, .caption{
-        height:@comp-height-lg / 2;
-        .make-lg-column(12);
       }
     }
   }
