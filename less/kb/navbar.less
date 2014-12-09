@@ -336,8 +336,19 @@ body.showMenu #kbCanvasContainer{
 #search-slidedown{
     background-color:@color-black;
     .kb-search-box{
+        position:relative;
         margin-top:5px;
         margin-bottom:5px;
+        .search-slidedown-marker{
+            position:absolute;
+            right:26px;
+            border-left:8px solid @color-black;
+            border-top:8px solid @color-black;
+            transform: rotate(45deg);
+            width:16px;
+            height:16px;
+            top:-8px;
+        }
         button{
             border:none;
             border-radius:0;
