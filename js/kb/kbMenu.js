@@ -4,6 +4,8 @@ function (window, $, undefined) {
     var KbMenu = function(){
     };
 
+    var regExpEmpty = /^\s*$/;
+
     var chevronPartClickHandler = function (e) {
         var target = $($(this).attr('data-target'));
         if (!target.data('subMenusLoaded')){ // when interacting with a submenu, check if its submenus are loaded, and if they aren't, go load them.
@@ -49,14 +51,16 @@ function (window, $, undefined) {
                 $.ajax({
                     url: '/system/modules/dk.kb.responsive.menu/elements/localmenu-mobile.jsp?getMenu=' + url,
                     success: function (data, stat) {
-                        var submenu = $(data),
-                            uid = 'kbSubmenu-' + kbMenu.uidGen(),
-                            chevronpart = this.find('.chevronpart'); // FIXME: Might wanna catch event on a parent object, instead of having several listeners!
-                        submenu.attr('id', uid);
-                        chevronpart.attr('data-target', '#' + uid);
-                        this.after(submenu);
-                        chevronpart.click(chevronPartClickHandler);
-                        chevronpart.css('display', 'block'); // turn it on, when submenu is ready
+                        if (!regExpEmpty.test(data)) { // This clause is here because menus with no subcontent actually returns some empty lines! :-/
+                            var submenu = $(data),
+                                uid = 'kbSubmenu-' + kbMenu.uidGen(),
+                                chevronpart = this.find('.chevronpart'); // FIXME: Might wanna catch event on a parent object, instead of having several listeners!
+                            submenu.attr('id', uid);
+                            chevronpart.attr('data-target', '#' + uid);
+                            this.after(submenu);
+                            chevronpart.click(chevronPartClickHandler);
+                            chevronpart.css('display', 'block'); // turn it on, when submenu is ready
+                        }
                     },
                     error: function (xhr, stat, err) {
                         // submenu not fetched - go hide the chevron part!
