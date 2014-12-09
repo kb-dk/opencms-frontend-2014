@@ -16,6 +16,18 @@ $(document).ready(function() {
         setTimeout(function () { $('#search-slidedown input').focus(); }, 0);
     });
 
+    var searchSlidedown = $('#search-slidedown'),
+        searchInput = $('.kb-search-box input', searchSlidedown),
+        searchButton = $('.kb-search-box button', searchSlidedown);
+    // hide searchbar on blur
+    $('.kb-search-box input, .kb-search-box button', searchSlidedown).blur(function () {
+        setTimeout(function () {
+            if (document.activeElement !== searchInput[0] && document.activeElement !== searchButton[0]) {
+                searchSlidedown.collapse('hide');
+            }
+        }, 0);
+    });
+
     var PX_FROM_TOP_TO_COLLAPSE_MENU = 100,
         INITIAL_BODY_MARGIN_TOP = 120,
         SCREEN_SM_STR = 'mobile',
