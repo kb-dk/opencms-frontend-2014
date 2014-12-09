@@ -1,0 +1,367 @@
+//
+// KB Navbar
+// --------------------------------------------------
+body{
+    overflow-x:hidden;
+}
+body.showMenu #kbCanvasContainer{
+    right:@nav-mobile-show-width;
+}
+
+#kbCanvasContainer{
+    width:100%;
+    position:absolute;
+    right:0;
+    transition:right 300ms ease-in-out;
+}
+
+#kbMenuToggler{
+    width:45px;
+    height:45px;
+    box-sizing:border-box;
+    border-top: 4px solid black;
+    border-bottom: 4px solid black;
+    padding-top: 7px;
+    margin-top:63px;
+    margin-bottom:10px;
+    @media (max-width: (@screen-sm-min - 1)){
+        margin-right: -15px;
+    }
+    font-size:16px;
+    text-align:center;
+    vertical-align:middle;
+    cursor:pointer;
+    z-index:25; // neeed to be above the rest of the header to catch clicks
+    &:hover{
+        border-color: @gray-light;
+        color: @gray-light;
+    }
+}
+
+.kb-navbar-mobile{
+    ul{
+        margin:0;
+        padding:0;
+    }
+    position: absolute;
+    left:100%;
+    width:@nav-mobile-show-width;
+    padding:0;
+    border-left:1px solid @gray-lighter;
+    font-family:@nav-mobile-font-family;
+    font-size:@nav-mobile-font-size;
+    overflow:hidden;
+    background-color:@color-white;
+    .kb-nav > li{
+        width:100%;
+        a{
+            position:relative;
+            width:100%;
+            border-bottom:1px solid @nav-mobile-separator-border-color;
+            padding-left:@nav-mobile-padding-left;
+            height:@nav-mobile-li-height;
+            padding-top:(@nav-mobile-li-height - @nav-mobile-font-size) / 2;
+            .activeLine{
+                display:none;
+                position:absolute;
+                width:floor(@navbar-padding-horizontal * 1.2);
+                border:1px solid @navbar-default-link-active-color;
+            }
+            &:hover{
+                color:@navbar-default-link-hover-color;
+                & > .activeLine{
+                    display:block;
+                    border-color:@navbar-default-link-hover-color;
+                }
+            }
+            li.active a > .activeLine{
+                display:block;
+            }
+        }
+    }
+    .searchbox-container{
+        padding:@nav-mobile-searchbox-padding;
+        border-bottom:1px solid @gray-lighter;
+        .input-group{
+            color:@color-black;
+            kb-nav{
+                margin-top:0;
+            }
+            input, button{
+                border-radius:0;
+                border:1px solid @color-black;
+                &.btn-default{
+                    color:@color-black;
+                }
+                &:hover{
+                    background-color: inherit;
+                }
+            }
+            input{
+                border:1px solid @color-black;
+                border-right:0;
+                &.form-control{
+                    box-shadow:none;
+                }
+            }
+            button{
+                border-left:0;
+                background-color:@color-white;
+            }
+        }
+    }
+    .kb-nav{
+        margin:0;
+        text-transform: uppercase;
+        // Chevrons at the right of mobile menu
+        .chevronpart{
+            display:none; // NOTE: They start out hidden, and are shown when the submenu is actually loaded.
+            float:right;
+            cursor:pointer;
+            z-index:10; // has to be on top of the directLink for clicks
+            height:@nav-mobile-li-height;
+            width:@nav-mobile-li-height;
+            border-left:1px solid @gray-lighter;
+            padding-top:(@nav-mobile-li-height - @nav-mobile-font-size) / 2 + 1; // +1 = + border (~16px)
+            padding-left:(@nav-mobile-li-height - @nav-mobile-font-size) / 2 + 1;
+
+            &>.glyphicon{
+                transition: transform 200ms ease-out;
+                transform: rotate(0);
+                &.open{
+                    transform: rotate(-180deg);
+                };
+            }
+
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -o-user-select: none;
+            user-select: none;
+        }
+        // Colors and paddings for level 2-5 submenus
+        .nav > li{
+            .nav > li{
+                .nav > li{
+                    .nav > li{
+                        a.directLink{
+                            background-color: @nav-mobile-l5-background-color;
+                            padding-left: @nav-mobile-l5-padding-left;
+                        }
+                    }
+                    a.directLink{
+                        background-color: @nav-mobile-l4-background-color;
+                        padding-left: @nav-mobile-l4-padding-left;
+                    }
+                }
+                a.directLink{
+                    background-color: @nav-mobile-l3-background-color;
+                    padding-left: @nav-mobile-l3-padding-left;
+                }
+            }
+            a.directLink{
+                background-color: @nav-mobile-l2-background-color;
+                padding-left: @nav-mobile-l2-padding-left;
+            }
+        }
+        // Submenu collapse behaviour
+        .submenu{
+            &.collapse{
+                display:none;
+                &.in{
+                    display:block;
+                }
+            }
+            text-transform:none;
+        }
+    }
+    li > a{
+        white-space: nowrap;
+        &:hover{
+            background-color: inherit;
+        }
+    }
+    li.active > a:hover{
+        color:@navbar-default-link-hover-color;
+    }
+}
+.topnavigation{
+    border-radius:0;
+    margin-bottom:0;
+    background-color:@color-white;
+    z-index:1; // Ensuring navbar shaddow is on top of mobile navigation
+    box-shadow: 0 5px 5px rgba(0,0,0,0.14);
+}
+@media (min-width: @screen-md) {
+    body .topnavigation{
+        .navbar-fixed-top;
+    }
+}
+.kb-navbar-container{
+    position:relative;
+    height:120px;
+    overflow:hidden;
+    transition:height 200ms ease-out;
+    .navbar-header{
+        position:relative;
+        width:100%;
+        top:0;
+        transition:top 200ms ease-out;
+        .logo{
+            display:block;
+            position:absolute;
+            width:91px;
+            height:88px;
+            top:16px;
+            background-image:url(../img/kb_logo.png);
+            background-size:cover;
+            transition:top 200ms ease-out;
+            @media (max-width: (@screen-sm-min - 1)){
+                left: 16px;
+            }
+        }
+        .logo-text{
+            display:block;
+            position:absolute;
+            width:426px;
+            height:41px;
+            top: 16px;
+            left: 115px;
+            background-image:url(../img/kb_logo_text.png);
+            @media (max-width: 585px) {
+                display: none;
+            }
+        }
+    }
+    &.mini{
+        height:70px;
+        .navbar-header{
+            top: -50px;
+            .logo{
+                width:46px;
+                height:45px;
+                top:63px;
+                background-image:url(../img/kb_logo_small.png);
+            }
+            .logo-text{
+                top:66px;
+                left:55px;
+                @media (max-width: (@screen-sm-min - 1)){
+                    left: 55px + 16px;
+                }
+            }
+        }
+    }
+    &.micro{
+        height:50px;
+        .navbar-header{
+            top: -70px;
+            transition:top 200ms ease-out;
+            .logo{
+                width:46px;
+                height:45px;
+                top:73px;
+                background-image:url(../img/kb_logo_small.png);
+                transition:top 200ms ease-out;
+            }
+        }
+    }
+    .kb-navbar{
+        margin-top:@kbNavbar-margin-top;
+        margin-left:@kbNavbar-margin-left;
+        font-family: "RobotoCondensedRegular", Helvetica, Arial, sans-serif;
+        font-size:@nav-mobile-font-size;
+        .kb-nav{
+            @media (max-width: @screen-xl-min) {
+                font-size: 16px;
+            }
+            @media (max-width: @screen-lg-min) {
+                font-size: 14px;
+            }
+        }
+        .navbar-right{
+            a{
+                font-family: "RobotoSlab-Regular", Helvetica, Arial, sans-serif;
+                font-size:14px;
+                @media (max-width: @screen-lg-min) {
+                    font-size: 12px;
+                }
+            }
+        }
+
+        a{
+            color: @navbar-default-link-color;
+        }
+        .kb-nav{
+            text-transform: uppercase;
+            li > a{
+                position:relative;
+                white-space: nowrap;
+                transition: padding 200ms ease-out;
+                .activeLine{
+                    display:none;
+                    position:absolute;
+                    left:@navbar-padding-horizontal * 1.5;
+                    bottom:floor(@navbar-padding-vertical - 2);
+                    width:floor(@navbar-padding-horizontal * 1.2);
+                    border:1px solid @navbar-default-link-active-color;
+                }
+                &.active > a:hover{
+                    color:@navbar-default-link-hover-color;
+                }
+                &:hover > .activeLine{
+                    display:block;
+                    border-color: @navbar-default-link-hover-color;
+                }
+                &.active > .activeLine{
+                    display:block;
+                }
+            }
+        }
+        .kb-nav-left{
+            margin-top: 5px;
+        }
+        .kb-nav-left > li{
+            float:left;
+            a:hover{
+                background-color: @navbar-default-bg;
+                color:@navbar-default-link-hover-color;
+            }
+        }
+        .kbSearchToggler{
+            cursor:pointer;
+        }
+    }
+}
+#search-slidedown{
+    background-color:@color-black;
+    .kb-search-box{
+        position:relative;
+        margin-top:5px;
+        margin-bottom:5px;
+        .search-slidedown-marker{
+            position:absolute;
+            right:26px;
+            border-left:8px solid @color-black;
+            border-top:8px solid @color-black;
+            transform: rotate(45deg);
+            width:16px;
+            height:16px;
+            top:-8px;
+        }
+        button{
+            background-color:@gray-lighter;
+            border:none;
+            border-radius:0;
+        }
+        input{
+            border:1px solid @color-black;
+            border-radius:0;
+            border-right:0;
+            &.form-control{
+                box-shadow:none;
+            }
+        }
+    }
+}
+

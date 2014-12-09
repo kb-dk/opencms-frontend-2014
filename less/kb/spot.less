@@ -28,44 +28,43 @@
 
 // Fallback mobil first
 
-.spot{
-  height:@comp-height-xs;
-  background:@dark-blue;
+  .spot{
+    height:@comp-height-xs;
+    background:@dark-blue;
 
-  a{
-    display: block;
-  }
-  picture{
-    height:@comp-height-xs / 2;
-  }
-  picture, .caption{
-    padding: @reset-padding!important;
-    overflow: hidden !important;
-    .make-xs-column(12);
-  }
-  img{
-    width:100%;
-    object-fit: cover;
-    overflow: hidden;
-    height:@comp-height-xs / 2;
-  }
-  .caption{
-    .text-center;
-    padding:  @spot-caption-padding!important;
-    *{
-      padding: @reset-padding;
-      margin: @reset-margin;
-      color:@white;
+    a{
+      display: block;
     }
-  }
-  h3{
-    font:@spot-header-xs;
-  }
-  p{
-    font:@spot-p-xs;
-  }
+    picture{
+      height:@comp-height-xs / 2;
+    }
+    picture, .caption{
+      padding: @reset-padding!important;
+      overflow: hidden !important;
+      .make-xs-column(12);
+    }
+    img{
+      width:100%;
+      object-fit: cover;
+      overflow: hidden;
+      height:@comp-height-xs / 2;
+    }
+    .caption{
+      padding:  @spot-caption-padding!important;
+      *{
+        padding: @reset-padding;
+        margin: @reset-margin;
+        color:@white;
+      }
+    }
+    h3{
+      font:@spot-header-xs;
+    }
+    p{
+      font:@spot-p-xs;
+    }
 
-}
+  }
 
 // Small devices (tablets, 768px and up)
 @media (min-width: @screen-sm-min) {
@@ -79,10 +78,10 @@
       min-height:@comp-height-sm;
     }
     h3{
-
+      font:@spot-header-sm;
     }
     p{
-
+      font:@spot-p-sm;
     }
   }
   .col-md-3, .col-sm-6, .col-md-9 .col-md-4 {
@@ -94,16 +93,6 @@
       }
       img{
         height:@comp-height-sm / 2;
-      }
-    }
-  }
-  .col-md-3, .col-md-4{
-    .spot{
-      h3{
-        font:@spot-header-sm-col-3;
-      }
-      p{
-        font:@spot-p-sm-col-3;
       }
     }
   }
@@ -121,10 +110,10 @@
       height:@comp-height-md;
     }
     h3{
-
+      font:@spot-header-md;
     }
     p{
-
+      font:@spot-p-md;
     }
   }
   .col-sm-6 {
@@ -165,19 +154,20 @@
       height:@comp-height-lg;
     }
     h3{
-
+      font:@spot-header-lg;
     }
     p{
-
+      font:@spot-p-lg;
     }
   }
   .col-sm-6 {
     .spot{
       h3{
-
+        font:@spot-header-lg;
+        font-size: 30px;
       }
       p{
-
+        font:@spot-p-lg;
       }
     }
   }
@@ -219,3 +209,17 @@
     }
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

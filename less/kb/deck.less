@@ -1,0 +1,57 @@
+// KB DECK
+//------------------------------------------------------
+// Fallback xs first
+.deck{
+  header{
+    padding:@deck-padding @reset-padding;
+    *{
+      padding:@reset-padding;
+      margin:@reset-margin;
+    }
+    h2{
+      font:@deck-header-xs;
+    }
+    .lead{
+      font:@deck-p-xs;
+    }
+  }
+}
+// Small devices (tablets, 768px and up)
+@media (min-width: @screen-sm-min) {
+  .deck{
+    header{
+      h2{
+        font:@deck-header-sm;
+      }
+      .lead{
+        font:@deck-p-sm;
+      }
+    }
+  }
+}
+// Medium devices (desktops, 992px and up)
+@media (min-width: @screen-md-min) {
+  .deck{
+    header{
+      h2{
+        font:@deck-header-md;
+      }
+      .lead{
+        font:@deck-p-md;
+      }
+    }
+  }
+}
+// Large devices (large desktops, 1200px and up)
+@media (min-width: @screen-lg-min) {
+  .deck{
+    header{
+      h2{
+        font:@deck-header-lg;
+      }
+      .lead{
+        font:@deck-p-lg;
+      }
+    }
+  }
+}

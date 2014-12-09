@@ -58,11 +58,40 @@
 
 // overriding bootstraps font path
 @icon-font-path: "../fonts/bootstrap331/";
-
-//HAFE style
 @font-size-xsmall: ceil((@font-size-base * 0.7)); // ~10px;
 
+@screen-xl: 1400px;
+@screen-xl-min: @screen-xl;
 
+// colors
+@color-white: #fff;
+@color-black: #000;
+@color-red: #5b2320;
+
+// KB navbar
+@kbNavbar-margin-top: 70px;
+@kbNavbar-margin-left: 100px;
+@kbNavbar-height: 120px;
+@kbNavbar-mini-height: 70px;
+@kbNavbar-micro-height: 50px;
+
+@nav-mobile-show-width: 90%;
+@nav-mobile-font-family: "RobotoCondensedRegular", Helvetica, Arial, sans-serif;
+@nav-mobile-font-size: 20px;
+@nav-mobile-li-height: 50px;
+@nav-mobile-background-color: #fff;
+@nav-mobile-l2-background-color: darken(@nav-mobile-background-color, 10%);
+@nav-mobile-l3-background-color: darken(@nav-mobile-l2-background-color, 10%);
+@nav-mobile-l4-background-color: darken(@nav-mobile-l3-background-color, 10%);
+@nav-mobile-l5-background-color: darken(@nav-mobile-l4-background-color, 10%);
+@nav-mobile-separator-border-color: #d8d8d8;
+@nav-mobile-padding-left: 30px;
+@nav-mobile-padding-step: 10px;
+@nav-mobile-l2-padding-left: @nav-mobile-padding-left + @nav-mobile-padding-step;
+@nav-mobile-l3-padding-left: @nav-mobile-padding-left + (2 * @nav-mobile-padding-step);
+@nav-mobile-l4-padding-left: @nav-mobile-padding-left + (3 * @nav-mobile-padding-step);
+@nav-mobile-l5-padding-left: @nav-mobile-padding-left + (4 * @nav-mobile-padding-step);
+@nav-mobile-searchbox-padding: 20px;
 
 // KB DECK
 //--------------------------------------------------
@@ -117,39 +146,17 @@
 
 // Header font-size/line-height
 @spot-header-style:         @font-style-normal @font-style-bold;
-
 @spot-header-xs:            @spot-header-style 55px/65px @font-family-base;
-
-@spot-header-sm-col-fluid:            @spot-header-style 55px/65px @font-family-base;
-@spot-header-sm-col-12:            @spot-header-style 40px/50px @font-family-base;
-@spot-header-sm-col-3:            @spot-header-style 25px/35px @font-family-base;
-
-@spot-header-md-col-12:            @spot-header-style 40px/50px @font-family-base;
-@spot-header-md-col-6:            @spot-header-style 25px/32px @font-family-base;
-@spot-header-md-col-3:            @spot-header-style 20px/25px @font-family-base;
-
-@spot-header-lg-col-12:            @spot-header-style 55px/65px @font-family-base;
-@spot-header-lg-col-6:            @spot-header-style 30px/40px @font-family-base;
-@spot-header-lg-col-3:            @spot-header-style 20px/28px @font-family-base;
+@spot-header-sm:            @spot-header-style 55px/65px @font-family-base;
+@spot-header-md:            @spot-header-style 40px/50px @font-family-base;
+@spot-header-lg:            @spot-header-style 55px/65px @font-family-base;
 
 // Paragraph font-size/line-height
 @spot-p-style:                          @font-style-normal @font-style-normal;
-
 @spot-p-xs:                                  @teaser-p-style 24px/34px @font-family-serif;
-
-@spot-p-sm-col-fluid:                                 @teaser-p-style 22px/28px @font-family-serif;
-@spot-p-sm-col-12:                                 @teaser-p-style 18px/24px @font-family-serif;
-@spot-p-sm-col-3:                                 @teaser-p-style 14px/20px @font-family-serif;
-
-@spot-p-md-col-12:                                 @teaser-p-style 15px/22px @font-family-serif;
-@spot-p-md-col-6:                                 @teaser-p-style 13px/18px @font-family-serif;
-@spot-p-md-col-3:                                 @teaser-p-style 13px/18px @font-family-serif;
-
-@spot-p-lg-col-12:                                  @teaser-p-style 18px/26px @font-family-serif;
-@spot-p-lg-col-6:                                  @teaser-p-style 14px/20px @font-family-serif;
-@spot-p-lg-col-3:                                  @teaser-p-style 14px/20px @font-family-serif;
-
-
+@spot-p-sm:                                 @teaser-p-style 22px/28px @font-family-serif;
+@spot-p-md:                                 @teaser-p-style 15px/22px @font-family-serif;
+@spot-p-lg:                                  @teaser-p-style 18px/26px @font-family-serif;
 
 // KB Footer
 //--------------------------------------------------
