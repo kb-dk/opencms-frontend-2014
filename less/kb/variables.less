@@ -42,6 +42,10 @@
 // overriding bootstraps font
 
 @font-face {
+  font-family: RobotoCondensed-Regular;
+  src: url(../../fonts/kb/RobotoCondensed-Regular.tff);
+}
+@font-face {
   font-family: Roboto-Regular;
   src: url(../../fonts/kb/Roboto-Regular.ttf);
 }
@@ -52,6 +56,9 @@
 @font-family-sans-serif:  Roboto-Regular, Helvetica, Arial, sans-serif;
 @font-family-serif:       RobotoSlab-Regular, "Times New Roman", Times, serif;
 @font-family-base:        @font-family-sans-serif;
+
+// menu fonts
+@menu-font-family:        RobotoCondensed-Regular, Helvetica, Arial, sans-serif;
 
 // overriding bootstraps
 @headings-font-family:    @font-family-serif;
@@ -74,6 +81,9 @@
 @kbNavbar-height: 120px;
 @kbNavbar-mini-height: 70px;
 @kbNavbar-micro-height: 50px;
+@kbNavbar-font-size: 16px;
+@kbNavbar-font-size-medium: @kbNavbar-font-size * 0.84;
+@kbNavbar-font-size-small: @kbNavbar-font-size-medium * 0.84; // FIXME: We never use this!
 
 @nav-mobile-show-width: 90%;
 @nav-mobile-font-family: "RobotoCondensedRegular", Helvetica, Arial, sans-serif;
