@@ -269,14 +269,11 @@ body.showMenu #kbCanvasContainer{
     .kb-navbar{
         margin-top:@kbNavbar-margin-top;
         margin-left:@kbNavbar-margin-left;
-        font-family: "RobotoCondensedRegular", Helvetica, Arial, sans-serif;
-        font-size:@nav-mobile-font-size;
+        font-family: @menu-font-family;
+        font-size:@kbNavbar-font-size;
         .kb-nav{
-            @media (max-width: @screen-xl-min) {
-                font-size: 16px;
-            }
             @media (max-width: @screen-lg-min) {
-                font-size: 14px;
+                font-size: @kbNavbar-font-size-medium;
             }
         }
         .navbar-right{
@@ -301,7 +298,7 @@ body.showMenu #kbCanvasContainer{
                 .activeLine{
                     display:none;
                     position:absolute;
-                    left:@navbar-padding-horizontal * 1.5;
+                    left:@navbar-padding-horizontal;
                     bottom:floor(@navbar-padding-vertical - 2);
                     width:floor(@navbar-padding-horizontal * 1.2);
                     border:1px solid @navbar-default-link-active-color;
