@@ -4,16 +4,48 @@
 //------------------------------------------------------
 
 // Variables
-@fact-caption-padding: 30px 20px;
-@fact-box-bg:             #07162e;
+
 
 
 .factBox{
-  padding:@fact-caption-padding;
-  background:@fact-box-bg;
-  color: @body-bg;
+  padding:@fact-box-caption-padding;
+  background:@dark-blue;
+  color: @white;
   margin-bottom:@grid-gutter-width;
+  h3, p{
+    padding:@reset-padding;
+    margin: @reset-padding;
+  }
   a{
-    color: @body-bg;
+    color: @white;
+  }
+  h3{
+   font:@fact-box-header-xs;
+  }
+  p{
+    font:@fact-box-p-xs;
+  }
+}
+.col-md-6, .col-sm-6, .col-md-12, .col-sm-12{
+  .factBox{
+    h3{
+      font:@fact-box-header-lg;
+    }
+    p{
+      font:@fact-box-p-lg;
+    }
+  }
+}
+// Large devices (large desktops, 1200px and up)
+@media (min-width: @screen-lg-min) {
+  .col-md-4, .col-sm-3, .col-md-3, .col-sm-4{
+    .factBox{
+      h3{
+        font:@fact-box-header-xs;
+      }
+      p{
+        font:@fact-box-p-lg;
+      }
+    }
   }
 }
