@@ -29,7 +29,8 @@ $(document).ready(function() {
     });
 
     var PX_FROM_TOP_TO_COLLAPSE_MENU = 100,
-        INITIAL_BODY_MARGIN_TOP = 120,
+        BODY_TOP_PADDING = 30,
+        INITIAL_BODY_MARGIN_TOP = 120 + BODY_TOP_PADDING,
         SCREEN_SM_STR = 'mobile',
         SCREEN_MD_STR = 'tablet',
         SCREEN_LG_STR = 'desktop',
@@ -50,7 +51,7 @@ $(document).ready(function() {
     var ajustBodyMarginTop = function () {
         // ajust top margin to fit alert + header
         var alertHeight = $('section.alert', $topnavigation).outerHeight(),
-            allNavHeaderHeight =  alertHeight + $('section.kb-navbar-container .navbar-header', $topnavigation).outerHeight(); // used to be without .navbar-header
+            allNavHeaderHeight =  alertHeight + $('section.kb-navbar-container .navbar-header', $topnavigation).outerHeight() + BODY_TOP_PADDING; // used to be without .navbar-header
         if ($body.hasClass('desktop')) { // body.desktop
             if (allNavHeaderHeight !== $('body').data('margin-top')) {
                 $body.css('margin-top', allNavHeaderHeight);
@@ -122,9 +123,10 @@ $(document).ready(function() {
     });
 
     // initialize the header size
-    $('body').data('margin-top', INITIAL_BODY_MARGIN_TOP);
+    $('body')
+        .css('margin-top', INITIAL_BODY_MARGIN_TOP)
+        .data('margin-top', INITIAL_BODY_MARGIN_TOP);
     ajustHeaderHeight();
-
     ajustBodyMarginTop();
 
     $('.topnavigation .alert button[class=close]').click(function () { setTimeout(ajustBodyMarginTop, 0);}); // When alert is dismissed (AFTER the alert has gone) - recalculate body margin-top
