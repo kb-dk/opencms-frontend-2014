@@ -2,47 +2,54 @@
 // KB Article
 //
 //------------------------------------------------------
-
-// Variables
-
-
-article.standard{
+article.contentPage{
   .picture{
-    padding:0px !important;
-    overflow: hidden !important;
-    height:@comp-height-xs;
-    .make-xs-column(12);
     picture{
-      padding: 0px;
-      img{
-        min-width:100%;
-        object-fit: cover;
-        overflow: hidden;
-      }
+      height:@comp-height-xs;
     }
-  }
-  /* Small devices (tablets, 768px and up) */
-  @media (min-width: @screen-sm-min) {
-    .picture{
-      height:@comp-height-sm;
+    picture, .caption{
+      padding: @reset-padding!important;
+      overflow: hidden !important;
+      .make-xs-column(12);
     }
     img{
-      min-height:@comp-height-sm;
+      width:100%;
+      object-fit: cover;
+      overflow: hidden;
+      height:@comp-height-xs;
     }
-  }
-
-  /* Medium devices (desktops, 992px and up) */
-  @media (min-width: @screen-md-min) {
-    .picture{
-      height:@comp-height-md;
+    /* Small devices (tablets, 768px and up) */
+    @media (min-width: @screen-sm-min) {
+      picture{
+        height:@comp-height-sm;
+        img{
+          height:@comp-height-sm;
+        }
+      }
     }
-  }
-
-  /* Large devices (large desktops, 1200px and up) */
-  @media (min-width: @screen-lg-min) {
-    .picture{
-      height:@comp-height-lg;
+    /* Medium devices (desktops, 992px and up) */
+    @media (min-width: @screen-md-min) {
+      picture{
+        height:@comp-height-md;
+        img{
+          height:@comp-height-md;
+        }
+      }
     }
-  }
+    /* Large devices (large desktops, 1200px and up) */
+    @media (min-width: @screen-lg-min) {
+      picture{
+        height:@comp-height-lg;
+        img{
+          height:@comp-height-lg;
+        }
+      }
+    }
 
+  }
+  // FIX Table in article (AKA Uffe table)
+  table{
+    width:100%;
+  }
 }
+
