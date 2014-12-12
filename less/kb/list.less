@@ -26,4 +26,26 @@
         background: linear-gradient(transparent, @list-bg-color);
         border-bottom:20px solid @list-bg-color;
     }
+    .listContent{
+        position:relative;
+        overflow:hidden;
+        height:200px; // FIXME: This is an abitrary height - we ought to be able to set the height in a more generic way! :6 (on the other hand: we DO know the exact height of the component)
+        .listPage{
+            width:100%;
+            background-color:@list-bg-color;
+            position:absolute;
+            left:100%;
+            &:first-child{
+                left:0;
+            }
+            transition: left 300ms ease-out;
+        }
+    }
+    nav{
+        position:absolute;
+        bottom:0;
+        left:10px;
+        right:10px;
+        background-color:@list-bg-color;
+    }
 }
