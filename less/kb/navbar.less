@@ -187,6 +187,10 @@ body.showMenu #kbCanvasContainer{
     z-index:1; // Ensuring navbar shaddow is on top of mobile navigation
     box-shadow: 0 5px 5px rgba(0,0,0,0.14);
 }
+.vendor-ie-9 .topnavigation, .vendor-ie-10 .topnavigation{
+    box-shadow: none;
+}
+
 @media (min-width: @screen-md) {
     body .topnavigation{
         .navbar-fixed-top;
