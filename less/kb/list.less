@@ -23,7 +23,9 @@
     height:40px;
     bottom: 0px;
     right:0px;
-    background: linear-gradient(transparent, @list-bg-color);
+    background: -webkit-linear-gradient(top, rgba(248,248,248,0) 0%, rgba(248,248,248,1) 100%); /* For Safari 5.1 to 6.0 */
+    background: -moz-linear-gradient(top, rgba(248,248,248,0) 0%, rgba(248,248,248,1) 100%); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(top, rgba(248,248,248,0) 0%, rgba(248,248,248,1) 100%);
     border-bottom:20px solid @list-bg-color;
   }
 }
