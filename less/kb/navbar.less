@@ -74,7 +74,7 @@ body.showMenu #kbCanvasContainer{
                     border-color:@navbar-default-link-hover-color;
                 }
             }
-            li.active a > .activeLine{
+            &.active > .activeLine{
                 display:block;
             }
         }
@@ -132,12 +132,7 @@ body.showMenu #kbCanvasContainer{
                     transform: rotate(-180deg);
                 };
             }
-
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            -o-user-select: none;
-            user-select: none;
+            .unselectable;
         }
         // Colors and paddings for level 2-5 submenus
         .nav > li{
@@ -192,6 +187,10 @@ body.showMenu #kbCanvasContainer{
     z-index:1; // Ensuring navbar shaddow is on top of mobile navigation
     box-shadow: 0 5px 5px rgba(0,0,0,0.14);
 }
+.vendor-ie-9 .topnavigation, .vendor-ie-10 .topnavigation{
+    box-shadow: none;
+}
+
 @media (min-width: @screen-md) {
     body .topnavigation{
         .navbar-fixed-top;
@@ -213,11 +212,19 @@ body.showMenu #kbCanvasContainer{
             width:91px;
             height:88px;
             top:16px;
-            background-image:url(../img/kb_logo.png);
-            background-size:cover;
             transition:top 200ms ease-out;
-            @media (max-width: (@screen-sm-min - 1)){
+            picture img{
+                transition: width 200ms ease-out, height 200ms ease-out;
+            }
+        }
+        &.micro{
+            .logo picture img{
                 left: 16px;
+                width: 45px;
+                height: 44px;
+            }
+            .logo-text{
+                // XXX XXX XXX here goes what should happen to logo-text under micro (might be nothing?)
             }
         }
         .logo-text{
@@ -227,7 +234,6 @@ body.showMenu #kbCanvasContainer{
             height:41px;
             top: 16px;
             left: 115px;
-            background-image:url(../img/kb_logo_text.png);
             @media (max-width: 585px) {
                 display: none;
             }

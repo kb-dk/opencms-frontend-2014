@@ -28,6 +28,62 @@ $(document).ready(function() {
         }, 0);
     });
 
+    var KbList = function (list) {
+        var that = this,
+            listPager = list.closest('article.list').find('nav .pager');
+        that.nextElem = $('.next', listPager);
+        that.prevElem = $('.previous', listPager);
+        that.list = list;
+        that.index = 0; // initial showing first page
+        //initializing click event handlers
+        that.nextElem.click(function (e) { that.next.call(that, e); });
+        that.prevElem.click(function (e) { that.prev.call(that, e); });
+    };
+
+    KbList.prototype = {
+        next : function (e) {
+            e.preventDefault();
+            if (!this.nextElem.hasClass('disabled')) {
+                $(this.list[this.index]).css('left', '-100%');
+                this.index += 1;
+                $(this.list[this.index]).css('left', 0);
+                this.prevElem.removeClass('disabled'); // no matter what, if you successfully have pressed next, prev should be an option.
+                if (this.index < this.list.length - 1) {
+                    this.nextElem.removeClass('disabled');
+                } else {
+                    this.nextElem.addClass('disabled');
+                }
+            }
+        },
+        prev : function (e) {
+            e.preventDefault();
+            if (!this.prevElem.hasClass('disabled')) {
+                $(this.list[this.index]).css('left', '100%');
+                this.index -= 1;
+                $(this.list[this.index]).css('left', 0);
+                this.nextElem.removeClass('disabled'); // no matter what, if you successfully have pressed prev, next should be an option.
+                if (this.index > 0) {
+                    this.prevElem.removeClass('disabled');
+                } else {
+                    this.prevElem.addClass('disabled');
+                }
+            }
+        }
+    };
+
+    var initializeLists = function() {
+        var allLists = $('.listContent');
+        $.each(allLists, function (index, list, allLists) {
+            var pages = $('.listPage', list);
+            if (pages.length > 1) {
+                window.kbLists = window.kbLists || new Array();
+                window.kbLists.push(new KbList(pages));
+            } else {
+                $(list).closest('article.list').find('.pager').remove(); // there is only one page in this list - no need for navigation panel
+            }
+        });
+    }
+
     var PX_FROM_TOP_TO_COLLAPSE_MENU = 100,
         BODY_TOP_PADDING = 30,
         INITIAL_BODY_MARGIN_TOP = 120 + BODY_TOP_PADDING,
@@ -128,6 +184,8 @@ $(document).ready(function() {
         .data('margin-top', INITIAL_BODY_MARGIN_TOP);
     ajustHeaderHeight();
     ajustBodyMarginTop();
+
+    initializeLists();
 
     $('.topnavigation .alert button[class=close]').click(function () { setTimeout(ajustBodyMarginTop, 0);}); // When alert is dismissed (AFTER the alert has gone) - recalculate body margin-top
 
