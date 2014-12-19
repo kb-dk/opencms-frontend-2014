@@ -6,6 +6,9 @@ body{
 }
 body.showMenu #kbCanvasContainer{
     right:@nav-mobile-show-width;
+    .kb-navbar-mobile{
+        display:block !important;
+    }
 }
 
 #kbCanvasContainer{
@@ -43,6 +46,7 @@ body.showMenu #kbCanvasContainer{
         margin:0;
         padding:0;
     }
+    display:none !important;
     position: absolute;
     left:100%;
     width:@nav-mobile-show-width;
