@@ -47,6 +47,10 @@ function (window, $, undefined) {
         fetchSubMenus: function (elem) {
             var allChevrons = $('.chevronpart[data-src]', elem),
                 chevronsToLoad = allChevrons.length;
+            if (chevronsToLoad === 0) {
+                // no submenus - remove the initial loader overlay
+                elem.removeClass('kbMenuLoading');
+            }
             allChevrons.each(function (index, element, allElements) {
                 var $element = $(element),
                     url = $element.attr('data-src');
