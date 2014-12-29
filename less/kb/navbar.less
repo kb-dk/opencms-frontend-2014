@@ -42,6 +42,20 @@ body.showMenu #kbCanvasContainer{
 }
 
 .kb-navbar-mobile{
+    .overlay{
+        display:none;
+        position:absolute;
+        z-index:11;
+        top:0;
+        right:0;
+        bottom:0;
+        left:0;
+        background-color:rgba(255,255,255,0.8);
+        background-image:url(../img/spinner.gif);
+        background-repeat:no-repeat;
+        background-position:center;
+
+    }
     ul{
         margin:0;
         padding:0;
@@ -119,7 +133,6 @@ body.showMenu #kbCanvasContainer{
         text-transform: uppercase;
         // Chevrons at the right of mobile menu
         .chevronpart{
-            display:none; // NOTE: They start out hidden, and are shown when the submenu is actually loaded.
             float:right;
             cursor:pointer;
             z-index:10; // has to be on top of the directLink for clicks
@@ -183,6 +196,9 @@ body.showMenu #kbCanvasContainer{
     li.active > a:hover{
         color:@navbar-default-link-hover-color;
     }
+}
+.kbMenuLoading .overlay{
+    display:block;
 }
 .topnavigation{
     border-radius:0;

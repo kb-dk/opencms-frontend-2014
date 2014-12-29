@@ -45,11 +45,14 @@ function (window, $, undefined) {
          * @param elem {jQueryElement|String/selector} The element to search for submenus under. Submenus are defined by the presence of a data-src attribute in a .chevronpart
          */
         fetchSubMenus: function (elem) {
-            $('.chevronpart[data-src]', elem).each(function (index, element, allElements) {
+            var allChevrons = $('.chevronpart[data-src]', elem),
+                chevronsToLoad = allChevrons.length;
+            allChevrons.each(function (index, element, allElements) {
                 var $element = $(element),
                     url = $element.attr('data-src');
                 $.ajax({
                     url: '/system/modules/dk.kb.responsive.menu/elements/localmenu-mobile.jsp?getMenu=' + url,
+                    //url: url, // FIXME: This is just for testing - the line above is the correct url!
                     success: function (data, stat) {
                         if (!regExpEmpty.test(data)) { // This clause is here because menus with no subcontent actually returns some empty lines! :-/
                             var submenu = $(data),
@@ -59,7 +62,6 @@ function (window, $, undefined) {
                             chevronpart.attr('data-target', '#' + uid);
                             this.after(submenu);
                             chevronpart.click(chevronPartClickHandler);
-                            chevronpart.css('display', 'block'); // turn it on, when submenu is ready
                         }
                     },
                     error: function (xhr, stat, err) {
@@ -67,6 +69,13 @@ function (window, $, undefined) {
                         $element.remove(); // This is kind a endlösung - we might wanna go for just trying again next time?
                         if (typeof window.console !== 'undefined'){
                             console.warn(err.message + ': Submenu "' + url + '" not fetched!');
+                        }
+                    },
+                    complete: function (xhr, status) {
+                        // count chevronsToLoad down, and remove spinner when the last submenu has loaded.
+                        chevronsToLoad -= 1;
+                        if (chevronsToLoad === 0) {
+                            this.parent().closest('.kbMenuLoading').removeClass('kbMenuLoading');
                         }
                     },
                     context: $element.closest('li'),
