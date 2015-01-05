@@ -191,5 +191,10 @@ $(document).ready(function() {
 
     //scrollspy
     $(window).scroll(ajustHeaderHeight);
+
+    // preloading spinner image (yeah - aarghh!)
+    kbMenu.spinnerImg = new Image();
+    kbMenu.spinnerImg.src = "/system/modules/dk.kb.responsive.local/resources/img/spinner.gif"; // FIXME: This doesn't seem to help?
+
 });
 
