@@ -14,27 +14,40 @@
   overflow:hidden;
   height:@comp-height-xs;
   position: relative;
+  background: @comp-bg;
+  .caption:after{
+    content: " ";
+    position:absolute;
+    width:100%;
+    height:40px;
+    bottom: 0px;
+    right:0px;
+    background: -webkit-linear-gradient(top, rgba(248,248,248,0) 0%, rgba(248,248,248,1) 100%); // For Safari 5.1 to 6.0
+    background: -moz-linear-gradient(top, rgba(248,248,248,0) 0%, rgba(248,248,248,1) 100%); // For Firefox 3.6 to 15
+    background: linear-gradient(top, rgba(248,248,248,0) 0%, rgba(248,248,248,1) 100%);
+    border-bottom:20px solid @comp-bg;
+  }
 }
-/* Extra small devices (0px and up) */
+// Extra small devices (0px and up)
 @media (max-width: @screen-xs-min) {
   .comp  {
     background: @body-bg;
     height:@comp-height-xs;
   }
 }
-/* Small devices (tablets, 768px and up) */
+// Small devices (tablets, 768px and up)
 @media (min-width: @screen-sm-min) {
   .comp  {
     height:@comp-height-sm;
   }
 }
-/* Medium devices (desktops, 992px and up) */
+// Medium devices (desktops, 992px and up)
 @media (min-width: @screen-md-min) {
   .comp  {
     height:@comp-height-md;
   }
 }
-/* Large devices (large desktops, 1200px and up) */
+// Large devices (large desktops, 1200px and up)
 @media (min-width: @screen-lg-min) {
   .comp  {
     height:@comp-height-lg;
