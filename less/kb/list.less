@@ -4,6 +4,7 @@
 //------------------------------------------------------
 
 .list{
+    overflow: visible!important;
     border-top:6px solid @list-border-color;
     border-bottom:3px solid @list-border-color;
     header{
@@ -11,22 +12,36 @@
         h3{
             border-bottom:1px solid @list-border-color;
             font:@list-header-xs;
+            padding: 15px 20px !important;
+            margin: @reset-margin !important;
         }
     }
     article{
         time{
-
+            padding: @reset-padding !important;
+            font:@list-article-stamp-xs;
         }
         h4{
+            margin: @reset-margin !important;
             padding: @reset-padding !important;
+            font:@list-article-header-xs;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
     }
+
     .listContent{
-        padding: @list-caption-padding;
+        //padding: @list-caption-padding;
         position:relative;
         overflow:hidden;
-        height:200px; // FIXME: This is an abitrary height - we ought to be able to set the height in a more generic way! :6 (on the other hand: we DO know the exact height of the component)
+        height:400px; // FIXME: This is an abitrary height - we ought to be able to set the height in a more generic way! :6 (on the other hand: we DO know the exact height of the component)
         .listPage{
+            padding-top:15px;
+            li{
+                padding:0px 20px;
+                margin-bottom: 8px;
+            }
             width:100%;
             position:absolute;
             left:100%;
@@ -36,16 +51,39 @@
         }
     }
     nav{
-        position:absolute;
-        bottom:0;
-        left:10px;
-        right:10px;
-        .unselectable;
-        .pager .disabled a{
-            opacity:0.5;
-        }
-        a{
-            outline:0; // FIXME: We might wanna set this on all a tags?
+        .pager{
+            li{
+                a{
+                    opacity:0.6;
+                    position: absolute;
+                    top:50%;
+                    border:none;
+                    background:transparent;
+                    width:20px;
+                    border-radius: 0px;
+                    padding: 0px !important;
+                    margin: 0px!important;
+                    //outline:0; // FIXME: We might wanna set this on all a tags?
+                    &:hover{
+                        opacity: 1;
+                        background: transparent;
+                    }
+                }
+                &.previous a{
+                    left:-0px;
+                }
+                &.next a{
+                    right:-0px;
+                }
+            }
+            li.disabled a{
+               opacity: 0.5;
+                &:hover{
+                    opacity: 0.5;
+                }
+            }
+
+
         }
     }
 }
@@ -60,10 +98,11 @@
         }
         article{
             time{
+                font:@list-article-stamp-sm;
 
             }
             h4{
-
+                font:@list-article-header-sm;
             }
         }
     }
@@ -79,10 +118,10 @@
         }
         article{
             time{
-
+                font:@list-article-stamp-md;
             }
             h4{
-
+                font:@list-article-header-md;
             }
         }
     }
@@ -98,10 +137,10 @@
         }
         article{
             time{
-
+                font:@list-article-stamp-lg;
             }
             h4{
-
+                font:@list-article-header-lg;
             }
         }
     }
