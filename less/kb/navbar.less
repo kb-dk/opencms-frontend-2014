@@ -387,4 +387,10 @@ body.showMenu #kbCanvasContainer{
         }
     }
 }
-
+// Css hack to preload the spinner - found here: http://dangerisgo.com/blog/2013/02/22/image-preloading-in-css/
+@media (max-width:@screen-sm-max) {
+    body:before {
+        content:url(../img/spinner.gif);
+        display:none;
+    }
+}

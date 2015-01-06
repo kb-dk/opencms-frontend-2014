@@ -66,6 +66,11 @@ function (window, $, undefined) {
                             chevronpart.attr('data-target', '#' + uid);
                             this.after(submenu);
                             chevronpart.click(chevronPartClickHandler);
+                            chevronpart.css('display', 'block'); // turn it on, when submenu is ready
+                            if($element.parent().attr('id')==='localitem'){
+                                chevronpart.click();    
+                            }
+
                         }
                     },
                     error: function (xhr, stat, err) {
