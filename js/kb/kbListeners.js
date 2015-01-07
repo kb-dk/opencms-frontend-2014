@@ -1,12 +1,7 @@
 $(document).ready(function() {
-    // on the very first click of the kbMenuToggler, fetch all submenus
-    $('#kbMenuToggler').one('click', function () {
-        kbMenu.fetchSubMenus($('.kb-navbar-mobile'));
+    // menu burger clickhandler
+    $('#kbMenuToggler').click(function () {
         $('body').toggleClass('showMenu');
-        // kbMenuToggler click slide mobile menu into view
-        $('#kbMenuToggler').click(function () {
-            $('body').toggleClass('showMenu');
-        });
     });
 
     //setTimeout(function () { $('#kbMenuToggler').click(); }, 500); // FIXME: only for test!
@@ -188,6 +183,9 @@ $(document).ready(function() {
     initializeLists();
 
     $('.topnavigation .alert button[class=close]').click(function () { setTimeout(ajustBodyMarginTop, 0);}); // When alert is dismissed (AFTER the alert has gone) - recalculate body margin-top
+
+    // set up first level chevron handlers
+    kbMenu.setChevronHandlers('#kb-navbar-mobile .kb-nav');
 
     //scrollspy
     $(window).scroll(ajustHeaderHeight);

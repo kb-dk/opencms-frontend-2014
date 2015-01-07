@@ -6,27 +6,32 @@ function (window, $, undefined) {
 
     var regExpEmpty = /^\s*$/;
 
-    var chevronPartClickHandler = function (e) {
-        var target = $($(this).attr('data-target'));
-        if (!target.data('subMenusLoaded')){ // when interacting with a submenu, check if its submenus are loaded, and if they aren't, go load them.
-            kbMenu.fetchSubMenus(target);
-        }
-        if (!$(this).closest('li').next().hasClass('collapsing')) { // only change if not under transition!
-            $('.glyphicon', this).toggleClass('open');
-        }
-        if (target.hasClass('in')) {
-            target.collapse('hide');
-            if (!$.support.transition) { // if IE8 or IE9, change chevrons instead of rotating them
-                (e.target.tagName === 'SPAN' ? $(e.target) : $('.glyphicon', e.target)) // either user has clicked on the a tag or the span - either way we wanna change the span tag classes
-                    .removeClass('glyphicon-chevron-up')
-                    .addClass('glyphicon-chevron-down');
+    /**
+     * toggle chevron / expand/collapse submenu
+     * param chevElem {jQueryElement} the chevronPart element that shall be toggled
+     */
+    var toggleChevron = function (chevElem) {
+        var target = $(chevElem.attr('data-target'));
+        if (!target.length) { // there's no target submenu = this submenu hasn't been loaded yet
+            kbMenu.fetchSubMenu(chevElem);
+        } else {
+            if (!chevElem.closest('li').next().hasClass('collapsing')) { // only change if not under transition!
+                $('.glyphicon', chevElem).toggleClass('open');
             }
-        } else  {
-            target.collapse('show');
-            if (!$.support.transition) { // if IE8 or IE9, change chevrons instead of rotating them
-                (e.target.tagName === 'SPAN' ? $(e.target) : $('.glyphicon', e.target)) // same as above
-                    .removeClass('glyphicon-chevron-down')
-                    .addClass('glyphicon-chevron-up');
+            if (target.hasClass('in')) {
+                target.collapse('hide');
+                if (!$.support.transition) { // if IE8 or IE9, change chevrons instead of rotating them
+                    chevElem.find('span')
+                        .removeClass('glyphicon-chevron-up')
+                        .addClass('glyphicon-chevron-down');
+                }
+            } else  {
+                target.collapse('show');
+                if (!$.support.transition) { // if IE8 or IE9, change chevrons instead of rotating them
+                    chevElem.find('span')
+                        .removeClass('glyphicon-chevron-down')
+                        .addClass('glyphicon-chevron-up');
+                }
             }
         }
     };
@@ -40,58 +45,57 @@ function (window, $, undefined) {
                 };
             }()),
         /**
-         * Fetches and injects all submenupoints under elem.
-         * Note: We drop a true in elem.data('subMenusLoaded') when submenus for a given element is loaded, to prevent loading the same submenu more than once pr session.
-         * @param elem {jQueryElement|String/selector} The element to search for submenus under. Submenus are defined by the presence of a data-src attribute in a .chevronpart
+         * Run through the element, and set up all chevron handlers
+         * @param elem {jQueryElement|String/selector} The element to set up chevron handlers under
          */
-        fetchSubMenus: function (elem) {
-            var allChevrons = $('.chevronpart[data-src]', elem),
-                chevronsToLoad = allChevrons.length;
-            if (chevronsToLoad === 0) {
-                // no submenus - remove the initial loader overlay
-                elem.removeClass('kbMenuLoading');
-            }
+        setChevronHandlers: function (elem) {
+            var allChevrons = $('.chevronpart[data-src]', elem);
             allChevrons.each(function (index, element, allElements) {
-                var $element = $(element),
-                    url = $element.attr('data-src');
-                $.ajax({
-                    url: '/system/modules/dk.kb.responsive.menu/elements/localmenu-mobile.jsp?getMenu=' + url,
-                    //url: url, // FIXME: This is just for testing - the line above is the correct url!
-                    success: function (data, stat) {
-                        if (!regExpEmpty.test(data)) { // This clause is here because menus with no subcontent actually returns some empty lines! :-/
-                            var submenu = $(data),
-                                uid = 'kbSubmenu-' + kbMenu.uidGen(),
-                                chevronpart = this.find('.chevronpart'); // FIXME: Might wanna catch event on a parent object, instead of having several listeners!
-                            submenu.attr('id', uid);
-                            chevronpart.attr('data-target', '#' + uid);
-                            this.after(submenu);
-                            chevronpart.click(chevronPartClickHandler);
-                            chevronpart.css('display', 'block'); // turn it on, when submenu is ready
-                            if($element.parent().attr('id')==='localitem'){
-                                chevronpart.click();    
-                            }
-
-                        }
-                    },
-                    error: function (xhr, stat, err) {
-                        // submenu not fetched - go hide the chevron part!
-                        $element.remove(); // This is kind a endlösung - we might wanna go for just trying again next time?
-                        if (typeof window.console !== 'undefined'){
-                            console.warn(err.message + ': Submenu "' + url + '" not fetched!');
-                        }
-                    },
-                    complete: function (xhr, status) {
-                        // count chevronsToLoad down, and remove spinner when the last submenu has loaded.
-                        chevronsToLoad -= 1;
-                        if (chevronsToLoad === 0) {
-                            this.parent().closest('.kbMenuLoading').removeClass('kbMenuLoading');
-                        }
-                    },
-                    context: $element.closest('li'),
-                    dataType: 'html'
+                var $element = $(element);
+                $element.click(function (e) {
+                    toggleChevron($element);
                 });
             });
-            elem.data('subMenusLoaded', true);
+        },
+
+        /**
+         * Fetch a submenu, and set overlay/spinner while fetching
+         * @param chevElem {jQueryElement|String/selector} The chevron clicked for opening a submenu
+         */
+        fetchSubMenu: function (chevElem) {
+            chevElem = (chevElem instanceof jQuery) ? chevElem : $(chevElem);
+            var liElem = chevElem.closest('li'),
+                url = chevElem.attr('data-src'),
+                delayedSpinner = setTimeout(function () { liElem.addClass('showSpinner'); }, 500); // set spinner with a minor delay (so it will first appear when users gets impatient)
+            liElem.addClass('overlay');
+            $.ajax({
+                url: '/system/modules/dk.kb.responsive.menu/elements/localmenu-mobile.jsp?getMenu=' + url,
+                //url: url, // FIXME: only for testing - change to the line above before pushing this code into opencms!
+                success: function (data, stat) {
+                    if (!regExpEmpty.test(data)) { // This clause is here because menus with no subcontent actually returns some empty lines! :-/
+                        var submenu = $(data),
+                            uid = 'kbSubmenu-' + kbMenu.uidGen();
+                        submenu.attr('id', uid);
+                        chevElem.attr('data-target', '#' + uid);
+                        liElem.after(submenu);
+                        kbMenu.setChevronHandlers(submenu);
+                        toggleChevron(chevElem); // this time the submenu IS loaded, so only the expand thing will trigger;
+                    }
+                },
+                error: function () {
+                    // submenu not fetched - go hide the chevron part!
+                    $element.remove(); // This is kind a endlösung - we might wanna go for just trying again next time?
+                    if (typeof window.console !== 'undefined'){
+                        console.warn(err.message + ': Submenu "' + url + '" not fetched!');
+                    }
+                },
+                complete: function () {
+                    clearTimeout(delayedSpinner);
+                    liElem.removeClass('overlay showSpinner');
+                },
+                context: liElem,
+                dataType: 'html'
+            });
         }
     };
 
