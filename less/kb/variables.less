@@ -37,7 +37,8 @@ table{
 @reset-margin:                0px;
 
 @font-style-normal:        normal;
-@font-style-bold:            bold;
+@font-style-bold:            900;
+@font-style-italic:        italic;
 
 
 //== Typography
@@ -225,19 +226,67 @@ table{
 @list-header-md:            @fact-box-header-style 15px/15px/*20px*/ @font-family-serif;
 @list-header-lg:            @fact-box-header-style 18px/18px/*24px*/ @font-family-serif;
 
-// Article header
+// List header
 @list-article-header-style:         @font-style-normal @font-style-bold;
 @list-article-header-xs:            @fact-box-header-style 35px/50px @font-family-serif;
 @list-article-header-sm:            @fact-box-header-style 18px/25px @font-family-serif;
 @list-article-header-md:            @fact-box-header-style 13px/18px @font-family-serif;
 @list-article-header-lg:            @fact-box-header-style 14px/20px @font-family-serif;
 
-// Article Time stamp
+// List Time stamp
 @list-article-stamp-style:         @font-style-normal @font-style-normal;
 @list-article-stamp-xs:            @list-article-stamp-style 24px/34px @font-family-sans-serif;
 @list-article-stamp-sm:            @list-article-stamp-style 18px/25px @font-family-sans-serif;
 @list-article-stamp-md:            @list-article-stamp-style 13px/18px @font-family-sans-serif;
 @list-article-stamp-lg:            @list-article-stamp-style 14px/20px @font-family-sans-serif;
+
+
+
+// KB Article
+//--------------------------------------------------
+
+// Article Header font font-size/line-height
+@article-header-style:         @font-style-normal @font-style-bold;
+@article-header-xs:            @article-header-style 46px/56px @font-family-base;
+@article-header-sm:            @article-header-style 28px/28px @font-family-base;
+@article-header-md:            @article-header-style 28px/32px @font-family-base;
+@article-header-lg:            @article-header-style 28px/38px @font-family-base;
+
+// Article Sub header (.lead) font font-size/line-height
+@article-sub-header-style:         @font-style-normal @font-style-normal;
+@article-sub-header-xs:            @article-sub-header-style 40px/50px @font-family-serif;
+@article-sub-header-sm:            @article-sub-header-style 18px/28px @font-family-serif;
+@article-sub-header-md:            @article-sub-header-style 18px/28px @font-family-serif;
+@article-sub-header-lg:            @article-sub-header-style 18px/28px @font-family-serif;
+
+// Article Header label (time,.stamp) font font-size/line-height
+@article-header-label-style:         @font-style-normal @font-style-normal;
+@article-header-label-xs:            @article-header-label-style 24px/28px @font-family-serif;
+@article-header-label-sm:            @article-header-label-style 14px/30px @font-family-serif;
+@article-header-label-md:            @article-header-label-style 12px/30px @font-family-serif;
+@article-header-label-lg:            @article-header-label-style 14px/30px @font-family-serif;
+
+// Article Image figcaption  font font-size/line-height
+@figcaption-color:                                         #969696;
+@article-figcaption-style:         @font-style-italic @font-style-normal;
+@article-figcaption-xs:            @article-figcaption-style 24px/28px @font-family-base;
+@article-figcaption-sm:            @article-figcaption-style 14px/20px @font-family-base;
+@article-figcaption-md:            @article-figcaption-style 14px/20px @font-family-base;
+@article-figcaption-lg:            @article-figcaption-style 14px/20px @font-family-base;
+
+
+// Article body tags font font-size/line-height
+@article-body-h1-style:         @font-style-normal @font-style-normal;
+@article-body-h1-xs:            @article-body-h1-style 44px/54px @font-family-base;
+@article-body-h1-sm:            @article-body-h1-style 20px/30px @font-family-base;
+@article-body-h1-md:            @article-body-h1-style 18px/28px @font-family-base;
+@article-body-h1-lg:            @article-body-h1-style 20px/30px @font-family-base;
+
+@article-body-p-style:         @font-style-normal @font-style-normal;
+@article-body-p-xs:            @article-body-p-style 35px/50px @font-family-base;
+@article-body-p-sm:            @article-body-p-style 16px/26px @font-family-base;
+@article-body-p-md:            @article-body-p-style 15px/24px @font-family-base;
+@article-body-p-lg:            @article-body-p-style 16px/26px @font-family-base;
 
 
 // KB Footer

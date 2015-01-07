@@ -2,55 +2,161 @@
 // KB Article
 //
 //------------------------------------------------------
+/* Fallback xs */
 article.contentPage{
-  //font-size: 16px/26px;
-  .picture{
-    picture{
-      height:@comp-height-xs;
+
+    .picture{
+        picture{
+            height:@comp-height-xs;
+        }
+        picture, .caption{
+            padding: @reset-padding!important;
+            overflow: hidden !important;
+            .make-xs-column(12);
+        }
+        img{
+            width:100%;
+            object-fit: cover;
+            overflow: hidden;
+            height:@comp-height-xs;
+        }
+        figcaption{
+            font:@article-figcaption-xs;
+            color:@figcaption-color;
+        }
     }
-    picture, .caption{
-      padding: @reset-padding!important;
-      overflow: hidden !important;
-      .make-xs-column(12);
+    header{
+        h1{
+            font:@article-header-xs;
+        }
+        .lead{
+            font:@article-sub-header-xs;
+        }
+        span, time{
+           font:@article-header-label-xs;
+        }
     }
-    img{
-      width:100%;
-      object-fit: cover;
-      overflow: hidden;
-      height:@comp-height-xs;
+    div[itemprop="articleBody"]{
+        h1, h2, h3{
+            font: @article-body-h1-xs;
+        }
+        p{
+            font: @article-body-p-xs;
+        }
+        img{
+            .img-responsive;
+        }
+        // FIX Table in article (AKA Uffe table)
+        table{
+            width:100%;
+        }
+
     }
+
     /* Small devices (tablets, 768px and up) */
     @media (min-width: @screen-sm-min) {
-      picture{
-        height:@comp-height-sm;
-        img{
-          height:@comp-height-sm;
+        .picture{
+            picture{
+                height:@comp-height-sm;
+                img{
+                    height:@comp-height-sm;
+                }
+            }
+            figcaption{
+                font:@article-figcaption-sm;
+            }
         }
-      }
+        header{
+            h1{
+                font:@article-header-sm;
+            }
+            .lead{
+                font:@article-sub-header-sm;
+            }
+            span, time{
+                font:@article-header-label-sm;
+            }
+        }
+        div[itemprop="articleBody"]{
+            h1, h2, h3{
+                font: @article-body-h1-sm;
+            }
+            p{
+                font: @article-body-p-sm;
+            }
+
+        }
     }
+
     /* Medium devices (desktops, 992px and up) */
     @media (min-width: @screen-md-min) {
-      picture{
-        height:@comp-height-md;
-        img{
-          height:@comp-height-md;
+        .picture{
+            picture{
+                height:@comp-height-md;
+                img{
+                    height:@comp-height-md;
+                }
+            }
+            figcaption{
+                font:@article-figcaption-md;
+            }
         }
-      }
+        header{
+            h1{
+                font:@article-header-md;
+            }
+            .lead{
+                font:@article-sub-header-md;
+            }
+            span, time{
+                font:@article-header-label-md;
+            }
+        }
+        div[itemprop="articleBody"]{
+            h1, h2, h3{
+                font: @article-body-h1-md;
+            }
+            p{
+                font: @article-body-p-md;
+            }
+
+        }
     }
     /* Large devices (large desktops, 1200px and up) */
     @media (min-width: @screen-lg-min) {
-      picture{
-        height:@comp-height-lg;
-        img{
-          height:@comp-height-lg;
+        .picture{
+            picture{
+                height:@comp-height-lg;
+                img{
+                    height:@comp-height-lg;
+                }
+            }
+            figcaption{
+                font:@article-figcaption-lg;
+            }
         }
-      }
+        header{
+            h1{
+                font:@article-header-lg;
+            }
+            .lead{
+                font:@article-sub-header-lg;
+            }
+            span, time{
+                font:@article-header-label-lg;
+            }
+        }
+        div[itemprop="articleBody"]{
+            h1, h2, h3{
+                font: @article-body-h1-lg;
+            }
+            p{
+                font: @article-body-p-lg;
+            }
+
+        }
     }
 
-  }
-  // FIX Table in article (AKA Uffe table)
-  table{
-    width:100%;
-  }
+
 }
 
