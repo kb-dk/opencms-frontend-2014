@@ -298,10 +298,14 @@ body.showMenu #kbCanvasContainer{
         .submenu{
             .localMenuHeader{
                 font-weight:bold;
-                height:@nav-local-li-height;
-                padding-top:(@nav-local-li-height - @nav-local-font-size) / 2;
                 a{
-                    border-bottom:0;
+                    display:block;
+                    width:100%;
+                    height:@nav-local-li-height;
+                    padding-top:(@nav-local-li-height - @nav-local-font-size) / 2;
+                    &:hover{
+                        text-decoration:none;
+                    }
                 }
             }
             &.collapse{
@@ -313,14 +317,10 @@ body.showMenu #kbCanvasContainer{
             text-transform:none;
         }
     }
-    li > a{
+    a{
         white-space: nowrap;
-        &:hover{
-            background-color: inherit;
-        }
-    }
-    li.active > a:hover{
-        color:@navbar-default-link-hover-color;
+        overflow:hidden;
+        text-overflow:ellipsis;
     }
 }
 
