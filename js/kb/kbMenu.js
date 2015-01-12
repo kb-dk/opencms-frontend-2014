@@ -63,9 +63,9 @@ function (window, $, undefined) {
          * @param chevElem {jQueryElement|String/selector} The chevron clicked for opening a submenu
          */
         fetchSubMenu: function (chevElem) {
-            chevElem = (chevElem instanceof jQuery) ? chevElem : $(chevElem);
-            var liElem = chevElem.closest('li'),
-                url = chevElem.attr('data-src'),
+            $chevElem = (chevElem instanceof jQuery) ? chevElem : $(chevElem);
+            var liElem = $chevElem.closest('li'),
+                url = $chevElem.attr('data-src'),
                 delayedSpinner = setTimeout(function () { liElem.addClass('showSpinner'); }, 500); // set spinner with a minor delay (so it will first appear when users gets impatient)
             liElem.addClass('overlay');
             $.ajax({
@@ -76,15 +76,15 @@ function (window, $, undefined) {
                         var submenu = $(data),
                             uid = 'kbSubmenu-' + kbMenu.uidGen();
                         submenu.attr('id', uid);
-                        chevElem.attr('data-target', '#' + uid);
+                        $chevElem.attr('data-target', '#' + uid);
                         liElem.after(submenu);
                         kbMenu.setChevronHandlers(submenu);
-                        toggleChevron(chevElem); // this time the submenu IS loaded, so only the expand thing will trigger;
+                        toggleChevron($chevElem); // this time the submenu IS loaded, so only the expand thing will trigger;
                     }
                 },
                 error: function () {
                     // submenu not fetched - go hide the chevron part!
-                    $element.remove(); // This is kind a endlösung - we might wanna go for just trying again next time?
+                    $chevElem.remove(); // This is kind a endlösung - we might wanna go for just trying again next time?
                     if (typeof window.console !== 'undefined'){
                         console.warn(err.message + ': Submenu "' + url + '" not fetched!');
                     }
