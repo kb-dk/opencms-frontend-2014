@@ -49,7 +49,7 @@ function (window, $, undefined) {
          * @param elem {jQueryElement|String/selector} The element to set up chevron handlers under
          */
         setChevronHandlers: function (elem) {
-            var allChevrons = $('.chevronpart[data-src]', elem);
+            var allChevrons = $('.chevronpart', elem);
             allChevrons.each(function (index, element, allElements) {
                 var $element = $(element);
                 $element.click(function (e) {

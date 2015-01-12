@@ -45,6 +45,7 @@ body.showMenu #kbCanvasContainer{
     ul{
         margin:0;
         padding:0;
+        list-style:none;
     }
     display:none !important;
     position: absolute;
@@ -202,6 +203,146 @@ body.showMenu #kbCanvasContainer{
         color:@navbar-default-link-hover-color;
     }
 }
+
+.kb-navbar-local{
+    border-top: 1px solid @nav-local-separator-border-color;
+    border-left: 1px solid @nav-local-separator-border-color;
+    border-right: 1px solid @nav-local-separator-border-color;
+    padding-left:0;
+    padding-right:0;
+    ul{
+        padding:0;
+        margin:0;
+        list-style:none;
+    }
+
+    .kb-nav > li, .submenu > ul > li{
+        .spinner{
+            display:none;
+            position:absolute;
+            z-index:11;
+            top:0;
+            right:0;
+            bottom:0;
+            left:0;
+            background-color:rgba(255,255,255,0.8);
+            /*background-image:url(../img/spinner.gif);*/
+            background-repeat:no-repeat;
+            background-position:center;
+        }
+        &.overlay .spinner{
+            display:block;
+        }
+        &.showSpinner .spinner{
+            background-image:url(../img/spinner.gif);
+        }
+        width:100%;
+        a{
+            position:relative;
+            width:100%;
+            border-bottom:1px solid @nav-local-separator-border-color;
+            padding-left:@nav-local-padding-left;
+            height:@nav-local-li-height;
+            padding-top:(@nav-local-li-height - @nav-local-font-size) / 2;
+            .activeLine{
+                display:none;
+                position:absolute;
+                width:floor(@navbar-padding-horizontal * 1.2);
+                border:1px solid @navbar-default-link-active-color;
+            }
+            &:hover{
+                color:@navbar-default-link-hover-color;
+                & > .activeLine{
+                    display:block;
+                    border-color:@navbar-default-link-hover-color;
+                }
+            }
+            &.active > .activeLine{
+                display:block;
+            }
+        }
+    }
+    .kb-nav{
+        margin:0;
+        //text-transform: uppercase; // FIXME: Is this supposed to be here? It isn't in any of Signes sketches?
+        // Chevrons at the right of mobile menu
+        .chevronpart{
+            float:right;
+            cursor:pointer;
+            z-index:10; // has to be on top of the directLink for clicks
+            height:@nav-local-li-height;
+            width:@nav-local-li-height;
+            border-left:1px solid @nav-local-separator-border-color;
+            padding-top:(@nav-local-li-height - @nav-local-font-size) / 2 + 1; // +1 = + border (~16px)
+            padding-left:(@nav-local-li-height - @nav-local-font-size) / 2 + 1;
+
+            &>.glyphicon{
+                transition: transform 200ms ease-out;
+                transform: rotate(0);
+                &.open{
+                    transform: rotate(-180deg);
+                };
+            }
+            .unselectable;
+        }
+        // Colors and paddings for level 2-5 submenus
+        .nav > li{
+            .nav > li{
+                .nav > li{
+                    .nav > li{
+                        a.directLink{
+                            background-color: @nav-local-l5-background-color;
+                            padding-left: @nav-local-l5-padding-left;
+                        }
+                    }
+                    a.directLink{
+                        background-color: @nav-local-l4-background-color;
+                        padding-left: @nav-local-l4-padding-left;
+                    }
+                }
+                a.directLink{
+                    background-color: @nav-local-l3-background-color;
+                    padding-left: @nav-local-l3-padding-left;
+                }
+            }
+            a.directLink{
+                background-color: @nav-local-l2-background-color;
+                padding-left: @nav-local-l2-padding-left;
+            }
+        }
+        a.directLink, .localMenuHeader{
+            background-color: @nav-local-background-color;
+        }
+        // Submenu collapse behaviour
+        .submenu{
+            .localMenuHeader{
+                font-weight:bold;
+                height:@nav-local-li-height;
+                padding-top:(@nav-local-li-height - @nav-local-font-size) / 2;
+                a{
+                    border-bottom:0;
+                }
+            }
+            &.collapse{
+                display:none;
+                &.in{
+                    display:block;
+                }
+            }
+            text-transform:none;
+        }
+    }
+    li > a{
+        white-space: nowrap;
+        &:hover{
+            background-color: inherit;
+        }
+    }
+    li.active > a:hover{
+        color:@navbar-default-link-hover-color;
+    }
+}
+
 .topnavigation{
     border-radius:0;
     margin-bottom:0;

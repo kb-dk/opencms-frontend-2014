@@ -15,6 +15,7 @@
     <link href="css/style.css" rel="stylesheet" />
 
     <!-- JAVASCRIPT -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Cookie policy -->
     <script src="js/kb/cookieInformerBooklet_da_DK.js"></script>
     <!--Responsive image -->
@@ -25,6 +26,8 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script src="js/kb/kbMenu.js"></script>
+    <script src="js/kb/kbListeners.js"></script>
     <!-- Google Analytics www.kb.dk -->
     <script>
         var _gaq = _gaq || [];
@@ -46,50 +49,66 @@
 
 <div class="container">
     <div class="row">
-        <nav class="kb-navbar-local hidden-xs hidden-sm col-md-3">
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <div><a class="sel"  href="/da/nb/index.html" title="Nationalbiblioteket" target="_self" >Nationalbiblioteket</a></div>
-                    <ul class="list-group">
-                        <li class="list-group-item">
+        <nav id="kb-navbar-local" class="kb-navbar-local hidden-xs hidden-sm col-md-3">
+            <ul class="nav navbar-nav kb-nav">
+                <li class="submenu">
+                    <div class="spinner"></div>
+                    <div class="localMenuHeader"><a class="sel" href="/da/nb/index.html" title="Nationalbiblioteket" target="_self" >Nationalbiblioteket</a></div>
+                    <ul class="nav">
+                        <li>
                             <div class="spinner"></div>
-                            <a class="chevronpart" data-src="bogusSubMenu.html"><span class="glyphicon glyphicon-chevron-down"></span></a>
+                            <a class="chevronpart"><span class="glyphicon glyphicon-chevron-down"></span></a>
                             <a class="directLink" href="/da/nb/om_nb/index.html" title="Afdelinger" target="_self" >Afdelinger<div class="activeLine"></div></a>
                         </li>
-                        <li class="list-group-item">
+                        <li>
                             <div class="spinner"></div>
-                            <a class="chevronpart" data-src="bogusSubMenu.html"><span class="glyphicon glyphicon-chevron-down"></span></a>
-                            <a clasS="directLink" href="/da/nb/om_nb/info_nb.html" title="Om Nationalbiblioteket" target="_self" >Om Nationalbiblioteket<div class="activeLine"></div></a>
+                            <a class="chevronpart"><span class="glyphicon glyphicon-chevron-down"></span></a>
+                            <a class="directLink" href="/da/nb/om_nb/info_nb.html" title="Om Nationalbiblioteket" target="_self" >Om Nationalbiblioteket<div class="activeLine"></div></a>
                         </li>
                     </ul>
                 </li>
-                <li class="list-group-item">
+                <li>
                     <div class="spinner"></div>
-                    <a class="chevronpart" data-src="bogusSubMenu.html"><span class="glyphicon glyphicon-chevron-down"></span></a>
+                    <a class="chevronpart"><span class="glyphicon glyphicon-chevron-down"></span></a>
                     <a class="directLink" href="/da/nb/samling/index.html" title="Samlinger" target="_self" >Samlinger<div class="activeLine"></div></a>
                 </li>
-                <li class="list-group-item">
+                <li>
                     <div class="spinner"></div>
-                    <a class="chevronpart" data-src="bogusSubMenu.html"><span class="glyphicon glyphicon-chevron-down"></span></a>
+                    <a class="chevronpart"><span class="glyphicon glyphicon-chevron-down"></span></a>
                     <a class="directLink" href="/da/nb/tema/index.html" title="Temaer" target="_self" >Temaer<div class="activeLine"></div></a>
                 </li>
-                <li class="list-group-item">
+                    <li class="submenu kbMenuLoading collapse" role="menu">
+                        <div class="spinner"></div>
+                        <ul class="nav">
+                            <li><a class="directLink" href="#">Folklore og dagligliv</a></li>
+                            <li><a class="directLink" href="#">Historie</a></li>
+                            <li><a class="directLink" href="#">Historie<div class="activeLine"></div></a></li>
+                            <li>
+                                <div class="spinner"></div>
+                                <a class="chevronpart" data-src="bogusSubMenu.html"><span class="glyphicon glyphicon-chevron-down"></span></a>
+                                <a class="directLink" href="#">Litteraturvidenskab<div class="activeLine"></div></a></li>
+                            <li>
+                            <li><a class="directLink" href="#">Musik og teater</a></li>
+                            <li><a class="directLink" href="#">Naturvidenskab</a></li>
+                        </ul>
+                    </li>
+                <li>
                     <div class="spinner"></div>
-                    <a class="chevronpart" data-src="bogusSubMenu.html"><span class="glyphicon glyphicon-chevron-down"></span></a>
+                    <a class="chevronpart"><span class="glyphicon glyphicon-chevron-down"></span></a>
                     <a class="directLink" href="/da/nb/service/index.html" title="Service" target="_self" >Service<div class="activeLine"></div></a>
                 </li>
-                <li class="list-group-item">
+                <li>
                     <div class="spinner"></div>
-                    <a class="chevronpart" data-src="bogusSubMenu.html"><span class="glyphicon glyphicon-chevron-down"></span></a>
+                    <a class="chevronpart"><span class="glyphicon glyphicon-chevron-down"></span></a>
                     <a class="directLink" href="/da/nb/laesesale/" title="Centre og læsesale" target="_self" >Centre og læsesale<div class="activeLine"></div></a>
                 </li>
-                <li class="list-group-item">
+                <li>
                     <div class="spinner"></div>
-                    <a class="chevronpart" data-src="bogusSubMenu.html"><span class="glyphicon glyphicon-chevron-down"></span></a>
+                    <a class="chevronpart"><span class="glyphicon glyphicon-chevron-down"></span></a>
                     <a class="directLink" href="/da/nb/kontakt/index.html" title="Kontakt" target="_self" >Kontakt<div class="activeLine"></div></a>
                 </li>
-                <li class="list-group-item">
-                    <a href="/da/forside/REX" title="Søg i REX" target="_self" >Søg i REX</a>
+                <li>
+                    <a class="directLink" href="/da/forside/REX" title="Søg i REX" target="_self" >Søg i REX</a>
                 </li>
             </ul>
         </nav>

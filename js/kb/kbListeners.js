@@ -185,7 +185,7 @@ $(document).ready(function() {
     $('.topnavigation .alert button[class=close]').click(function () { setTimeout(ajustBodyMarginTop, 0);}); // When alert is dismissed (AFTER the alert has gone) - recalculate body margin-top
 
     // set up first level chevron handlers
-    kbMenu.setChevronHandlers('#kb-navbar-mobile .kb-nav');
+    kbMenu.setChevronHandlers('#kb-navbar-mobile .kb-nav, #kb-navbar-local .kb-nav');
 
     //scrollspy
     $(window).scroll(ajustHeaderHeight);
