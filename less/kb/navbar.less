@@ -360,15 +360,15 @@ body.showMenu #kbCanvasContainer{
             picture img{
                 transition: width 200ms ease-out, height 200ms ease-out;
             }
+            @media (max-width: (@screen-sm-min - 1)){
+                margin-left:15px;
+            }
         }
         &.micro{
             .logo picture img{
                 left: 16px;
                 width: 45px;
                 height: 44px;
-            }
-            .logo-text{
-                // XXX XXX XXX here goes what should happen to logo-text under micro (might be nothing?)
             }
         }
         .logo-text{
