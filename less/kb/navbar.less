@@ -376,8 +376,8 @@ body.showMenu #kbCanvasContainer{
             position:absolute;
             width:426px;
             height:41px;
-            top: 16px;
-            left: 115px;
+            top: 17px;
+            left: 55px;
             @media (max-width: 585px) {
                 display: none;
             }
@@ -408,10 +408,7 @@ body.showMenu #kbCanvasContainer{
             top: -70px;
             transition:top 200ms ease-out;
             .logo{
-                width:46px;
-                height:45px;
                 top:73px;
-                background-image:url(../img/kb_logo_small.png);
                 transition:top 200ms ease-out;
             }
         }
@@ -430,21 +427,23 @@ body.showMenu #kbCanvasContainer{
             a{
                 font-family: "RobotoSlab-Regular", Helvetica, Arial, sans-serif;
                 font-size:14px;
+                color: @kbNavbar-default-link-color;
+                &:hover{
+                    color:@kbNavbar-default-link-hover-color;
+                }
                 @media (max-width: @screen-lg-min) {
                     font-size: 12px;
                 }
             }
         }
 
-        a{
-            color: @navbar-default-link-color;
-        }
         .kb-nav{
             text-transform: uppercase;
             li > a{
                 position:relative;
                 white-space: nowrap;
                 transition: padding 200ms ease-out;
+                color:@kbNavbar-default-link-color;
                 .activeLine{
                     display:none;
                     position:absolute;
@@ -453,12 +452,8 @@ body.showMenu #kbCanvasContainer{
                     width:floor(@navbar-padding-horizontal * 1.2);
                     border:1px solid @navbar-default-link-active-color;
                 }
-                &.active > a:hover{
-                    color:@navbar-default-link-hover-color;
-                }
-                &:hover > .activeLine{
-                    display:block;
-                    border-color: @navbar-default-link-hover-color;
+                &:hover{
+                    color:@kbNavbar-default-link-hover-color;
                 }
                 &.active > .activeLine{
                     display:block;
@@ -472,7 +467,6 @@ body.showMenu #kbCanvasContainer{
             float:left;
             a:hover{
                 background-color: @navbar-default-bg;
-                color:@navbar-default-link-hover-color;
             }
         }
         .kbSearchToggler{
