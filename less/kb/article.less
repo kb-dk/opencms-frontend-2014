@@ -4,7 +4,9 @@
 //------------------------------------------------------
 /* Fallback xs */
 article.contentPage{
-
+    figure{
+        margin-bottom: 30px;
+    }
     .picture{
         picture{
             height:@comp-height-xs;
@@ -21,19 +23,19 @@ article.contentPage{
             height:@comp-height-xs;
         }
         figcaption{
-            font:@article-figcaption-xs;
+            font:@article-figcaption-sm;
             color:@figcaption-color;
         }
     }
     header{
         h1{
-            font:@article-header-xs;
+            font:@article-header-sm;
         }
         .lead{
-            font:@article-sub-header-xs;
+            font:@article-sub-header-sm;
         }
         span, time{
-           font:@article-header-label-xs;
+           font:@article-header-label-sm;
            color:@article-header-label-color;
         }
         span{
@@ -47,13 +49,15 @@ article.contentPage{
     }
     div[itemprop="articleBody"]{
         h1, h2, h3{
-            font: @article-body-h1-xs;
+            font: @article-body-h1-sm;
         }
         p{
-            font: @article-body-p-xs;
+            font: @article-body-p-sm;
         }
         img{
             .img-responsive;
+            width:50%;
+            margin:15px 15px 15px 0px;
         }
         // FIX Table in article (AKA Uffe table)
         table{
