@@ -357,9 +357,7 @@ body.showMenu #kbCanvasContainer{
             height:88px;
             top:16px;
             transition:top 200ms ease-out;
-            picture img{
-                transition: width 200ms ease-out, height 200ms ease-out;
-            }
+
             @media (max-width: (@screen-sm-min - 1)){
                 margin-left:15px;
             }
@@ -373,11 +371,14 @@ body.showMenu #kbCanvasContainer{
         }
         .logo-text{
             display:block;
+            opacity: 1;
             position:absolute;
-            width:426px;
-            height:41px;
-            top: 17px;
-            left: 55px;
+            //width:426px;
+            //height:41px;
+            top: 22px;
+            left: 60px;
+            transition:opacity 200ms ease-out;
+
             @media (max-width: 585px) {
                 display: none;
             }
@@ -394,22 +395,26 @@ body.showMenu #kbCanvasContainer{
                 background-image:url(../img/kb_logo_small.png);
             }
             .logo-text{
-                top:66px;
-                left:55px;
+                top:69px;
+                left:63px;
                 @media (max-width: (@screen-sm-min - 1)){
-                    left: 55px + 16px;
+                    left: 55px + 23px;
                 }
             }
         }
     }
     &.micro{
-        height:65px;
+        height:70px;
         .navbar-header{
             top: -60px;
             transition:top 200ms ease-out;
+
             .logo{
                 top:70px;
                 transition:top 200ms ease-out;
+            }
+            .logo-text{
+                opacity:0;
             }
         }
     }
