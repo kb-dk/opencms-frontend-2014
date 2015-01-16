@@ -21,7 +21,7 @@
         <!-- Browser sniffing -->
         <script src="js/layout.engine.min.js"></script>
         <!--Responsive image -->
-        <script src="js/picturefill.js" async="async"></script>
+        <script src="js/picturefill.min.js" async="async"></script>
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -167,14 +167,353 @@
                 <!-- content start -->
                 <main>
 
+
+                <section class="deck">
+                    <div class="container-fluid">
+
+                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                            </ol>
+
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner" role="listbox">
+                                <a href="" class="item active">
+                                    <picture>
+                                        <!--[if IE 9]><video style="display: none;"><![endif]-->
+                                        <source srcset="img/carousel01LowRez.jpg" media="(max-width: 767px)"/>
+                                        <source srcset="img/carousel01HighRez.jpg" media="(min-width: 768px)"/>
+                                        <!--[if IE 9]></video><![endif]-->
+                                        <img src="img/carousel01HighRez.jpg" alt="billedetekst"/>
+                                    </picture>
+                                    <div class="carousel-caption">
+                                        <h1>Det Samfundsvidenskabelige bibliotek. På det samfundsvidenskabelige bibliotek er der både individuelle studiepladser og mulighed
+                                            for at indrette gruppearbejdspladser.</h1>
+                                        <p>
+
+                                        </p>
+                                    </div>
+                                </a>
+                                <a href="" class="item">
+                                    <picture>
+                                        <!--[if IE 9]><video style="display: none;"><![endif]-->
+                                        <source srcset="img/carousel02LowRez.jpg" media="(max-width: 767px)"/>
+                                        <source srcset="img/carousel02HighRez.jpg" media="(min-width: 768px)"/>
+                                        <!--[if IE 9]></video><![endif]-->
+                                        <img src="img/carousel02HighRez.jpg" alt="billedetekst"/>
+                                    </picture>
+                                    <div class="carousel-caption">
+                                        <h1>Header </h1>
+                                        <p>Content</p>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <!-- Controls -->
+                            <a class="carousel-control left" href="#carousel-example-generic" role="button" data-slide="prev">
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control right" href="#carousel-example-generic" role="button" data-slide="next">
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
     <section class="deck">
-                <header class="text-center">
-                    <h2>List</h2>
-                    <p class="lead">Eks. på List</p>
-                </header>
+        <div class="container">
+            <div class="row">
+
+                <div class="col-sm-12">
+                    <header class="text-center">
+                        <h2>List</h2>
+                        <p class="lead">Eks. på List</p>
+                    </header>
+                </div>
+
+                <div class="col-sm-6 col-md-3">
+                    <!-- List start -->
+                    <article class="comp list acc">
+                        <div class="caption">
+                            <header>
+                                <h3 class="text-uppercase">Header</h3>
+                            </header>
+                            <div class="listContent">
+                                <div class="listPage">
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <a href="">
+                                                <article>
+                                                    <time datetime="20:00">Dato feldt</time>
+                                                    <h4>Denne liste har kun én side</h4><!-- HAFE: Her skal være en fast højde, 1 linie, white-space:nowrap overflow:ellipsis -->
+                                                </article>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                                                <article>
+                                                    <time datetime="20:00">Dato feldt</time>
+                                                    <h4>header 2</h4>
+                                                </article>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                                                <article>
+                                                    <time datetime="20:00">Dato feldt</time>
+                                                    <h4>header 3</h4>
+                                                </article>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                                                <article>
+                                                    <time datetime="20:00">Dato feldt</time>
+                                                    <h4>header 4</h4>
+                                                </article>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                                                <article>
+                                                    <time datetime="20:00">Dato feldt</time>
+                                                    <h4>header 5</h4>
+                                                </article>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <nav>
+                            <ul class="pager">
+                                <li class="previous disabled"><a href="#" title="previous"><span class="glyphicon glyphicon-chevron-left"></span></a></li><!-- FIXME i18n -->
+                                <li class="next"><a href="#" title="next"><span class="glyphicon glyphicon-chevron-right"></span></a></li><!-- FIXME i18n -->
+                            </ul>
+                        </nav>
+                    </article>
+                    <!-- List End -->
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <!-- List start -->
+                    <article class="comp list acc">
+                        <div class="caption">
+                            <header>
+                                <h3 class="text-uppercase">Header</h3>
+                            </header>
+                            <div class="listContent">
+                                <div class="listPage">
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <a href="">
+                                                <article>
+                                                    <time datetime="20:00">Dato feldt</time>
+                                                    <h4>Denne liste har kun én side</h4><!-- HAFE: Her skal være en fast højde, 1 linie, white-space:nowrap overflow:ellipsis -->
+                                                </article>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                                                <article>
+                                                    <time datetime="20:00">Dato feldt</time>
+                                                    <h4>header 2</h4>
+                                                </article>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                                                <article>
+                                                    <time datetime="20:00">Dato feldt</time>
+                                                    <h4>header 3</h4>
+                                                </article>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                                                <article>
+                                                    <time datetime="20:00">Dato feldt</time>
+                                                    <h4>header 4</h4>
+                                                </article>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                                                <article>
+                                                    <time datetime="20:00">Dato feldt</time>
+                                                    <h4>header 5</h4>
+                                                </article>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <nav>
+                            <ul class="pager">
+                                <li class="previous disabled"><a href="#" title="previous"><span class="glyphicon glyphicon-chevron-left"></span></a></li><!-- FIXME i18n -->
+                                <li class="next"><a href="#" title="next"><span class="glyphicon glyphicon-chevron-right"></span></a></li><!-- FIXME i18n -->
+                            </ul>
+                        </nav>
+                    </article>
+                    <!-- List End -->
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <!-- List start -->
+                    <article class="comp list acc">
+                        <div class="caption">
+
+                            <header>
+                                <h3 class="text-uppercase">Header</h3>
+                            </header>
+                            <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+                                <a href="#" class="btn btn-default" role="button">Nov. 14</a>
+                                <a href="#" class="btn btn-default active" role="button">Dec. 14</a>
+                                <a href="#" class="btn btn-default" role="button">Jan. 14</a>
+                            </div>
+
+                            <div class="listContent">
+                                <div class="listPage">
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <a href="">
+                                                <article>
+                                                    <time datetime="20:00">Dato feldt</time>
+                                                    <h4>Denne liste har kun én side</h4><!-- HAFE: Her skal være en fast højde, 1 linie, white-space:nowrap overflow:ellipsis -->
+                                                </article>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                                                <article>
+                                                    <time datetime="20:00">Dato feldt</time>
+                                                    <h4>header 2</h4>
+                                                </article>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                                                <article>
+                                                    <time datetime="20:00">Dato feldt</time>
+                                                    <h4>Denne liste har kun én side</h4><!-- HAFE: Her skal være en fast højde, 1 linie, white-space:nowrap overflow:ellipsis -->
+                                                </article>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                                                <article>
+                                                    <time datetime="20:00">Dato feldt</time>
+                                                    <h4>header 2</h4>
+                                                </article>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                                                <article>
+                                                    <time datetime="20:00">Dato feldt</time>
+                                                    <h4>Denne liste har kun én side</h4><!-- HAFE: Her skal være en fast højde, 1 linie, white-space:nowrap overflow:ellipsis -->
+                                                </article>
+                                            </a>
+                                        </li>
+
+
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                        <nav>
+
+                            <ul class="pager">
+                                <li class="previous disabled"><a href="#"><span aria-hidden="true">&larr;</span> Older</a></li>
+                                <li class="next"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+                            </ul>
+                        </nav>
+                    </article>
+                    <!-- List End -->
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <!-- List start -->
+                    <article class="comp list acc">
+                        <div class="caption">
+                            <header>
+                                <h3 class="text-uppercase">Header</h3>
+                            </header>
+                            <div class="listContent">
+                                <div class="listPage">
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <a href="">
+                                                <article>
+                                                    <time datetime="20:00">Dato feldt</time>
+                                                    <h4>Denne liste har kun én side</h4><!-- HAFE: Her skal være en fast højde, 1 linie, white-space:nowrap overflow:ellipsis -->
+                                                </article>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                                                <article>
+                                                    <time datetime="20:00">Dato feldt</time>
+                                                    <h4>header 2</h4>
+                                                </article>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                                                <article>
+                                                    <time datetime="20:00">Dato feldt</time>
+                                                    <h4>header 3</h4>
+                                                </article>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                                                <article>
+                                                    <time datetime="20:00">Dato feldt</time>
+                                                    <h4>header 4</h4>
+                                                </article>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                                                <article>
+                                                    <time datetime="20:00">Dato feldt</time>
+                                                    <h4>header 5</h4>
+                                                </article>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <nav>
+                            <ul class="pager">
+                                <li class="previous disabled"><a href="#" title="previous"><span class="glyphicon glyphicon-chevron-left"></span></a></li><!-- FIXME i18n -->
+                                <li class="next"><a href="#" title="next"><span class="glyphicon glyphicon-chevron-right"></span></a></li><!-- FIXME i18n -->
+                            </ul>
+                        </nav>
+                    </article>
+                    <!-- List End -->
+                </div>
+
+
+
+            </div>
+        </div>
+    </section>
+
+    <section class="deck">
 
                 <div class="container">
                     <div class="row">
+
+                        <div class="col-sm-12">
+                            <header class="text-center">
+                                <h2>List</h2>
+                                <p class="lead">Eks. på List</p>
+                            </header>
+                        </div>
 
                         <div class="col-sm-6 col-md-3">
                             <!-- List start -->
@@ -627,13 +966,14 @@
 
     <section class="deck">
 
-                <header class="text-center">
-                    <h2>Factbox</h2>
-                    <p class="lead">Eks. på factbox</p>
-                </header>
-
                 <div class="container">
                     <div class="row">
+                        <div class="col-sm-12">
+                            <header class="text-center">
+                                <h2>Factbox</h2>
+                                <p class="lead">Eks. på factbox</p>
+                            </header>
+                        </div>
 
                         <div class="col-sm-3">
                             <aside class="factBox">
@@ -670,13 +1010,15 @@
             </section>
     <section class="deck">
 
-                <header class="text-center">
-                    <h2>Teaser</h2>
-                    <p class="lead">Eks. på teaser</p>
-                </header>
 
                 <div class="container">
                     <div class="row">
+                        <div class="col-md-12">
+                            <header class="text-center">
+                                <h2>Teaser</h2>
+                                <p class="lead">Eks. på teaser</p>
+                            </header>
+                        </div>
                         <div class="col-sm-12">
 
                             <!-- Teaser start -->
@@ -759,11 +1101,6 @@
 
             </section>
             <section class="deck">
-                <header class="text-center">
-                    <h2>Teaser</h2>
-                    <p class="lead">Eks.på Highlight</p>
-                </header>
-
                 <div class="container-fluid">
                     <a href="">
                         <aside class="comp teaser highlight dark-blue">
@@ -1016,6 +1353,7 @@
         <script src="js/bootstrap331/alert.js"></script>
         <script src="js/bootstrap331/transition.js"></script>
         <script src="js/bootstrap331/collapse.js"></script>
+        <script src="js/bootstrap331/carousel.js"></script>
     </body>
 </html>
 
