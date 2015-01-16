@@ -149,6 +149,11 @@ $(document).ready(function() {
 
     $(window).resize(function (){
         var innerWidth = $(window).innerWidth();
+//kbLog($('body .topnavigation').css('position') + ', modus:' + kbModus );
+// FIXME: As it is now, both css media queries and jQuery.innerWidth counts for changes in modus. We shall change this so js
+//        does not meassure innerWidth, but merely tastes on certain css properties (changed by the css media queries), and changes modus according to them.
+//        This way the css will be the only authoritative instance changing the modi, and we won't have the problems with the browser specific js measuring (IE 992px bug).
+
         if (innerWidth < SCREEN_SM) {
             if (kbModus !== SCREEN_SM_STR) {
                 setModus(SCREEN_SM_STR);
@@ -170,8 +175,33 @@ $(document).ready(function() {
                 ajustHeaderHeight();
             }
         }
+/*
+        if ($('body .topnavigation').css('position') === 'relative') {
+            if (kbModus === SCREEN_LG_STR) {
+                $kbNavbarContainer.removeClass('mini').addClass('micro');
+                setModus(SCREEN_MD_STR);
+                ajustHeaderHeight();
+            }
+        } else {
+            if (kbModus === SCREEN_MD_STR) {
+                $kbNavbarContainer.removeClass('micro').addClass('mini');
+                setModus(SCREEN_LG_STR);
+                ajustHeaderHeight();
+            }
+        }
+*/
         ajustBodyMarginTop();
     });
+
+// This is only for testing window width
+//kbLog = (function (window, $, undefined) {
+//    var kbLogger = $('<div id="kbLogger" style="position:fixed;top:0;left:0;opacity:0.8;border:1px solid #000; background-color:#fff;height:20px;color:#000;z-index:99999"></div>');
+//    $('body').append(kbLogger);
+//    return function (msg) {
+//        kbLogger.text(msg);
+//    }
+//}(window, jQuery));
+// test code end
 
     // initialize the header size
     $('body')
