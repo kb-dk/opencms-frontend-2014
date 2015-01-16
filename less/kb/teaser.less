@@ -23,13 +23,11 @@
     }
     .caption{
       padding:  @teaser-caption-padding!important;
-        *{
-          padding: @reset-padding;
-          margin: @reset-margin;
-      }
+
     }
     span{
       color:@teaser-label;
+        font-family: @font-family-serif !important;
     }
     span, time{
       display: block;
@@ -52,8 +50,6 @@
     padding: @highlight-caption-padding !important;
     //padding:  @spot-caption-padding!important;
     *{
-      padding: @reset-padding;
-      margin: @reset-margin;
       color:@white;
     }
   }
@@ -62,6 +58,10 @@
   }
   p{
     font:@highlight-p-xs;
+  }
+  button{
+      background: transparent;
+      border:1px solid @white;
   }
 
 }
@@ -283,6 +283,8 @@
       font:@teaser-p-lg;
     }
   }
+
+
   // Highlight view
   .col-sm-12{
     .highlight{
