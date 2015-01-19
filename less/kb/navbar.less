@@ -106,6 +106,7 @@ body.showMenu #kbCanvasContainer{
     .searchbox-container{
         padding:@nav-mobile-searchbox-padding;
         border-bottom:1px solid @gray-lighter;
+        background:@white;
         .input-group{
             color:@color-black;
             kb-nav{
@@ -357,8 +358,9 @@ body.showMenu #kbCanvasContainer{
             height:88px;
             top:16px;
             transition:top 200ms ease-out;
-            picture img{
-                transition: width 200ms ease-out, height 200ms ease-out;
+
+            @media (max-width: (@screen-sm-min - 1)){
+                margin-left:15px;
             }
         }
         &.micro{
@@ -367,17 +369,17 @@ body.showMenu #kbCanvasContainer{
                 width: 45px;
                 height: 44px;
             }
-            .logo-text{
-                // XXX XXX XXX here goes what should happen to logo-text under micro (might be nothing?)
-            }
         }
         .logo-text{
             display:block;
+            opacity: 1;
             position:absolute;
-            width:426px;
-            height:41px;
-            top: 16px;
-            left: 115px;
+            //width:426px;
+            //height:41px;
+            top: 22px;
+            left: 60px;
+            transition:opacity 200ms ease-out;
+
             @media (max-width: 585px) {
                 display: none;
             }
@@ -391,28 +393,28 @@ body.showMenu #kbCanvasContainer{
                 width:46px;
                 height:45px;
                 top:63px;
-                background-image:url(../img/kb_logo_small.png);
             }
             .logo-text{
-                top:66px;
-                left:55px;
+                top:69px;
+                left:63px;
                 @media (max-width: (@screen-sm-min - 1)){
-                    left: 55px + 16px;
+                    left: 55px + 23px;
                 }
             }
         }
     }
     &.micro{
-        height:50px;
+        height:70px;
         .navbar-header{
-            top: -70px;
+            top: -60px;
             transition:top 200ms ease-out;
+
             .logo{
-                width:46px;
-                height:45px;
-                top:73px;
-                background-image:url(../img/kb_logo_small.png);
+                top:70px;
                 transition:top 200ms ease-out;
+            }
+            .logo-text{
+                opacity:0;
             }
         }
     }
@@ -430,21 +432,23 @@ body.showMenu #kbCanvasContainer{
             a{
                 font-family: "RobotoSlab-Regular", Helvetica, Arial, sans-serif;
                 font-size:14px;
+                color: @kbNavbar-default-link-color;
+                &:hover{
+                    color:@kbNavbar-default-link-hover-color;
+                }
                 @media (max-width: @screen-lg-min) {
                     font-size: 12px;
                 }
             }
         }
 
-        a{
-            color: @navbar-default-link-color;
-        }
         .kb-nav{
             text-transform: uppercase;
             li > a{
                 position:relative;
                 white-space: nowrap;
                 transition: padding 200ms ease-out;
+                color:@kbNavbar-default-link-color;
                 .activeLine{
                     display:none;
                     position:absolute;
@@ -453,12 +457,8 @@ body.showMenu #kbCanvasContainer{
                     width:floor(@navbar-padding-horizontal * 1.2);
                     border:1px solid @navbar-default-link-active-color;
                 }
-                &.active > a:hover{
-                    color:@navbar-default-link-hover-color;
-                }
-                &:hover > .activeLine{
-                    display:block;
-                    border-color: @navbar-default-link-hover-color;
+                &:hover{
+                    color:@kbNavbar-default-link-hover-color;
                 }
                 &.active > .activeLine{
                     display:block;
@@ -472,7 +472,6 @@ body.showMenu #kbCanvasContainer{
             float:left;
             a:hover{
                 background-color: @navbar-default-bg;
-                color:@navbar-default-link-hover-color;
             }
         }
         .kbSearchToggler{
