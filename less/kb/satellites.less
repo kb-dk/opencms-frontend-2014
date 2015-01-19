@@ -1,12 +1,14 @@
 .kb-satellites{
     height:470px;
     overflow:hidden;
+    @media (max-width: @screen-sm-max){
+        height:auto;
+    }
     .kb-satellites-text{
+        height:470px; // FIXME: Surely there must be a better way to align the two sides of the container in height, than to fix the height?
         @media (max-width: @screen-sm-max){
             padding-bottom:20px;
-        }
-        @media (min-width: @screen-md-min){
-            height:470px;
+            height:auto;
         }
         background-color: #304854; //@light-blue;
         color:@color-white;
