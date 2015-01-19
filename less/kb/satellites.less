@@ -1,0 +1,46 @@
+.kb-satellites{
+    height:470px;
+    overflow:hidden;
+    .kb-satellites-text{
+        @media (max-width: @screen-sm-max){
+            padding-bottom:20px;
+        }
+        @media (min-width: @screen-md-min){
+            height:470px;
+        }
+        background-color: #304854; //@light-blue;
+        color:@color-white;
+        padding:20px 50px;
+        h3{
+            font:@highlight-header-md-col-12;
+        }
+        p{
+            font:@highlight-p-lg-col-12;
+        }
+        .kb-satellites-list{
+            margin-top:20px;
+            ul{
+                margin-bottom:0;
+                li{
+                    list-style: none;
+                    line-height: 48px;
+                    font-size:24px;
+                    font-weight:bold;
+                    a{
+                        color:@color-white;
+                        white-space:nowrap;
+                        .glyphicon{
+                            font-size:15px;
+                            position:relative;
+                            top:-2px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .kb-satellites-image{
+        padding:0;
+        overflow:hidden;
+    }
+}
