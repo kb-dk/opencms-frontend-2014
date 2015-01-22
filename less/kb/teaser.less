@@ -1,420 +1,371 @@
-// KB TEASER/SPOT COMPONENT
-//------------------------------------------------------
-// Fallback xs first
 
+// KB teaser/teaser highlight
+//------------------------------------------------------
+
+// Extra small devices (phones, less than 768px)
+// (No media query since this is the default in Bootstrap)
+//------------------------------------------------------
+
+// TEASER
 .teaser{
-  height:auto;
     a{
       display: block;
-    }
-    picture{
-      height:@comp-height-xs;
     }
     picture, .caption{
       padding: @reset-padding!important;
       overflow: hidden !important;
       .make-xs-column(12);
-    }
-    img{
-      width:100%;
-      object-fit: cover;
-      overflow: hidden;
-      height:@comp-height-xs;
+      height:@comp-height-xs/2;
     }
     .caption{
       padding:  @teaser-caption-padding!important;
 
     }
     span{
-      color:@teaser-label;
-        font-family: @font-family-serif !important;
+        color:@teaser-label;
+        font:@teaser-span-xs-md;
     }
-    span, time{
+    time{
       display: block;
-      font:@teaser-stamp-xs;
+      font:@teaser-time-xs-md;
     }
     h3{
-      font:@teaser-header-xs;
+      font:@teaser-header-xs-md;
     }
     p{
-      font:@teaser-p-xs;
+      font:@teaser-p-xs-md;
     }
-
  }
 
-// HIGHLIGHT
-// Fallback mobil first
-.highlight{
-  .caption{
-    .text-center;
-    padding: @highlight-caption-padding !important;
-    //padding:  @spot-caption-padding!important;
-    *{
-      color:@white;
+// Handle first element in flow pattern
+.col-lg-12{
+    .teaser{
+        picture, .caption{
+            .make-sm-column(12);
+            height:@comp-height-xs/2;
+        }
+        h3{
+            font: @teaser-header-xs-md-col-12;
+        }
+        p{
+            font:@teaser-p-xs-md-col-12;
+        }
+        span{
+            font:@teaser-span-xs-md-lg-col-12;
+        }
+        time{
+            font:@teaser-time-xs-md-col-12;
+        }
     }
-  }
-  h3{
-    font:@highlight-header-xs;
-  }
-  p{
-    font:@highlight-p-xs;
-  }
-  button{
-      background: transparent;
-      border:1px solid @white;
-  }
-
 }
-// Small devices (tablets, 768px and up)
-@media (max-width: @screen-sm-max) {
-  // Normal view
-  .teaser{
-    picture, .caption{
-      height:@comp-height-sm/2;
-    }
-    img{
-      min-height:@comp-height-sm/2;
-    }
-    span, time{
-      font:@teaser-stamp-sm;
+
+
+// HIGHLIGHT
+.highlight{
+    .caption{
+        .text-center;
+        padding: @highlight-caption-padding !important;
+        *{
+            color:@white;
+        }
     }
     h3{
-      font:@teaser-header-sm;
+        font:@highlight-header-xs;
     }
     p{
-      font:@teaser-p-sm;
+        font:@highlight-p-xs;
     }
-  }
-  // Highlight view
-  .col-sm-12{
-    .highlight{
-      height:@comp-height-sm;
-      picture, .caption{
-        height:@comp-height-sm;
-        .text-left;
-        .make-sm-column(6);
-      }
-      picture{
-        padding-right:@grid-gutter-width / 2 !important;
-      }
-      img{
-        height:@comp-height-sm;
-      }
-      h3{
-        font:@highlight-header-sm-col-12;
-      }
-      p{
-        font:@highlight-p-sm-col-12;
-      }
+}
+
+// Small devices (tablets, 768px and up)
+//------------------------------------------------------
+@media (min-width: @screen-sm-min) {
+// TEASER
+    .teaser{
+        picture, .caption{
+            height:@comp-height-sm/2;
+        }
+        span{
+          font:@teaser-span-sm-lg;
+        }
+        time{
+            font:@teaser-time-sm-lg;
+        }
+        h3{
+            font:@teaser-header-sm;
+        }
+        p{
+            font:@teaser-p-sm;
+        }
     }
-  }
-  .col-sm-8{
-    .highlight{
-      height:@comp-height-sm;
-      picture, .caption{
-        height:@comp-height-sm;
-        .text-left;
-        .make-sm-column(6);
-      }
-      picture{
-        padding-right:@grid-gutter-width / 2 !important;
-      }
-      img{
-        height:@comp-height-sm;
-      }
-      h3{
-        font:@highlight-header-sm-col-3;
-      }
-      p{
-        font:@highlight-p-sm-col-3;
-      }
-    }
-  }
-  .col-sm-6, .col-sm-4 {
-    .highlight{
-      height:@comp-height-sm;
-      picture, .caption{
-        height:@comp-height-sm / 2;
-        .make-sm-column(12)
-      }
-      picture{
-        padding:@reset-padding !important;
-      }
-      img{
-        height:@comp-height-sm / 2;
-      }
-      h3{
-        font:@highlight-header-sm-col-3;
-      }
-      p{
-        font:@highlight-p-sm-col-3;
-      }
+// Handle first element in flow pattern
+    .col-sm-12{
+        .teaser{
+            picture, .caption{
+                .make-sm-column(6);
+                height:@comp-height-sm;
+            }
+            picture{
+                padding-right:@grid-gutter-width / 2 !important;
+            }
+            h3{
+                font: @teaser-header-sm-lg-col-12;
+            }
+            p{
+                font:@teaser-p-sm-lg-col-12;
+            }
+            span{
+                font:@teaser-span-sm-col-12;
+            }
+            time{
+                font:@teaser-time-sm-lg-col-12;
+            }
+        }
     }
 
-  }
+// HIGHLIGHT
+    .highlight{
+        picture, .caption{
+            height:@comp-height-sm;
+            .text-left;
+            .make-sm-column(6);
+        }
+        picture{
+            padding-right:@grid-gutter-width / 2 !important;
+        }
+    }
+    .col-sm-12{
+        .highlight{
+            h3{
+                font:@highlight-header-sm-col-12;
+            }
+            p{
+                font:@highlight-p-sm-col-12;
+            }
+        }
+    }
+    .col-md-8{
+        .highlight{
+            h3{
+                font:@highlight-header-sm-col-3;
+            }
+            p{
+                font:@highlight-p-sm-col-3;
+            }
+        }
+    }
+    .col-md-3, .col-md-4  {
+        .highlight{
+            picture, .caption{
+                height:@comp-height-sm / 2;
+                .make-sm-column(12);
+                .text-center;
+            }
+            picture{
+                padding:@reset-padding !important;
+            }
+            h3{
+                font:@highlight-header-sm-col-3;
+            }
+            p{
+                font:@highlight-p-sm-col-3;
+            }
+        }
+    }
 }
 
 // Medium devices (desktops, 992px and up)
+//------------------------------------------------------
 @media (min-width: @screen-md-min) {
-  // Normal view
-  .teaser{
-    picture, .caption{
-      height:@comp-height-md/2;
+// TEASER
+    .teaser{
+        picture, .caption{
+            height:@comp-height-md/2;
+        }
+        span{
+            font:@teaser-span-xs-md;
+        }
+        time{
+            font:@teaser-time-xs-md;
+        }
+        h3{
+            font:@teaser-header-xs-md;
+        }
+        p{
+            font:@teaser-p-xs-md;
+        }
     }
-    img{
-      height:@comp-height-md/2;
+    // Handle first element in flow pattern
+    .col-md-12{
+        .teaser{
+            picture, .caption{
+                .make-md-column(6);
+                height:@comp-height-md;
+            }
+            picture{
+                padding-right:@grid-gutter-width / 2 !important;
+            }
+            span{
+                font:@teaser-span-xs-md-lg-col-12;
+            }
+            time{
+                font:@teaser-time-xs-md-col-12;
+            }
+            h3{
+                font:@teaser-header-xs-md-col-12;
+            }
+            p{
+                font:@teaser-p-xs-md-col-12;
+            }
+        }
     }
-    span, time{
-      font:@teaser-stamp-md;
-    }
-    h3{
-      font:@teaser-header-md;
-    }
-    p{
-      font:@teaser-p-md;
-    }
-  }
-  //Highlight view
-  .col-sm-12{
+
+// HIGHLIGHT
     .highlight{
-      height:@comp-height-md;
-      picture, .caption{
-        height:@comp-height-md;
-        .text-left;
-        .make-sm-column(6);
-      }
-      picture{
-        padding-right:@grid-gutter-width / 2 !important;
-      }
-      img{
-        height:@comp-height-md;
-      }
-      h3{
-        font:@highlight-header-md-col-12;
-      }
-      p{
-        font:@highlight-p-md-col-12;
-      }
+        picture, .caption{
+            height:@comp-height-md;
+            .text-left;
+            .make-sm-column(6);
+        }
+        picture{
+            padding-right:@grid-gutter-width / 2 !important;
+        }
     }
-  }
-  .col-sm-8{
-    .highlight{
-      height:@comp-height-md;
-      picture, .caption{
-        height:@comp-height-md;
-        .text-left;
-        .make-sm-column(6);
-      }
-      picture{
-        padding-right:@grid-gutter-width / 2 !important;
-      }
-      img{
-        height:@comp-height-md;
-      }
-      h3{
-        font:@highlight-header-md-col-6;
-      }
-      p{
-        font:@highlight-p-md-col-6;
-      }
+    .col-md-12{
+        .highlight{
+            h3{
+                font:@highlight-header-md-col-12;
+            }
+            p{
+                font:@highlight-p-md-col-12;
+            }
+        }
     }
-  }
-  .col-sm-6 {
-    .highlight{
-      height:@comp-height-md;
-      picture, .caption{
-        height:@comp-height-md / 2;
-        .make-sm-column(12)
-      }
-      picture{
-        padding:@reset-padding !important;
-      }
-      img{
-        height:@comp-height-md / 2;
-      }
-      h3{
-        font:@highlight-header-md-col-3;
-      }
-      p{
-        font:@highlight-p-md-col-3;
-      }
+    .col-sm-8{
+        .highlight{
+            h3{
+                font:@highlight-header-md-col-6;
+            }
+            p{
+                font:@highlight-p-md-col-6;
+            }
+        }
     }
-  }
-  .col-md-3, .col-md-4, .col-sm-4   {
-    .highlight{
-      height:@comp-height-md;
-      picture, .caption{
-        height:@comp-height-md / 2;
-        .make-sm-column(12)
-      }
-      picture{
-        padding:@reset-padding !important;
-      }
-      img{
-        height:@comp-height-md / 2;
-      }
-      h3{
-        font:@highlight-header-md-col-3;
-      }
-      p{
-        font:@highlight-p-md-col-3;
-      }
+    .col-md-3, .col-md-4  {
+        .highlight{
+            picture, .caption{
+                height:@comp-height-md / 2;
+                .make-md-column(12)
+            }
+            picture{
+                padding:@reset-padding !important;
+            }
+            h3{
+                font:@highlight-header-md-col-3;
+            }
+            p{
+                font:@highlight-p-md-col-3;
+            }
+        }
     }
-  }
 }
 
 // Large devices (large desktops, 1200px and up)
+//------------------------------------------------------
 @media (min-width: @screen-lg-min) {
-  // Normal view
-  .teaser{
-    picture, .caption{
-      height:@comp-height-lg/2;
+// TEASER
+    .teaser{
+        picture, .caption{
+            height:@comp-height-lg/2;
+        }
+        span{
+            font:@teaser-span-sm-lg;
+        }
+        time{
+            font:@teaser-time-sm-lg;
+        }
+        h3{
+            font:@teaser-header-lg;
+        }
+        p{
+            font:@teaser-p-lg;
+        }
     }
-    img{
-      height:@comp-height-lg/2;
+    .col-lg-12{
+        .teaser{
+            picture, .caption{
+                .make-lg-column(6);
+                height:@comp-height-lg;
+            }
+            picture{
+                padding-right:@grid-gutter-width / 2 !important;
+            }
+            span{
+                font:@teaser-span-xs-md-lg-col-12;
+            }
+            time{
+                font:@teaser-time-sm-lg-col-12;
+            }
+            h3{
+                font:@teaser-header-sm-lg-col-12;
+            }
+            p{
+                font:@teaser-p-sm-lg-col-12;
+            }
+        }
     }
-    span, time{
-      font:@teaser-stamp-lg;
+// HIGHLIGHT
+    .highlight{
+        picture, .caption{
+            height:@comp-height-lg;
+            .text-left;
+            .make-lg-column(6);
+        }
+        picture{
+            padding-right:@grid-gutter-width / 2 !important;
+        }
     }
-    h3{
-      font:@teaser-header-lg;
+    .col-lg-12{
+        .highlight{
+            h3{
+                font:@highlight-header-lg-col-12;
+            }
+            p{
+                font:@highlight-p-lg-col-12;
+            }
+        }
     }
-    p{
-      font:@teaser-p-lg;
+    .col-md-8{
+        .highlight{
+            h3{
+                font:@highlight-header-lg-col-6;
+            }
+            p{
+                font:@highlight-p-lg-col-6;
+            }
+        }
     }
-  }
+    .col-md-3, .col-md-4  {
+        .highlight{
+            picture, .caption{
+                height:@comp-height-lg / 2;
+                .make-lg-column(12)
+            }
+            picture{
+                padding:@reset-padding !important;
+            }
+            h3{
+                font:@highlight-header-lg-col-3;
+            }
+            p{
+                font:@highlight-p-lg-col-3;
+            }
+        }
+    }
+}
 
 
-  // Highlight view
-  .col-sm-12{
-    .highlight{
-      height:@comp-height-lg;
-      picture, .caption{
-        height:@comp-height-lg;
-        .text-left;
-        .make-sm-column(6);
-      }
-      picture{
-        padding-right:@grid-gutter-width / 2 !important;
-      }
-      img{
-        height:@comp-height-lg;
-      }
-      h3{
-        font:@highlight-header-lg-col-12;
-      }
-      p{
-        font:@highlight-p-lg-col-12;
-      }
-    }
-  }
-  .col-sm-8{
-    .highlight{
-      height:@comp-height-lg;
-      picture, .caption{
-        height:@comp-height-lg;
-        .text-left;
-        .make-sm-column(6);
-      }
-      picture{
-        padding-right:@grid-gutter-width / 2 !important;
-      }
-      img{
-        height:@comp-height-lg;
-      }
-      h3{
-        font:@highlight-header-lg-col-6;
-      }
-      p{
-        font:@highlight-p-lg-col-6;
-      }
-    }
-  }
-  .col-sm-6 {
-    .highlight{
-      height:@comp-height-lg;
-      picture, .caption{
-        height:@comp-height-lg / 2;
-        .make-sm-column(12)
-      }
-      picture{
-        padding:@reset-padding !important;
-      }
-      img{
-        height:@comp-height-lg / 2;
-      }
-      h3{
-        font:@highlight-header-lg-col-3;
-      }
-      p{
-        font:@highlight-p-lg-col-3;
-      }
-    }
-  }
-  .col-md-3, .col-md-4, .col-sm-4   {
-    .highlight{
-      height:@comp-height-lg;
-      picture, .caption{
-        height:@comp-height-lg / 2;
-        .make-sm-column(12)
-      }
-      picture{
-        padding:@reset-padding !important;
-      }
-      img{
-        height:@comp-height-lg / 2;
-      }
-      h3{
-        font:@highlight-header-lg-col-3;
-      }
-      p{
-        font:@highlight-p-lg-col-3;
-      }
-    }
-  }
-}
-// Handling top teaser (first element in grit) col-*-12
-// ******************************************************************************
-.wide{
-  picture, .caption{
-    .make-sm-column(6);
-  }
-  picture{
-    padding-right:@grid-gutter-width / 2 !important;
-  }
-}
-@media (min-width: @screen-sm-min) {
-  .wide{
-    picture, .caption{
-      .make-sm-column(6);
-      height:@comp-height-sm;
-    }
-    img{
-      height:@comp-height-sm;
-    }
-  }
-}
-@media (min-width: @screen-md-min) {
-  .wide{
-    picture, .caption{
-      height:@comp-height-md;
-    }
-    img{
-      height:@comp-height-md;
-    }
-  }
-}
-@media (min-width: @screen-lg-min) {
-  .wide{
-    picture, .caption{
-      height:@comp-height-lg;
-    }
-    img{
-      height:@comp-height-lg;
-    }
 
-  }
-}
 
 // Handling Spot component full browser width  (Need .container-fluid as wrapper)*/
 // ******************************************************************************
@@ -431,9 +382,6 @@
       picture{
         padding:@reset-padding !important;
       }
-      img{
-        height:@comp-height-sm;
-      }
       h3{
         font:@highlight-header-sm-col-fluid;
       }
@@ -447,9 +395,6 @@
       picture, .caption{
         height:@comp-height-md;
         .make-md-column(6)
-      }
-      img{
-        height:@comp-height-md;
       }
       picture{
         padding-right:@grid-gutter-width / 2 !important;
@@ -472,9 +417,6 @@
         height:@comp-height-lg;
         .make-md-column(6)
       }
-      img{
-        height:@comp-height-lg;
-      }
       picture{
         padding-right:@grid-gutter-width / 2 !important;
       }
@@ -496,67 +438,49 @@
 // BACKGROUND COLORS For HIGHLIGHT
 .dark-blue, .light-blue, .dark-green, .dark-red, .dark-gold, .light-gold {
   .caption:after{
-  border-bottom:20px solid transparent;
-  content: " ";
+  content:"";
   position:absolute;
   width:100%;
   height:40px;
   bottom: 0px;
   right:0px;
+  border:0px solid transparent;
   }
 }
 .dark-blue{
   background-color:@dark-blue;
   .caption:after{
-    background: -webkit-linear-gradient(top, rgba(7,22,46,0) 0%, rgba(7,22,46,1) 100%); // For Safari 5.1 to 6.0
-    background: -moz-linear-gradient(top, rgba(7,22,46,0) 0%, rgba(7,22,46,1) 100%); // For Firefox 3.6 to 15
-    background: linear-gradient(top, rgba(7,22,46,0) 0%, rgba(7,22,46,1) 100%);
-    border-color:@dark-blue;
+      background:transparent url("../img/darkBlueBg.png") repeat-x left bottom ;
   }
 }
 .light-blue{
   background-color:@light-blue;
   .caption:after{
-    background: -webkit-linear-gradient(top, rgba(93,146,171,0) 0%, rgba(93,146,171,1) 100%); // For Safari 5.1 to 6.0
-    background: -moz-linear-gradient(top, rgba(93,146,171,0) 0%, rgba(93,146,171,1) 100%); // For Firefox 3.6 to 15
-    background: linear-gradient(top, rgba(93,146,171,0) 0%, rgba(93,146,171,1) 100%);
-    border-color:@light-blue;
+      background:transparent url("../img/lightBlueBg.png") repeat-x left bottom ;
   }
 }
 .dark-green{
   background-color:@dark-green;
   .caption:after{
-    background: -webkit-linear-gradient(top, rgba(33,59,36,0) 0%, rgba(33,59,36,1) 100%); // For Safari 5.1 to 6.0
-    background: -moz-linear-gradient(top, rgba(33,59,36,0) 0%, rgba(33,59,36,1) 100%); // For Firefox 3.6 to 15
-    background: linear-gradient(top, rgba(33,59,36,0) 0%, rgba(33,59,36,1) 100%);
-    border-color:@dark-green;
+      background:transparent url("../img/darkGreenBg.png") repeat-x left bottom ;
   }
 }
 .dark-red{
   background-color:@dark-red;
   .caption:after{
-    background: -webkit-linear-gradient(top, rgba(91,35,32,0) 0%, rgba(91,35,32,1) 100%); // For Safari 5.1 to 6.0
-    background: -moz-linear-gradient(top, rgba(91,35,32,0) 0%, rgba(91,35,32,1) 100%); // For Firefox 3.6 to 15
-    background: linear-gradient(top, rgba(91,35,32,0) 0%, rgba(91,35,32,1) 100%);
-    border-color:@dark-red;
+      background:transparent url("../img/darkRedBg.png") repeat-x left bottom ;
   }
 }
 .dark-gold{
   background-color:@dark-gold;
   .caption:after{
-    background: -webkit-linear-gradient(top, rgba(151,125,75,0) 0%, rgba(151,125,75,1) 100%); // For Safari 5.1 to 6.0
-    background: -moz-linear-gradient(top, rgba(151,125,75,0) 0%, rgba(151,125,75,1) 100%); // For Firefox 3.6 to 15
-    background: linear-gradient(top, rgba(151,125,75,0) 0%, rgba(151,125,75,1) 100%);
-    border-color:@dark-gold;
+      background:transparent url("../img/darkGoldBg.png") repeat-x left bottom ;
   }
 }
 .light-gold{
   background-color:@light-gold;
   .caption:after{
-    background: -webkit-linear-gradient(top, rgba(171,155,99,0) 0%, rgba(171,155,99,1) 100%); // For Safari 5.1 to 6.0
-    background: -moz-linear-gradient(top, rgba(171,155,99,0) 0%, rgba(171,155,99,1) 100%); // For Firefox 3.6 to 15
-    background: linear-gradient(top, rgba(171,155,99,0) 0%, rgba(171,155,99,1) 100%);
-    border-color:@light-gold;
+      background:transparent url("../img/lightGoldBg.png") repeat-x left bottom ;
   }
 }
 
