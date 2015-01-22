@@ -224,7 +224,8 @@ body.showMenu #kbCanvasContainer{
             width:100%;
             border-bottom:1px solid @nav-local-separator-border-color;
             padding-left:@nav-local-padding-left;
-            height:@nav-local-li-height;
+            //height:@nav-local-li-height;
+            word-wrap: break-word;
             padding-top:(@nav-local-li-height - @nav-local-font-size) / 2;
             .activeLine{
                 display:none;
@@ -302,7 +303,7 @@ body.showMenu #kbCanvasContainer{
                 a{
                     display:block;
                     width:100%;
-                    height:@nav-local-li-height;
+                    word-wrap: break-word;
                     padding-top:(@nav-local-li-height - @nav-local-font-size) / 2;
                     &:hover{
                         text-decoration:none;
@@ -317,11 +318,6 @@ body.showMenu #kbCanvasContainer{
             }
             text-transform:none;
         }
-    }
-    a{
-        white-space: nowrap;
-        overflow:hidden;
-        text-overflow:ellipsis;
     }
 }
 
