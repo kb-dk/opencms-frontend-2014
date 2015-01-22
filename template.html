@@ -41,6 +41,20 @@
                 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
                 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
             })();
+
+
+            function imgRealSize(img) {
+
+                var $img = $(img);
+                if ($img.prop('naturalWidth') == undefined) {
+                    var $tmpImg = $('<img/>').attr('src', $img.attr('src'));
+                    $img.prop('naturalWidth', $tmpImg[0].width);
+                    $img.prop('naturalHeight', $tmpImg[0].height);
+                }
+                return { 'width': $img.prop('naturalWidth'), 'height': $img.prop('naturalHeight') }
+                alert(img)
+            };
+
         </script>
     </head>
     <body>
@@ -107,6 +121,7 @@
                 </section>
             </div>
         </header>
+
         <div id="kbCanvasContainer">
             <!-- Mobile menu complex start -->
             <nav id="kb-navbar-mobile" class="kb-navbar-mobile visible-xs visible-sm hidden-md hidden-lg">
@@ -166,8 +181,7 @@
                 <!-- content start -->
                 <main>
 
-
-                <section class="deck">
+                    <section class="deck">
                     <div class="container-fluid">
 
                         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -217,6 +231,355 @@
                             <a class="carousel-control right" href="#carousel-example-generic" role="button" data-slide="next">
                                 <span class="sr-only">Next</span>
                             </a>
+                        </div>
+                    </div>
+                </section>
+
+                    <section class="deck">
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-xs-12">
+                                <header class="text-center">
+                                    <h2>Random Grit</h2>
+                                    <p class="lead">Teaser, teaser heiglight, list</p>
+                                </header>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <!-- Teaser start -->
+                                <a href="">
+                                    <article class="comp teaser highlight dark-red">
+                                        <picture>
+                                            <!--[if IE 9]><video style="display: none;"><![endif]-->
+                                            <source srcset="img/750_207.jpg" media="(max-width: 768px)"/>
+                                            <source srcset="img/345_414.jpg" media="(max-width: 991px)"/>
+                                            <source srcset="img/555_388.jpg" media="(min-width: 991px)"/>
+                                            <!--[if IE 9]></video><![endif]-->
+                                            <img src="img//555_388.jpg" alt="billedetekst"/>
+                                        </picture>
+                                        <div class="caption">
+                                            <span class="text-uppercase">koncert</span>
+                                            <time datetime="20:00">Dato feldt</time>
+                                            <h3>header</h3>
+                                            <p>
+                                                onec tristique mauris sit amet metus placerat, id congue nisi viverra. Praesent in egestas dolor. Sed pretium dictum risus. Ut dictum imperdiet risus. In dictum lacinia odio eget ultricies. Duis ut imperdiet velit. Sed ultricies tincidunt augue, sed facilisis erat egestas at. Sed euismod mollis odio, ac tempor tortor hendrerit eu. Maecenas mollis aliquet sapien in ornare. Aliquam facilisis ligula dolor, et tincidunt elit condimentum eu. Fusce aliquet augue non orci viverra dignissim ut eget urna. Nam sollicitudin ac mi sodales interdum. Vestibulum lobortis tellus nisi, sed lobortis ante rutrum non. Aliquam nisl lorem, commodo vitae consequat eu, suscipit eget elit. Nunc tristique, est vitae rhoncus euismod, mi mi ornare enim, id varius justo lectus sed libero. Quisque vestibulum sagittis nisi ut semper.
+                                            </p>
+                                        </div>
+                                    </article>
+                                </a>
+                                <!-- Teaser End -->
+                            </div>
+
+                            <div class="col-xs-6 col-md-4">
+                                <!-- Teaser start -->
+                                <a href="">
+                                    <article class="comp teaser highlight dark-red">
+                                        <picture>
+                                            <!--[if IE 9]><video style="display: none;"><![endif]-->
+                                            <source srcset="img/360_207.jpg" media="(max-width: 768px)"/>
+                                            <!--[if IE 9]></video><![endif]-->
+                                            <img src="img//360_207.jpg" alt="billedetekst"/>
+                                        </picture>
+                                        <div class="caption">
+                                            <span class="text-uppercase">koncert</span>
+                                            <time datetime="20:00">Dato feldt</time>
+                                            <h3>header</h3>
+                                            <p>
+                                                onec tristique mauris sit amet metus placerat, id congue nisi viverra. Praesent in egestas dolor. Sed pretium dictum risus. Ut dictum imperdiet risus. In dictum lacinia odio eget ultricies. Duis ut imperdiet velit. Sed ultricies tincidunt augue, sed facilisis erat egestas at. Sed euismod mollis odio, ac tempor tortor hendrerit eu. Maecenas mollis aliquet sapien in ornare. Aliquam facilisis ligula dolor, et tincidunt elit condimentum eu. Fusce aliquet augue non orci viverra dignissim ut eget urna. Nam sollicitudin ac mi sodales interdum. Vestibulum lobortis tellus nisi, sed lobortis ante rutrum non. Aliquam nisl lorem, commodo vitae consequat eu, suscipit eget elit. Nunc tristique, est vitae rhoncus euismod, mi mi ornare enim, id varius justo lectus sed libero. Quisque vestibulum sagittis nisi ut semper.
+                                            </p>
+                                        </div>
+                                    </article>
+                                </a>
+                                <!-- Teaser End -->
+                            </div>
+
+                            <div class="col-xs-6 col-md-8">
+                                <!-- Teaser start -->
+                                <a href="">
+                                    <article class="comp teaser highlight dark-red">
+                                        <picture>
+                                            <!--[if IE 9]><video style="display: none;"><![endif]-->
+                                            <source srcset="img/360_207.jpg" media="(max-width: 991px)"/>
+                                            <source srcset="img/750_207.jpg" media="(min-width: 991px)"/>
+                                            <!--[if IE 9]></video><![endif]-->
+                                            <img src="img//750_207.jpg" alt="billedetekst"/>
+                                            <!-- JAC
+                                            skifter SOURCE ved highlight class da billeder vliver venstre stillet
+
+                                            <source srcset="img/360_207.jpg" media="(max-width: 768px)"/>
+                                            <source srcset="img/345_414.jpg" media="(max-width: 992px)"/>
+                                            <source srcset="img/555_388.jpg" media="(min-width: 992px)"/>
+                                            -->
+                                        </picture>
+                                        <div class="caption">
+                                            <span class="text-uppercase">koncert</span>
+                                            <time datetime="20:00">Dato feldt</time>
+                                            <h3>header</h3>
+                                            <p>
+                                                onec tristique mauris sit amet metus placerat, id congue nisi viverra. Praesent in egestas dolor. Sed pretium dictum risus. Ut dictum imperdiet risus. In dictum lacinia odio eget ultricies. Duis ut imperdiet velit. Sed ultricies tincidunt augue, sed facilisis erat egestas at. Sed euismod mollis odio, ac tempor tortor hendrerit eu. Maecenas mollis aliquet sapien in ornare. Aliquam facilisis ligula dolor, et tincidunt elit condimentum eu. Fusce aliquet augue non orci viverra dignissim ut eget urna. Nam sollicitudin ac mi sodales interdum. Vestibulum lobortis tellus nisi, sed lobortis ante rutrum non. Aliquam nisl lorem, commodo vitae consequat eu, suscipit eget elit. Nunc tristique, est vitae rhoncus euismod, mi mi ornare enim, id varius justo lectus sed libero. Quisque vestibulum sagittis nisi ut semper.
+                                            </p>
+                                        </div>
+                                    </article>
+                                </a>
+                                <!-- Teaser End -->
+                            </div>
+
+                            <div class="col-xs-6 col-md-8">
+                                <!-- Teaser start -->
+                                <a href="">
+                                    <article class="comp teaser highlight dark-red">
+                                        <picture>
+                                            <!--[if IE 9]><video style="display: none;"><![endif]-->
+                                            <source srcset="img/360_207.jpg" media="(max-width: 991px)"/>
+                                            <source srcset="img/750_207.jpg" media="(min-width: 991px)"/>
+                                            <!--[if IE 9]></video><![endif]-->
+                                            <img src="img//750_207.jpg" alt="billedetekst"/>
+                                            <!-- JAC
+                                            skifter SOURCE ved highlight class da billeder vliver venstre stillet
+
+                                            <source srcset="img/360_207.jpg" media="(max-width: 768px)"/>
+                                            <source srcset="img/345_414.jpg" media="(max-width: 992px)"/>
+                                            <source srcset="img/555_388.jpg" media="(min-width: 992px)"/>
+                                            -->
+                                        </picture>
+                                        <div class="caption">
+                                            <span class="text-uppercase">koncert</span>
+                                            <time datetime="20:00">Dato feldt</time>
+                                            <h3>header</h3>
+                                            <p>
+                                                onec tristique mauris sit amet metus placerat, id congue nisi viverra. Praesent in egestas dolor. Sed pretium dictum risus. Ut dictum imperdiet risus. In dictum lacinia odio eget ultricies. Duis ut imperdiet velit. Sed ultricies tincidunt augue, sed facilisis erat egestas at. Sed euismod mollis odio, ac tempor tortor hendrerit eu. Maecenas mollis aliquet sapien in ornare. Aliquam facilisis ligula dolor, et tincidunt elit condimentum eu. Fusce aliquet augue non orci viverra dignissim ut eget urna. Nam sollicitudin ac mi sodales interdum. Vestibulum lobortis tellus nisi, sed lobortis ante rutrum non. Aliquam nisl lorem, commodo vitae consequat eu, suscipit eget elit. Nunc tristique, est vitae rhoncus euismod, mi mi ornare enim, id varius justo lectus sed libero. Quisque vestibulum sagittis nisi ut semper.
+                                            </p>
+                                        </div>
+                                    </article>
+                                </a>
+                                <!-- Teaser End -->
+                            </div>
+
+                            <div class="col-xs-6 col-md-4">
+                                <!-- Teaser start -->
+                                <a href="">
+                                    <article class="comp teaser">
+                                        <picture>
+                                            <!--[if IE 9]><video style="display: none;"><![endif]-->
+                                            <source srcset="img/360_207.jpg" media="(max-width: 768px)"/>
+                                            <!--[if IE 9]></video><![endif]-->
+                                            <img src="img//360_207.jpg" alt="billedetekst"/>
+                                        </picture>
+                                        <div class="caption">
+                                            <span class="text-uppercase">koncert</span>
+                                            <time datetime="20:00">Dato feldt</time>
+                                            <h3>header</h3>
+                                            <p>
+                                                onec tristique mauris sit amet metus placerat, id congue nisi viverra. Praesent in egestas dolor. Sed pretium dictum risus. Ut dictum imperdiet risus. In dictum lacinia odio eget ultricies. Duis ut imperdiet velit. Sed ultricies tincidunt augue, sed facilisis erat egestas at. Sed euismod mollis odio, ac tempor tortor hendrerit eu. Maecenas mollis aliquet sapien in ornare. Aliquam facilisis ligula dolor, et tincidunt elit condimentum eu. Fusce aliquet augue non orci viverra dignissim ut eget urna. Nam sollicitudin ac mi sodales interdum. Vestibulum lobortis tellus nisi, sed lobortis ante rutrum non. Aliquam nisl lorem, commodo vitae consequat eu, suscipit eget elit. Nunc tristique, est vitae rhoncus euismod, mi mi ornare enim, id varius justo lectus sed libero. Quisque vestibulum sagittis nisi ut semper.
+                                            </p>
+                                        </div>
+                                    </article>
+                                </a>
+                                <!-- Teaser End -->
+                            </div>
+
+                            <div class="col-xs-6 col-md-4 col-lg-3">
+                                <!-- Teaser start -->
+                                <a href="">
+                                    <article class="comp teaser">
+                                        <picture>
+                                            <!--[if IE 9]><video style="display: none;"><![endif]-->
+                                            <source srcset="img/360_207.jpg" media="(max-width: 768px)"/>
+                                            <!--[if IE 9]></video><![endif]-->
+                                            <img src="img//360_207.jpg" alt="billedetekst"/>
+                                        </picture>
+                                        <div class="caption">
+                                            <span class="text-uppercase">koncert</span>
+                                            <time datetime="20:00">Dato feldt</time>
+                                            <h3>header</h3>
+                                            <p>
+                                                onec tristique mauris sit amet metus placerat, id congue nisi viverra. Praesent in egestas dolor. Sed pretium dictum risus. Ut dictum imperdiet risus. In dictum lacinia odio eget ultricies. Duis ut imperdiet velit. Sed ultricies tincidunt augue, sed facilisis erat egestas at. Sed euismod mollis odio, ac tempor tortor hendrerit eu. Maecenas mollis aliquet sapien in ornare. Aliquam facilisis ligula dolor, et tincidunt elit condimentum eu. Fusce aliquet augue non orci viverra dignissim ut eget urna. Nam sollicitudin ac mi sodales interdum. Vestibulum lobortis tellus nisi, sed lobortis ante rutrum non. Aliquam nisl lorem, commodo vitae consequat eu, suscipit eget elit. Nunc tristique, est vitae rhoncus euismod, mi mi ornare enim, id varius justo lectus sed libero. Quisque vestibulum sagittis nisi ut semper.
+                                            </p>
+                                        </div>
+                                    </article>
+                                </a>
+                                <!-- Teaser End -->
+                            </div>
+
+                            <div class="col-xs-6 col-md-4 col-lg-3">
+                                <!-- Teaser start -->
+                                <a href="">
+                                    <article class="comp teaser">
+                                        <picture>
+                                            <!--[if IE 9]><video style="display: none;"><![endif]-->
+                                            <source srcset="img/360_207.jpg" media="(max-width: 768px)"/>
+                                            <!--[if IE 9]></video><![endif]-->
+                                            <img src="img//360_207.jpg" alt="billedetekst"/>
+                                        </picture>
+                                        <div class="caption">
+                                            <span class="text-uppercase">koncert</span>
+                                            <time datetime="20:00">Dato feldt</time>
+                                            <h3>header</h3>
+                                            <p>
+                                                onec tristique mauris sit amet metus placerat, id congue nisi viverra. Praesent in egestas dolor. Sed pretium dictum risus. Ut dictum imperdiet risus. In dictum lacinia odio eget ultricies. Duis ut imperdiet velit. Sed ultricies tincidunt augue, sed facilisis erat egestas at. Sed euismod mollis odio, ac tempor tortor hendrerit eu. Maecenas mollis aliquet sapien in ornare. Aliquam facilisis ligula dolor, et tincidunt elit condimentum eu. Fusce aliquet augue non orci viverra dignissim ut eget urna. Nam sollicitudin ac mi sodales interdum. Vestibulum lobortis tellus nisi, sed lobortis ante rutrum non. Aliquam nisl lorem, commodo vitae consequat eu, suscipit eget elit. Nunc tristique, est vitae rhoncus euismod, mi mi ornare enim, id varius justo lectus sed libero. Quisque vestibulum sagittis nisi ut semper.
+                                            </p>
+                                        </div>
+                                    </article>
+                                </a>
+                                <!-- Teaser End -->
+                            </div>
+
+
+                            <div class="col-xs-6 col-md-4 col-lg-3">
+                                <!-- Teaser start -->
+                                <a href="">
+                                    <article class="comp teaser">
+                                        <picture>
+                                            <!--[if IE 9]><video style="display: none;"><![endif]-->
+                                            <source srcset="img/360_207.jpg" media="(max-width: 768px)"/>
+                                            <!--[if IE 9]></video><![endif]-->
+                                            <img src="img//360_207.jpg" alt="billedetekst"/>
+                                        </picture>
+                                        <div class="caption">
+                                            <span class="text-uppercase">koncert</span>
+                                            <time datetime="20:00">Dato feldt</time>
+                                            <h3>header</h3>
+                                            <p>
+                                                onec tristique mauris sit amet metus placerat, id congue nisi viverra. Praesent in egestas dolor. Sed pretium dictum risus. Ut dictum imperdiet risus. In dictum lacinia odio eget ultricies. Duis ut imperdiet velit. Sed ultricies tincidunt augue, sed facilisis erat egestas at. Sed euismod mollis odio, ac tempor tortor hendrerit eu. Maecenas mollis aliquet sapien in ornare. Aliquam facilisis ligula dolor, et tincidunt elit condimentum eu. Fusce aliquet augue non orci viverra dignissim ut eget urna. Nam sollicitudin ac mi sodales interdum. Vestibulum lobortis tellus nisi, sed lobortis ante rutrum non. Aliquam nisl lorem, commodo vitae consequat eu, suscipit eget elit. Nunc tristique, est vitae rhoncus euismod, mi mi ornare enim, id varius justo lectus sed libero. Quisque vestibulum sagittis nisi ut semper.
+                                            </p>
+                                        </div>
+                                    </article>
+                                </a>
+                                <!-- Teaser End -->
+                            </div>
+
+
+                            <div class="col-xs-6 col-md-4 col-lg-3">
+                                <!-- Teaser start -->
+                                <a href="">
+                                    <article class="comp teaser">
+                                        <picture>
+                                            <!--[if IE 9]><video style="display: none;"><![endif]-->
+                                            <source srcset="img/360_207.jpg" media="(max-width: 768px)"/>
+                                            <!--[if IE 9]></video><![endif]-->
+                                            <img src="img//360_207.jpg" alt="billedetekst"/>
+                                        </picture>
+                                        <div class="caption">
+                                            <span class="text-uppercase">koncert</span>
+                                            <time datetime="20:00">Dato feldt</time>
+                                            <h3>header</h3>
+                                            <p>
+                                                onec tristique mauris sit amet metus placerat, id congue nisi viverra. Praesent in egestas dolor. Sed pretium dictum risus. Ut dictum imperdiet risus. In dictum lacinia odio eget ultricies. Duis ut imperdiet velit. Sed ultricies tincidunt augue, sed facilisis erat egestas at. Sed euismod mollis odio, ac tempor tortor hendrerit eu. Maecenas mollis aliquet sapien in ornare. Aliquam facilisis ligula dolor, et tincidunt elit condimentum eu. Fusce aliquet augue non orci viverra dignissim ut eget urna. Nam sollicitudin ac mi sodales interdum. Vestibulum lobortis tellus nisi, sed lobortis ante rutrum non. Aliquam nisl lorem, commodo vitae consequat eu, suscipit eget elit. Nunc tristique, est vitae rhoncus euismod, mi mi ornare enim, id varius justo lectus sed libero. Quisque vestibulum sagittis nisi ut semper.
+                                            </p>
+                                        </div>
+                                    </article>
+                                </a>
+                                <!-- Teaser End -->
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+
+                <section class="deck">
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-xs-12">
+                                <header class="text-center">
+                                    <h2>Fixed Grit</h2>
+                                    <p class="lead">Teaser, teaser heiglight, list</p>
+                                </header>
+                            </div>
+
+                            <div class="col-xs-6 col-md-4 col-lg-3">
+                                <!-- Teaser start -->
+                                <a href="">
+                                    <article class="comp teaser">
+                                        <picture>
+                                            <!--[if IE 9]><video style="display: none;"><![endif]-->
+                                            <source srcset="img/360_207.jpg" media="(max-width: 768px)"/>
+                                            <!--[if IE 9]></video><![endif]-->
+                                            <img src="img//360_207.jpg" alt="billedetekst"/>
+                                        </picture>
+                                        <div class="caption">
+                                            <span class="text-uppercase">koncert</span>
+                                            <time datetime="20:00">Dato feldt</time>
+                                            <h3>header</h3>
+                                            <p>
+                                                onec tristique mauris sit amet metus placerat, id congue nisi viverra. Praesent in egestas dolor. Sed pretium dictum risus. Ut dictum imperdiet risus. In dictum lacinia odio eget ultricies. Duis ut imperdiet velit. Sed ultricies tincidunt augue, sed facilisis erat egestas at. Sed euismod mollis odio, ac tempor tortor hendrerit eu. Maecenas mollis aliquet sapien in ornare. Aliquam facilisis ligula dolor, et tincidunt elit condimentum eu. Fusce aliquet augue non orci viverra dignissim ut eget urna. Nam sollicitudin ac mi sodales interdum. Vestibulum lobortis tellus nisi, sed lobortis ante rutrum non. Aliquam nisl lorem, commodo vitae consequat eu, suscipit eget elit. Nunc tristique, est vitae rhoncus euismod, mi mi ornare enim, id varius justo lectus sed libero. Quisque vestibulum sagittis nisi ut semper.
+                                            </p>
+                                        </div>
+                                    </article>
+                                </a>
+                                <!-- Teaser End -->
+                            </div>
+
+                            <div class="col-xs-6 col-md-4 col-lg-3">
+                                <!-- Teaser start -->
+                                <a href="">
+                                    <article class="comp teaser">
+                                        <picture>
+                                            <!--[if IE 9]><video style="display: none;"><![endif]-->
+                                            <source srcset="img/360_207.jpg" media="(max-width: 768px)"/>
+                                            <!--[if IE 9]></video><![endif]-->
+                                            <img src="img//360_207.jpg" alt="billedetekst"/>
+                                        </picture>
+                                        <div class="caption">
+                                            <span class="text-uppercase">koncert</span>
+                                            <time datetime="20:00">Dato feldt</time>
+                                            <h3>header</h3>
+                                            <p>
+                                                onec tristique mauris sit amet metus placerat, id congue nisi viverra. Praesent in egestas dolor. Sed pretium dictum risus. Ut dictum imperdiet risus. In dictum lacinia odio eget ultricies. Duis ut imperdiet velit. Sed ultricies tincidunt augue, sed facilisis erat egestas at. Sed euismod mollis odio, ac tempor tortor hendrerit eu. Maecenas mollis aliquet sapien in ornare. Aliquam facilisis ligula dolor, et tincidunt elit condimentum eu. Fusce aliquet augue non orci viverra dignissim ut eget urna. Nam sollicitudin ac mi sodales interdum. Vestibulum lobortis tellus nisi, sed lobortis ante rutrum non. Aliquam nisl lorem, commodo vitae consequat eu, suscipit eget elit. Nunc tristique, est vitae rhoncus euismod, mi mi ornare enim, id varius justo lectus sed libero. Quisque vestibulum sagittis nisi ut semper.
+                                            </p>
+                                        </div>
+                                    </article>
+                                </a>
+                                <!-- Teaser End -->
+                            </div>
+
+                            <div class="col-xs-6 col-md-4 col-lg-3">
+                                <!-- Teaser start -->
+                                <a href="">
+                                    <article class="comp teaser">
+                                        <picture>
+                                            <!--[if IE 9]><video style="display: none;"><![endif]-->
+                                            <source srcset="img/360_207.jpg" media="(max-width: 768px)"/>
+                                            <!--[if IE 9]></video><![endif]-->
+                                            <img src="img//360_207.jpg" alt="billedetekst"/>
+                                        </picture>
+                                        <div class="caption">
+                                            <span class="text-uppercase">koncert</span>
+                                            <time datetime="20:00">Dato feldt</time>
+                                            <h3>header</h3>
+                                            <p>
+                                                onec tristique mauris sit amet metus placerat, id congue nisi viverra. Praesent in egestas dolor. Sed pretium dictum risus. Ut dictum imperdiet risus. In dictum lacinia odio eget ultricies. Duis ut imperdiet velit. Sed ultricies tincidunt augue, sed facilisis erat egestas at. Sed euismod mollis odio, ac tempor tortor hendrerit eu. Maecenas mollis aliquet sapien in ornare. Aliquam facilisis ligula dolor, et tincidunt elit condimentum eu. Fusce aliquet augue non orci viverra dignissim ut eget urna. Nam sollicitudin ac mi sodales interdum. Vestibulum lobortis tellus nisi, sed lobortis ante rutrum non. Aliquam nisl lorem, commodo vitae consequat eu, suscipit eget elit. Nunc tristique, est vitae rhoncus euismod, mi mi ornare enim, id varius justo lectus sed libero. Quisque vestibulum sagittis nisi ut semper.
+                                            </p>
+                                        </div>
+                                    </article>
+                                </a>
+                                <!-- Teaser End -->
+                            </div>
+
+                            <div class="col-xs-6 col-md-4 col-lg-3">
+                                <!-- Teaser start -->
+                                <a href="">
+                                    <article class="comp teaser">
+                                        <picture>
+                                            <!--[if IE 9]><video style="display: none;"><![endif]-->
+                                            <source srcset="img/360_207.jpg" media="(max-width: 768px)"/>
+                                            <!--[if IE 9]></video><![endif]-->
+                                            <img src="img//360_207.jpg" alt="billedetekst"/>
+                                        </picture>
+                                        <div class="caption">
+                                            <span class="text-uppercase">koncert</span>
+                                            <time datetime="20:00">Dato feldt</time>
+                                            <h3>header</h3>
+                                            <p>
+                                                onec tristique mauris sit amet metus placerat, id congue nisi viverra. Praesent in egestas dolor. Sed pretium dictum risus. Ut dictum imperdiet risus. In dictum lacinia odio eget ultricies. Duis ut imperdiet velit. Sed ultricies tincidunt augue, sed facilisis erat egestas at. Sed euismod mollis odio, ac tempor tortor hendrerit eu. Maecenas mollis aliquet sapien in ornare. Aliquam facilisis ligula dolor, et tincidunt elit condimentum eu. Fusce aliquet augue non orci viverra dignissim ut eget urna. Nam sollicitudin ac mi sodales interdum. Vestibulum lobortis tellus nisi, sed lobortis ante rutrum non. Aliquam nisl lorem, commodo vitae consequat eu, suscipit eget elit. Nunc tristique, est vitae rhoncus euismod, mi mi ornare enim, id varius justo lectus sed libero. Quisque vestibulum sagittis nisi ut semper.
+                                            </p>
+                                        </div>
+                                    </article>
+                                </a>
+                                <!-- Teaser End -->
+                            </div>
+
                         </div>
                     </div>
                 </section>
@@ -1022,7 +1385,7 @@
 
                             <!-- Teaser start -->
                             <a href="">
-                        <article class="comp teaser wide">
+                                <article class="comp teaser wide">
                                     <picture>
                                         <!--[if IE 9]><video style="display: none;"><![endif]-->
                                         <source srcset="img/small.jpg" media="(max-width: 767px)"/>
