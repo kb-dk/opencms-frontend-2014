@@ -484,12 +484,12 @@ body.showMenu #kbCanvasContainer{
         .search-slidedown-marker{
             position:absolute;
             right:26px;
-            border-left:8px solid @color-black;
-            border-top:8px solid @color-black;
-            transform: rotate(45deg);
-            width:16px;
-            height:16px;
-            top:-8px;
+            width:0;
+            height:0;
+            border-left:16px solid transparent;
+            border-right:16px solid transparent;
+            border-bottom:16px solid @color-black;
+            top:-16px;
         }
         button{
             background-color:@gray-lighter;
