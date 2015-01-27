@@ -12,12 +12,12 @@
 .comp{
   margin-bottom:@grid-gutter-width;
   overflow:hidden;
-  height:@comp-height-xs;
   position: relative;
   background: @comp-bg;
   .caption:after{
     content: " ";
     position:absolute;
+    z-index:5;
     width:100%;
     height:40px;
     bottom: 0px;
@@ -25,27 +25,197 @@
     border:0px solid transparent;
     background:transparent url("../img/compBg.png") repeat-x left bottom;
   }
+    .caption{
+        z-index:4;
+    }
     h3{
         padding-bottom:8px;
         margin:0px;
         word-wrap: break-word;
     }
 }
-//Small devices (tablets, 768px and up)
-@media (min-width: @screen-sm-min) {
-  .comp  {
-    height:@comp-height-sm;
-  }
+
+
+
+// TEASER
+
+.teaser{
+    a{
+        display: block;
+    }
+    picture, .caption{
+        padding: @reset-padding!important;
+        overflow: hidden !important;
+        display:block;
+    }
+    picture{
+       background: #969696;
+    }
+    .caption{
+        padding:@teaser-caption-padding!important;
+        height:@comp-height-xs/2;
+    }
+    img{
+        .img-responsive;
+    }
+    span{
+        color:@teaser-label;
+        font:@teaser-span-xs-md;
+    }
+    time{
+        display: block;
+        font:@teaser-time-xs-md;
+    }
+    h3{
+        font:@teaser-header-xs-md;
+    }
+    p{
+        font:@teaser-p-xs-md;
+    }
+
+ }
+.container-fluid{
+    padding:@reset-padding;
+    .teaser{
+        picture, .caption{
+            .make-xs-column(12);
+            height:@comp-height-xs;
+        }
+        picture img{
+            width:100%;
+        }
+    }
 }
-// Medium devices (desktops, 992px and up)
-@media (min-width: @screen-md-min) {
-  .comp  {
-    height:@comp-height-md;
-  }
-}
-// Large devices (large desktops, 1200px and up)
-@media (min-width: @screen-lg-min) {
-  .comp  {
-    height:@comp-height-lg;
-  }
-}
+
+
+// Extra Extra Small devices (0px to 480px)
+//------------------------------------------------------
+    // Pattern Rules for flow, grit
+    //------------------------------------------------------
+    @media (max-width: @screen-xs-min) {
+        .flow, .grit{
+            .col-xs-12{
+                picture{
+                    max-height:@comp-height-xs/2;
+                }
+            }
+            .col-xs-6{
+                .make-xs-column(12);
+            }
+            .teaser img{
+                max-height: @comp-height-xs / 2;
+            }
+        }
+    }
+
+// Extra Small devices (481px to 767px)
+//------------------------------------------------------
+    // Pattern Rules for flow, grit
+    //------------------------------------------------------
+    @media (min-width: @screen-xs-min) {
+        .flow{
+            .col-xs-12{
+                picture{
+                    height:@comp-height-xs;
+                }
+            }
+        }
+    }
+
+// Small devices (768px to 991px)
+//------------------------------------------------------
+    // Pattern Rules for flow, grit
+    //------------------------------------------------------
+    @media (min-width: @screen-sm-min) {
+        .flow{
+            picture, .caption{
+                height:@comp-height-sm/2;
+            }
+            .col-xs-12{
+                picture{
+                    height:@comp-height-sm;
+                }
+            }
+            .col-sm-12{
+                picture, .caption{
+                    height:@comp-height-sm;
+                    .make-xs-column(6);
+                }
+            }
+        }
+
+        .container-fluid .teaser{
+            picture, .caption{
+                .make-xs-column(6);
+                height:@comp-height-xs;
+            }
+        }
+    }
+
+// Medium devices (992px to 1199px)
+//------------------------------------------------------
+    // Pattern Rules for flow, grit
+    //------------------------------------------------------
+    @media (min-width: @screen-md-min) {
+        .flow, .grit {
+            picture, .caption{
+                height:@comp-height-md/2;
+            }
+            .col-md-12, .col-md-8{
+                .teaser{
+                    picture, .caption{
+                        .make-md-column(6);
+                        height:@comp-height-md;
+                    }
+                }
+            }
+            .col-md-4{
+                .teaser{
+                    picture, .caption{
+                        .make-md-column(12);
+                        height:@comp-height-md/2;
+                    }
+                }
+            }
+        }
+
+        .container-fluid .teaser{
+            picture, .caption{
+                height:@comp-height-md;
+            }
+        }
+    }
+
+// Large devices (1200px to not defined)
+//------------------------------------------------------
+    // Pattern Rules for flow, grit
+    //------------------------------------------------------
+    @media (min-width: @screen-lg-min) {
+        .flow, .grit {
+            picture, .caption{
+                height:@comp-height-lg/2;
+            }
+            .col-md-12, .col-md-8{
+                .teaser{
+                    picture, .caption{
+                        height:@comp-height-lg;
+                    }
+                }
+            }
+            .col-lg-3{
+                .teaser{
+                    picture, .caption{
+                        height:@comp-height-lg/2;
+                    }
+                }
+            }
+        }
+        .container-fluid .teaser{
+            picture, .caption{
+                height:@comp-height-lg;
+            }
+        }
+    }
+
+
+
