@@ -14,11 +14,12 @@
     picture, .caption{
       padding: @reset-padding!important;
       overflow: hidden !important;
-      .make-xs-column(12);
-      height:@comp-height-xs/2;
+
     }
     .caption{
-      padding:  @teaser-caption-padding!important;
+        padding:@teaser-caption-padding!important;
+        //height:@comp-height-xs/2;
+        //background:red;
 
     }
     span{
@@ -38,12 +39,19 @@
  }
 
 // Handle first element in flow pattern
-.col-lg-12{
+.wide{
     .teaser{
+        border:1px solid green;
         picture, .caption{
-            .make-sm-column(12);
-            height:@comp-height-xs/2;
+
+            max-height:@comp-height-xs/2;
+            overflow: hidden;
+
+            img{
+                width:100%;
+            }
         }
+
         h3{
             font: @teaser-header-xs-md-col-12;
         }
@@ -56,6 +64,10 @@
         time{
             font:@teaser-time-xs-md-col-12;
         }
+    }
+    &:after{
+        content:"";
+
     }
 }
 
@@ -85,6 +97,9 @@
         picture, .caption{
             height:@comp-height-sm/2;
         }
+    .caption{
+        padding:@teaser-caption-padding;
+        }
         span{
           font:@teaser-span-sm-lg;
         }
@@ -99,14 +114,19 @@
         }
     }
 // Handle first element in flow pattern
-    .col-sm-12{
+    .wide{
+
         .teaser{
             picture, .caption{
-                .make-sm-column(6);
-                height:@comp-height-sm;
+                height:@comp-height-sm/2;
+                overflow: hidden;
+                .make-sm-column(12);
             }
             picture{
-                padding-right:@grid-gutter-width / 2 !important;
+                img{
+                    width:100%;
+
+                }
             }
             h3{
                 font: @teaser-header-sm-lg-col-12;
@@ -196,7 +216,8 @@
         }
     }
     // Handle first element in flow pattern
-    .col-md-12{
+    .wide{
+        .make-md-column(12);
         .teaser{
             picture, .caption{
                 .make-md-column(6);
@@ -276,6 +297,7 @@
 // TEASER
     .teaser{
         picture, .caption{
+
             height:@comp-height-lg/2;
         }
         span{
@@ -291,7 +313,8 @@
             font:@teaser-p-lg;
         }
     }
-    .col-lg-12{
+    .wide{
+        .make-lg-column(12);
         .teaser{
             picture, .caption{
                 .make-lg-column(6);
@@ -374,21 +397,26 @@
   .teaser{
     // Small devices (tablets, 768px and up)
     @media (min-width: @screen-sm-min) {
-      height:@comp-height-sm * 2;
-      picture, .caption{
         height:@comp-height-sm;
-        .make-md-column(12)
-      }
-      picture{
-        padding:@reset-padding !important;
-      }
-      h3{
-        font:@highlight-header-sm-col-fluid;
-      }
-      p{
-        font:@highlight-p-sm-col-fluid;
-      }
+        picture, .caption{
+            height:@comp-height-sm;
+            .make-md-column(6)
+        }
+        picture{
+            padding-right:@grid-gutter-width / 2 !important;
+        }
+        .caption{
+            width:@container-md / 2 - @grid-gutter-width;
+            .text-left;
+            h3{
+                font:@highlight-header-sm-col-12;
+            }
+            p{
+                font:@highlight-p-sm-col-12;
+            }
+        }
     }
+
     // Medium devices (desktops, 992px and up)
     @media (min-width: @screen-md-min) {
       height:@comp-height-md;
