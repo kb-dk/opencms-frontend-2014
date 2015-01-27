@@ -4,6 +4,7 @@
 //------------------------------------------------------
 
 .list{
+    height:@comp-height-xs;
     overflow: visible!important;
     border-top:6px solid @list-border-color;
     border-bottom:3px solid @list-border-color;
@@ -92,6 +93,7 @@
 // Small devices (tablets, 768px and up)
 @media (max-width: @screen-sm-max) {
     .list{
+        height:@comp-height-sm;
         header{
             h3{
                 font:@list-header-sm;
@@ -112,6 +114,7 @@
 // Medium devices (desktops, 992px and up)
 @media (min-width: @screen-md-min) {
     .list{
+        height:@comp-height-md;
         header{
             h3{
                 font:@list-header-md;
@@ -131,6 +134,7 @@
 // Large devices (large desktops, 1200px and up)
 @media (min-width: @screen-lg-min) {
     .list{
+        height:@comp-height-lg;
         header{
             h3{
                 font:@list-header-lg;
