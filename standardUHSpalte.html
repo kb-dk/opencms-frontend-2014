@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="da">
 <head>
-    <title>Udfyldes af cms ???</title>
+    <title>Article No Aside</title>
 
     <!-- META -->
     <meta charset="utf-8" />
@@ -15,16 +15,21 @@
     <link href="css/style.css" rel="stylesheet" />
 
     <!-- JAVASCRIPT -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Cookie policy -->
     <script src="js/kb/cookieInformerBooklet_da_DK.js"></script>
+    <!-- Browser sniffing -->
+    <script src="js/layout.engine.min.js"></script>
     <!--Responsive image -->
-    <script src="js/picturefill.js" async="async"></script>
+    <script src="js/picturefill.min.js" async="async"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script src="js/kb/kbMenu.js"></script>
+    <script src="js/kb/kbListeners.js"></script>
     <!-- Google Analytics www.kb.dk -->
     <script>
         var _gaq = _gaq || [];
@@ -36,259 +41,359 @@
             ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
         })();
+
+
+        function imgRealSize(img) {
+
+            var $img = $(img);
+            if ($img.prop('naturalWidth') == undefined) {
+                var $tmpImg = $('<img/>').attr('src', $img.attr('src'));
+                $img.prop('naturalWidth', $tmpImg[0].width);
+                $img.prop('naturalHeight', $tmpImg[0].height);
+            }
+            return { 'width': $img.prop('naturalWidth'), 'height': $img.prop('naturalHeight') }
+            alert(img)
+        };
+
     </script>
 </head>
 <body>
+<header class="kbHeader">
+    <div class="navbar navbar-default topnavigation">
+        <section class="alert alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button><!-- FIXME i18n -->
+            <div class="container">
+                <strong>OBS: </strong>Læsesalen er lukket i dag. , consectetur adipiscing elit. Nulla luctus faucibus pellentesque. Morbi hendrerit eleifend arcu.
+            </div>
+        </section>
+        <section class="container kb-navbar-container">
+            <div class="navbar-header">
+                <div id="kbMenuToggler" class="pull-right visible-xs visible-sm">
+                    Menu
+                </div>
+                <a class="logo" href="/da/" title="Til forsiden"><!-- FIXME i18n -->
+                    <picture title="Til forsiden"><!-- FIXME i18n -->
+                        <!--[if IE 9]><video style="display: none;"><![endif]-->
+                        <source srcset="img/kb_logo_small.png, img/kb_logo_smallX2.png 2x"/>
+                        <!--[if IE 9]></video><![endif]-->
+                        <img src="img/kb_logo_small.png" alt="Til forsiden"/><!-- FIXME i18n -->
+                    </picture>
+                </a>
+                <a class="logo-text" href="/da/" title="Til forsiden"><!-- FIXME i18n -->
+                    <picture title="Til forsiden"><!-- FIXME i18n -->
+                        <!--[if IE 9]><video style="display: none;"><![endif]-->
+                        <source srcset="img/kb_logo_text.png, img/kb_logo_textX2.png 2x"/>
+                        <!--[if IE 9]></video><![endif]-->
+                        <img src="img/kb_logo_text.png" alt="Til forsiden"/><!-- FIXME i18n -->
+                    </picture>
+                </a>
+                <nav class="kb-navbar hidden-xs hidden-sm">
+                    <ul class="nav navbar-nav kb-nav">
+                        <li><a href="#">Om os<div class="activeLine"></div></a></li>
+                        <li><a href="#">Materialer<div class="activeLine"></div></a></li>
+                        <li><a href="#">Udlån<div class="activeLine"></div></a></li>
+                        <li><a class="active" href="#">Kultur<div class="activeLine"></div></a></li>
+                        <li><a href="#">Nyheder<div class="activeLine"></div></a></li>
+                        <li><a href="#">Museer<div class="activeLine"></div></a></li>
+                        <!--li><a href="#">Mediekanal<div class="activeLine"></div></a></li-->
+                        <li><a href="#">Rex<div class="activeLine"></div></a></li>
+                        <li><a href="#">Tjenester<div class="activeLine"></div></a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">English</a></li>
+                        <li><a class="kbSearchToggler" data-toggle="collapse" data-target="#search-slidedown" aria-expanded="false">
+                            Søg <span class="glyphicon glyphicon-search"></span>
+                        </a></li>
+                    </ul>
+                </nav>
+            </div>
+        </section>
+        <section id="search-slidedown" class="search-slidedown collapse container-fluid hidden-xs hidden-sm">
+            <form action="/da/soeg/" method="get">
+                <div class="input-group kb-search-box container">
+                    <div class="search-slidedown-marker"></div>
+                    <input type="search" name="query" class="form-control" placeholder="Søg på Det Kgl. Biblioteks website" /><!-- FIXME i18n -->
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit">Søg</button><!-- FIXME i18n -->
+                            </span>
+                </div>
+            </form>
+        </section>
+    </div>
+</header>
 
+<div id="kbCanvasContainer">
+<!-- Mobile menu complex start -->
+<nav id="kb-navbar-mobile" class="kb-navbar-mobile visible-xs visible-sm hidden-md hidden-lg">
+    <!-- searchbox in top of mobile menu -->
+    <div class="searchbox-container">
+        <form action="/da/soeg/" method="get">
+            <div class="input-group">
+                <input type="search" name="query" class="form-control" placeholder="Søg på Det Kgl. Biblioteks website"><!-- FIXME: i18n -->
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                            </span>
+            </div>
+        </form>
+    </div>
+    <!-- mobile menu -->
+    <ul class="nav navbar-nav kb-nav">
+        <li>
+            <div class="spinner"></div>
+            <a class="chevronpart" data-src="bogusSubMenu.html"><span class="glyphicon glyphicon-chevron-down"></span></a>
+            <a class="directLink" href="#">Om os<div class="activeLine"></div></a></li>
+        <li>
+            <div class="spinner"></div>
+            <a class="chevronpart" data-src="bogusSubMenu.html"><span class="glyphicon glyphicon-chevron-down"></span></a>
+            <a class="directLink" href="#">Materialer<div class="activeLine"></div></a></li>
+        <li>
+            <div class="spinner"></div>
+            <a class="chevronpart" data-src="bogusSubMenu.html"><span class="glyphicon glyphicon-chevron-down"></span></a>
+            <a class="directLink" href="#">Udlån<div class="activeLine"></div></a></li>
+        <li class="active">
+            <div class="spinner"></div>
+            <a class="chevronpart" data-src="bogusSubMenu.html"><span class="glyphicon glyphicon-chevron-down"></span></a>
+            <a class="directLink" href="#">Kultur<div class="activeLine"></div></a></li>
+        <li>
+            <div class="spinner"></div>
+            <a class="chevronpart" data-src="bogusSubMenu.html"><span class="glyphicon glyphicon-chevron-down"></span></a>
+            <a class="directLink" href="#">Nyheder<div class="activeLine"></div></a></li>
+        <li>
+            <div class="spinner"></div>
+            <a class="chevronpart" data-src="bogusSubMenu.html"><span class="glyphicon glyphicon-chevron-down"></span></a>
+            <a class="directLink" href="#">Museer<div class="activeLine"></div></a></li>
+        <!--li>
+     <a class="chevronpart" data-target="#submenu6"><span class="glyphicon glyphicon-chevron-down"></span></a>
+     <a class="directLink" href="#">Mediekanal<div class="activeLine"></div></a></li-->
+        <li>
+            <a class="directLink" href="#">Rex<div class="activeLine"></div></a></li>
+        <li>
+            <div class="spinner"></div>
+            <a class="chevronpart" data-src="bogusSubMenu.html"><span class="glyphicon glyphicon-chevron-down"></span></a>
+            <a class="directLink" href="#">Tjenester<div class="activeLine"></div></a></li>
+    </ul>
+    <!-- language selection -->
+    <ul class="nav navbar-nav navbar-right visible-xs">
+        <li><a href="#">English</a></li><!-- FIXME: i18n -->
+    </ul>
+</nav>
+<!-- Mobile menu end -->
 
 <!-- content start -->
+<div class="container">
+<div class="row">
 
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 hidden-xs hidden-sm">
-                    <nav id="kb-navbar-local" class="kb-navbar-local">
-                        <ul class="nav kb-nav">
-                            <li class="submenu">
-                                <div class="localMenuHeader">
-                                    <a class="sel" href="/da/nb/index.html" title="Nationalbiblioteket">Nationalbiblioteket<div class="activeLine"></div></a>
-                                </div>
-                                <ul class="nav">
-                                    <li><a class="directLink" href="/da/nb/om_nb/index.html" title="Afdelinger">Afdelinger<div class="activeLine"></div></a></li>
-                                    <li><a class="directLink" href="/da/nb/om_nb/info_nb.html" title="Om Nationalbiblioteket">Om Nationalbiblioteket her er en meget lang og kedelig linie<div class="activeLine"></div></a></li>
-                                </ul>
-                            </li>
-                            <li><a class="directLink" href="/da/nb/samling/index.html" title="Samlinger">Samlinger<div class="activeLine"></div></a></li>
-                            <li><a class="directLink" href="/da/nb/tema/index.html" title="Temaer">Temaer<div class="activeLine"></div></a></li>
-                            <li><a class="directLink" href="/da/nb/service/index.html" title="Service">Service<div class="activeLine"></div></a></li>
-                            <li><a class="directLink" href="/da/nb/laesesale/" title="Centre og læsesale">Centre og læsesale<div class="activeLine"></div></a></li>
-                            <li><a class="directLink" href="/da/nb/kontakt/index.html" title="Kontakt">Kontakt<div class="activeLine"></div></a></li>
-                            <li><a class="directLink" href="/da/forside/REX" title="Søg i REX">Søg i REX<div class="activeLine"></div></a></li>
-                        </ul>
-                    </nav>
+<div class="col-md-3 hidden-xs hidden-sm">
+    <nav id="kb-navbar-local" class="kb-navbar-local">
+        <ul class="nav kb-nav">
+            <li class="submenu">
+                <div class="localMenuHeader">
+                    <a href="/da/nb/index.html" title="Nationalbiblioteket">Nationalbiblioteket<div class="activeLine"></div></a>
                 </div>
-                <main class="col-xs-12 col-md-9">
+                <ul class="nav">
+                    <li><a class="directLink" href="/da/nb/om_nb/index.html" title="Afdelinger">Afdelinger<div class="activeLine"></div></a></li>
+                    <li><a class="directLink" href="/da/nb/om_nb/info_nb.html" title="Om Nationalbiblioteket">Om Nationalbiblioteket her er en meget lang og kedelig linie<div class="activeLine"></div></a></li>
+                </ul>
+            </li>
+            <li><a class="directLink" href="/da/nb/samling/index.html" title="Samlinger">Samlinger<div class="activeLine"></div></a></li>
+            <li><a class="directLink" href="/da/nb/tema/index.html" title="Temaer">Temaer<div class="activeLine"></div></a></li>
+            <li class="submenu kbMenuLoading collapse in" role="menu">
+                <ul class="nav">
+                    <li><a class="directLink" href="#">Folklore og dagligliv<div class="activeLine"></div></a></li>
+                    <li><a class="directLink sel" href="#">Historie<div class="activeLine"></div></a></li>
+                    <li><a class="directLink" href="#">Litteraturvidenskab<div class="activeLine"></div></a></li><li>
+                    <li><a class="directLink" href="#">Musik og teater<div class="activeLine"></div></a></li>
+                    <li><a class="directLink" href="#">Naturvidenskab<div class="activeLine"></div></a></li>
+                </ul>
+            </li>
+            <li><a class="directLink" href="/da/nb/service/index.html" title="Service">Service<div class="activeLine"></div></a></li>
+            <li><a class="directLink" href="/da/nb/laesesale/" title="Centre og læsesale">Centre og læsesale<div class="activeLine"></div></a></li>
+            <li><a class="directLink" href="/da/nb/kontakt/index.html" title="Kontakt">Kontakt<div class="activeLine"></div></a></li>
+            <li><a class="directLink" href="/da/forside/REX" title="Søg i REX">Søg i REX<div class="activeLine"></div></a></li>
+        </ul>
+    </nav>
+</div>
+<main class="col-xs-12 col-md-9">
+<!-- Article start: -->
+<article itemscope="itemscope" itemtype="http://schema.org/Article" class="contentPage">
+    <!-- Article header start: -->
+    <header>
+        <h1 itemprop="headline">
+            Cooper Gorfer: The Weather Diaries
+        </h1>
+        <p itemprop="description" class="lead">
+            Ny udstilling med maleriske fotografier af kunstnerduoen Cooper  Gorfer fra den nordatlantiske modescene, hvor vejret er en særlig kreativ drivkraft.
+        </p>
+        <p>
+            <span itemscope="itemscope" itemtype="http://schema.org/Person">
+                <span>Af: <strong itemprop="name">Tom Juul Andersen</strong></span>
+                <span itemprop="email">tjan@kb.dk</span>
+                <span itemprop="telephone">+4522777158</span>
+            </span>
+            <time itemprop="dateCreated" datetime="2011-05-08T19:30">12-11-2014 14:56</time>
+            <meta itemprop="datePublished" content="2011-03-24"/>
+            <meta itemprop="author" content="Tom Juul Andersen"/>
+        </p>
+    </header>
+    <!-- Article header end: -->
+    <!-- Article image start: -->
+    <div class="picture" itemprop="associatedMedia">
+        <figure itemscope="itemscope" itemtype="http://schema.org/ImageObject">
+            <picture>
+                <!--[if IE 9]><video style="display: none;"><![endif]-->
+                <source srcset="img/small.jpg" media="(max-width: 767px)"/>
+                <source srcset="img/large.jpg" media="(min-width: 768px)"/>
+                <!--[if IE 9]></video><![endif]-->
+                <img itemprop="contentURL" src="img/small.jpg" alt="billedetekst"/>
+            </picture>
+            <figcaption itemprop="caption">Fabulerende fotografier af den amerikansk/østrigske kunstnerduo Cooper  Gorfer.</figcaption>
+        </figure>
+    </div>
+    <!-- Article image end -->
+    <!-- Article body start: -->
+    <div itemprop="articleBody">
+        <h1>Afsnit 1.10.32 fra "de Finibus Bonorum et Malorum", skrevet af Cicero i 45 f.kr.</h1>
+        <p>
+            "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+        </p>
 
-                <!-- Article start: -->
-                <article itemscope="itemscope" itemtype="http://schema.org/Article" class="contentPage">
-                    <!-- Article header start: -->
-                    <header>
-                        <h1 itemprop="headline">
-                            Cooper Gorfer: The Weather Diaries
-                        </h1>
-                        <p itemprop="description" class="lead">
-                            Ny udstilling med maleriske fotografier af kunstnerduoen Cooper  Gorfer fra den nordatlantiske modescene, hvor vejret er en særlig kreativ drivkraft.
-                        </p>
+        <h2>Afsnit 1.10.33 fra "de Finibus Bonorum et Malorum", skrevet af Cicero i 45 f.kr.</h2>
+        <p>"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."</p>
+    </div>
+    <!-- Article body end: -->
+</article>
+<!-- Article end: -->
+<!-- Components start: -->
+<aside class="row">
+    <section class="deck flow">
+
+        <header class="text-center">
+            <h2>Teaser</h2>
+            <p class="lead">Eks. på Teaser</p>
+        </header>
+
+        <div class="col-xs-12 col-md-12">
+            <!-- Teaser start -->
+            <a href="">
+                <article class="comp teaser">
+                    <picture>
+                        <!--[if IE 9]><video style="display: none;"><![endif]-->
+                        <source srcset="img/360_207.jpg" media="(max-width: 768px)"/>
+                        <!--[if IE 9]></video><![endif]-->
+                        <img src="img//360_207.jpg" alt="billedetekst"/>
+                    </picture>
+                    <div class="caption">
+                        <span class="text-uppercase">koncert</span>
+                        <time datetime="20:00">Dato feldt</time>
+                        <h3>header</h3>
                         <p>
-                                <span itemscope="itemscope" itemtype="http://schema.org/Person">
-                                    <span>Af: <strong itemprop="name">Tom Juul Andersen</strong></span>
-                                    <span itemprop="email">tjan@kb.dk</span>
-                                    <span itemprop="telephone">+4522777158</span>
-                                </span>
-                            <time itemprop="dateCreated" datetime="2011-05-08T19:30">12-11-2014 14:56</time>
-                            <meta itemprop="datePublished" content="2011-03-24"/>
-                            <meta itemprop="author" content="Tom Juul Andersen"/>
-                        </p>
-                    </header>
-                    <!-- Article header end: -->
-                    <!-- Article image start: -->
-                    <div class="picture" itemprop="associatedMedia">
-                        <figure itemscope="itemscope" itemtype="http://schema.org/ImageObject">
-                            <picture>
-                                <!--[if IE 9]><video style="display: none;"><![endif]-->
-                                <source srcset="img/small.jpg" media="(max-width: 767px)"/>
-                                <source srcset="img/large.jpg" media="(min-width: 768px)"/>
-                                <!--[if IE 9]></video><![endif]-->
-                                <img itemprop="contentURL" src="img/small.jpg" alt="billedetekst"/>
-                            </picture>
-                            <figcaption itemprop="caption">Fabulerende fotografier af den amerikansk/østrigske kunstnerduo Cooper  Gorfer.</figcaption>
-                        </figure>
-                    </div>
-                    <!-- Article image end -->
-                    <!-- Article body start: -->
-                    <div itemprop="articleBody">
-                        <h1>Header</h1>
-                        <p>
-                            Having largely succeeded in stopping a rout of
-                            Libya's rebels, the inchoate coalition attacking
-                            Col. Muammar el-Qaddafi's <img src="img/small.jpg"/>forces remains divided
-                            over the ultimate goal — and exit strategy —
-                            of what officials acknowledged Thursday would be
-                            a military campaign<img src="img/small.jpg" /> that could last for weeks.
+                            onec tristique mauris sit amet metus placerat, id congue nisi viverra. Praesent in egestas dolor. Sed pretium dictum risus. Ut dictum imperdiet risus. In dictum lacinia odio eget ultricies. Duis ut imperdiet velit. Sed ultricies tincidunt augue, sed facilisis erat egestas at. Sed euismod mollis odio, ac tempor tortor hendrerit eu. Maecenas mollis aliquet sapien in ornare. Aliquam facilisis ligula dolor, et tincidunt elit condimentum eu. Fusce aliquet augue non orci viverra dignissim ut eget urna. Nam sollicitudin ac mi sodales interdum. Vestibulum lobortis tellus nisi, sed lobortis ante rutrum non. Aliquam nisl lorem, commodo vitae consequat eu, suscipit eget elit. Nunc tristique, est vitae rhoncus euismod, mi mi ornare enim, id varius justo lectus sed libero. Quisque vestibulum sagittis nisi ut semper.
                         </p>
                     </div>
-                    <!-- Article body end: -->
                 </article>
-                <!-- Article end: -->
-
-                    <!-- Components start: -->
-                    <aside class="row">
-                        <section class="deck">
-
-                            <header class="text-center">
-                                <h2>Teaser</h2>
-                                <p class="lead">Eks. på Teaser</p>
-                            </header>
-
-                            <div class="col-sm-12">
-                                <!-- Teaser start -->
-                                <a href="">
-                                    <article class="comp teaser">
-                                        <picture>
-                                            <!--[if IE 9]><video style="display: none;"><![endif]-->
-                                            <source srcset="img/small.jpg" media="(max-width: 767px)"/>
-                                            <source srcset="img/large.jpg" media="(min-width: 768px)"/>
-                                            <!--[if IE 9]></video><![endif]-->
-                                            <img src="img/large.jpg" alt="billedetekst"/>
-                                        </picture>
-                                        <div class="caption">
-                                            <span class="text-uppercase">koncert</span>
-                                            <time datetime="20:00">Dato feldt</time>
-                                            <h3>header</h3>
-                                            <p>
-                                                onec tristique mauris sit amet metus placerat, id congue nisi viverra. Praesent in egestas dolor. Sed pretium dictum risus. Ut dictum imperdiet risus. In dictum lacinia odio eget ultricies. Duis ut imperdiet velit. Sed ultricies tincidunt augue, sed facilisis erat egestas at. Sed euismod mollis odio, ac tempor tortor hendrerit eu. Maecenas mollis aliquet sapien in ornare. Aliquam facilisis ligula dolor, et tincidunt elit condimentum eu. Fusce aliquet augue non orci viverra dignissim ut eget urna. Nam sollicitudin ac mi sodales interdum. Vestibulum lobortis tellus nisi, sed lobortis ante rutrum non. Aliquam nisl lorem, commodo vitae consequat eu, suscipit eget elit. Nunc tristique, est vitae rhoncus euismod, mi mi ornare enim, id varius justo lectus sed libero. Quisque vestibulum sagittis nisi ut semper.
-                                            </p>
-                                        </div>
-                                    </article>
-                                </a>
-                                <!-- Teaser End -->
-                            </div>
-                            <div class="col-sm-6">
-                                <!-- Teaser start -->
-                                <a href="">
-                                    <article class="comp teaser">
-                                        <picture>
-                                            <!--[if IE 9]><video style="display: none;"><![endif]-->
-                                            <source srcset="img/small.jpg" media="(max-width: 767px)"/>
-                                            <source srcset="img/large.jpg" media="(min-width: 768px)"/>
-                                            <!--[if IE 9]></video><![endif]-->
-                                            <img src="img/large.jpg" alt="billedetekst"/>
-                                        </picture>
-                                        <div class="caption">
-                                            <span class="text-uppercase">koncert</span>
-                                            <time datetime="20:00">Dato feldt</time>
-                                            <h3>header</h3>
-                                            <p>
-                                                onec tristique mauris sit amet metus placerat, id congue nisi viverra. Praesent in egestas dolor. Sed pretium dictum risus. Ut dictum imperdiet risus. In dictum lacinia odio eget ultricies. Duis ut imperdiet velit. Sed ultricies tincidunt augue, sed facilisis erat egestas at. Sed euismod mollis odio, ac tempor tortor hendrerit eu. Maecenas mollis aliquet sapien in ornare. Aliquam facilisis ligula dolor, et tincidunt elit condimentum eu. Fusce aliquet augue non orci viverra dignissim ut eget urna. Nam sollicitudin ac mi sodales interdum. Vestibulum lobortis tellus nisi, sed lobortis ante rutrum non. Aliquam nisl lorem, commodo vitae consequat eu, suscipit eget elit. Nunc tristique, est vitae rhoncus euismod, mi mi ornare enim, id varius justo lectus sed libero. Quisque vestibulum sagittis nisi ut semper.
-                                            </p>
-                                        </div>
-                                    </article>
-                                </a>
-                                <!-- Teaser End -->
-                            </div>
-                            <div class="col-sm-6">
-                                <!-- List start -->
-                                <article class="comp list">
-                                    <div class="caption">
-                                        <header>
-                                            <h3 class="text-uppercase">Header</h3>
-                                        </header>
-                                        <ul class="list-unstyled">
-                                            <li>
-                                                <a href="">
-                                                    <article>
-                                                        <time datetime="20:00">Dato feldt</time>
-                                                        <h3>header</h3>
-                                                    </article>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="">
-                                                    <article>
-                                                        <time datetime="20:00">Dato feldt</time>
-                                                        <h3>header</h3>
-                                                    </article>
-                                                </a>
-                                            </li>
-
-                                        </ul>
-                                    </div>
-                                </article>
-                                <!-- List End -->
-                            </div>
-
-                        </section>
-                        <section class="deck">
-
-                            <header class="text-center">
-                                <h2>Teaser Highlight</h2>
-                                <p class="lead">Eks. på Highlight</p>
-                            </header>
-
-                            <div class="row">
-                                <div class="col-sm-6 col-md-4">
-                                    <!--Teaser start-->
-                                    <a href="">
-                                        <aside class="comp teaser highlight light-blue">
-                                            <picture>
-                                                <!--[if IE 9]><video style="display: none;"><![endif]-->
-                                                <source srcset="img/small.jpg" media="(max-width: 767px)"/>
-                                                <source srcset="img/large.jpg" media="(min-width: 768px)"/>
-                                                <!--[if IE 9]></video><![endif]-->
-                                                <img src="img/small.jpg" alt="billedetekst"/>
-                                            </picture>
-                                            <div class="caption">
-                                                <h3>header</h3>
-                                                <p>
-                                                    onec tristique mauris sit amet metus placerat, id congue nisi viverra. Praesent in egestas dolor. Sed pretium dictum risus. Ut dictum imperdiet risus. In dictum lacinia odio eget ultricies. Duis ut imperdiet velit. Sed ultricies tincidunt augue, sed facilisis erat egestas at. Sed euismod mollis odio, ac tempor tortor hendrerit eu. Maecenas mollis aliquet sapien in ornare. Aliquam facilisis ligula dolor, et tincidunt elit condimentum eu. Fusce aliquet augue non orci viverra dignissim ut eget urna. Nam sollicitudin ac mi sodales interdum. Vestibulum lobortis tellus nisi, sed lobortis ante rutrum non. Aliquam nisl lorem, commodo vitae consequat eu, suscipit eget elit. Nunc tristique, est vitae rhoncus euismod, mi mi ornare enim, id varius justo lectus sed libero. Quisque vestibulum sagittis nisi ut semper.
-                                                </p>
-                                            </div>
-                                        </aside>
-                                    </a>
-                                    <!--Teaser end-->
-                                </div>
-                                <div class="col-sm-6 col-md-4">
-                                    <!--Teaser start-->
-                                    <a href="">
-                                        <aside class="comp teaser highlight dark-blue">
-                                            <picture>
-                                                <!--[if IE 9]><video style="display: none;"><![endif]-->
-                                                <source srcset="img/small.jpg" media="(max-width: 767px)"/>
-                                                <source srcset="img/large.jpg" media="(min-width: 768px)"/>
-                                                <!--[if IE 9]></video><![endif]-->
-                                                <img src="img/small.jpg" alt="billedetekst"/>
-                                            </picture>
-                                            <div class="caption">
-                                                <h3>header</h3>
-                                                <p>
-                                                    onec tristique mauris sit amet metus placerat, id congue nisi viverra. Praesent in egestas dolor. Sed pretium dictum risus. Ut dictum imperdiet risus. In dictum lacinia odio eget ultricies. Duis ut imperdiet velit. Sed ultricies tincidunt augue, sed facilisis erat egestas at. Sed euismod mollis odio, ac tempor tortor hendrerit eu. Maecenas mollis aliquet sapien in ornare. Aliquam facilisis ligula dolor, et tincidunt elit condimentum eu. Fusce aliquet augue non orci viverra dignissim ut eget urna. Nam sollicitudin ac mi sodales interdum. Vestibulum lobortis tellus nisi, sed lobortis ante rutrum non. Aliquam nisl lorem, commodo vitae consequat eu, suscipit eget elit. Nunc tristique, est vitae rhoncus euismod, mi mi ornare enim, id varius justo lectus sed libero. Quisque vestibulum sagittis nisi ut semper.
-                                                </p>
-                                            </div>
-                                        </aside>
-                                    </a>
-                                    <!--Teaser end-->
-                                </div>
-                                <div class="col-sm-6 col-md-4">
-                                    <!--Teaser start-->
-                                    <a href="">
-                                        <aside class="comp teaser highlight dark-red">
-                                            <picture>
-                                                <!--[if IE 9]><video style="display: none;"><![endif]-->
-                                                <source srcset="img/small.jpg" media="(max-width: 767px)"/>
-                                                <source srcset="img/large.jpg" media="(min-width: 768px)"/>
-                                                <!--[if IE 9]></video><![endif]-->
-                                                <img src="img/small.jpg" alt="billedetekst"/>
-                                            </picture>
-                                            <div class="caption">
-                                                <h3>header</h3>
-                                                <p>
-                                                    onec tristique mauris sit amet metus placerat, id congue nisi viverra. Praesent in egestas dolor. Sed pretium dictum risus. Ut dictum imperdiet risus. In dictum lacinia odio eget ultricies. Duis ut imperdiet velit. Sed ultricies tincidunt augue, sed facilisis erat egestas at. Sed euismod mollis odio, ac tempor tortor hendrerit eu. Maecenas mollis aliquet sapien in ornare. Aliquam facilisis ligula dolor, et tincidunt elit condimentum eu. Fusce aliquet augue non orci viverra dignissim ut eget urna. Nam sollicitudin ac mi sodales interdum. Vestibulum lobortis tellus nisi, sed lobortis ante rutrum non. Aliquam nisl lorem, commodo vitae consequat eu, suscipit eget elit. Nunc tristique, est vitae rhoncus euismod, mi mi ornare enim, id varius justo lectus sed libero. Quisque vestibulum sagittis nisi ut semper.
-                                                </p>
-                                            </div>
-                                        </aside>
-                                    </a>
-                                    <!--Teaser end-->
-                                </div>
-                            </div>
-
-                        </section>
-                    </aside>
-                    <!-- Components end: -->
-
-                </main>>
-
-            </div>
+            </a>
+            <!-- Teaser End -->
+        </div>
+        <div class="col-xs-6 col-sm-4">
+            <!-- Teaser start -->
+            <a href="">
+                <article class="comp teaser">
+                    <picture>
+                        <!--[if IE 9]><video style="display: none;"><![endif]-->
+                        <source srcset="img/360_207.jpg" media="(max-width: 768px)"/>
+                        <!--[if IE 9]></video><![endif]-->
+                        <img src="img//360_207.jpg" alt="billedetekst"/>
+                    </picture>
+                    <div class="caption">
+                        <span class="text-uppercase">koncert</span>
+                        <time datetime="20:00">Dato feldt</time>
+                        <h3>header</h3>
+                        <p>
+                            onec tristique mauris sit amet metus placerat, id congue nisi viverra. Praesent in egestas dolor. Sed pretium dictum risus. Ut dictum imperdiet risus. In dictum lacinia odio eget ultricies. Duis ut imperdiet velit. Sed ultricies tincidunt augue, sed facilisis erat egestas at. Sed euismod mollis odio, ac tempor tortor hendrerit eu. Maecenas mollis aliquet sapien in ornare. Aliquam facilisis ligula dolor, et tincidunt elit condimentum eu. Fusce aliquet augue non orci viverra dignissim ut eget urna. Nam sollicitudin ac mi sodales interdum. Vestibulum lobortis tellus nisi, sed lobortis ante rutrum non. Aliquam nisl lorem, commodo vitae consequat eu, suscipit eget elit. Nunc tristique, est vitae rhoncus euismod, mi mi ornare enim, id varius justo lectus sed libero. Quisque vestibulum sagittis nisi ut semper.
+                        </p>
+                    </div>
+                </article>
+            </a>
+            <!-- Teaser End -->
+        </div>
+        <div class="col-xs-6 col-sm-4">
+            <!-- Teaser start -->
+            <a href="">
+                <article class="comp teaser">
+                    <picture>
+                        <!--[if IE 9]><video style="display: none;"><![endif]-->
+                        <source srcset="img/360_207.jpg" media="(max-width: 768px)"/>
+                        <!--[if IE 9]></video><![endif]-->
+                        <img src="img//360_207.jpg" alt="billedetekst"/>
+                    </picture>
+                    <div class="caption">
+                        <span class="text-uppercase">koncert</span>
+                        <time datetime="20:00">Dato feldt</time>
+                        <h3>header</h3>
+                        <p>
+                            onec tristique mauris sit amet metus placerat, id congue nisi viverra. Praesent in egestas dolor. Sed pretium dictum risus. Ut dictum imperdiet risus. In dictum lacinia odio eget ultricies. Duis ut imperdiet velit. Sed ultricies tincidunt augue, sed facilisis erat egestas at. Sed euismod mollis odio, ac tempor tortor hendrerit eu. Maecenas mollis aliquet sapien in ornare. Aliquam facilisis ligula dolor, et tincidunt elit condimentum eu. Fusce aliquet augue non orci viverra dignissim ut eget urna. Nam sollicitudin ac mi sodales interdum. Vestibulum lobortis tellus nisi, sed lobortis ante rutrum non. Aliquam nisl lorem, commodo vitae consequat eu, suscipit eget elit. Nunc tristique, est vitae rhoncus euismod, mi mi ornare enim, id varius justo lectus sed libero. Quisque vestibulum sagittis nisi ut semper.
+                        </p>
+                    </div>
+                </article>
+            </a>
+            <!-- Teaser End -->
+        </div>
+        <div class="col-xs-6 col-sm-4">
+            <!-- Teaser start -->
+            <a href="">
+                <article class="comp teaser">
+                    <picture>
+                        <!--[if IE 9]><video style="display: none;"><![endif]-->
+                        <source srcset="img/360_207.jpg" media="(max-width: 768px)"/>
+                        <!--[if IE 9]></video><![endif]-->
+                        <img src="img//360_207.jpg" alt="billedetekst"/>
+                    </picture>
+                    <div class="caption">
+                        <span class="text-uppercase">koncert</span>
+                        <time datetime="20:00">Dato feldt</time>
+                        <h3>header</h3>
+                        <p>
+                            onec tristique mauris sit amet metus placerat, id congue nisi viverra. Praesent in egestas dolor. Sed pretium dictum risus. Ut dictum imperdiet risus. In dictum lacinia odio eget ultricies. Duis ut imperdiet velit. Sed ultricies tincidunt augue, sed facilisis erat egestas at. Sed euismod mollis odio, ac tempor tortor hendrerit eu. Maecenas mollis aliquet sapien in ornare. Aliquam facilisis ligula dolor, et tincidunt elit condimentum eu. Fusce aliquet augue non orci viverra dignissim ut eget urna. Nam sollicitudin ac mi sodales interdum. Vestibulum lobortis tellus nisi, sed lobortis ante rutrum non. Aliquam nisl lorem, commodo vitae consequat eu, suscipit eget elit. Nunc tristique, est vitae rhoncus euismod, mi mi ornare enim, id varius justo lectus sed libero. Quisque vestibulum sagittis nisi ut semper.
+                        </p>
+                    </div>
+                </article>
+            </a>
+            <!-- Teaser End -->
+        </div>
+        <div class="col-xs-6 col-sm-4">
+            <!-- Teaser start -->
+            <a href="">
+                <article class="comp teaser">
+                    <picture>
+                        <!--[if IE 9]><video style="display: none;"><![endif]-->
+                        <source srcset="img/360_207.jpg" media="(max-width: 768px)"/>
+                        <!--[if IE 9]></video><![endif]-->
+                        <img src="img//360_207.jpg" alt="billedetekst"/>
+                    </picture>
+                    <div class="caption">
+                        <span class="text-uppercase">koncert</span>
+                        <time datetime="20:00">Dato feldt</time>
+                        <h3>header</h3>
+                        <p>
+                            onec tristique mauris sit amet metus placerat, id congue nisi viverra. Praesent in egestas dolor. Sed pretium dictum risus. Ut dictum imperdiet risus. In dictum lacinia odio eget ultricies. Duis ut imperdiet velit. Sed ultricies tincidunt augue, sed facilisis erat egestas at. Sed euismod mollis odio, ac tempor tortor hendrerit eu. Maecenas mollis aliquet sapien in ornare. Aliquam facilisis ligula dolor, et tincidunt elit condimentum eu. Fusce aliquet augue non orci viverra dignissim ut eget urna. Nam sollicitudin ac mi sodales interdum. Vestibulum lobortis tellus nisi, sed lobortis ante rutrum non. Aliquam nisl lorem, commodo vitae consequat eu, suscipit eget elit. Nunc tristique, est vitae rhoncus euismod, mi mi ornare enim, id varius justo lectus sed libero. Quisque vestibulum sagittis nisi ut semper.
+                        </p>
+                    </div>
+                </article>
+            </a>
+            <!-- Teaser End -->
         </div>
 
+    </section>
+</aside>
+<!-- Components end: -->
+</main>
+
+
+
+
+</div>
+</div>
+<!-- content end -->
 
 <footer class="kbFooter">
     <div class="container">
@@ -350,9 +455,11 @@
         </div>
     </div>
 </footer>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</div>
+<!-- bootstrap js FIXME: all these files shall be concatenated and minified in the production build! For debug purposes we keep them apart for now -->
+<script src="js/bootstrap331/alert.js"></script>
+<script src="js/bootstrap331/transition.js"></script>
+<script src="js/bootstrap331/collapse.js"></script>
+<script src="js/bootstrap331/carousel.js"></script>
 </body>
 </html>
-
-
