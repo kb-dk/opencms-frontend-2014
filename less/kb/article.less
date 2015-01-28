@@ -10,6 +10,7 @@ article.contentPage{
     .picture{
         picture{
             height:@comp-height-xs;
+            background: #969696;
         }
         picture, .caption{
             padding: @reset-padding!important;
@@ -17,9 +18,7 @@ article.contentPage{
             .make-xs-column(12);
         }
         img{
-            width:100%;
-            object-fit: cover;
-            overflow: hidden;
+            .img-responsive;
             height:@comp-height-xs;
         }
         figcaption{
