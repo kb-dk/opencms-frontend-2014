@@ -38,7 +38,6 @@
 
 
 // TEASER
-
 .teaser{
     a{
         display: block;
@@ -72,40 +71,42 @@
     p{
         font:@teaser-p-xs-md;
     }
-
  }
+
+
+
+//Banner rules
 .container-fluid{
     padding:@reset-padding;
     .teaser{
         picture, .caption{
-            .make-xs-column(12);
-            height:@comp-height-xs;
-        }
-        picture img{
-            width:100%;
+            .make-xs-column(6);
         }
     }
 }
-
 
 // Extra Extra Small devices (0px to 480px)
 //------------------------------------------------------
     // Pattern Rules for flow, grid
     //------------------------------------------------------
     @media (max-width: @screen-xs-min) {
-        .flow, .grid{
-            .col-xs-12{
-                picture{
-                    max-height:@comp-height-xs/2;
-                }
-            }
-            .col-xs-6{
-                .make-xs-column(12);
-            }
-            .teaser img{
-                max-height: @comp-height-xs / 2;
+        .comp{
+            picture, .caption{
+                height:@comp-height-xs/2;
             }
         }
+        // Reset half col on small devices
+        .col-xs-6{
+            .make-xs-column(12);
+        }
+        .container-fluid{
+            .teaser{
+                picture, .caption{
+                    .make-xs-column(12);
+                }
+            }
+        }
+
     }
 
 // Extra Small devices (481px to 767px)
@@ -113,10 +114,25 @@
     // Pattern Rules for flow, grid
     //------------------------------------------------------
     @media (min-width: @screen-xs-min) {
-        .flow{
-            .col-xs-12{
-                picture{
+        .comp{
+            picture, .caption{
+                height:@comp-height-xs/2;
+            }
+        }
+        //Img half col rules
+        .flow {
+            .col-xs-12 .teaser{
+                picture, .caption{
                     height:@comp-height-xs;
+                    .make-xs-column(6);
+                }
+            }
+        }
+        .flow {
+            .col-sm-8 .teaser, .col-md-9 .teaser{
+                picture, .caption{
+                    height:@comp-height-xs/2;
+                    .make-xs-column(12);
                 }
             }
         }
@@ -127,29 +143,28 @@
     // Pattern Rules for flow, grid
     //------------------------------------------------------
     @media (min-width: @screen-sm-min) {
-        .flow{
+        .comp{
             picture, .caption{
                 height:@comp-height-sm/2;
             }
-            .col-xs-12{
-                picture{
-                    height:@comp-height-sm;
-                }
-            }
-            .col-sm-12{
+        }
+        //Img half col rules
+        .flow {
+            .col-xs-12 .teaser, .col-sm-8 .teaser, .col-md-9 .teaser{
                 picture, .caption{
                     height:@comp-height-sm;
                     .make-xs-column(6);
                 }
             }
         }
-
-        .container-fluid .teaser{
-            picture, .caption{
-                .make-xs-column(6);
-                height:@comp-height-xs;
+        .container-fluid{
+            .teaser{
+                picture, .caption{
+                    height:@comp-height-sm;
+                }
             }
         }
+
     }
 
 // Medium devices (992px to 1199px)
@@ -157,31 +172,25 @@
     // Pattern Rules for flow, grid
     //------------------------------------------------------
     @media (min-width: @screen-md-min) {
-        .flow, .grid {
+        .comp{
             picture, .caption{
                 height:@comp-height-md/2;
             }
-            .col-md-12, .col-md-8{
-                .teaser{
-                    picture, .caption{
-                        .make-md-column(6);
-                        height:@comp-height-md;
-                    }
-                }
-            }
-            .col-md-4{
-                .teaser{
-                    picture, .caption{
-                        .make-md-column(12);
-                        height:@comp-height-md/2;
-                    }
+        }
+        //Img half col rules
+        .flow {
+            .col-xs-12 .teaser, .col-sm-8 .teaser, .col-md-9 .teaser{
+                picture, .caption{
+                    height:@comp-height-md;
+                    .make-xs-column(6);
                 }
             }
         }
-
-        .container-fluid .teaser{
-            picture, .caption{
-                height:@comp-height-md;
+        .container-fluid{
+            .teaser{
+                picture, .caption{
+                    height:@comp-height-md;
+                }
             }
         }
     }
@@ -191,30 +200,37 @@
     // Pattern Rules for flow, grid
     //------------------------------------------------------
     @media (min-width: @screen-lg-min) {
-        .flow, .grid {
+        .comp{
             picture, .caption{
                 height:@comp-height-lg/2;
             }
-            .col-md-12, .col-md-8{
-                .teaser{
-                    picture, .caption{
-                        height:@comp-height-lg;
-                    }
-                }
-            }
-            .col-lg-3{
-                .teaser{
-                    picture, .caption{
-                        height:@comp-height-lg/2;
-                    }
+        }
+        //Img half col rules
+        .flow {
+            .col-xs-12 .teaser, .col-sm-8 .teaser, .col-md-9 .teaser{
+                picture, .caption{
+                    height:@comp-height-lg;
+                    .make-xs-column(6);
                 }
             }
         }
-        .container-fluid .teaser{
+        // Handels first element right col in article
+
+        aside.col-lg-3 .flow .col-md-12 .teaser{
             picture, .caption{
-                height:@comp-height-lg;
+                height:@comp-height-lg/2;
+                .make-xs-column(12);
             }
         }
+
+        .container-fluid{
+            .teaser{
+                picture, .caption{
+                    height:@comp-height-lg;
+                }
+            }
+        }
+
     }
 
 
