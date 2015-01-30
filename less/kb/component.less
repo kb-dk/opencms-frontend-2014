@@ -8,7 +8,6 @@
 //480px
 @comp-height-xs:      420px;
 
-
 .comp{
   margin-bottom:@grid-gutter-width;
   overflow:hidden;
@@ -35,8 +34,6 @@
     }
 }
 
-
-
 // TEASER
 .teaser{
     a{
@@ -48,14 +45,10 @@
         display:block;
     }
     picture{
-       background: #969696;
+       background: #000000;
     }
     .caption{
         padding:@teaser-caption-padding!important;
-        height:@comp-height-xs/2;
-    }
-    img{
-        .img-responsive;
     }
     span{
         color:@teaser-label;
@@ -71,18 +64,6 @@
     p{
         font:@teaser-p-xs-md;
     }
- }
-
-
-
-//Banner rules
-.container-fluid{
-    padding:@reset-padding;
-    .teaser{
-        picture, .caption{
-            .make-xs-column(6);
-        }
-    }
 }
 
 // Extra Extra Small devices (0px to 480px)
@@ -91,22 +72,19 @@
     //------------------------------------------------------
     @media (max-width: @screen-xs-min) {
         .comp{
-            picture, .caption{
-                height:@comp-height-xs/2;
+            picture{
+                max-height:@comp-height-xs/2;
+            }
+        }
+        .teaser{
+            img{
+                width:100%;
             }
         }
         // Reset half col on small devices
         .col-xs-6{
             .make-xs-column(12);
         }
-        .container-fluid{
-            .teaser{
-                picture, .caption{
-                    .make-xs-column(12);
-                }
-            }
-        }
-
     }
 
 // Extra Small devices (481px to 767px)
@@ -119,12 +97,50 @@
                 height:@comp-height-xs/2;
             }
         }
+        // Font rules
+        // Normal font for md
+        .teaser{
+            span{
+                font:@teaser-span-xs-md;
+            }
+            time{
+                font:@teaser-time-xs-md;
+            }
+            h3{
+                font:@teaser-header-xs-md;
+            }
+            p{
+                font:@teaser-p-xs-md;
+            }
+        }
+
+        // Big font for first flow teaser
+        .flow{
+            .col-xs-12 .teaser{
+                h3{
+                    font: @teaser-header-xs-md-col-12;
+                }
+                p{
+                    font:@teaser-p-xs-md-col-12;
+                }
+                span{
+                    font:@teaser-span-xs-md-lg-col-12;
+                }
+                time{
+                    font:@teaser-time-xs-md-col-12;
+                }
+            }
+        }
+
         //Img half col rules
         .flow {
             .col-xs-12 .teaser{
                 picture, .caption{
                     height:@comp-height-xs;
                     .make-xs-column(6);
+                }
+                picture{
+                    padding-right:@grid-gutter-width / 2 !important;
                 }
             }
         }
@@ -148,23 +164,52 @@
                 height:@comp-height-sm/2;
             }
         }
+        // Font rules
+        // Normal font for sm
+        .teaser{
+            h3{
+                font: @teaser-header-sm;
+            }
+            p{
+                font:@teaser-p-sm;
+            }
+            span{
+                font:@teaser-span-sm-lg;
+            }
+            time{
+                font:@teaser-time-sm-lg;
+            }
+        }
+        // Big font for first flow teaser
+        .flow{
+            .col-xs-12 .teaser{
+                h3{
+                    font: @teaser-header-sm-lg-col-12;
+                }
+                p{
+                    font:@teaser-p-sm-lg-col-12;
+                }
+                span{
+                    font:@teaser-span-sm-col-12;
+                }
+                time{
+                    font:@teaser-time-sm-lg-col-12;
+                }
+            }
+        }
+
         //Img half col rules
         .flow {
             .col-xs-12 .teaser, .col-sm-8 .teaser, .col-md-9 .teaser{
                 picture, .caption{
                     height:@comp-height-sm;
-                    .make-xs-column(6);
+                    .make-sm-column(6);
+                }
+                picture{
+                    padding-right:@grid-gutter-width / 2 !important;
                 }
             }
         }
-        .container-fluid{
-            .teaser{
-                picture, .caption{
-                    height:@comp-height-sm;
-                }
-            }
-        }
-
     }
 
 // Medium devices (992px to 1199px)
@@ -177,19 +222,59 @@
                 height:@comp-height-md/2;
             }
         }
-        //Img half col rules
-        .flow {
-            .col-xs-12 .teaser, .col-sm-8 .teaser, .col-md-9 .teaser{
-                picture, .caption{
-                    height:@comp-height-md;
-                    .make-xs-column(6);
+    // Font rules
+    // Normal font for md
+        .teaser{
+            span{
+                font:@teaser-span-xs-md;
+            }
+            time{
+                font:@teaser-time-xs-md;
+            }
+            h3{
+                font:@teaser-header-xs-md;
+            }
+            p{
+                font:@teaser-p-xs-md;
+            }
+        }
+    // Big font for first flow teaser
+        .flow{
+            .col-md-12 .teaser{
+                span{
+                    font:@teaser-span-xs-md-lg-col-12;
+                }
+                time{
+                    font:@teaser-time-xs-md-col-12;
+                }
+                h3{
+                    font:@teaser-header-xs-md-col-12;
+                }
+                p{
+                    font:@teaser-p-xs-md-col-12;
                 }
             }
         }
-        .container-fluid{
-            .teaser{
+        //Img half col rules
+        .flow {
+            .col-xs-12 .teaser{
                 picture, .caption{
                     height:@comp-height-md;
+                    .make-md-column(6);
+                }
+                picture{
+                    padding-right:@grid-gutter-width / 2 !important;
+                    .make-md-column(6);
+                }
+            }
+            .col-sm-8 .teaser, .col-md-9 .teaser{
+                picture, .caption{
+                    height:@comp-height-md;
+                    .make-md-column(4);
+                }
+                picture{
+                    padding-right:@grid-gutter-width / 2 !important;
+                    .make-md-column(8)
                 }
             }
         }
@@ -205,12 +290,59 @@
                 height:@comp-height-lg/2;
             }
         }
+    // Font rules
+    // Normal font for lg
+        .teaser{
+            span{
+                font:@teaser-span-sm-lg;
+            }
+            time{
+                font:@teaser-time-sm-lg;
+            }
+            h3{
+                font:@teaser-header-lg;
+            }
+            p{
+                font:@teaser-p-lg;
+            }
+        }
+    // Big font for first flow teaser
+        .flow{
+            .col-xs-12 .teaser{
+                span{
+                    font:@teaser-span-xs-md-lg-col-12;
+                }
+                time{
+                    font:@teaser-time-sm-lg-col-12;
+                }
+                h3{
+                    font:@teaser-header-sm-lg-col-12;
+                }
+                p{
+                    font:@teaser-p-sm-lg-col-12;
+                }
+            }
+        }
         //Img half col rules
         .flow {
-            .col-xs-12 .teaser, .col-sm-8 .teaser, .col-md-9 .teaser{
+            .col-xs-12 .teaser{
                 picture, .caption{
                     height:@comp-height-lg;
-                    .make-xs-column(6);
+                    .make-lg-column(6);
+                }
+                picture{
+                    padding-right:@grid-gutter-width / 2 !important;
+                    .make-lg-column(6);
+                }
+            }
+            .col-sm-8 .teaser, .col-md-9 .teaser{
+                picture, .caption{
+                    height:@comp-height-lg;
+                    .make-lg-column(4);
+                }
+                picture{
+                    padding-right:@grid-gutter-width / 2 !important;
+                    .make-lg-column(8);
                 }
             }
         }
@@ -220,17 +352,23 @@
             picture, .caption{
                 height:@comp-height-lg/2;
                 .make-xs-column(12);
-            }
-        }
-
-        .container-fluid{
-            .teaser{
-                picture, .caption{
-                    height:@comp-height-lg;
+                span{
+                    font:@teaser-span-sm-lg;
+                }
+                time{
+                    font:@teaser-time-sm-lg;
+                }
+                h3{
+                    font:@teaser-header-lg;
+                }
+                p{
+                    font:@teaser-p-lg;
                 }
             }
+            picture{
+                padding:@reset-padding!important;
+            }
         }
-
     }
 
 
