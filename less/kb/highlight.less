@@ -1,0 +1,206 @@
+// Highlight
+// Used for extra skinning of components .comp
+
+// Global handling
+a {
+    &:hover{
+        text-decoration:none;
+    }
+    .highlight{
+        .caption {
+            .text-center;
+            padding: @highlight-caption-padding !important;
+            * {
+                color: @white;
+            }
+            span, time{
+                display: none;
+            }
+        }
+    }
+}
+.col-xs-6 .highlight{
+    .text-center;
+}
+
+
+// Used for .comp (imege align left to text)
+.flow {
+    .col-xs-12 .highlight, .col-sm-8 .highlight, .col-md-9 .highlight {
+        .caption {
+            .text-left;
+        }
+    }
+}
+
+// Background color for highlight
+.dark-blue, .light-blue, .dark-green, .dark-red, .dark-gold, .light-gold {
+    .caption:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 40px;
+        bottom: 0px;
+        right: 0px;
+        border: 0px solid transparent;
+    }
+}
+
+.dark-blue {
+    background-color: @dark-blue;
+    .caption:after {
+        background: transparent url("../img/darkBlueBg.png") repeat-x left bottom;
+    }
+}
+
+.light-blue {
+    background-color: @light-blue;
+    .caption:after {
+        background: transparent url("../img/lightBlueBg.png") repeat-x left bottom;
+    }
+}
+
+.dark-green {
+    background-color: @dark-green;
+    .caption:after {
+        background: transparent url("../img/darkGreenBg.png") repeat-x left bottom;
+    }
+}
+
+.dark-red {
+    background-color: @dark-red;
+    .caption:after {
+        background: transparent url("../img/darkRedBg.png") repeat-x left bottom;
+    }
+}
+
+.dark-gold {
+    background-color: @dark-gold;
+    .caption:after {
+        background: transparent url("../img/darkGoldBg.png") repeat-x left bottom;
+    }
+}
+
+.light-gold {
+    background-color: @light-gold;
+    .caption:after {
+        background: transparent url("../img/lightGoldBg.png") repeat-x left bottom;
+    }
+}
+
+// Extra Extra Small devices (0px to 480px)
+//------------------------------------------------------
+@media (max-width: @screen-xs-min) {
+
+}
+
+// Extra Small devices (481px to 767px)
+//------------------------------------------------------
+@media (min-width: @screen-xs-min) {
+
+}
+
+// Small devices (768px to 991px)
+//------------------------------------------------------
+@media (min-width: @screen-sm-min) {
+// General
+    .highlight .caption{
+        h3{
+            font:@highlight-header-sm;
+        }
+        p{
+            font:@highlight-p-sm;
+        }
+    }
+// Medium
+    .flow .col-md-9{
+        .highlight .caption{
+            h3{
+                font:@highlight-header-col-8-sm;
+            }
+            p{
+                font:@highlight-p-col-8-sm;
+            }
+        }
+    }
+// Large
+    .flow .col-md-12{
+        .highlight .caption{
+            h3{
+                font:@highlight-header-col-12-sm;
+            }
+            p{
+                font:@highlight-p-col-12-sm;
+            }
+        }
+    }
+
+}
+
+
+// Medium devices (992px to 1199px)
+//------------------------------------------------------
+@media (min-width: @screen-md-min) {
+// General
+    .highlight .caption{
+        h3{
+            font:@highlight-header-md;
+        }
+        p{
+            font:@highlight-p-md;
+        }
+    }
+// Medium
+    .flow .col-md-9{
+        .highlight .caption{
+            h3{
+                font:@highlight-header-col-8-md;
+            }
+        }
+    }
+// Large
+    .flow .col-md-12{
+        .highlight .caption{
+            h3{
+                font:@highlight-header-col-12-md;
+            }
+            p{
+                font:@highlight-p-col-12-md;
+            }
+        }
+    }
+
+}
+
+// Large devices (1200px to not defined)
+//------------------------------------------------------
+@media (min-width: @screen-lg-min) {
+// General
+    .highlight .caption{
+        h3{
+            font:@highlight-header-lg;
+        }
+        p{
+            font:@highlight-p-lg;
+        }
+    }
+// Medium
+    .flow .col-md-9{
+        .highlight .caption{
+            h3{
+                font:@highlight-header-col-8-lg;
+            }
+        }
+    }
+// Large
+    .flow .col-md-12{
+        .highlight .caption{
+            h3{
+                font:@highlight-header-col-12-lg;
+            }
+            p{
+                font:@highlight-p-col-12-lg;
+            }
+        }
+    }
+}
