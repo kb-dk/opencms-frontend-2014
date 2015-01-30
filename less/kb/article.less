@@ -17,10 +17,6 @@ article.contentPage{
             overflow: hidden !important;
             .make-xs-column(12);
         }
-        img{
-            .img-responsive;
-            height:@comp-height-xs;
-        }
         figcaption{
             font:@article-figcaption-sm;
             color:@figcaption-color;
@@ -67,15 +63,22 @@ article.contentPage{
         }
 
     }
+    // Extra Extra Small devices (0px to 480px)
+    //------------------------------------------------------
+    // Pattern Rules for flow, grid
+    //------------------------------------------------------
+    @media (max-width: @screen-xs-min) {
+        article.contentPage
+        picture img{
+            width:100%;
+        }
+    }
 
     /* Small devices (tablets, 768px and up) */
     @media (min-width: @screen-sm-min) {
         .picture{
             picture{
                 height:@comp-height-sm;
-                img{
-                    height:@comp-height-sm;
-                }
             }
             figcaption{
                 font:@article-figcaption-sm;
@@ -108,9 +111,6 @@ article.contentPage{
         .picture{
             picture{
                 height:@comp-height-md;
-                img{
-                    height:@comp-height-md;
-                }
             }
             figcaption{
                 font:@article-figcaption-md;
@@ -142,9 +142,6 @@ article.contentPage{
         .picture{
             picture{
                 height:@comp-height-lg;
-                img{
-                    height:@comp-height-lg;
-                }
             }
             figcaption{
                 font:@article-figcaption-lg;
