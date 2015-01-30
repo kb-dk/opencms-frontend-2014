@@ -1,0 +1,131 @@
+// Banner
+// Only used on frontpage (single teaser element in deck = banner fullscreen)
+
+
+//Banner rules
+.container-fluid{
+    padding:@reset-padding;
+    picture{
+        .text-right;
+    }
+}
+
+
+// Extra Extra Small devices (0px to 480px)
+//------------------------------------------------------
+@media (max-width: @screen-xs-min) {
+    .container-fluid{
+        .teaser{
+            picture, .caption{
+                .make-xs-column(12);
+            }
+            .caption{
+                width:auto;
+                h3{
+                    font:@banner-header-xs;
+                }
+                p{
+                    font:@banner-p-xs;
+                }
+            }
+        }
+    }
+}
+
+// Extra Small devices (481px to 767px)
+//------------------------------------------------------
+@media (min-width: @screen-xs-min) {
+    .container-fluid{
+        .teaser{
+            picture, .caption{
+                height:@comp-height-xs;
+                .make-xs-column(12)
+            }
+            .caption{
+                .text-left;
+                h3{
+                    font:@banner-header-xs;
+                }
+                p{
+                    font:@banner-p-xs;
+                }
+            }
+        }
+    }
+}
+
+// Small devices (768px to 991px)
+//------------------------------------------------------
+@media (min-width: @screen-sm-min) {
+    .container-fluid{
+        .teaser{
+            picture, .caption{
+                height:@comp-height-sm;
+            }
+            picture{
+                .make-sm-column(6)
+            }
+            .caption{
+                .text-left;
+                width:@container-sm / 2 - @grid-gutter-width;
+                h3{
+                    font:@banner-header-sm;
+                }
+                p{
+                    font:@banner-p-sm;
+                }
+            }
+        }
+    }
+}
+
+// Medium devices (992px to 1199px)
+//------------------------------------------------------
+@media (min-width: @screen-md-min) {
+    .container-fluid{
+        .teaser{
+            picture, .caption{
+                height:@comp-height-md;
+            }
+            picture{
+                .make-md-column(6)
+            }
+            .caption{
+                .text-left;
+                width:@container-md / 2 - @grid-gutter-width;
+                h3{
+                    font:@banner-header-md;
+                }
+                p{
+                    font:@banner-p-md;
+                }
+            }
+        }
+    }
+}
+
+// Large devices (1200px to not defined)
+//------------------------------------------------------
+@media (min-width: @screen-lg-min) {
+    .container-fluid{
+        .teaser{
+            picture, .caption{
+                height:@comp-height-lg;
+            }
+            picture{
+                .make-lg-column(6)
+            }
+            .caption{
+                .text-left;
+                width:@container-lg / 2 - @grid-gutter-width;
+                h3{
+                    font:@banner-header-lg;
+                }
+                p{
+                    font:@banner-p-lg;
+                }
+            }
+        }
+
+    }
+}
