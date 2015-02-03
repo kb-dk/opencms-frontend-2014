@@ -13,6 +13,8 @@
 
     <!-- STYLESHEET -->
     <link href="css/style.css" rel="stylesheet" />
+    <!-- swipe -->
+    <link href="css/idangerous.swiper.css" rel="stylesheet" />
 
     <!-- JAVASCRIPT -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -184,16 +186,10 @@
 <section class="deck">
     <div class="container-fluid">
 
-        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-            </ol>
-
+        <div class="swiper-container">
             <!-- Wrapper for slides -->
-            <div class="carousel-inner" role="listbox">
-                <a href="" class="item active">
+            <div class="swiper-wrapper">
+                <a href="" class="swiper-slide">
                     <picture>
                         <!--[if IE 9]><video style="display: none;"><![endif]-->
                         <source srcset="img/carousel01LowRez.jpg" media="(max-width: 767px)"/>
@@ -204,12 +200,9 @@
                     <div class="carousel-caption">
                         <h1>Det Samfundsvidenskabelige bibliotek. På det samfundsvidenskabelige bibliotek er der både individuelle studiepladser og mulighed
                             for at indrette gruppearbejdspladser.</h1>
-                        <p>
-
-                        </p>
                     </div>
                 </a>
-                <a href="" class="item">
+                <a href="" class="swiper-slide">
                     <picture>
                         <!--[if IE 9]><video style="display: none;"><![endif]-->
                         <source srcset="img/carousel02LowRez.jpg" media="(max-width: 767px)"/>
@@ -225,12 +218,16 @@
             </div>
 
             <!-- Controls -->
-            <a class="carousel-control left" href="#carousel-example-generic" role="button" data-slide="prev">
+            <!--a class="carousel-control left" href="#carousel-example-generic" role="button" data-slide="prev">
                 <span class="sr-only">Previous</span>
             </a>
             <a class="carousel-control right" href="#carousel-example-generic" role="button" data-slide="next">
                 <span class="sr-only">Next</span>
-            </a>
+            </a-->
+
+            <!-- Indicators -->
+            <div class="swiper-pagination"></div>
+
         </div>
     </div>
 </section>
@@ -888,7 +885,18 @@
 <script src="js/bootstrap331/alert.js"></script>
 <script src="js/bootstrap331/transition.js"></script>
 <script src="js/bootstrap331/collapse.js"></script>
-<script src="js/bootstrap331/carousel.js"></script>
+<!--script src="js/bootstrap331/carousel.js"></script-->
+<!-- Swiper/ Carousel -->
+<script src="js/idangerous.swiper.min.js"></script>
+<script type="text/javascript">
+    var kbSwiper = new Swiper('.swiper-container',{
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        calculateHeight: true,
+        //cssWidthAndHeight: false, // FIXME: no running calculation of width and height if set to true!
+        //createPagination: true // FIXME: This ought to be enough to create the pagination dots? (and it's a default value!)
+    });
+</script>
 </body>
 </html>
 
