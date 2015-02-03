@@ -13,8 +13,6 @@
 
     <!-- STYLESHEET -->
     <link href="css/style.css" rel="stylesheet" />
-    <!-- swipe -->
-    <link href="css/idangerous.swiper.css" rel="stylesheet" />
 
     <!-- JAVASCRIPT -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -197,7 +195,7 @@
                         <!--[if IE 9]></video><![endif]-->
                         <img src="img/carousel01HighRez.jpg" alt="billedetekst"/>
                     </picture>
-                    <div class="carousel-caption">
+                    <div class="swiper-caption">
                         <h1>Det Samfundsvidenskabelige bibliotek. På det samfundsvidenskabelige bibliotek er der både individuelle studiepladser og mulighed
                             for at indrette gruppearbejdspladser.</h1>
                     </div>
@@ -210,7 +208,7 @@
                         <!--[if IE 9]></video><![endif]-->
                         <img src="img/carousel02HighRez.jpg" alt="billedetekst"/>
                     </picture>
-                    <div class="carousel-caption">
+                    <div class="swiper-caption">
                         <h1>Header </h1>
                         <p>Content</p>
                     </div>
@@ -218,12 +216,12 @@
             </div>
 
             <!-- Controls -->
-            <!--a class="carousel-control left" href="#carousel-example-generic" role="button" data-slide="prev">
+            <a class="swiper-control arrow-left" href="#">
                 <span class="sr-only">Previous</span>
             </a>
-            <a class="carousel-control right" href="#carousel-example-generic" role="button" data-slide="next">
+            <a class="swiper-control arrow-right" href="#">
                 <span class="sr-only">Next</span>
-            </a-->
+            </a>
 
             <!-- Indicators -->
             <div class="swiper-pagination"></div>
@@ -895,8 +893,18 @@
         calculateHeight: true,
         //cssWidthAndHeight: false, // FIXME: no running calculation of width and height if set to true!
         //createPagination: true // FIXME: This ought to be enough to create the pagination dots? (and it's a default value!)
-    });
+    })
+    $('.arrow-left').on('click', function(e){
+        e.preventDefault()
+        kbSwiper.swipePrev()
+    })
+    $('.arrow-right').on('click', function(e){
+        e.preventDefault()
+        kbSwiper.swipeNext()
+    })
 </script>
+
+
 </body>
 </html>
 
