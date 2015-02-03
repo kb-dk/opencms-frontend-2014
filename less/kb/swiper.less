@@ -1,0 +1,282 @@
+/*
+ * Swiper 2.7.5
+ * Mobile touch slider and framework with hardware accelerated transitions
+ *
+ * http://www.idangero.us/sliders/swiper/
+ *
+ * Copyright 2010-2015, Vladimir Kharlampidi
+ * The iDangero.us
+ * http://www.idangero.us/
+ *
+ * Licensed under GPL & MIT
+ *
+ * Released on: February 2, 2015
+*/
+/* ===============================================================
+Basic Swiper Styles
+================================================================*/
+.swiper-container {
+    margin:0 auto;
+    position:relative;
+    overflow:hidden;
+    direction:ltr;
+    -webkit-backface-visibility:hidden;
+    -moz-backface-visibility:hidden;
+    -ms-backface-visibility:hidden;
+    -o-backface-visibility:hidden;
+    backface-visibility:hidden;
+/* Fix of Webkit flickering */
+    z-index:1;
+}
+.swiper-wrapper {
+    position:relative;
+    width:100%;
+    -webkit-transition-property:-webkit-transform, left, top;
+    -webkit-transition-duration:0s;
+    -webkit-transform:translate3d(0px,0,0);
+    -webkit-transition-timing-function:ease;
+
+    -moz-transition-property:-moz-transform, left, top;
+    -moz-transition-duration:0s;
+    -moz-transform:translate3d(0px,0,0);
+    -moz-transition-timing-function:ease;
+
+    -o-transition-property:-o-transform, left, top;
+    -o-transition-duration:0s;
+    -o-transform:translate3d(0px,0,0);
+    -o-transition-timing-function:ease;
+    -o-transform:translate(0px,0px);
+
+    -ms-transition-property:-ms-transform, left, top;
+    -ms-transition-duration:0s;
+    -ms-transform:translate3d(0px,0,0);
+    -ms-transition-timing-function:ease;
+
+    transition-property:transform, left, top;
+    transition-duration:0s;
+    transform:translate3d(0px,0,0);
+    transition-timing-function:ease;
+
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+.swiper-free-mode > .swiper-wrapper {
+    -webkit-transition-timing-function: ease-out;
+    -moz-transition-timing-function: ease-out;
+    -ms-transition-timing-function: ease-out;
+    -o-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+    margin: 0 auto;
+}
+.swiper-slide {
+    float: left;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+/* IE10 Windows Phone 8 Fixes */
+.swiper-wp8-horizontal {
+    -ms-touch-action: pan-y;
+}
+.swiper-wp8-vertical {
+    -ms-touch-action: pan-x;
+}
+
+/* ===============================================================
+Your custom styles, here you need to specify container's and slide's
+sizes, pagination, etc.
+================================================================*/
+.swiper-container {
+/* Specify Swiper's Size: */
+    position: relative;
+    //border: 1px solid red;
+    max-height:500px;
+    overflow:hidden;
+    background: silver;
+    img{
+        width:100%;
+    }
+}
+.swiper-caption {
+    position: absolute;
+    top:10%;
+    left: 15%;
+    right: 15%;
+    bottom: 0px;
+    z-index: 10;
+    padding:0 20px 50px 20px;
+    color: @swiper-caption-color;
+//text-align: center;
+//background-color: rgba(0,0,0,0.5);
+    text-shadow: 0px 0px 60px #000000;
+    & .btn {
+        text-shadow: none; // No shadow for button elements in carousel-caption
+    }
+    h1{
+        font:@swiper-h1-xs;
+        -o-text-overflow: clip;
+        text-overflow: clip;
+        text-shadow: 0px 0px 100px rgba(0,0,0,1), 0px 0px 10px rgba(0,0,0,1) ;
+    }
+    p{
+        font:@swiper-p-xs;
+    }
+}
+.swiper-slide {
+/* Specify Slides's Size: */
+    position: relative;
+
+/*width: 100%;
+    height: 100%;*/
+}
+.swiper-slide-active {
+/* Specific active slide styling: */
+
+}
+.swiper-slide-visible {
+/* Specific visible slide styling: */
+
+}
+/* ===============================================================
+Pagination Styles
+================================================================*/
+.swiper-pagination{
+    position:absolute;
+    bottom:20px;
+    left:0px;
+    .text-center;
+    width:100%;
+
+    .swiper-pagination-switch {
+    /* Stylize pagination button: */
+        display:inline-block;
+        width:20px;
+        height:20px;
+        margin-right:8px;
+        //border:1px solid black;
+        border-radius:14px;
+        cursor: pointer;
+        opacity: 0.5;
+        background:@white;
+    }
+    .swiper-active-switch {
+    /* Specific active button style: */
+        opacity: 1;
+    }
+    .swiper-visible-switch {
+    /* Specific visible button style: */
+        opacity: 1;
+    }
+}
+/* ===============================================================
+Control Styles (previous and next)
+================================================================*/
+.swiper-control {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: @swiper-control-width;
+
+
+// We can't have this transition here because WebKit cancels the carousel
+// animation if you trip this while in the middle of another animation.
+
+// Set gradients for backgrounds
+    &.arrow-left {
+        #gradient > .horizontal(@start-color: rgba(0,0,0,.5); @end-color: rgba(0,0,0,.0001));
+        background:transparent url("../img/carousel-icon-prev.png") no-repeat 50% 50%;
+    }
+    &.arrow-right {
+        left: auto;
+        right: 0;
+        #gradient > .horizontal(@start-color: rgba(0,0,0,.0001); @end-color: rgba(0,0,0,.5));
+        background:transparent url("../img/carousel-icon-next.png") no-repeat 50% 50%;
+    }
+
+
+// Hover/focus state
+    &:hover,
+    &:focus {
+        outline: 0;
+        color: @white;
+        text-decoration: none;
+        .opacity(.9);
+    }
+
+
+}
+
+
+
+// Extra Extra Small devices (0px to 480px)
+//------------------------------------------------------
+// Pattern Rules for flow, grid
+//------------------------------------------------------
+@media (max-width: @screen-xs-min) {
+    .swiper-container{
+        display: none;
+    }
+}
+
+// Extra Small devices (481px to 767px)
+//------------------------------------------------------
+// Pattern Rules for flow, grid
+//------------------------------------------------------
+@media (min-width: @screen-xs-min) {
+    .swiper-container{
+        display: none;
+    }
+}
+
+// Small devices (768px to 991px)
+//------------------------------------------------------
+// Pattern Rules for flow, grid
+//------------------------------------------------------
+@media (min-width: @screen-sm-min) {
+    .swiper-container{
+        display: block;
+    }
+}
+
+// Medium devices (992px to 1199px)
+//------------------------------------------------------
+// Pattern Rules for flow, grid
+//------------------------------------------------------
+@media (min-width: @screen-md-min) {
+    .swiper-container{
+        margin-top:-30px;
+        h1{
+            font:@swiper-h1-md;
+        }
+        p{
+            font:@swiper-p-md;
+        }
+    }
+}
+
+// Large devices (1200px to not defined)
+//------------------------------------------------------
+// Pattern Rules for flow, grid
+//------------------------------------------------------
+@media (min-width: @screen-lg-min) {
+    .swiper-container{
+        img{
+            height:auto;
+            width:100%;
+        }
+        h1{
+            font:@swiper-h1-lg;
+        }
+        p{
+            font:@swiper-p-lg;
+        }
+    }
+}
+
+
+
+
+
