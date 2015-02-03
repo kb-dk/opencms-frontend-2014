@@ -47,7 +47,7 @@
 // Left/right controls for nav
 // ---------------------------
 
-.carousel-control {
+.swiper-control {
     position: absolute;
     top: 0;
     left: 0;
@@ -59,11 +59,11 @@
 // animation if you trip this while in the middle of another animation.
 
 // Set gradients for backgrounds
-    &.left {
+    &.arrow-left {
         #gradient > .horizontal(@start-color: rgba(0,0,0,.5); @end-color: rgba(0,0,0,.0001));
         background:transparent url("../img/carousel-icon-prev.png") no-repeat 50% 50%;
     }
-    &.right {
+    &.arrow-right {
         left: auto;
         right: 0;
         #gradient > .horizontal(@start-color: rgba(0,0,0,.0001); @end-color: rgba(0,0,0,.5));
