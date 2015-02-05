@@ -9,7 +9,7 @@ article.contentPage{
     }
     .picture{
         picture{
-            height:@comp-height-xs;
+            max-height:@comp-height-xs;
             background: #969696;
         }
         picture, .caption{
@@ -61,15 +61,13 @@ article.contentPage{
         a{
            text-decoration: underline;
         }
-
     }
     // Extra Extra Small devices (0px to 480px)
     //------------------------------------------------------
     // Pattern Rules for flow, grid
     //------------------------------------------------------
     @media (max-width: @screen-xs-min) {
-        article.contentPage
-        picture img{
+        .picture picture img{
             width:100%;
         }
     }
