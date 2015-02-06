@@ -191,6 +191,11 @@ $(document).ready(function() {
         }
 */
         ajustBodyMarginTop();
+
+        // FIXME: Apparently this is needed to resize swiper properly after resize invoked by window maximize/minimize? It ought not to be necessary, but it does the trick! /HAFE
+        $('.swiper-container').css('height', $('.swiper-slide-active img').height());
+        kbSwiper.resizeFix();
+
     });
 
 // This is only for testing window width
