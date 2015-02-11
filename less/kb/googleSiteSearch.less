@@ -1,0 +1,115 @@
+
+// GOOGLE site search
+// This LESS i overwriting (!important) css build by google/and set in the backend admin.
+// Reason to globilice
+
+
+.googleSiteSearch{
+    table{
+        border:none!important;
+    }
+    .gsc-control-cse{
+        font-family: @font-family-sans-serif!important;
+        padding:@reset-padding!important;
+        border:none!important;
+        background:transparent!important;
+
+        .gsc-search-button input.gsc-search-button{
+            height:auto;
+            width:auto;
+            border:none;
+            margin: 3px 0px 0px 0px!important;
+            background:@black;
+            height:32px!important;
+            overflow: hidden;
+            padding: 10px !important;
+            border-radius: 0px!important;
+            outline: 0;
+            &:focus {
+                outline: 0;
+            }
+        }
+        .gsc-input{
+            padding:@reset-padding!important;
+            .gsc-input-box{
+                border-color:@black;
+                height:32px;
+                .gsib_a{
+                    padding:@reset-padding 8px;
+                    input{
+                        height:32px!important;
+                        line-height: 32px!important;
+                        padding:0px!important;
+                        margin:0px!important;
+                        background: transparent!important;
+                        outline: 0;
+                        &:focus {
+                            outline: 0;
+                        }
+                    }
+                }
+            }
+        }
+        .gscb_a{
+           color:@black;
+           &:hover{
+               color:@black - 50%;
+           }
+        }
+        .gsc-tabsArea{
+            border-color:@black;
+            height:inherit;
+            .gsc-tabHeader{
+                background:transparent;
+                color:@black;
+                overflow: inherit;
+                margin-bottom: -2px
+            }
+            .gsc-tabhActive{
+                background:@black;
+                color:@white;
+            }
+
+        }
+        .gsc-refinementsArea{
+            border: none;
+        }
+        .gsc-table-result, .gsc-thumbnail-inside, .gsc-url-top{
+            padding:@reset-padding!important;
+        }
+        .gsc-results{
+            width:100%;
+        }
+        .gsc-webResult{
+            border:none;
+            background:transparent;
+            &:hover{
+                background: transparent;
+                border:none;
+            }
+            .gs-result .gs-title, .gs-result .gs-title *, .gsc-url-top *{
+                color:@black!important;
+            }
+            table{
+                border:none;
+            }
+        }
+        .gsc-selected-option-container{
+            width:auto!important;
+        }
+    }
+    .gsc-cursor-box{
+        .text-center;
+        .gsc-cursor-page{
+            color:@black!important;
+            background: transparent !important;
+            display:inline-block;
+            padding:5px 10px;
+        }
+        .gsc-cursor-current-page{
+            color:@white!important;
+            background: @black !important;
+        }
+    }
+
+}

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="da">
+<head>
+    <title>Forside</title>
+
+    <!-- META -->
+    <meta charset="utf-8" />
+    <meta name="description" content="udfyldes af cms ???" />
+    <meta name="keywords" content="udfyldes af cms ???" />
+    <!--IE Compatibility modes-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!-- STYLESHEET -->
+    <link href="css/style.css" rel="stylesheet" />
+
+    <!-- JAVASCRIPT -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Cookie policy -->
+    <script src="js/kb/cookieInformerBooklet_da_DK.js"></script>
+    <!-- Browser sniffing -->
+    <script src="js/layout.engine.min.js"></script>
+    <!--Responsive image -->
+    <script src="js/picturefill.min.js" async="async"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="js/kb/kbMenu.js"></script>
+    <script src="js/kb/kbListeners.js"></script>
+    <!-- Google Analytics www.kb.dk -->
+    <script>
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-1269676-1']);
+        _gaq.push(['_trackPageview']);
+        _gaq.push(['_setDomainName', 'www.kb.dk']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+
+        function imgRealSize(img) {
+
+            var $img = $(img);
+            if ($img.prop('naturalWidth') == undefined) {
+                var $tmpImg = $('<img/>').attr('src', $img.attr('src'));
+                $img.prop('naturalWidth', $tmpImg[0].width);
+                $img.prop('naturalHeight', $tmpImg[0].height);
+            }
+            return { 'width': $img.prop('naturalWidth'), 'height': $img.prop('naturalHeight') }
+            alert(img)
+        };
+
+    </script>
+</head>
+<body>
+	<!-- content start -->
+		<header class="kbHeader">
+            <div class="navbar navbar-default topnavigation">
+				
+				
+					
+					
+						<!--section class="alert alert-dismissible" role="alert">
+	<button type="button" class="close" data-dismiss="alert" onclick="document.cookie='kb_alert=true';"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+    <div class="container">
+	    <!-- START BESKED HER -->
+		
+		<!-- SLUT BESKED HER -->
+    <!--/div>
+</section-->
+
+					
+				
+				
+				
+                <section class="container kb-navbar-container">
+                    <div class="navbar-header">
+                        <div id="kbMenuToggler" class="pull-right visible-xs visible-sm">
+                            Menu
+                        </div>
+                        <a class="logo" href="/da/" title="Til forsiden"><!-- FIXME i18n -->
+                            <picture title="Til forsiden"><!-- FIXME i18n -->
+                                <!--[if IE 9]><video style="display: none;"><![endif]-->
+                                <source srcset="/export/system/modules/dk.kb.responsive.local/resources/img/kb_logo_small.png, /export/system/modules/dk.kb.responsive.local/resources/img/kb_logo_smallX2.png 2x"/>
+                                <!--[if IE 9]></video><![endif]-->
+                                <img src="/export/system/modules/dk.kb.responsive.local/resources/img/kb_logo_small.png" alt="Til forsiden"/><!-- FIXME i18n -->
+                            </picture>
+                        </a>
+                        <a class="logo-text" href="/da/" title="Til forsiden"><!-- FIXME i18n -->
+                            <picture title="Til forsiden"><!-- FIXME i18n -->
+                                <!--[if IE 9]><video style="display: none;"><![endif]-->
+                                <source srcset="/export/system/modules/dk.kb.responsive.local/resources/img/kb_logo_text_da.png, /export/system/modules/dk.kb.responsive.local/resources/img/kb_logo_textX2_da.png 2x"/>
+                                <!--[if IE 9]></video><![endif]-->
+                                <img src="/export/system/modules/dk.kb.responsive.local/resources/img/kb_logo_text_da.png" alt="Til forsiden"/><!-- FIXME i18n -->
+                            </picture>
+                        </a>
+						
+                        <nav class="kb-navbar hidden-xs hidden-sm">
+						    <ul class="nav navbar-nav kb-nav">
+                            
+
+<li><a  href="/da/forside/REX"  target="_blank" >REX<div class="activeLine"></div></a>
+</li>
+<li><a  href="/da/ml/materialer/materialer.html"  target="_self" >Materialer<div class="activeLine"></div></a>
+</li>
+<li><a  href="/da/ml/udlaan.html"  target="_self" >Udlån<div class="activeLine"></div></a>
+</li>
+<li><a  href="/da/dia/index.html"  target="_self" >Kultur<div class="activeLine"></div></a>
+</li>
+<li><a  href="/da/kb/nyheder/index.html"  target="_self" >Nyheder<div class="activeLine"></div></a>
+</li>
+<li><a  href="/da/dia/museer/index.html"  target="_self" >Museer<div class="activeLine"></div></a>
+</li>
+<li><a  href="/da/ml/service/service.html"  target="_self" >Tjenester<div class="activeLine"></div></a>
+</li>
+<li><a  href="/da/kb/om-os/index.html"  target="_self" >Om os<div class="activeLine"></div></a>
+</li>
+
+
+
+	
+							</ul>
+                            <ul class="nav navbar-nav navbar-right">
+								
+                                <li>
+									<a class="kbSearchToggler" data-toggle="collapse" data-target="#search-slidedown" aria-expanded="false">
+                                    	Søg <span class="glyphicon glyphicon-search"></span>
+	                                </a>
+								</li>
+                            </ul>
+                        </nav>
+                    </div>
+                </section>
+				<section id="search-slidedown" class="search-slidedown collapse container-fluid hidden-xs hidden-sm">
+                    <form action="/da/soeg/" method="get">
+                        <div class="input-group kb-search-box container">
+                            <div class="search-slidedown-marker"></div>
+                            <input type="search" name="query" class="form-control" placeholder="Søg på Det Kgl. Biblioteks website" /><!-- FIXME i18n -->
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit">Søg</button><!-- FIXME i18n -->
+                            </span>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </header>		
+		<!-- start canvascontainer -->
+		<div id="kbCanvasContainer">
+		
+		<!-- Mobile menu complex start -->
+	    <nav id="kb-navbar-mobile" class="kb-navbar-mobile kbMenuLoading visible-xs visible-sm hidden-md hidden-lg">
+		<!-- searchbox in top of mobile menu -->
+        <div class="searchbox-container">
+            <form action="/da/soeg/" method="get">
+				<div class="input-group">
+                	<input type="search" name="query" class="form-control" placeholder="Søg på Det Kgl. Biblioteks website"><!-- FIXME: i18n -->
+                	<span class="input-group-btn">
+                    	<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                	</span>
+            	</div>
+        	</form>
+			<!-- language selection -->
+			
+        </div>
+        <!-- mobile menu -->
+		<ul class="nav navbar-nav kb-nav">
+            <!-- localmenu placeholder start -->
+			
+			
+
+<li class="submenu collapse in" role="menu"><div class="spinner"></div><ul class="nav"><li class="start"><ul class="nav">
+
+<li><a class="directLink" href="/da/soeg/" target="_self" >Søg</a></li>
+<li class="start"><ul class="nav">
+</ul></li>
+<li><a class="directLink" href="/da/forside/REX" target="_self" >REX</a></li>
+
+<li><a class="directLink" href="/da/materialer/e-ressourcer/" target="_self" >E-ressourcer</a></li>
+
+<li><a class="directLink" href="/da/soeg/search_links/Google_Scholar" target="_self" >Google scholar</a></li>
+
+<li><a class="directLink" href="/da/kb/telefonbog/" target="_self" >Telefonbog</a></li>
+</ul></li></ul></li>
+
+
+			<!-- localmenu placeholder end -->
+			<!-- globalmenu placeholder start -->
+			
+
+<li><a class="directLink" href="/da/forside/REX">REX<div class="activeLine"></div></a></li><li><div class="spinner"></div><a class="chevronpart" data-src="/da/ml/materialer/materialer.html"> <span class="glyphicon glyphicon-chevron-down"></span></a><a class="directLink" href="/da/ml/materialer/materialer.html">Materialer<div class="activeLine"></div></a></li><li><div class="spinner"></div><a class="chevronpart" data-src="/da/ml/udlaan.html"> <span class="glyphicon glyphicon-chevron-down"></span></a><a class="directLink" href="/da/ml/udlaan.html">Udlån<div class="activeLine"></div></a></li><li><div class="spinner"></div><a class="chevronpart" data-src="/da/dia/index.html"> <span class="glyphicon glyphicon-chevron-down"></span></a><a class="directLink" href="/da/dia/index.html">Kultur<div class="activeLine"></div></a></li><li><div class="spinner"></div><a class="chevronpart" data-src="/da/kb/nyheder/index.html"> <span class="glyphicon glyphicon-chevron-down"></span></a><a class="directLink" href="/da/kb/nyheder/index.html">Nyheder<div class="activeLine"></div></a></li><li><div class="spinner"></div><a class="chevronpart" data-src="/da/dia/museer/index.html"> <span class="glyphicon glyphicon-chevron-down"></span></a><a class="directLink" href="/da/dia/museer/index.html">Museer<div class="activeLine"></div></a></li><li><div class="spinner"></div><a class="chevronpart" data-src="/da/ml/service/service.html"> <span class="glyphicon glyphicon-chevron-down"></span></a><a class="directLink" href="/da/ml/service/service.html">Tjenester<div class="activeLine"></div></a></li><li><div class="spinner"></div><a class="chevronpart" data-src="/da/kb/om-os/index.html"> <span class="glyphicon glyphicon-chevron-down"></span></a><a class="directLink" href="/da/kb/om-os/index.html">Om os<div class="activeLine"></div></a></li>
+
+
+	
+			<!-- globalmenu placeholder end -->
+        </ul>
+		
+    </nav>
+    <!-- Mobile menu end -->
+
+
+
+
+
+
+
+<div class="container">
+    <div class="row">
+		<!-- Local Menu start -->
+		<div class="col-md-3 hidden-xs hidden-sm">
+			<nav id="kb-navbar-local" class="kb-navbar-local">
+			
+			
+
+<ul class="nav kb-nav">
+<li><a class="directLink"  href="/da/soeg/" title="Søg" >Søg<div class="activeLine"></div></a></li>
+
+<li><a class="directLink"  href="/da/forside/REX" title="REX" >REX<div class="activeLine"></div></a></li>
+
+<li><a class="directLink"  href="/da/materialer/e-ressourcer/" title="E-ressourcer" >E-ressourcer<div class="activeLine"></div></a></li>
+
+<li><a class="directLink"  href="/da/soeg/search_links/Google_Scholar" title="Google scholar" >Google scholar<div class="activeLine"></div></a></li>
+
+<li><a class="directLink"  href="/da/kb/telefonbog/" title="Telefonbog" >Telefonbog<div class="activeLine"></div></a></li>
+</ul>
+
+
+			</nav>
+		</div>
+		<!-- Local Menu end -->
+		<main class="col-xs-12 col-md-9">
+		
+				<section class="deck flow"> 
+					<div class="row">
+					<header class="text-center"><h2>Søg på KBs hjemmeside</h2></header>
+                    <div class="col-xs-12 col-md-12">
+                    <script>
+                      (function() {
+                        var cx = '013863595783561500656:aqidno2lz40';
+                        var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
+                        gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+                            '//www.google.com/cse/cse.js?cx=' + cx;
+                        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
+                      })();
+                    </script>
+                        <div class="googleSiteSearch">
+                            <gcse:search></gcse:search>
+                        </div>
+                    </div>
+
+					</div>
+               	</section>			
+				
+				<section class="deck grid"> 
+					<div class="row">
+					
+					</div>
+               	</section>			
+				
+				<section class="deck grid"> 
+					<div class="row">
+					
+					</div>
+               	</section>			
+				
+				<section class="deck grid"> 
+					<div class="row">
+					
+					</div>
+               	</section>			
+				
+				<section class="deck grid"> 
+					<div class="row">
+					
+					</div>
+               	</section>			
+				
+				<section class="deck grid"> 
+					<div class="row">
+					
+					</div>
+               	</section>			
+				
+				<section class="deck grid"> 
+					<div class="row">
+					
+					</div>
+               	</section>			
+				
+			
+        
+
+
+				<section class="deck">
+					<div class="row">
+
+                    
+
+
+					</div>
+				</section>
+			</main>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+	<!-- content end -->
+        <footer class="kbFooter">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-6 col-sm-3 col-md-4">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><a href="/da/kb/aabningstider/index.html">Åbningstider</a></li>
+                                    <li><a href="/da/ml/besoeg.html">Besøg Os</a></li>
+                                    <li><a href="/da/kb/adresser/index.html">Adresser</a></li>
+                                    <li><a href="/da/kb/telefonbog/index.html">Find en medarbejder</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><a href="/da/kub/publikum/serviceydelser/udlaansinformation/nylaanerservice.html">Ny Låner</a></li>
+                                    <li><a href="/da/forside/REX">Søg / Lån</a></li>
+                                    <li><a href="/da">Rex</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-3 col-md-4">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6">
+                                <ul class="list-unstyled">
+
+
+                                    <li><a href="/da/kb/nyheder/presse/seneste_presse.html">Presse</a></li>
+                                    <li><a href="/da/kb/nyheder/nyhedsbreve/index.html">Nyhedsbrev</a></li>
+
+                                    <li><a href="/da/kb/copyright/index.html">Ophavsret</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><a href="/da/kb/webstedet/index.html">Om Webstedet</a></li>
+                                    <li><a href="/da/kb/handicap/index.html">Handikaphjælp</a></li>
+                                    <li><a href="/da/kb/webstedet/cookiepolitik.html">Cookie- og privatlivspolitik</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="footer-info" itemscope="itemscope" itemtype="http://schema.org/GovernmentOrganization">
+                            <div class="info-name" itemprop="name">
+                                Det Kongelige Bibliotek<br />
+                                Danmarks Nationalbibliotek<br />
+                                Københavns Universitetsbiblioteksservice
+                            </div>
+                            <div class="info-contact" itemprop="address" itemscope="itemscope" itemtype="http://schema.org/PostalAddress">
+                                Postbox <span itemprop="postOfficeBoxNumber">2149</span><br />
+                                <span itemprop="postalCode">1016</span> <span itemprop="addressLocality">København K</span><br />
+                                <span itemprop="addressCountry" class="hidden">??? address.postal.country ???</span>
+                                Tlf: <span itemprop="telephone">(+45) 33 47 47 47</span><br />
+								<a href="mailto:kb@kb.dk">kb@kb.dk</a><br />
+								EAN: 5798000795297
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+		</div>
+    <!-- bootstrap js FIXME: all these files shall be concatenated and minified in the production build! For debug purposes we keep them apart for now -->
+    <script src="js/bootstrap331/alert.js"></script>
+    <script src="js/bootstrap331/transition.js"></script>
+    <script src="js/bootstrap331/collapse.js"></script>
+    <!--script src="js/bootstrap331/carousel.js"></script-->
+    <!-- Swiper/ Carousel -->
+    <script src="js/idangerous.swiper.min.js"></script>
+    <script type="text/javascript">
+        var kbSwiper = new Swiper('.swiper-container',{
+            pagination: '.swiper-pagination',
+            paginationClickable: true,
+            calculateHeight: true,
+            //cssWidthAndHeight: false, // FIXME: no running calculation of width and height if set to true!
+            //createPagination: true // FIXME: This ought to be enough to create the pagination dots? (and it's a default value!)
+        })
+        $('.arrow-left').on('click', function(e){
+            e.preventDefault()
+            kbSwiper.swipePrev()
+        })
+        $('.arrow-right').on('click', function(e){
+            e.preventDefault()
+            kbSwiper.swipeNext()
+        })
+    </script>
+
+
+</body>
+</html>
+
+
+
