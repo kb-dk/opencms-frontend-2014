@@ -3,85 +3,125 @@
 //
 //-----------------------------------------------------
 
-.acc{
+
+div[xmlns="http://www.w3.org/1999/xhtml"].list{
     height:inherit;
-    .listContent{
-                 position: relative;
+    overflow: hidden!important;
+    margin:0px;
+    border:none;
+    .make-xs-column(12);
+    & > :first-child{
+        .comp;
+        .list;
+        height:inherit;
     }
-    .listContent{
-        height:800px;
-        overflow:initial;
-        .listPage{
-            padding-top:15px;
-            li{
-                padding:0px 20px;
-                margin-bottom: 8px;
-            }
-            position:initial;
-
+    .header{
+        padding: @reset-padding !important;
+        h2{
+            border-bottom:1px solid @list-border-color;
+            font:@list-header-xs;
+            padding: 15px 20px !important;
+            margin: @reset-margin !important;
+            .text-uppercase;
         }
     }
+    ul.feed{
+        margin:0px 0px;
+        .list-unstyled;
+        li{
+            padding:5px 20px;
+            margin:0px !important;
+            a{
+                display:inline-block;
+                padding:10px;
 
-    overflow: initial;
-
-   .btn-group{
-       .btn-default, .btn-default:active{
-           border:none;
-           border-radius: 0px !important;
-           color:@black;
-           -webkit-box-shadow: none;
-           box-shadow: none;
-           background:@white;
-           &:hover{
-               background:@comp-bg;
-           }
-       }
-
-       .active, .active:hover{
-          background: @list-border-color;
-
-       }
-
-   }
-
-
-    nav{
-        .pager{
-            li{
+                text-decoration: underline;
+                strong{
+                    background: @comp-bg;
+                    display:block;
+                    text-decoration: none!important;
+                }
+            }
+        }
+    }
+    ul{
+        .list-unstyled;
+        li{
+            padding:0px 20px;
+            margin-bottom: 8px;
+            p{
+                margin: @reset-margin !important;
+                padding: @reset-padding !important;
+                font:@list-article-header-xs;
                 a{
-                    opacity:0.6;
-                    position: absolute;
-                    top:50%;
-                    border:none;
-                    background:transparent;
-                    width:20px;
-                    border-radius: 0px;
-                    padding: 0px !important;
-                    margin: 0px!important;
-                //outline:0; // FIXME: We might wanna set this on all a tags?
                     &:hover{
-                        opacity: 1;
-                        background: transparent;
+                        text-decoration: underline;
                     }
+                    //white-space: nowrap;
+                    //overflow: hidden;
+                    //text-overflow: ellipsis;
                 }
-                &.previous a{
-                    left:-0px;
-                }
-                &.next a{
-                    right:-0px;
-                }
-            }
-            li.disabled a{
-                opacity: 0.5;
-                &:hover{
-                    opacity: 0.5;
+                strong{
+                    padding: @reset-padding !important;
+                    font:@list-article-stamp-xs;
+                    color:@list-article-stamp-color;
                 }
             }
-
-
         }
     }
 
+}
 
+// Small devices (tablets, 768px and up)
+@media (max-width: @screen-sm-max) {
+    div[xmlns="http://www.w3.org/1999/xhtml"].list{
+        .header{
+            h2{
+                font:@list-header-sm;
+            }
+        }
+        ul li p{
+            font:@list-article-header-sm;
+            strong{
+                font:@list-article-stamp-sm;
 
+            }
+        }
+    }
+}
+
+// Medium devices (desktops, 992px and up)
+@media (min-width: @screen-md-min) {
+    div[xmlns="http://www.w3.org/1999/xhtml"].list{
+        .header{
+            h2{
+                font:@list-header-md;
+            }
+        }
+        ul li p{
+            font:@list-article-header-md;
+            strong{
+                font:@list-article-stamp-md;
+
+            }
+        }
+    }
+}
+
+// Large devices (large desktops, 1200px and up)
+@media (min-width: @screen-lg-min) {
+    div[xmlns="http://www.w3.org/1999/xhtml"].list{
+        .header{
+            h2{
+                font:@list-header-lg;
+            }
+        }
+        ul li p{
+            font:@list-article-header-lg;
+            strong{
+                font:@list-article-stamp-lg;
+
+            }
+        }
+    }
 }
