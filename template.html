@@ -230,6 +230,247 @@
     </div>
 </section>
 
+<section class="deck">
+    <div class="container">
+        <div class="row">
+            <div class="comp uploadSound">
+
+                <form name="form1" action="upload.pl?lang=da" method="post" enctype="multipart/form-data">
+
+                    <div class="form-group">
+                        <div class="fileUpload btn btn-primary btn-block btn-lg">
+                            <span>
+                                Opload
+                            <span class="glyphicon glyphicon-music"></span></span>
+                            <input id="sound" name="sound" type="file" class="upload">
+                            <input id="lang" type="hidden" value="1">
+                        </div>
+                        <input id="uploadFile" disabled="disabled" placeholder="MP3, RAW, WAV, ..." class="hide form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="title" class="control-label">
+                            Titel*
+                        </label>
+                        <input type="text" class="form-control" id="title" name="title">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="control-label">Email*</label>
+                        <input type="text" class="form-control" id="email" name="email">
+                    </div>
+                    <a data-toggle="collapse" href="#additional" class="btn btn-link btn-block collapsed" aria-expanded="false">
+                        Ekstra Feltter
+
+                        <span class="glyphicon glyphicon-chevron-down"></span>
+                    </a>
+
+                    <div id="additional" class="collapse" aria-expanded="false" style="height: 509px;">
+                        <div class="form-group">
+                            <label for="sname" class="control-label">
+                                Hvem har optaget lyden?
+                            </label>
+                            <input type="text" class="form-control" id="sname" name="sname">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="swhat" class="control-label">
+                                Hvad høres der på optagelsen?
+                            </label>
+                            <input type="text" class="form-control" id="swhat" name="swhat">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="swhere" class="control-label">
+                                Hvor er lyden optaget? (gerne adresse eller koordinator)
+                            </label>
+                            <input type="text" class="form-control" id="swhere" name="swhere">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="swhen" class="control-label">
+                                Hvornår er lyden optaget? (gerne dato og klokkeslæt, hvis du kender dem)
+                            </label>
+                            <input type="text" class="form-control" id="swhen" name="swhen">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="swhich" class="control-label">
+                                Hvilket udstyr er brugt til optagelsen?
+                            </label>
+                            <input type="text" class="form-control" id="swhich" name="swhich">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Kommentar" class="control-label">
+                                Kommentar
+                            </label>
+                            <textarea class="form-control" rows="3" id="comment" name="comment"></textarea>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" value="" id="agree" name="agree">
+                                Accepter vilkår
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="robot" class="robot">
+                                <span class="hide glyphicon glyphicon-ok" id="cmark" style="font-size:20px; color:#006600;"></span>
+                                <span class="hide glyphicon glyphicon-remove" id="nmark" style="font-size:20px; color:red;"></span>
+                                Jeg er ikke en robot!
+                            </label>
+                            <div class="cbox hide">
+                                <input type="hidden" class="norobot" id="norobot" vlaue="0">
+                                <script type="text/javascript">DrawBotBoot()</script>9 + 9? <input id="BotBootInput" class="BotBootInput" type="text" maxlength="2" size="2">
+                                <input id="Button1" type="button" value="Check" onclick="ValidBotBoot(this);">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg pull-right" name="send" id="send">Send</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="deck">
+    <div class="container">
+        <div class="row">
+
+            <div class="phoneBook standard01">
+                <div class="noImg">
+                    <div class="header">
+                        <div>
+                            <h2>Find en medarbejders telefonnummer og email</h2>
+                        </div>
+                    </div>
+                    <div class="body">
+                        <div>
+                            <p>
+                            </p><form action="" method="get">
+                            <input class="inputText" name="givenname" value="Fornavn" onfocus="this.value='';">
+                            <input class="inputText" name="surname" value="andersen" onfocus="this.value='';">
+                            <select name="department">
+                                <option value="">I alle afdelinger</option>
+                                <option value="Direktionen">Direktionen</option>
+                            </select>
+                            <input type="submit" value="Søg">
+
+
+                        </form>
+                            <p></p>
+                            <dl><dt><strong>Søgetips:</strong></dt><dd>1. * bruges for trunkering (wildcard). F.eks. finder ja*ob både jacob og jakob.</dd><dd>2. Udfyld et eller flere felter før du søger.</dd><dd>3. Find alle ansatte i en afdeling ved at vælge afdeling i dropdown-menuen.</dd><dd>4. Man kan finde samtlige ansatte ved at søge på * som et navn.</dd></dl>
+
+                            <strong>Antal fund: 9</strong><br>
+                            <ul><li class="name">Andersen, Cecilie, Studentermedhjælper.</li><li class="department">Afdeling:
+                                <a href="?givenname=&amp;surname=&amp;department=DIS/DOS">DIS/DOS</a>.</li><li class="phone"></li><li class="email">Mail: <a href="mailto:cean@kb.dk">cean@kb.dk</a>.</li><li class="phoneBookfooter"></li><li class="name">Andersen, Dan H., Forsker.</li><li class="department">Afdeling:
+                                <a href="?givenname=&amp;surname=&amp;department=Forskningsafdelingen">Forskningsafdelingen</a>.</li><li class="phone">tlf.+4591324719.</li><li class="email">Mail: <a href="mailto:daha@kb.dk">daha@kb.dk</a>.</li><li class="phoneBookfooter"></li><li class="name">Andersen, Helle Grethe, Overassistent.</li><li class="department">Afdeling:
+                                <a href="?givenname=&amp;surname=&amp;department=AIR-Mag">AIR-Mag</a>.</li><li class="phone">tlf.+4591325060.</li><li class="email">Mail: <a href="mailto:hga@kb.dk">hga@kb.dk</a>.</li><li class="phoneBookfooter"></li><li class="name">Andersen, Jeppe Plum, Assistent.</li><li class="department">Afdeling:
+                                <a href="?givenname=&amp;surname=&amp;department=Nationalsamlingsafdelingen-AME">Nationalsamlingsafdelingen-AME</a>.</li><li class="phone">tlf.+4591324482.</li><li class="email">Mail: <a href="mailto:jea@kb.dk">jea@kb.dk</a>.</li><li class="phoneBookfooter"></li><li class="name">Andersen, Lasse Himmelstrup, Studentermedhjælp.</li><li class="department">Afdeling:
+                                <a href="?givenname=&amp;surname=&amp;department=Kulturafdelingen">Kulturafdelingen</a>.</li><li class="phone">tlf.91324570.</li><li class="email">Mail: <a href="mailto:lhan@kb.dk">lhan@kb.dk</a>.</li><li class="phoneBookfooter"></li><li class="name">Andersen, Lene Vinther, Arkivar.</li><li class="department">Afdeling:
+                                <a href="?givenname=&amp;surname=&amp;department=Nationalsamlingsafdelingen-FFE">Nationalsamlingsafdelingen-FFE</a>.</li><li class="phone">tlf.+4591324916.</li><li class="email">Mail: <a href="mailto:lean@kb.dk">lean@kb.dk</a>.</li><li class="phoneBookfooter"></li><li class="name">Andersen, Pil Witta, Studentermedhjælper.</li><li class="department">Afdeling:
+                                <a href="?givenname=&amp;surname=&amp;department=Kulturafdelingen">Kulturafdelingen</a>.</li><li class="phone">tlf.+4591324570.</li><li class="email">Mail: <a href="mailto:piwa@kb.dk">piwa@kb.dk</a>.</li><li class="phoneBookfooter"></li><li class="name">Andersen, Susie, Informationsspecialist.</li><li class="department">Afdeling:
+                                <a href="?givenname=&amp;surname=&amp;department=Det Natur- og Sundhedsvidenskabelige Fakultetsbibliotek">Det Natur- og Sundhedsvidenskabelige Fakultetsbibliotek</a>.</li><li class="phone">tlf.+4591324131.</li><li class="email">Mail: <a href="mailto:suan@kb.dk">suan@kb.dk</a>.</li><li class="phoneBookfooter"></li><li class="name">Andersen, Tilde Tolberg, Studentermedhjælp.</li><li class="department">Afdeling:
+                                <a href="?givenname=&amp;surname=&amp;department=Kulturafdelingen">Kulturafdelingen</a>.</li><li class="phone">tlf.+4591324570.</li><li class="email">Mail: <a href="mailto:tita@kb.dk">tita@kb.dk</a>.</li><li class="phoneBookfooter"></li></ul>
+                            <div class="clear"></div></div></div>
+                    <div class="footer">
+                        <div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="deck flow">
+    <div class="container">
+        <div class="row">´
+
+            <div xmlns="http://www.w3.org/1999/xhtml" class="list standard03">
+                <div class="noImg">
+                    <div class="header">
+                        <div>
+                            <h2>Nye b��ger</h2>
+                        </div>
+                    </div>
+                    <div class="body">
+                        <div>
+                            <ul class="feed">
+                                <li>
+                                    <a class="img" title="XML" href="/da/nb/komponentgalleri/laev/accessionsliste.html">
+                                        <img src="http://www.kb.dk/export/system/modules/dk.kb/resources/global/img/icon/xml.gif" alt="xml">
+                                    </a>
+                                    <a href="?month=dec.++14&amp;datesearch=+AND+wpi%3Dum201412%3F&amp;startRecord=1&amp;maximumRecords=5">dec.  14</a> <a href="?month=jan.++15&amp;datesearch=+AND+wpi%3Dum201501%3F&amp;startRecord=1&amp;maximumRecords=5">jan.  15</a> <a><strong>feb.  15</strong></a> </li>
+                            </ul>
+                            <div class="clear">
+                            </div>
+                            <ul>
+                                <li>
+                                    <p>
+                                        <strong>Georges-Henri Soutou<br>
+                                        </strong>
+                                        <a href="http://rex.kb.dk/primo_library/libweb/action/search.do?dscnt=0&amp;vl(240445420UI0)=any&amp;scp.scps=scope%3A%28KGL%29&amp;vl(454017371UI1)=all_items&amp;frbg=&amp;tab=default_tab&amp;srt=rank&amp;ct=search&amp;mode=Basic&amp;dum=true&amp;tb=t&amp;indx=1&amp;vl(1UIStartWith0)=contains&amp;vl(freeText0)=KGL01008966885&amp;fn=search&amp;vid=KGL">L' Europe de 1815 �� nos jours</a>
+                                        [2015]</p>
+                                </li>
+                                <li>
+                                    <p>
+                                        <strong>Dass Petter<br>
+                                        </strong>
+                                        <a href="http://rex.kb.dk/primo_library/libweb/action/search.do?dscnt=0&amp;vl(240445420UI0)=any&amp;scp.scps=scope%3A%28KGL%29&amp;vl(454017371UI1)=all_items&amp;frbg=&amp;tab=default_tab&amp;srt=rank&amp;ct=search&amp;mode=Basic&amp;dum=true&amp;tb=t&amp;indx=1&amp;vl(1UIStartWith0)=contains&amp;vl(freeText0)=KGL01008943286&amp;fn=search&amp;vid=KGL">D.Mort: Luthers Lille Catechismus Forfatted I beqvemme Sange, under f��yelige Melodier</a>
+                                        [2000]</p>
+                                </li>
+                                <li>
+                                    <p>
+                                        <strong>Kirsten Wolf<br>
+                                        </strong>
+                                        <a href="http://rex.kb.dk/primo_library/libweb/action/search.do?dscnt=0&amp;vl(240445420UI0)=any&amp;scp.scps=scope%3A%28KGL%29&amp;vl(454017371UI1)=all_items&amp;frbg=&amp;tab=default_tab&amp;srt=rank&amp;ct=search&amp;mode=Basic&amp;dum=true&amp;tb=t&amp;indx=1&amp;vl(1UIStartWith0)=contains&amp;vl(freeText0)=KGL01008930138&amp;fn=search&amp;vid=KGL">The legends of the saints in Old Norse-Icelandic prose</a>
+                                        2013</p>
+                                </li>
+                                <li>
+                                    <p>
+                                        <strong>Anne Mette J��rgensen<br>
+                                        </strong>
+                                        <a href="http://rex.kb.dk/primo_library/libweb/action/search.do?dscnt=0&amp;vl(240445420UI0)=any&amp;scp.scps=scope%3A%28KGL%29&amp;vl(454017371UI1)=all_items&amp;frbg=&amp;tab=default_tab&amp;srt=rank&amp;ct=search&amp;mode=Basic&amp;dum=true&amp;tb=t&amp;indx=1&amp;vl(1UIStartWith0)=contains&amp;vl(freeText0)=KGL01008930135&amp;fn=search&amp;vid=KGL">Danskernes huse p�� Guldkysten 1659-1850</a>
+                                        2014</p>
+                                </li>
+                                <li>
+                                    <p>
+                                        <strong>Christian Hartmann<br>
+                                        </strong>
+                                        <a href="http://rex.kb.dk/primo_library/libweb/action/search.do?dscnt=0&amp;vl(240445420UI0)=any&amp;scp.scps=scope%3A%28KGL%29&amp;vl(454017371UI1)=all_items&amp;frbg=&amp;tab=default_tab&amp;srt=rank&amp;ct=search&amp;mode=Basic&amp;dum=true&amp;tb=t&amp;indx=1&amp;vl(1UIStartWith0)=contains&amp;vl(freeText0)=KGL01008930134&amp;fn=search&amp;vid=KGL">Unternehmen Barbarossa, der deutsche Krieg im Osten 1941 - 1945</a>
+                                        2012</p>
+                                </li>
+                            </ul>
+                            <ul class="feed">
+                                <li>68 b��ger<br> <a><strong>1</strong></a>  <a href="?datesearch=+AND+wpi%3Dum201502%3F&amp;month=feb.++15&amp;startRecord=6&amp;maximumRecords=5">2</a>  <a href="?datesearch=+AND+wpi%3Dum201502%3F&amp;month=feb.++15&amp;startRecord=11&amp;maximumRecords=5">3</a>  <a href="?datesearch=+AND+wpi%3Dum201502%3F&amp;month=feb.++15&amp;startRecord=16&amp;maximumRecords=5">4</a>  <a href="?datesearch=+AND+wpi%3Dum201502%3F&amp;month=feb.++15&amp;startRecord=21&amp;maximumRecords=5">5</a>  <a href="?datesearch=+AND+wpi%3Dum201502%3F&amp;month=feb.++15&amp;startRecord=26&amp;maximumRecords=5">6</a>  <a href="?datesearch=+AND+wpi%3Dum201502%3F&amp;month=feb.++15&amp;startRecord=31&amp;maximumRecords=5">7</a>  <a href="?datesearch=+AND+wpi%3Dum201502%3F&amp;month=feb.++15&amp;startRecord=36&amp;maximumRecords=5">8</a>  <a href="?datesearch=+AND+wpi%3Dum201502%3F&amp;month=feb.++15&amp;startRecord=41&amp;maximumRecords=5">9</a>  <a href="?datesearch=+AND+wpi%3Dum201502%3F&amp;month=feb.++15&amp;startRecord=46&amp;maximumRecords=5">10</a>  <a href="?datesearch=+AND+wpi%3Dum201502%3F&amp;month=feb.++15&amp;startRecord=51&amp;maximumRecords=5">11</a>  <a href="?datesearch=+AND+wpi%3Dum201502%3F&amp;month=feb.++15&amp;startRecord=56&amp;maximumRecords=5">12</a>  <a href="?datesearch=+AND+wpi%3Dum201502%3F&amp;month=feb.++15&amp;startRecord=61&amp;maximumRecords=5">13</a>  <a href="?datesearch=+AND+wpi%3Dum201502%3F&amp;month=feb.++15&amp;startRecord=66&amp;maximumRecords=5">14</a>  <a href="?datesearch=+AND+wpi%3Dum201502%3F&amp;month=feb.++15&amp;startRecord=6&amp;maximumRecords=5">&gt;&gt;</a> </li>
+                            </ul>
+                            <div class="clear">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer">
+                        <div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</section>
+
 <section class="deck flow">
 <div class="container">
 <div class="row">
