@@ -4,8 +4,9 @@
 //------------------------------------------------------
 /* Fallback xs */
 article.contentPage{
-    figure{
-        margin-bottom: 30px;
+    figcaption{
+        font:@article-figcaption-sm;
+        color:@figcaption-color;
     }
     .picture{
         picture{
@@ -17,10 +18,6 @@ article.contentPage{
             overflow: hidden !important;
             .make-xs-column(12);
         }
-        figcaption{
-            font:@article-figcaption-sm;
-            color:@figcaption-color;
-        }
     }
     header{
         h1{
@@ -30,8 +27,8 @@ article.contentPage{
             font:@article-sub-header-sm;
         }
         span, time{
-           font:@article-header-label-sm;
-           color:@article-header-label-color;
+            font:@article-header-label-sm;
+            color:@article-header-label-color;
         }
         span{
             display:inline-block;
@@ -43,6 +40,7 @@ article.contentPage{
         }
     }
     div[itemprop="articleBody"]{
+        margin-top:@grid-gutter-width;
         h1, h2, h3{
             font: @article-body-h1-sm;
         }
@@ -51,122 +49,136 @@ article.contentPage{
         }
         img{
             .img-responsive;
-            width:50%;
-            margin:15px 15px 15px 0px;
         }
-        // FIX Table in article (AKA Uffe table)
+    // FIX Table in article (AKA Uffe table)
         table{
             width:100%;
         }
         a{
-           text-decoration: underline;
+            text-decoration: underline;
         }
+    // IMG snippet start
+        .imgSnippet.col-xs-6{
+            padding:@grid-gutter-width/2 @grid-gutter-width/2 @grid-gutter-width/2 0px;
+        }
+        .imgSnippet.col-xs-6.pull-right{
+            padding:@grid-gutter-width/2 0px @grid-gutter-width/2 @grid-gutter-width/2;
+        }
+        .imgSnippet.col-xs-12{
+            padding:@grid-gutter-width/2 0px @grid-gutter-width/2 0px ;
+
+        }
+
     }
-    // Extra Extra Small devices (0px to 480px)
-    //------------------------------------------------------
-    // Pattern Rules for flow, grid
-    //------------------------------------------------------
-    @media (max-width: @screen-xs-min) {
-        .picture picture img{
-            width:100%;
-        }
+// Extra Extra Small devices (0px to 480px)
+//------------------------------------------------------
+// Pattern Rules for flow, grid
+//------------------------------------------------------
+@media (max-width: @screen-xs-min) {
+    .picture picture img{
+        width:100%;
     }
-
-    /* Small devices (tablets, 768px and up) */
-    @media (min-width: @screen-sm-min) {
-        .picture{
-            picture{
-                height:@comp-height-sm;
-            }
-            figcaption{
-                font:@article-figcaption-sm;
-            }
-        }
-        header{
-            h1{
-                font:@article-header-sm;
-            }
-            .lead{
-                font:@article-sub-header-sm;
-            }
-            span, time{
-                font:@article-header-label-sm;
-            }
-        }
-        div[itemprop="articleBody"]{
-            h1, h2, h3{
-                font: @article-body-h1-sm;
-            }
-            p{
-                font: @article-body-p-sm;
-            }
-
-        }
+// IMG snippet start
+    .imgSnippet{
+        padding:0px!important;
     }
-
-    /* Medium devices (desktops, 992px and up) */
-    @media (min-width: @screen-md-min) {
-        .picture{
-            picture{
-                height:@comp-height-md;
-            }
-            figcaption{
-                font:@article-figcaption-md;
-            }
-        }
-        header{
-            h1{
-                font:@article-header-md;
-            }
-            .lead{
-                font:@article-sub-header-md;
-            }
-            span, time{
-                font:@article-header-label-md;
-            }
-        }
-        div[itemprop="articleBody"]{
-            h1, h2, h3{
-                font: @article-body-h1-md;
-            }
-            p{
-                font: @article-body-p-md;
-            }
-
-        }
-    }
-    /* Large devices (large desktops, 1200px and up) */
-    @media (min-width: @screen-lg-min) {
-        .picture{
-            picture{
-                height:@comp-height-lg;
-            }
-            figcaption{
-                font:@article-figcaption-lg;
-            }
-        }
-        header{
-            h1{
-                font:@article-header-lg;
-            }
-            .lead{
-                font:@article-sub-header-lg;
-            }
-            span, time{
-                font:@article-header-label-lg;
-            }
-        }
-        div[itemprop="articleBody"]{
-            h1, h2, h3{
-                font: @article-body-h1-lg;
-            }
-            p{
-                font: @article-body-p-lg;
-            }
-
-        }
-    }
-
-
 }
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: @screen-sm-min) {
+    figcaption{
+        font:@article-figcaption-sm;
+    }
+    .picture{
+        picture{
+            height:@comp-height-sm;
+        }
+    }
+    header{
+        h1{
+            font:@article-header-sm;
+        }
+        .lead{
+            font:@article-sub-header-sm;
+        }
+        span, time{
+            font:@article-header-label-sm;
+        }
+    }
+    div[itemprop="articleBody"]{
+        h1, h2, h3{
+            font: @article-body-h1-sm;
+        }
+        p{
+            font: @article-body-p-sm;
+        }
+
+    }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: @screen-md-min) {
+    figcaption{
+        font:@article-figcaption-md;
+    }
+    .picture{
+        picture{
+            height:@comp-height-md;
+        }
+    }
+    header{
+        h1{
+            font:@article-header-md;
+        }
+        .lead{
+            font:@article-sub-header-md;
+        }
+        span, time{
+            font:@article-header-label-md;
+        }
+    }
+    div[itemprop="articleBody"]{
+        h1, h2, h3{
+            font: @article-body-h1-md;
+        }
+        p{
+            font: @article-body-p-md;
+        }
+
+    }
+}
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: @screen-lg-min) {
+    figcaption{
+        font:@article-figcaption-lg;
+    }
+    .picture{
+        picture{
+            height:@comp-height-lg;
+        }
+    }
+    header{
+        h1{
+            font:@article-header-lg;
+        }
+        .lead{
+            font:@article-sub-header-lg;
+        }
+        span, time{
+            font:@article-header-label-lg;
+        }
+    }
+    div[itemprop="articleBody"]{
+        h1, h2, h3{
+            font: @article-body-h1-lg;
+        }
+        p{
+            font: @article-body-p-lg;
+        }
+
+    }
+}
+
+
+    }
 
