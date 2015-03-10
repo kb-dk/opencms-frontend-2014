@@ -2,19 +2,37 @@
     .make-xs-column(12);
     .noImg{
         .comp;
+        padding:@grid-gutter-width/2;
     }
     form{
         .form-inline;
         .clearfix;
-        .make-sm-column(6);
-
     }
     dl{
-        .make-sm-column(6)
+        .alert; .alert-warning;
+        margin-bottom:@grid-gutter-width/2;
     }
-    input, select{
+    input.inputText, select{
         .form-control;
-        .make-xs-column(3);
+        .make-xs-column(6);
     }
-    //.make-lg-column-offset(1);
+    select{
+        .make-xs-column(12);
+    }
+    input[type="submit"]{
+        .btn-primary;
+        margin-top:@grid-gutter-width/2;
+    }
+    strong{
+
+    }
+    ul{
+        .list-unstyled;
+        li.phoneBookfooter{
+            padding-bottom:@grid-gutter-width/2;
+        }
+        a{
+            text-decoration: underline!important;
+        }
+    }
 }

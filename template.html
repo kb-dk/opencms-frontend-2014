@@ -181,7 +181,7 @@
 <!-- content start -->
 <main>
 
-<section class="deck">
+<section class="deck hide">
     <div class="container-fluid">
 
         <div class="swiper-container">
@@ -226,115 +226,6 @@
             <!-- Indicators -->
             <div class="swiper-pagination"></div>
 
-        </div>
-    </div>
-</section>
-
-<section class="deck">
-    <div class="container">
-        <div class="row">
-            <div class="comp uploadSound">
-
-                <form name="form1" action="upload.pl?lang=da" method="post" enctype="multipart/form-data">
-
-                    <div class="form-group">
-                        <div class="fileUpload btn btn-primary btn-block btn-lg">
-                            <span>
-                                Opload
-                            <span class="glyphicon glyphicon-music"></span></span>
-                            <input id="sound" name="sound" type="file" class="upload">
-                            <input id="lang" type="hidden" value="1">
-                        </div>
-                        <input id="uploadFile" disabled="disabled" placeholder="MP3, RAW, WAV, ..." class="hide form-control">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="title" class="control-label">
-                            Titel*
-                        </label>
-                        <input type="text" class="form-control" id="title" name="title">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email" class="control-label">Email*</label>
-                        <input type="text" class="form-control" id="email" name="email">
-                    </div>
-                    <a data-toggle="collapse" href="#additional" class="btn btn-link btn-block collapsed" aria-expanded="false">
-                        Ekstra Feltter
-
-                        <span class="glyphicon glyphicon-chevron-down"></span>
-                    </a>
-
-                    <div id="additional" class="collapse" aria-expanded="false" style="height: 509px;">
-                        <div class="form-group">
-                            <label for="sname" class="control-label">
-                                Hvem har optaget lyden?
-                            </label>
-                            <input type="text" class="form-control" id="sname" name="sname">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="swhat" class="control-label">
-                                Hvad høres der på optagelsen?
-                            </label>
-                            <input type="text" class="form-control" id="swhat" name="swhat">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="swhere" class="control-label">
-                                Hvor er lyden optaget? (gerne adresse eller koordinator)
-                            </label>
-                            <input type="text" class="form-control" id="swhere" name="swhere">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="swhen" class="control-label">
-                                Hvornår er lyden optaget? (gerne dato og klokkeslæt, hvis du kender dem)
-                            </label>
-                            <input type="text" class="form-control" id="swhen" name="swhen">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="swhich" class="control-label">
-                                Hvilket udstyr er brugt til optagelsen?
-                            </label>
-                            <input type="text" class="form-control" id="swhich" name="swhich">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="Kommentar" class="control-label">
-                                Kommentar
-                            </label>
-                            <textarea class="form-control" rows="3" id="comment" name="comment"></textarea>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="form-group">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" value="" id="agree" name="agree">
-                                Accepter vilkår
-                            </label>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" id="robot" class="robot">
-                                <span class="hide glyphicon glyphicon-ok" id="cmark" style="font-size:20px; color:#006600;"></span>
-                                <span class="hide glyphicon glyphicon-remove" id="nmark" style="font-size:20px; color:red;"></span>
-                                Jeg er ikke en robot!
-                            </label>
-                            <div class="cbox hide">
-                                <input type="hidden" class="norobot" id="norobot" vlaue="0">
-                                <script type="text/javascript">DrawBotBoot()</script>9 + 9? <input id="BotBootInput" class="BotBootInput" type="text" maxlength="2" size="2">
-                                <input id="Button1" type="button" value="Check" onclick="ValidBotBoot(this);">
-                            </div>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-lg pull-right" name="send" id="send">Send</button>
-                </form>
-            </div>
         </div>
     </div>
 </section>
