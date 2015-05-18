@@ -51,7 +51,7 @@ var kb_youtube = (function (window, $, undefined) {
         },
         formatDescription : function (desc) {
             desc = desc.replace(/\b(https?\:\/\/\S*)\b/g, url2href);
-            desc = desc.replace(/(\d?\d?:?\d\d:\d\d)(\b)/g, '<a href="javascript: kb_youtube.setCurrentTime(\'$1\');">$1</a>$2');
+            desc = desc.replace(/(\d?\d?:?\d?\d:\d\d)(\b)/g, '<a href="javascript: kb_youtube.setCurrentTime(\'$1\');">$1</a>$2');
             return desc.replace(/\n/g, '<br>\n');
         },
         getPlaylistName : function (playlistId, cb) {
@@ -148,24 +148,18 @@ var kb_youtube = (function (window, $, undefined) {
                         // List goes here
                         var playlistMarkup = $('<div class="list" />');
                         //playlistMarkup.append('<h2 class="playlistTitle"></h2>');
-
-
-
-
-
-
-
-
                         playlistMarkup.append(videos.map(function (video) {
-                            return '<div class="kb_video_thumb" style="width:' + video.snippet.thumbnails.medium.width + 'px">' +
-                                       //'<a href="https://www.youtube.com/watch?v=' + video.snippet.resourceId.videoId + '">' +
-                                       '<a href="video.html?pid=' + video.snippet.playlistId + '&vid=' + video.snippet.resourceId.videoId + '">' +
-                                       '<img width="' + video.snippet.thumbnails.medium.width +
-                                           '" height="' + video.snippet.thumbnails.medium.height +
-                                           '" src="' + video.snippet.thumbnails.medium.url + '" />' +
-                                       '<h4>' + video.snippet.title + '</h4>' +
-                                       '</a>' +
-                                   '</div>';
+                            return  '<div class="col-xs-6 col-sm-4 col-md-3">' +
+                                        '<a href="?pid=' + video.snippet.playlistId + '&vid=' + video.snippet.resourceId.videoId + '">' +
+                                            '<article class="comp video" style="background-image: url(' + video.snippet.thumbnails.medium.url + ')">' +
+                                                '<div class="caption">' +
+                                                    '<span class="glyphicon glyphicon-play-circle pull-right"></span>' +
+                                                    '<time class="text-uppercase" datetime="20:00">4:18</time>' +
+                                                    '<h3>' + video.snippet.title + '</h3>' +
+                                                '</div>' +
+                                            '</article>' +
+                                        '</a>' +
+                                    '</div>';
                         }));
                         $('#playlists').append(playlistMarkup);
                         kb_youtube.getPlaylistName(videos[0].snippet.playlistId, function (playlistName) {
