@@ -30,6 +30,7 @@
     <![endif]-->
     <script src="js/kb/kbMenu.js"></script>
     <script src="js/kb/kbListeners.js"></script>
+    <script src="js/kb/Kb_youtube.js"></script>
     <!-- Google Analytics www.kb.dk -->
     <script>
         var _gaq = _gaq || [];
@@ -54,6 +55,8 @@
             return { 'width': $img.prop('naturalWidth'), 'height': $img.prop('naturalHeight') }
             alert(img)
         };
+
+        
 
     </script>
 
@@ -257,7 +260,7 @@
                         <div class="">
                             <!-- 16:9 aspect ratio -->
                             <div class="embed-responsive embed-responsive-16by9">
-                                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/9IePgHO7844"></iframe>
+                                <div id="player"></div>
                             </div>
                         </div>
                     </div>
@@ -270,28 +273,15 @@
                     <time itemprop="dateCreated" datetime="2011-05-08T19:30">Offentliggjort den 25. sep. 2014</time>
                     <meta itemprop="datePublished" content="Offentliggjort den 25. sep. 2014"/>
 
-                    <h1 itemprop="headline">
-                        Slavoj Žižek + Paul Holdengräber "Surveillance and whistleblowers" - International Authors' Stage
-                    </h1>
-                    <p itemprop="description" class="lead">
+                    <h1 id="featuredTitle" itemprop="headline"></h1>
+                    <!--p id="featuredSubtitle" itemprop="description" class="lead">
                         International Authors' Stage
-                    </p>
+                    </p-->
                 </header>
 
 
                 <div itemprop="articleBody">
-                    <p id="eow-description">
-                        I'M WATCHING YOU PART 2
-                        <br>
-                        <br>
-                        <a href="#" onclick="yt.www.watch.player.seekTo(1*60+42);return false;">1:42</a>
-
-                        Blue Velvet and immature fantasies <br>
-                        <a href="#" onclick="yt.www.watch.player.seekTo(7*60+45);return false;">7:45</a>
-                        Kafka – the great master<br>
-                        <a href="#" onclick="yt.www.watch.player.seekTo(8*60+20);return false;">8:20</a>
-                        Wisdom is the most disgusting thing you can imagine <br><a href="#" onclick="yt.www.watch.player.seekTo(12*60+20);return false;">12:20</a> Job’s book <br><a href="#" onclick="yt.www.watch.player.seekTo(17*60+03);return false;">17:03</a> Woody Allen and Immortality <br><a href="#" onclick="yt.www.watch.player.seekTo(22*60+20);return false;">22:20</a> The meaning of the empty symbol <br><a href="#" onclick="yt.www.watch.player.seekTo(28*60+27);return false;">28:27</a> David Lynch’s use of excessive egos<br><a href="#" onclick="yt.www.watch.player.seekTo(36*60+49);return false;">36:49</a> Casablanca and Hollywood’s censorship<br><a href="#" onclick="yt.www.watch.player.seekTo(46*60+25);return false;">46:25</a> The staged identities on facebook<br><a href="#" onclick="yt.www.watch.player.seekTo(51*60+10);return false;">51:10</a> Our inner truth is a constructed lie<br><a href="#" onclick="yt.www.watch.player.seekTo(58*60+50);return false;">58:50</a> Virtual sex<br><br>The Slovenian star philosopher Slavoj Žižek in the second of two conversations with the popular and charismatic interviewer Paul Holdengräber, director of Public Programs at the New York Public Library. Watch part 1: <a href="https://www.youtube.com/watch?v=PIPjmmmh_os" target="_blank" title="https://www.youtube.com/watch?v=PIPjmmmh_os" rel="nofollow" dir="ltr" class="yt-uix-redirect-link">https://www.youtube.com/watch?v=PIPjm...</a><br><br>More videos and talks on <a href="http://www.densortediamant.dk/online" target="_blank" title="http://www.densortediamant.dk/online" rel="nofollow" dir="ltr" class="yt-uix-redirect-link">http://www.densortediamant.dk/online</a><br>Follow us: <a href="http://www.twitter.com/sortediamant" target="_blank" title="http://www.twitter.com/sortediamant" rel="nofollow" dir="ltr" class="yt-uix-redirect-link">http://www.twitter.com/sortediamant</a><br>Like us: <a href="http://www.facebook.com/sortediamant" target="_blank" title="http://www.facebook.com/sortediamant" rel="nofollow" dir="ltr" class="yt-uix-redirect-link">http://www.facebook.com/sortediamant</a><br><br>The Black Diamond<br>The Royal Library<br>Copenhagen<br>17 May 2014<br><br>Video: <a href="http://www.videoakademiet.dk" target="_blank" title="http://www.videoakademiet.dk" rel="nofollow" dir="ltr" class="yt-uix-redirect-link">http://www.videoakademiet.dk</a><br><br>(C) Det Kongelige Bibliotek / The Royal Library</p>
-
+                    <p id="featuredDescription"></p>
                 </div>
             </div>
         </article>
@@ -305,102 +295,11 @@
         <div class="row">
 
             <header class="text-center">
-                <h2>Ugens Skat - højdepunkter fra kulturhistorien</h2>
-                <p class="lead">Det Kongelige Bibliotek har nogle af Nordeuropas rigeste samlinger, og de største skatte kan opleves i vores permanente skatteudstilling i Monatana-salen - gratis adgang.</p>
+                <h2 class="playlistTitle"></h2>
+                <p class="playlistDescription">$$$PLAYLIST DESCRIPTION$$$</p>
             </header>
 
-
-            <div class="col-xs-6 col-sm-4 col-md-3">
-                <!-- Video start -->
-                <a href="">
-                    <article class="comp video" style="background-image: url('http://i.ytimg.com/vi/UIzaOdTKEI0/mqdefault.jpg')">
-                        <div class="caption">
-                            <span class="glyphicon glyphicon-play-circle pull-right"></span>
-                            <time class="text-uppercase" datetime="20:00">4:18</time>
-                            <h3>Karen Blixen - TREASURE OF THE WEEK #1</h3>
-                        </div>
-                    </article>
-                </a>
-                <!-- Video End -->
-            </div>
-            <div class="col-xs-6 col-sm-4 col-md-3">
-                <!-- Video start -->
-                <a href="">
-                    <article class="comp video" style="background-image: url('http://i.ytimg.com/vi/fbmya08EIHA/mqdefault.jpg')">
-                        <div class="caption">
-                            <span class="glyphicon glyphicon-play-circle pull-right"></span>
-                            <time class="text-uppercase" datetime="20:00">4:18</time>
-                            <h3>Karen Blixen - TREASURE OF THE WEEK #1</h3>
-                        </div>
-                    </article>
-                </a>
-                <!-- Video End -->
-            </div>
-            <div class="col-xs-6 col-sm-4 col-md-3">
-                <!-- Video start -->
-                <a href="">
-                    <article class="comp video">
-                        <div class="caption">
-                            <span class="glyphicon glyphicon-play-circle pull-right"></span>
-                            <time class="text-uppercase" datetime="20:00">4:18</time>
-                            <h3>Karen Blixen - TREASURE OF THE WEEK #1</h3>
-                        </div>
-                    </article>
-                </a>
-                <!-- Video End -->
-            </div>
-            <div class="col-xs-6 col-sm-4 col-md-3">
-                <!-- Video start -->
-                <a href="">
-                    <article class="comp video">
-                        <div class="caption">
-                            <span class="glyphicon glyphicon-play-circle pull-right"></span>
-                            <time class="text-uppercase" datetime="20:00">4:18</time>
-                            <h3>Karen Blixen - TREASURE OF THE WEEK #1</h3>
-                        </div>
-                    </article>
-                </a>
-                <!-- Video End -->
-            </div>
-            <div class="col-xs-6 col-sm-4 col-md-3">
-                <!-- Video start -->
-                <a href="">
-                    <article class="comp video">
-                        <div class="caption">
-                            <span class="glyphicon glyphicon-play-circle pull-right"></span>
-                            <time class="text-uppercase" datetime="20:00">4:18</time>
-                            <h3>Karen Blixen - TREASURE OF THE WEEK #1</h3>
-                        </div>
-                    </article>
-                </a>
-                <!-- Video End -->
-            </div>
-            <div class="col-xs-6 col-sm-4 col-md-3">
-                <!-- Video start -->
-                <a href="">
-                    <article class="comp video">
-                        <div class="caption">
-                            <span class="glyphicon glyphicon-play-circle pull-right"></span>
-                            <time class="text-uppercase" datetime="20:00">4:18</time>
-                            <h3>Karen Blixen - TREASURE OF THE WEEK #1</h3>
-                        </div>
-                    </article>
-                </a>
-                <!-- Video End -->
-            </div>
-            <div class="col-xs-6 col-sm-4 col-md-3">
-                <!-- Video start -->
-                <a href="">
-                    <article class="comp video">
-                        <div class="caption">
-                            <span class="glyphicon glyphicon-play-circle pull-right"></span>
-                            <time class="text-uppercase" datetime="20:00">4:18</time>
-                            <h3>Karen Blixen - TREASURE OF THE WEEK #1</h3>
-                        </div>
-                    </article>
-                </a>
-                <!-- Video End -->
-            </div>
+            <div id="playlists"></div>
         </div>
     </div>
 </section>
