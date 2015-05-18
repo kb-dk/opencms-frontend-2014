@@ -54,7 +54,7 @@ var kb_youtube = (function (window, $, undefined) {
             desc = desc.replace(/(\d?\d?:?\d?\d:\d\d)(\b)/g, '<a href="javascript: kb_youtube.setCurrentTime(\'$1\');">$1</a>$2');
             return desc.replace(/\n/g, '<br>\n');
         },
-        getPlaylistName : function (playlistId, cb) {
+        getPlaylistNameAndDescription : function (playlistId, cb) {
             var request = gapi.client.request({
                 'path': '/youtube/v3/playlists',
                 'method': 'get',
@@ -69,7 +69,7 @@ var kb_youtube = (function (window, $, undefined) {
                     this.log('Error fetching playlist name: ', jsonResp.error);
                 } else {
                     if (jsonResp.items.length && jsonResp.items[0].snippet) {
-                        cb(jsonResp.items[0].snippet.title);
+                        cb(jsonResp.items[0].snippet.title, jsonResp.items[0].snippet.description);
                     } else {
                         cb('');
                     }
@@ -141,13 +141,12 @@ var kb_youtube = (function (window, $, undefined) {
                         var playerMarkup = $('<div class="thePlayer" />');
                         if (featuredVideo.snippet.channelId === kb_youtube.KBCHANNELID) {
                             $('#featuredTitle').append(featuredVideo.snippet.title);
-                            $('#featuredDescription').css('width', featuredVideo.snippet.thumbnails.maxres.width)
-                                .append(kb_youtube.formatDescription(featuredVideo.snippet.description));
+                            $('#featuredDescription').append(kb_youtube.formatDescription(featuredVideo.snippet.description));
                         } else {
                             playerMarkup('<div>Something is wrong - the requested video is not sanctioned by KB!</div>');
                         }
                         // List goes here
-                        var playlistMarkup = $('<div class="list" />');
+                        var playlistMarkup = $('<div class="xlist" />');
                         //playlistMarkup.append('<h2 class="playlistTitle"></h2>');
                         playlistMarkup.append(videos.map(function (video) {
                             return  '<div class="col-xs-6 col-sm-4 col-md-3">' +
@@ -163,8 +162,9 @@ var kb_youtube = (function (window, $, undefined) {
                                     '</div>';
                         }));
                         $('#playlists').append(playlistMarkup);
-                        kb_youtube.getPlaylistName(videos[0].snippet.playlistId, function (playlistName) {
+                        kb_youtube.getPlaylistNameAndDescription(videos[0].snippet.playlistId, function (playlistName, playlistDescription) {
                             $('.playlistTitle').html(playlistName);
+                            $('.playlistDescription').html(playlistDescription);
                         });
                     }
                 });
