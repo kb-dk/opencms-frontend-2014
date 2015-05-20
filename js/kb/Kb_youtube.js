@@ -228,6 +228,9 @@ var kb_youtube = (function (window, $, undefined) {
                 }
             }
         });
+        $('#featuredPublishedAt')
+            .attr('datetime', kb_youtube.featuredVideo.snippet.publishedAt)
+            .text(datestamp2Text(kb_youtube.featuredVideo.snippet.publishedAt));
     };
 
     $(document).ready(function () { // Do we have to wait until doc ready here?
