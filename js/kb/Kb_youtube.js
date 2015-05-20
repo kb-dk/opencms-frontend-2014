@@ -219,7 +219,6 @@ var kb_youtube = (function (window, $, undefined) {
             videoId: kb_youtube.featuredVideo.snippet.resourceId.videoId,
             events: {
                 'onReady': function () {
-                    kb_youtube.log('Player ready!');
                     window.player.playVideo();
                 }
             }
