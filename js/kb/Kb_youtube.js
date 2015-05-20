@@ -227,7 +227,6 @@ var kb_youtube = (function (window, $, undefined) {
             setTimeout(onYouTubeIframeAPIReady, 300); // TODO: Poor mans dependency control
             return;
         }
-    console.log('onYoutubeIframeAPI loaded');
         window.player = new YT.Player('player', {
             playerVars: {
                 modestbranding: true
