@@ -33,6 +33,7 @@
     <script src="js/kb/Kb_youtube.js"></script>
 
     <script>
+        kb_youtube.autoplay = true;
         function apiReady() {
             gapi.client.setApiKey('AIzaSyDFxu8aPIl2RM5UBHupA-ryqdbsudkwU9I');
             gapi.client.load('youtube', 'v3', function () {
@@ -325,8 +326,8 @@
 
             <div class="container">
                 <header>
-                    <time itemprop="dateCreated" datetime="2011-05-08T19:30">Offentliggjort den 25. sep. 2014</time>
-                    <meta itemprop="datePublished" content="Offentliggjort den 25. sep. 2014"/>
+                    <time id="featuredPublishedAt" itemprop="dateCreated"></time>
+                    <meta itemprop="datePublished" content="Offentliggjort den 25. sep. 2014"/><!-- FIXME: this tag is not updated! -->
 
                     <h1 id="featuredTitle" itemprop="headline"></h1>
                     <!--p id="featuredSubtitle" itemprop="description" class="lead">
