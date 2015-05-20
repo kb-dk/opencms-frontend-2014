@@ -211,7 +211,7 @@ var kb_youtube = (function (window, $, undefined) {
         }
         window.player = new YT.Player('player', {
             playerVars: {
-                modestbranding: true
+                showinfo:0
             },
             height: kb_youtube.featuredVideo.snippet.thumbnails.maxres.height,
             width: kb_youtube.featuredVideo.snippet.thumbnails.maxres.width,
