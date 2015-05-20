@@ -47,9 +47,9 @@
                 $('#featuredDescription').text(kb_youtube.formatDescription(featuredVideo.snippet.description));
                 $('#featuredPlaylistTitle').text(kb_youtube.playlistTitle[featuredVideo.snippet.playlistId]);
             }
-        }
+        };
 
-        function apiReady()  {
+        function apiReady() {
             gapi.client.setApiKey('AIzaSyDFxu8aPIl2RM5UBHupA-ryqdbsudkwU9I');
             gapi.client.load('youtube', 'v3', function () {
                 //$.each(KB_PLAYLISTS, function (index, list) {
