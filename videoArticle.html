@@ -31,6 +31,61 @@
     <script src="js/kb/kbMenu.js"></script>
     <script src="js/kb/kbListeners.js"></script>
     <script src="js/kb/Kb_youtube.js"></script>
+
+    <script>
+        function apiReady() {
+            gapi.client.setApiKey('AIzaSyDFxu8aPIl2RM5UBHupA-ryqdbsudkwU9I');
+            gapi.client.load('youtube', 'v3', function () {
+                try {
+                    kb_youtube.fetchLatestVideos(kb_youtube.playlistId, null, function (videos) {
+                        if (videos && videos.length) {
+                            // figure out the featured video
+                            var featuredVideo = videos[0];
+                            if (kb_youtube.videoId) {
+                                videos.some(function (video) { // FIXME: IE8 nocando - rewrite as a for loop with break, and everything will work in IE8 too!
+                                    if (video.snippet.resourceId.videoId === kb_youtube.videoId) {
+                                        featuredVideo = video;
+                                        return true;
+                                    }
+                                    return false;
+                                });
+                            }
+                            kb_youtube.featuredVideo = featuredVideo; // this is used by the player when the YouTubeIframeAPI has loaded
+                            // Markup building starts here
+                            if (featuredVideo.snippet.channelId === kb_youtube.KBCHANNELID) {
+                                $('#featuredTitle').append(featuredVideo.snippet.title);
+                                $('#featuredDescription').append(kb_youtube.formatDescription(featuredVideo.snippet.description));
+                            }
+                            // List goes here
+                            var playlistMarkup = $('<div class="xlist" />');
+                            //playlistMarkup.append('<h2 class="playlistTitle"></h2>');
+                            playlistMarkup.append(videos.map(function (video) {
+                                return  '<div class="col-xs-6 col-sm-4 col-md-3">' +
+                                            '<a href="?pid=' + video.snippet.playlistId + '&vid=' + video.snippet.resourceId.videoId + '">' +
+                                                '<article class="comp video" style="background-image: url(' + video.snippet.thumbnails.medium.url + ')">' +
+                                                    '<div class="caption">' +
+                                                        '<span class="glyphicon glyphicon-play-circle pull-right"></span>' +
+                                                        //'<time class="text-uppercase" datetime="20:00">4:18</time>' +
+                                                        '<h3>' + video.snippet.title + '</h3>' +
+                                                    '</div>' +
+                                                '</article>' +
+                                            '</a>' +
+                                        '</div>';
+                            }));
+                            $('#playlists').append(playlistMarkup);
+                            kb_youtube.getPlaylistNameAndDescription(videos[0].snippet.playlistId, function (playlistName, playlistDescription) {
+                                $('.playlistTitle').html(playlistName);
+                                $('.playlistDescription').html(playlistDescription);
+                            });
+                        }
+                    });
+                } catch (e) {
+                    kb_youtube.log('Something went wrong loading the youtube playlists.');
+                }
+            });
+        };
+    </script>
+
     <!-- Google Analytics www.kb.dk -->
     <script>
         var _gaq = _gaq || [];
