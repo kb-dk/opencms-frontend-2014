@@ -24,7 +24,17 @@ var kb_youtube = (function (window, $, undefined) {
             return 'Offentliggjort d. ' + tmpDate.getUTCDate() + '/' + (tmpDate.getUTCMonth()+1) + ' ' + tmpDate.getUTCFullYear(); // FIXME: i18n
         };
     Kb_youtube.prototype = {
+        /**
+         * The official KB YouTube Channel Id
+         */
         KBCHANNELID : 'UCPYYQwMYGrAfJhyO3t4n-Mg',
+        /**
+         * Fetches a list of all playlists for a given YouTube Channel thru ajax call
+         * Note that a call to this function also will populate the kb_youtube.allFollowedPlaylists array with all the playlists ids and the
+         * playlistTitle hashtable.
+         * @param channelId {String/YouTubeChannelId} The channel id
+         * @param cb {Function} Callback function that will be called with an Array of the playlists (id + snippet) when they are returned from YouTube.
+         */
         fetchAllPlaylists : function (channelId, cb) {
             var request = gapi.client.request({
                 'path': '/youtube/v3/playlists',
@@ -62,6 +72,13 @@ var kb_youtube = (function (window, $, undefined) {
          * This is important because we first know the latest video across all playlists, when the last playlist has loaded.
          */
         loadedPlaylists: [],
+        /**
+         * Fetch the latest videos of a given playlist.
+         * Note that the kb_youtube.latestVideo will get updated if a video that is newer is loaded in this method.
+         * @param playlistId {String/YouTubePlaylistId} Id of the playlist
+         * @param numberOfItems {Number} Optional The max number of videos to fetch. If omitted it defaults to 50.
+         * @param cb {Function} Callback method that is called with an array of video objects (id + snippet) when the ajax response has returned.
+         */
         fetchLatestVideos : function (playlistId, numberOfItems, cb) {
             var request = gapi.client.request({
                 'path': '/youtube/v3/playlistItems',
@@ -96,11 +113,22 @@ var kb_youtube = (function (window, $, undefined) {
                 }
             });
         },
+        /**
+         * Format a text blob as the description is fromatted in YoutTube. This implies all urls converted to <a>-tags, all timestamps made clickable, and linefeeds converted to <br>-tags
+         */
         formatDescription : function (desc) {
             desc = desc.replace(/\b(https?\:\/\/\S*)\b/g, url2href);
             desc = desc.replace(/(\d?\d?:?\d?\d:\d\d)(\b)/g, '<a href="javascript: kb_youtube.setCurrentTime(\'$1\');">$1</a>$2');
             return desc.replace(/\n/g, '<br>\n');
         },
+        /**
+         * Get the name and description of a playlist (lightweight version of getAllPlaylists for use when you are only interested in one particular playlist).
+         * Note that this call implies an ajax call to look up the information at YouTube.
+         * @param playlistId {String/YoutubePlaylistId} Playlist id.
+         * @param cb {Function} Callback function that is called with following two parameters on ajax response:
+         * - title {String} Playlist title.
+         * - description {String} Playlist description.
+         */
         getPlaylistNameAndDescription : function (playlistId, cb) {
             var request = gapi.client.request({
                 'path': '/youtube/v3/playlists',
@@ -123,6 +151,11 @@ var kb_youtube = (function (window, $, undefined) {
                 }
             });
         },
+        /**
+         * Sets the window.player current time to any given time of the format HH:mm:SS | mm:SS | SS
+         * Also it scrolls to the top of the page (where the player is)
+         * @param time {String} Time stamp of the format "HH:mm:SS", "mm:SS" or "SS"
+         */
         setCurrentTime : function (time) {
             if (undefined !== window.player) {
                 var numbers = time.split(':');
