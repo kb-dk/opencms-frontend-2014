@@ -219,7 +219,9 @@ var kb_youtube = (function (window, $, undefined) {
             videoId: kb_youtube.featuredVideo.snippet.resourceId.videoId,
             events: {
                 'onReady': function () {
-                    window.player.playVideo();
+                    if (kb_youtube.autoplay) {
+                        window.player.playVideo(); // FIXME: this ought to be event driven! Emmit an event here, and let the pages listen for it instead!
+                    };
                 }
             }
         });
