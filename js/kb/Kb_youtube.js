@@ -3,6 +3,12 @@ var kb_youtube = (function (window, $, undefined) {
     var Kb_youtube = function () { };
     //var loadedPlaylists = [];
 
+    /**
+     * Converts an url to a html a tag
+     * @param url {String} The url
+     * @param maxLength {Number} The maximum length of the url to show in the link. Chars beyond this will be cutted off in the text (not the href) and an ellipsis will be appended.
+     * @return {String/html} The a-tag
+     */
     var url2href = function (url, maxLength) {
             maxLength = maxLength || 37;
             var shortUrl = url.length > maxLength ? url.substr(0, maxLength) + '&hellip;' : url;
