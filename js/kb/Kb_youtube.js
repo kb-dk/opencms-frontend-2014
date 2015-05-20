@@ -228,9 +228,12 @@ var kb_youtube = (function (window, $, undefined) {
                 }
             }
         });
+        // Setting the correct publishedAt date.
+        var publishedStr = datestamp2Text(kb_youtube.featuredVideo.snippet.publishedAt);
         $('#featuredPublishedAt')
             .attr('datetime', kb_youtube.featuredVideo.snippet.publishedAt)
-            .text(datestamp2Text(kb_youtube.featuredVideo.snippet.publishedAt));
+            .text(publishedStr);
+        $('#featuredPublishedAtMeta').attr('content', kb_youtube.featuredVideo.snippet.publishedAt);
     };
 
     $(document).ready(function () { // Do we have to wait until doc ready here?
