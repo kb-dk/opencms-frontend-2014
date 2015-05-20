@@ -1,6 +1,7 @@
 /*global jQuery, gapi, YT, onYouTubeIframeAPIReady*/
 var kb_youtube = (function (window, $, undefined) {
     var Kb_youtube = function () { };
+    //var loadedPlaylists = [];
 
     var url2href = function (url, maxLength) {
             maxLength = maxLength || 37;
@@ -33,10 +34,23 @@ var kb_youtube = (function (window, $, undefined) {
                     debugger;
                     that.log('Error fetching playlists: ', jsonResp.error);
                 } else {
+                    that.allFollowedPlaylists = jsonResp.items.map(function (playlist) { // save id's of followed playlists in kb_youtube.allFollowedPlaylists
+                        that.playlistTitle[playlist.id] = playlist.snippet.title;
+                        return playlist.id;
+                    });
                     cb(jsonResp.items);
                 }
             });
         },
+        /**
+         * Hash table to lookup playlist titles having the playlist id as key. This is populated by the fetchAllPlaylists method.
+         */
+        playlistTitle: {}, // FIXME: A lot of these vars should just be vars in the closure, and not polluting the kb_youtube.prototype! (but it isn't important since we only have one obj)
+        /**
+         * List of id's that is populated on every ajax response - used to acknowledge when all playlists has been loaded.
+         * This is important because we first know the latest video across all playlists, when the last playlist has loaded.
+         */
+        loadedPlaylists: [],
         fetchLatestVideos : function (playlistId, numberOfItems, cb) {
             var request = gapi.client.request({
                 'path': '/youtube/v3/playlistItems',
