@@ -7,7 +7,15 @@ var kb_youtube = (function (window, $, undefined) {
             var shortUrl = url.length > maxLength ? url.substr(0, maxLength) + '&hellip;' : url;
             return '<a href="' + url + '" target="_blank">' + shortUrl + '</a>';
         };
-
+    /**
+     * Converts a datestamp to a text "Offentliggjort d. DD/MM YYYY"
+     * @param datestamp {String/date} Might be of any kind readable for Date - in this case it probably will be of the form YYYY/MM/DDTHH:mm:SS:ttttZ" or something like that?
+     * @return {String} "Offentliggjort d. DD/MM YYYY"
+     */
+    var datestamp2Text = function (datestamp) {
+            var tmpDate = new Date(datestamp);
+            return 'Offentliggjort d. ' + tmpDate.getUTCDate() + '/' + (tmpDate.getUTCMonth()+1) + ' ' + tmpDate.getUTCFullYear(); // FIXME: i18n
+        };
     Kb_youtube.prototype = {
         KBCHANNELID : 'UCPYYQwMYGrAfJhyO3t4n-Mg',
         fetchAllPlaylists : function (channelId, cb) {
