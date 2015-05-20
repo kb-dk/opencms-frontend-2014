@@ -43,6 +43,11 @@ var kb_youtube = (function (window, $, undefined) {
             });
         },
         /**
+         * Override this method to have code executed when all playlists are loaded.
+         */
+        // FIXME: Consider replacing this with an event system!
+        onAllPlaylistsLoaded: function () {},
+        /**
          * Hash table to lookup playlist titles having the playlist id as key. This is populated by the fetchAllPlaylists method.
          */
         playlistTitle: {}, // FIXME: A lot of these vars should just be vars in the closure, and not polluting the kb_youtube.prototype! (but it isn't important since we only have one obj)
@@ -62,13 +67,26 @@ var kb_youtube = (function (window, $, undefined) {
                     'order': 'date'
                 }
             });
-
+            var that = this;
             request.execute(function (jsonResp) {
                 if (jsonResp.error) {
                     debugger;
-                    kb_youtube.log('Error fetching playlist: ', jsonResp.error);
+                    that.log('Error fetching playlist: ', jsonResp.error);
                 } else {
-                    cb(jsonResp.items);
+                    if (jsonResp.items.length) {
+                        var videosNewestFirst = jsonResp.items.reverse();
+                        // find the latest video from all lists, and save it in latestVideo
+                        if (!!!that.latestVideo || new Date(that.latestVideo.snippet.publishedAt) < new Date(videosNewestFirst[0].snippet.publishedAt)){
+                            that.latestVideo = videosNewestFirst[0];
+                        }
+                        cb(videosNewestFirst);
+                        that.loadedPlaylists.push(jsonResp.items[0].snippet.playlistId);
+                        if (that.allFollowedPlaylists && (that.loadedPlaylists.length === that.allFollowedPlaylists.length)) {
+                            that.onAllPlaylistsLoaded(that.loadedPlaylists);
+                        }
+                    } else {
+                        cb([]);
+                    }
                 }
             });
         },
