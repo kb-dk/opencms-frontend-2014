@@ -101,9 +101,13 @@ var kb_youtube = (function (window, $, undefined) {
                 this.log('Should have moved to',time, 'but no player was available?');
             }
         },
-        log : function (msg) {
+        /**
+         * Print out a message to the JS console.
+         * The messages is prefixed with "KB_youtube: " and it takes care of <IE9 problems with console.
+         */
+        log : function () {
             if (undefined !== window.console) {
-                console.log('KB_youtube: ' + msg);
+                console.log('KB_youtube: ', arguments);
             }
         }
     };
