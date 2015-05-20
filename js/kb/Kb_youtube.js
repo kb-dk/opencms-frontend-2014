@@ -229,15 +229,12 @@ var kb_youtube = (function (window, $, undefined) {
     $(document).ready(function () { // Do we have to wait until doc ready here?
         var YTDtag = document.createElement('script'),
             YTItag = document.createElement('script');
-        YTDtag.src = "https://apis.google.com/js/client.js?onload=apiReady";
-        YTItag.src = "https://www.youtube.com/iframe_api";
+        YTDtag.src = "https://apis.google.com/js/client.js?onload=apiReady"; // load YouTube data API
+        YTItag.src = "https://www.youtube.com/iframe_api"; // load YouTube Iframe API
         var firstScriptTag = document.getElementsByTagName('script')[0];
         firstScriptTag.parentNode.insertBefore(YTDtag, firstScriptTag);
         firstScriptTag.parentNode.insertBefore(YTItag, firstScriptTag);
     });
-
-
-
 
     return kb_youtube;
 })(window, jQuery);
