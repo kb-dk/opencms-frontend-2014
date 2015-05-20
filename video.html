@@ -31,6 +31,49 @@
     <script src="js/kb/kbMenu.js"></script>
     <script src="js/kb/kbListeners.js"></script>
     <script src="js/kb/Kb_youtube.js"></script>
+
+    <script type="text/javascript">
+        function apiReady()  {
+            gapi.client.setApiKey('AIzaSyDFxu8aPIl2RM5UBHupA-ryqdbsudkwU9I');
+            gapi.client.load('youtube', 'v3', function () {
+                //$.each(KB_PLAYLISTS, function (index, list) {
+                    try {
+                        kb_youtube.fetchAllPlaylists('UCPYYQwMYGrAfJhyO3t4n-Mg', function (playlists) {
+                            $.each(playlists, function (index, playlist) {
+                                kb_youtube.fetchLatestVideos(playlist.id, null, function (videos) {
+                                    if (videos && videos.length) {
+                                        // Markup building starts here
+                                        var playlistMarkup = $('<section class="deck grid"><div class="container"><div class="row"><header class="text-center"><h2></h2><p class="lead"></p></header></div></div></section>');
+                                        var playlistTitle = playlistMarkup.find('header h2');
+                                        var playlistDescription = playlistMarkup.find('header .lead');
+                                        var playlistVideos = playlistMarkup.find('.row');
+
+                                        playlistTitle.text(playlist.snippet.title);
+                                        playlistVideos.append(videos.map(function (video) {
+                                            return  '<div class="col-xs-6 col-sm-4 col-md-3">' +
+                                                        '<a href="videoArticle.html?pid=' + playlist.id + '&vid=' + video.snippet.resourceId.videoId + '">' +
+                                                            '<article class="comp video" style="background-image: url(' + video.snippet.thumbnails.medium.url + ')">' +
+                                                                '<div class="caption">' +
+                                                                    '<span class="glyphicon glyphicon-play-circle pull-right"></span>' +
+                                                                     '<time class="text-uppercase" datetime="20:00">'+video.snippet.publishedAt.substr(0,video.snippet.publishedAt.indexOf('T'))+'</time>' + // skal fjernes eller korrektes
+                                                                    '<h3>' + video.snippet.title + '</h3>' +
+                                                                '</div>' +
+                                                            '</article>' +
+                                                        '</a>' +
+                                                    '</div>';
+                                        }));
+                                        $('#playlists').append(playlistMarkup);
+                                    }
+                                });
+                            });
+                        });
+                    } catch (e) {
+                        debugger;
+                    }
+                //});
+            });
+        }
+    </script>
     <!-- Google Analytics www.kb.dk -->
     <script>
         var _gaq = _gaq || [];
