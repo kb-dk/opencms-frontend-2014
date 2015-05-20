@@ -209,12 +209,13 @@ var kb_youtube = (function (window, $, undefined) {
             setTimeout(onYouTubeIframeAPIReady, 300); // TODO: Poor mans dependency control
             return;
         }
+        var maxres = kb_youtube.featuredVideo.snippet.thumbnails.maxres || kb_youtube.featuredVideo.snippet.thumbnails.high || kb_youtube.featuredVideo.snippet.thumbnails['default'];
         window.player = new YT.Player('player', {
             playerVars: {
                 showinfo:0
             },
-            height: kb_youtube.featuredVideo.snippet.thumbnails.maxres.height,
-            width: kb_youtube.featuredVideo.snippet.thumbnails.maxres.width,
+            height: maxres.height,
+            width: maxres.width,
             videoId: kb_youtube.featuredVideo.snippet.resourceId.videoId,
             events: {
                 'onReady': function () {
