@@ -33,6 +33,22 @@
     <script src="js/kb/Kb_youtube.js"></script>
 
     <script type="text/javascript">
+        kb_youtube.onAllPlaylistsLoaded = function () {
+            featuredVideo = kb_youtube.featuredVideo = kb_youtube.latestVideo;
+            if (featuredVideo.snippet.channelId === kb_youtube.KBCHANNELID) {
+                $('#featuredTitle').text(featuredVideo.snippet.title);
+                $('#featuredLink').attr('href', 'videoArticle.html?pid=' + featuredVideo.snippet.playlistId + '&vid=' + featuredVideo.id);
+                $('#featuredLink').click(function (e) {
+                    var currentTime = player.getCurrentTime();
+                    if (currentTime > 0) {
+                        $(this).attr('href', $(this).attr('href') + '&t=' + currentTime);
+                    }
+                });
+                $('#featuredDescription').text(kb_youtube.formatDescription(featuredVideo.snippet.description));
+                $('#featuredPlaylistTitle').text(kb_youtube.playlistTitle[featuredVideo.snippet.playlistId]);
+            }
+        }
+
         function apiReady()  {
             gapi.client.setApiKey('AIzaSyDFxu8aPIl2RM5UBHupA-ryqdbsudkwU9I');
             gapi.client.load('youtube', 'v3', function () {
