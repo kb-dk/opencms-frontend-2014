@@ -27,10 +27,11 @@ var kb_youtube = (function (window, $, undefined) {
                     'channelId': 'UCPYYQwMYGrAfJhyO3t4n-Mg'
                 }
             });
+            var that = this;
             request.execute(function (jsonResp) {
                 if (jsonResp.error) {
                     debugger;
-                    this.log('Error fetching playlists: ', jsonResp.error);
+                    that.log('Error fetching playlists: ', jsonResp.error);
                 } else {
                     cb(jsonResp.items);
                 }
