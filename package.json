@@ -15,5 +15,12 @@
   "dependencies": {
     "minimist": "~1.1.0",
     "node-static": "~0.7.6"
+  },
+  "devDependencies": {
+    "gulp": "~3.8.11",
+    "gulp-util": "~3.0.4",
+    "gulp-uglify": "~1.2.0",
+    "gulp-rename": "~1.2.2",
+    "del": "~1.2.0"
   }
 }
