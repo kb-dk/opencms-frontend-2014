@@ -56,6 +56,7 @@
                     try {
                         kb_youtube.fetchAllPlaylists('UCPYYQwMYGrAfJhyO3t4n-Mg', function (playlists) {
                             $.each(playlists, function (index, playlist) {
+                                $('#playlists').append('<div id="kbPlaylist_' + playlist.id + '"></div>');
                                 kb_youtube.fetchLatestVideos(playlist.id, null, function (videos) {
                                     if (videos && videos.length) {
                                         // Markup building starts here
@@ -78,7 +79,7 @@
                                                         '</a>' +
                                                     '</div>';
                                         }));
-                                        $('#playlists').append(playlistMarkup);
+                                        $('#kbPlaylist_' + playlist.id).append(playlistMarkup);
                                     }
                                 });
                             });
