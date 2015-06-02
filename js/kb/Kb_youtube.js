@@ -41,7 +41,8 @@ var kb_youtube = (function (window, $, undefined) {
                 'method': 'get',
                 'params': {
                     'part': 'id, snippet',
-                    'channelId': 'UCPYYQwMYGrAfJhyO3t4n-Mg'
+                    'channelId': 'UCPYYQwMYGrAfJhyO3t4n-Mg',
+                    'maxResults': 50
                 }
             });
             var that = this;
