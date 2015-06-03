@@ -174,7 +174,7 @@ var kb_youtube = (function (window, $, undefined) {
                     default :
                         this.log('Unknown time format', time);
                     }
-                    $('body').animate({scrollTop: 0});
+                    $('body, html').animate({scrollTop: 0}, 'fast');
                 } catch (e) {
                     this.log('Unknown error occured when trying to set currentTime of video player', e);
                 }
