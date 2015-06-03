@@ -179,7 +179,7 @@ var kb_youtube = (function (window, $, undefined) {
                     this.log('Unknown error occured when trying to set currentTime of video player', e);
                 }
             } else {
-                this.log('Should have moved to',time, 'but no player was available?');
+                this.log('Should have moved to', time, 'but no player was available?');
             }
         },
         /**
