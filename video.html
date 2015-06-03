@@ -55,8 +55,15 @@
                 //$.each(KB_PLAYLISTS, function (index, list) {
                     try {
                         kb_youtube.fetchAllPlaylists('UCPYYQwMYGrAfJhyO3t4n-Mg', function (playlists) {
+                            // Filter out the playlists that shall not be showed (the whitelist is hardcoded and handpicked by Uffe and Jytte)
+                            playlists = playlists.filter(function (playlist) {
+                                return kb_youtube.ALLOWEDPLAYLISTS.indexOf(playlist.id) >= 0;
+                            });
+                            // creating placeholders in the correct order
+                            $.each(kb_youtube.ALLOWEDPLAYLISTS, function (index, playlist) {
+                                $('#playlists').append('<div id="kbPlaylist_' + playlist + '"></div>');
+                            });
                             $.each(playlists, function (index, playlist) {
-                                $('#playlists').append('<div id="kbPlaylist_' + playlist.id + '"></div>');
                                 kb_youtube.fetchLatestVideos(playlist.id, null, function (videos) {
                                     if (videos && videos.length) {
                                         // Markup building starts here
