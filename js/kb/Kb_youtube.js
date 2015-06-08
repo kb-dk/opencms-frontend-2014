@@ -1,5 +1,7 @@
 /*global jQuery, gapi, YT, onYouTubeIframeAPIReady*/
 var kb_youtube = (function (window, $, undefined) {
+    var LANGUAGE = 'da'; // Change this to either 'da' or 'en'
+
     var Kb_youtube = function () { };
     //var loadedPlaylists = [];
 
@@ -21,7 +23,11 @@ var kb_youtube = (function (window, $, undefined) {
      */
     var datestamp2Text = function (datestamp) {
             var tmpDate = new Date(datestamp);
-            return 'Offentliggjort d. ' + tmpDate.getUTCDate() + '/' + (tmpDate.getUTCMonth()+1) + ' ' + tmpDate.getUTCFullYear(); // FIXME: i18n
+            if (LANGUAGE === 'da') {
+                return 'Offentliggjort d. ' + tmpDate.getUTCDate() + '/' + (tmpDate.getUTCMonth()+1) + ' ' + tmpDate.getUTCFullYear();
+            } else {
+                return 'Published ' + tmpDate.getUTCDate() + '/' + (tmpDate.getUTCMonth()+1) + '/' + tmpDate.getUTCFullYear();
+            }
         };
     Kb_youtube.prototype = {
         /**
