@@ -35,7 +35,7 @@
     <script type="text/javascript">
         kb_youtube.onAllPlaylistsLoaded = function () {
             featuredVideo = kb_youtube.featuredVideo = kb_youtube.latestVideo;
-            if (featuredVideo.snippet.channelId === kb_youtube.KBCHANNELID) {
+            if (featuredVideo && featuredVideo.snippet.channelId === kb_youtube.KBCHANNELID) {
                 $('#featuredTitle').text(featuredVideo.snippet.title);
                 $('#featuredLink').attr('href', 'videoArticle.html?pid=' + featuredVideo.snippet.playlistId + '&vid=' + featuredVideo.id);
                 $('#featuredLink').click(function (e) {
@@ -46,6 +46,8 @@
                 });
                 $('#featuredDescription').text(kb_youtube.formatDescription(featuredVideo.snippet.description));
                 $('#featuredPlaylistTitle').text(kb_youtube.playlistTitle[featuredVideo.snippet.playlistId]);
+            } else {
+                $('.jumboVideo').addClass('hide'); // if there is no featured video, hide the featured video field
             }
         };
 
