@@ -31,7 +31,7 @@ var kb_youtube = (function (window, $, undefined) {
         /**
          * Hardcoded list of playlist id's of the KB playlists that are to enter the mediachannel (handpicked by Uffe and Jytte)
          */
-        ALLOWEDPLAYLISTS : ['PL-kGrXuGF9C0Qsog3lm_Kpf8KEmK-eM8m', 'PL-kGrXuGF9C3JF2gcUv-6gXKC8W6uLb8d', 'PL-kGrXuGF9C04O97uZyq-qOIraHFbxRki', 'PL-kGrXuGF9C1KRekG-cPUSXTq8Ho3iGj1'],
+        ALLOWEDPLAYLISTS : ['PL-kGrXuGF9C0Qsog3lm_Kpf8KEmK-eM8m', 'PL-kGrXuGF9C33B1PBlg6yJsb58X9sKno2', 'PL-kGrXuGF9C1fI19BhkUaRbPu02wKBVo2', 'PL-kGrXuGF9C1S1g4d6KlmDNk1CH0AG11M'],
         /**
          * Fetches a list of all playlists for a given YouTube Channel thru ajax call
          * Note that a call to this function also will populate the kb_youtube.allPlaylists array with all the playlists ids and the
