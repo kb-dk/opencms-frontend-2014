@@ -76,6 +76,10 @@
 
                                         playlistTitle.text(playlist.snippet.title);
                                         playlistVideos.append(videos.map(function (video) {
+                                            if (!video.snippet.thumbnails) { // If there is no thumbs, there should be no video in the list? // TODO: We might wanna just flash a default thumb?
+                                                kb_youtube.log('Skipped video "' + video.snippet.title + ' (id:' + video.snippet.resourceId.videoId + ')" because of lacking thumbs!');
+                                                return '';
+                                            }
                                             return  '<div class="col-xs-6 col-sm-4 col-md-3">' +
                                                         '<a href="videoArticle.html?pid=' + playlist.id + '&vid=' + video.snippet.resourceId.videoId + '">' +
                                                             '<article class="comp video" style="background-image: url(' + video.snippet.thumbnails.medium.url + ')">' +

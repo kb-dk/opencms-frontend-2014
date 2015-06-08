@@ -105,7 +105,11 @@ var kb_youtube = (function (window, $, undefined) {
                         var videosNewestFirst = jsonResp.items.reverse();
                         // find the latest video from all lists, and save it in latestVideo
                         if (!!!that.latestVideo || new Date(that.latestVideo.snippet.publishedAt) < new Date(videosNewestFirst[0].snippet.publishedAt)){
-                            that.latestVideo = videosNewestFirst[0];
+                            if (videosNewestFirst[0].snippet.thumbnails) { // This is to ensure that the latest video actually has a video. FIXME: This has the bieffect that if a playlists latest video is not real, but the second latest video is correct and the actual latest video, the shown latest video will be one from another playlist (even though it might not be the latest).
+                                that.latestVideo = videosNewestFirst[0];
+                            } else {
+                                that.log('Skipped latest video nominee "' + videosNewestFirst[0].snippet.title + '" (id:' + videosNewestFirst[0].snippet.resourceId.videoId + ') because of lacking thumbs');
+                            }
                         }
                         cb(videosNewestFirst);
                         that.loadedPlaylists.push(jsonResp.items[0].snippet.playlistId);
