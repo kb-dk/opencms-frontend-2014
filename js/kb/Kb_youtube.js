@@ -58,7 +58,6 @@ var kb_youtube = (function (window, $, undefined) {
             var that = this;
             request.execute(function (jsonResp) {
                 if (jsonResp.error) {
-                    debugger;
                     that.log('Error fetching playlists: ', jsonResp.error);
                 } else {
                     that.allPlaylists = jsonResp.items.map(function (playlist) { // save id's of followed playlists in kb_youtube.allPlaylists
@@ -104,7 +103,6 @@ var kb_youtube = (function (window, $, undefined) {
             var that = this;
             request.execute(function (jsonResp) {
                 if (jsonResp.error) {
-                    debugger;
                     that.log('Error fetching playlist: ', jsonResp.error);
                 } else {
                     if (jsonResp.items.length) {
@@ -155,7 +153,6 @@ var kb_youtube = (function (window, $, undefined) {
             });
             request.execute(function (jsonResp) {
                 if (jsonResp.error) {
-                    debugger;
                     this.log('Error fetching playlist name: ', jsonResp.error);
                 } else {
                     if (jsonResp.items.length && jsonResp.items[0].snippet) {
