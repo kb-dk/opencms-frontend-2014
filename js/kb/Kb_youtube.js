@@ -162,7 +162,7 @@ var kb_youtube = (function (window, $, undefined) {
          * @param time {String} Time stamp of the format "HH:mm:SS", "mm:SS" or "SS"
          */
         setCurrentTime : function (time) {
-            if (undefined !== window.player) {
+            if ('undefined' !== typeof window.player) {
                 var numbers = time.split(':');
                 try {
                     switch (numbers.length) {
@@ -191,7 +191,7 @@ var kb_youtube = (function (window, $, undefined) {
          * The messages is prefixed with "KB_youtube: " and it takes care of <IE9 problems with console.
          */
         log : function () {
-            if (undefined !== window.console) {
+            if ('undefined' !== typeof window.console) {
                 console.log('KB_youtube: ', arguments);
             }
         }
