@@ -31,81 +31,16 @@
     <![endif]-->
     <script src="js/kb/kbMenu.js"></script>
     <script src="js/kb/kbListeners.js"></script>
-    <script src="js/kb/Kb_youtube.js"></script>
+
     <script src="js/kb/Kb_soundcloud.js"></script>
 
     <script type="text/javascript">
-        kb_youtube.onAllPlaylistsLoaded = function () {
-            featuredVideo = kb_youtube.featuredVideo = kb_youtube.latestVideo;
-            if (featuredVideo && featuredVideo.snippet.channelId === kb_youtube.KBCHANNELID) {
-                $('#featuredTitle').text(featuredVideo.snippet.title);
-                $('#featuredLink').attr('href', 'videoArticle.html?pid=' + featuredVideo.snippet.playlistId + '&vid=' + featuredVideo.id);
-                $('#featuredLink').click(function (e) {
-                    var currentTime = player.getCurrentTime();
-                    if (currentTime > 0) {
-                        $(this).attr('href', $(this).attr('href') + '&t=' + currentTime);
-                    }
-                });
-                $('#featuredDescription').text(kb_youtube.formatDescription(featuredVideo.snippet.description));
-                $('#featuredPlaylistTitle').text(kb_youtube.playlistTitle[featuredVideo.snippet.playlistId]);
-            } else {
-                $('.jumboVideo').addClass('hide'); // if there is no featured video, hide the featured video field
-            }
-        };
-
-        function apiReady() {
-            gapi.client.setApiKey('AIzaSyDFxu8aPIl2RM5UBHupA-ryqdbsudkwU9I');
-            gapi.client.load('youtube', 'v3', function () {
-                //$.each(KB_PLAYLISTS, function (index, list) {
-                    try {
-                        kb_youtube.fetchAllPlaylists('UCPYYQwMYGrAfJhyO3t4n-Mg', function (playlists) {
-                            // Filter out the playlists that shall not be showed (the whitelist is hardcoded and handpicked by Uffe and Jytte)
-                            playlists = playlists.filter(function (playlist) {
-                                return kb_youtube.ALLOWEDPLAYLISTS.indexOf(playlist.id) >= 0;
-                            });
-                            // creating placeholders in the correct order
-                            $.each(kb_youtube.ALLOWEDPLAYLISTS, function (index, playlist) {
-                                $('#playlists').append('<div id="kbPlaylist_' + playlist + '"></div>');
-                            });
-                            $.each(playlists, function (index, playlist) {
-                                kb_youtube.fetchLatestVideos(playlist.id, null, function (videos) {
-                                    if (videos && videos.length) {
-                                        // Markup building starts here
-                                        var playlistMarkup = $('<section class="deck grid"><div class="container"><div class="row"><header class="text-center"><h2></h2><p class="lead"></p></header></div></div></section>');
-                                        var playlistTitle = playlistMarkup.find('header h2');
-                                        var playlistDescription = playlistMarkup.find('header .lead');
-                                        var playlistVideos = playlistMarkup.find('.row');
-
-                                        playlistTitle.text(playlist.snippet.title);
-                                        playlistVideos.append(videos.map(function (video) {
-                                            if (!video.snippet.thumbnails) { // If there is no thumbs, there should be no video in the list? // TODO: We might wanna just flash a default thumb?
-                                                kb_youtube.log('Skipped video "' + video.snippet.title + ' (id:' + video.snippet.resourceId.videoId + ')" because of lacking thumbs!');
-                                                return '';
-                                            }
-                                            return  '<div class="col-xs-6 col-sm-4 col-md-3">' +
-                                                        '<a href="videoArticle.html?pid=' + playlist.id + '&vid=' + video.snippet.resourceId.videoId + '">' +
-                                                            '<article class="comp video" style="background-image: url(' + video.snippet.thumbnails.medium.url + ')">' +
-                                                                '<div class="caption">' +
-                                                                    '<span class="glyphicon glyphicon-play-circle pull-right"></span>' +
-                                                                     '<time class="text-uppercase" datetime="20:00">'+video.snippet.publishedAt.substr(0,video.snippet.publishedAt.indexOf('T'))+'</time>' + // skal fjernes eller korrektes
-                                                                    '<h3>' + video.snippet.title + '</h3>' +
-                                                                '</div>' +
-                                                            '</article>' +
-                                                        '</a>' +
-                                                    '</div>';
-                                        }));
-                                        $('#kbPlaylist_' + playlist.id).append(playlistMarkup);
-                                    }
-                                });
-                            });
-                        });
-                    } catch (e) {
-                        kb_youtube.log('Something went wrong when trying to fetch the playlists?');
-                    }
-                //});
-            });
-        }
+        $(document).ready(function () {
+            var pid = location.search.substr(5);
+            $('iframe').attr('src', 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/' + pid + '&auto_play=true&hide_related=false&show_comments=true&show_user=false&show_reposts=false&visual=true');
+        });
     </script>
+
     <!-- Google Analytics www.kb.dk -->
     <script>
         var _gaq = _gaq || [];
@@ -130,6 +65,7 @@
             return { 'width': $img.prop('naturalWidth'), 'height': $img.prop('naturalHeight') }
             alert(img)
         };
+
 
     </script>
 
@@ -175,7 +111,7 @@
                         <!--li><a href="#">Mediekanal<div class="activeLine"></div></a></li-->
                         <li><a href="#">Rex<div class="activeLine"></div></a></li>
                         <li><a href="#">Tjenester<div class="activeLine"></div></a></li>
-                        <li><a href="#" class="active">Mediekanal<div class="activeLine"></div></a></li>
+                        <li><a href="video.html" class="active">Mediekanal<div class="activeLine"></div></a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#">English</a></li>
@@ -324,40 +260,53 @@
 <section class="deck">
     <div class="container-fluid">
 
+        <article itemscope="itemscope" itemtype="http://schema.org/Article" class="contentPage videoArticle">
 
-        <article class="jumboVideo">
+            <div class="jumboVideo">
+                <div class="container">
 
-            <div class="container">
+                    <div class="row">
 
-                <div class="row">
-
-                    <div class="col-md-8 col-md-push-4">
-                        <!-- 16:9 aspect ratio -->
-                        <div class="embed-responsive embed-responsive-16by9">
-                            <div id="player"></div>
+                        <div class="">
+                            <!-- 16:9 aspect ratio -->
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <iframe width="100%" height="450" scrolling="no" frameborder="no"></iframe>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-4 col-md-pull-8">
-                        <a id="featuredLink">
-                            <div id="featuredVideoCaption" class="caption">
-                                <time id="featuredPublishedAt" itemprop="dateCreated"></time>
-                                <meta id="featuredPublishedAtMeta" itemprop="datePublished" content=""/>
-                                <span id="featuredPlaylistTitle" class="playList"></span>
-                                <h1 id="featuredTitle"></h1>
-                            </div>
-                        </a>
-                    </div>
-                </div>
 
+                </div>
             </div>
 
+            <div class="container">
+                <header>
+                    <time id="featuredPublishedAt" itemprop="dateCreated"></time>
+                    <meta id="featuredPublishedAtMeta" itemprop="datePublished" content=""/>
+
+                    <h1 id="featuredTitle" itemprop="headline"></h1>
+                    <!--p id="featuredSubtitle" itemprop="description" class="lead">
+                        International Authors' Stage
+                    </p-->
+                </header>
+
+
+                <div itemprop="articleBody">
+                    <p id="featuredDescription"></p>
+                </div>
+            </div>
         </article>
+        <!-- Article end: -->
 
     </div>
 </section>
 
-<div id="playlists"></div>
-<div id="soundlist"></div>
+<section class="deck grid">
+    <div class="container">
+        <div class="row">
+            <div id="soundlist"></div>
+        </div>
+    </div>
+</section>
 
 </main>
 <!-- content end -->
@@ -428,5 +377,10 @@
 <script src="js/bootstrap331/transition.js"></script>
 <script src="js/bootstrap331/collapse.js"></script>
 <!--script src="js/bootstrap331/carousel.js"></script-->
+<!-- Swiper/ Carousel -->
+
+
 </body>
 </html>
+
+
