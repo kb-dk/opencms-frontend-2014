@@ -1,8 +1,9 @@
 /*global jQuery, SC*/
 var kb_soundcloud = (function (window, $, undefined) {
     var LANGUAGE = 'da'; // Change this to either 'da' or 'en'
-
-    var Kb_soundcloud = function () { };
+    var Kb_soundcloud = function (lang) {
+        this.LANGUAGE = lang || LANGUAGE;
+    };
 
     Kb_soundcloud.prototype = {
         //CLIENTNAME: 'cortexcowboy',
@@ -11,6 +12,16 @@ var kb_soundcloud = (function (window, $, undefined) {
         CLIENTID: 'a68ddd70609cc8bf03fe519310cfba01',
         //PLAYLIST: '//soundcloud.com/cortexcowboy/sets/kb-playlist',
         PLAYLISTID: '133593086',
+        i18n: {
+            'da' : {
+                    'title' : 'Podcasts fra samlingerne', // This is replaced with the playlist name when working, but Soundcloud does not support IE9, so I can't fetch anything in IE9
+                    'oldIE' : 'Du bruger en forældet browser, og kan derfor ikke lytte til vores lydklip.'
+                },
+            'en' : {
+                    'title' : 'Podcasts',
+                    'oldIE' : 'You are using a deprecated browser and can not listen to our soundbits.'
+                }
+        }
     };
 
     return new Kb_soundcloud();
