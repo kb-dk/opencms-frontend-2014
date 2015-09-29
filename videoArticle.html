@@ -61,6 +61,10 @@
                             var playlistMarkup = $('<div class="xlist" />');
                             //playlistMarkup.append('<h2 class="playlistTitle"></h2>');
                             playlistMarkup.append(videos.map(function (video) {
+                                if (!video.snippet.thumbnails) { // If there is no thumbs, there should be no video in the list
+                                    kb_youtube.log('Skipped video "' + video.snippet.title + ' (id:' + video.snippet.resourceId.videoId + ')" because of lacking thumbs!');
+                                    return '';
+                                }
                                 return  '<div class="col-xs-6 col-sm-4 col-md-3">' +
                                             '<a href="?pid=' + video.snippet.playlistId + '&vid=' + video.snippet.resourceId.videoId + '">' +
                                                 '<article class="comp video" style="background-image: url(' + video.snippet.thumbnails.medium.url + ')">' +
