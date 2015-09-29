@@ -30,6 +30,17 @@ var kb_soundcloud = (function (window, $, undefined) {
 
 //injecting SoundCloud API
 (function(window, $, undefined) {
+    // detect if browser is IE and < 11
+    var unsupportedIE = navigator.userAgent.split('MSIE');
+    if (unsupportedIE.length > 1) {
+        if (parseInt(unsupportedIE[1].trim().split(' ')[0], 10) < 10) {
+            // < IE10 => no soundcloud support - flash message and stop execution
+            setTimeout(function () {
+                $('#soundlist').html('<section class="deck grid"><div class="container"><div class="row"><header class="text-center"><h2>' + kb_soundcloud.i18n[kb_soundcloud.LANGUAGE].title + '</h2><p class="lead">' + kb_soundcloud.i18n[kb_soundcloud.LANGUAGE].oldIE + '</p></header></div></div></div>');
+            }, 0);
+            return;
+        }
+    }
     var injectionPoint = $('head').find('script').last();
     var SCscript = document.createElement('script');
     var testForAPILoaded = function () {
