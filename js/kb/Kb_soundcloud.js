@@ -66,7 +66,7 @@ window.onSoundcloudAPIReady = function () {
                                 '</a>' +
                             '</div>';
                 });
-            $('#soundlist').append('<div class="container"><div class="row"><header class="text-center"><h2>Sounds</h2><p class="lead"></p></header></div></div>');
+            $('#soundlist').append('<section class="deck grid"><div class="container"><div class="row"><header class="text-center"><h2>' + playlist.title + '</h2><p class="lead"></p></header></div></div></div>');
             $('#soundlist .container .row').append(sounds);
         } else {
             if ('undefined' !== typeof console) {
