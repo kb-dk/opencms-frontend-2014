@@ -34,6 +34,15 @@
 
     <script type="text/javascript">
         kb_youtube.autoplay = true;
+
+        function apiIsNotGoingToBeReady() {
+            /* // FIXME: This will not catch the youtube error, because I used featuredVideo as test, and now this page should work without a featured video too.
+            var oopsElem = $('<section class="deck mediadeck" style="display:none"><div class="container"><div class="row"><header class="text-center"><h2>Due to no response from youtube, there will be no videos in here now - please try again later.</h2></header></div></div></section>');
+            $('#playlists').append(oopsElem);
+            oopsElem.slideDown();
+            */
+        }
+
         function youtubeApiReady() {
             gapi.client.setApiKey('AIzaSyDFxu8aPIl2RM5UBHupA-ryqdbsudkwU9I');
             gapi.client.load('youtube', 'v3', function () {
