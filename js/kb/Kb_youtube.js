@@ -267,4 +267,3 @@ var kb_youtube = (function (window, $, undefined) {
     return kb_youtube;
 })(window, jQuery);
 
-
