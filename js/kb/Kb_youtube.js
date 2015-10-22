@@ -257,7 +257,7 @@ var kb_youtube = (function (window, $, undefined) {
     $(document).ready(function () { // Do we have to wait until doc ready here?
         var YTDtag = document.createElement('script'),
             YTItag = document.createElement('script');
-        YTDtag.src = "https://apis.google.com/js/client.js?onload=apiReady"; // load YouTube data API
+        YTDtag.src = "https://apis.google.com/js/client.js?onload=youtubeApiReady"; // load YouTube Data API
         YTItag.src = "https://www.youtube.com/iframe_api"; // load YouTube Iframe API
         var firstScriptTag = document.getElementsByTagName('script')[0];
         firstScriptTag.parentNode.insertBefore(YTDtag, firstScriptTag);
