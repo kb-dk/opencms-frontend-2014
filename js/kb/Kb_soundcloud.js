@@ -21,6 +21,20 @@ var kb_soundcloud = (function (window, $, undefined) {
                     'title' : 'Podcasts',
                     'oldIE' : 'You are using a deprecated browser and can not listen to our soundbits.'
                 }
+        },
+
+        /**
+         * Converts a datestamp to a text "Offentliggjort d. DD/MM YYYY"
+         * @param datestamp {String/date} Might be of any kind readable for Date - in this case it probably will be of the form YYYY/MM/DDTHH:mm:SS:ttttZ" or something like that?
+         * @return {String} "Offentliggjort d. DD/MM YYYY"
+         */
+        datestamp2Text: function (datestamp) {
+            var tmpDate = new Date(datestamp);
+            if (LANGUAGE === 'da') {
+                return 'Offentliggjort d. ' + tmpDate.getUTCDate() + '/' + (tmpDate.getUTCMonth()+1) + ' ' + tmpDate.getUTCFullYear();
+            } else {
+                return 'Published ' + tmpDate.getUTCDate() + '/' + (tmpDate.getUTCMonth()+1) + '/' + tmpDate.getUTCFullYear();
+            }
         }
     };
 
