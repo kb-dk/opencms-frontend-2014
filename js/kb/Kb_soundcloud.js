@@ -50,7 +50,7 @@ var kb_soundcloud = (function (window, $, undefined) {
         if (parseInt(unsupportedIE[1].trim().split(' ')[0], 10) < 10) {
             // < IE10 => no soundcloud support - flash message and stop execution
             setTimeout(function () {
-                $('#soundlist').html('<section class="deck grid"><div class="container"><div class="row"><header class="text-center"><h2>' + kb_soundcloud.i18n[kb_soundcloud.LANGUAGE].title + '</h2><p class="lead">' + kb_soundcloud.i18n[kb_soundcloud.LANGUAGE].oldIE + '</p></header></div></div></div>');
+                $('#soundlist').html('<section class="deck mediadeck grid"><div class="container"><div class="row"><header class="text-center"><h2>' + kb_soundcloud.i18n[kb_soundcloud.LANGUAGE].title + '</h2><p class="lead">' + kb_soundcloud.i18n[kb_soundcloud.LANGUAGE].oldIE + '</p></header></div></div></div>');
             }, 0);
             return;
         }
@@ -71,32 +71,3 @@ var kb_soundcloud = (function (window, $, undefined) {
     injectionPoint.after(SCscript);
 }(window, jQuery));
 
-window.onSoundcloudAPIReady = function () {
-    // Initializing SC
-    SC.initialize({
-      client_id: kb_soundcloud.CLIENTID
-    });
-
-    SC.get('/users/' + kb_soundcloud.CLIENTNAME + '/playlists/' + kb_soundcloud.PLAYLISTID, function (playlist, error) {
-        if (!error && playlist && playlist.tracks && playlist.tracks.length) { // No errors, threre is a playlist, and it has tracks - do the rendering
-            var sounds = playlist.tracks.map(function (track) {
-                    return  '<div class="col-xs-6 col-sm-4 col-md-3">' +
-                                '<a href="soundArticle.html?pid=' + track.id + '">' +
-                                    '<article class="comp video" style="background-image: url(' + track.artwork_url + ')">' +
-                                        '<div class="caption">' +
-                                            '<span class="glyphicon glyphicon-play-circle pull-right"></span>' +
-                                            '<h3>' + track.title + '</h3>' +
-                                        '</div>' +
-                                    '</article>' +
-                                '</a>' +
-                            '</div>';
-                });
-            $('#soundlist').append('<section class="deck grid"><div class="container"><div class="row"><header class="text-center"><h2>' + playlist.title + '</h2><p class="lead"></p></header></div></div></div>');
-            $('#soundlist .container .row').append(sounds);
-        } else {
-            if ('undefined' !== typeof console) {
-                console.warn('Error fetching soundcloud playlist.');
-            }
-        }
-    });
-}

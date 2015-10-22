@@ -14,6 +14,36 @@
     <!-- STYLESHEET -->
     <link href="css/style.css" rel="stylesheet" />
 
+    <style type="text/css">
+        .thumb, .moreThumbs{
+            display:none;
+        }
+        .moreThumbs.in, .moreThumbs a{
+            display:block;
+        }
+        .mediadeck .row > div:nth-child(-n+4){
+            display:block;
+        }
+
+        @media (min-width: 480px) {
+            .mediadeck .row > div:nth-child(-n+7) {
+                display:block;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .mediadeck .row > div:nth-child(-n+10) {
+                display:block;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .mediadeck .row > div:nth-child(-n+13) {
+                display:block;
+            }
+        }
+    </style>
+
     <!-- JAVASCRIPT -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Cookie policy -->
@@ -32,9 +62,14 @@
     <script src="js/kb/kbListeners.js"></script>
     <script src="js/kb/Kb_youtube.js"></script>
     <script src="js/kb/Kb_soundcloud.js"></script>
+    <script src="js/kb/Kb_mediaChannel.js"></script>
 
     <script type="text/javascript">
         kb_youtube.onAllPlaylistsLoaded = function () {
+            if ('undefined' !== typeof kb_mediaChannel) {
+                kb_mediaChannel.countDecksAndThumbs();
+                kb_mediaChannel.checkColumns(true);
+            }
             featuredVideo = kb_youtube.featuredVideo = kb_youtube.latestVideo;
             if (featuredVideo && featuredVideo.snippet.channelId === kb_youtube.KBCHANNELID) {
                 $('#featuredTitle').text(featuredVideo.snippet.title);
@@ -76,10 +111,10 @@
                                 kb_youtube.fetchLatestVideos(playlist.id, null, function (videos) {
                                     if (videos && videos.length) {
                                         // Markup building starts here
-                                        var playlistMarkup = $('<section class="deck grid"><div class="container"><div class="row"><header class="text-center"><h2></h2><p class="lead"></p></header></div></div></section>');
+                                        var playlistMarkup = $('<section class="deck mediadeck grid"><div class="container"><div class="row thumbs"><header class="text-center"><h2></h2><p class="lead"></p></header></div></div><div class="container"><div class="row moreThumbs"><a class="md-cols-12 text-center" href="videoArticle.html?pid=' + playlist.id + '">Alle...</a></div></div></section>');
                                         var playlistTitle = playlistMarkup.find('header h2');
                                         var playlistDescription = playlistMarkup.find('header .lead');
-                                        var playlistVideos = playlistMarkup.find('.row');
+                                        var playlistVideos = playlistMarkup.find('.thumbs');
 
                                         playlistTitle.text(playlist.snippet.title);
                                         playlistDescription.text(playlist.snippet.description);
@@ -88,7 +123,7 @@
                                                 kb_youtube.log('Skipped video "' + video.snippet.title + ' (id:' + video.snippet.resourceId.videoId + ')" because of lacking thumbs!');
                                                 return '';
                                             }
-                                            return  '<div class="col-xs-6 col-sm-4 col-md-3">' +
+                                            return  '<div class="thumb col-xs-6 col-sm-4 col-md-3">' +
                                                         '<a href="videoArticle.html?pid=' + playlist.id + '&vid=' + video.snippet.resourceId.videoId + '">' +
                                                             '<article class="comp video" style="background-image: url(' + video.snippet.thumbnails.medium.url + ')">' +
                                                                 '<div class="caption">' +
@@ -109,6 +144,40 @@
                         kb_youtube.log('Something went wrong when trying to fetch the playlists?');
                     }
                 //});
+            });
+        }
+
+        function onSoundcloudAPIReady() {
+            // Initializing SC
+            SC.initialize({
+              client_id: kb_soundcloud.CLIENTID
+            });
+
+            SC.get('/users/' + kb_soundcloud.CLIENTNAME + '/playlists/' + kb_soundcloud.PLAYLISTID, function (playlist, error) {
+                if (!error && playlist && playlist.tracks && playlist.tracks.length) { // No errors, threre is a playlist, and it has tracks - do the rendering
+                    var sounds = playlist.tracks.map(function (track) {
+                            return  '<div class="thumb col-xs-6 col-sm-4 col-md-3">' +
+                                        '<a href="soundArticle.html?pid=' + track.id + '">' +
+                                            '<article class="comp video" style="background-image: url(' + track.artwork_url + ')">' +
+                                                '<div class="caption">' +
+                                                    '<span class="glyphicon glyphicon-play-circle pull-right"></span>' +
+                                                    '<h3>' + track.title + '</h3>' +
+                                                '</div>' +
+                                            '</article>' +
+                                        '</a>' +
+                                    '</div>';
+                        });
+                    $('#soundlist').append('<section class="deck mediadeck grid"><div class="container"><div class="row thumbs"><header class="text-center"><h2>' + playlist.title + '</h2><p class="lead">' + playlist.description + '</p></header></div></div><div class="container"><div class="row moreThumbs"><a class="md-cols-12 text-center" href="soundArticle.html">Alle...</a></div></div></div>');
+                    $('#soundlist .container .thumbs').append(sounds);
+
+                    if ('undefined' !== typeof kb_mediaChannel) {
+                        kb_mediaChannel.countDecksAndThumbs();
+                    }
+                } else {
+                    if ('undefined' !== typeof console) {
+                        console.warn('Error fetching soundcloud playlist.');
+                    }
+                }
             });
         }
     </script>
@@ -362,8 +431,8 @@
     </div>
 </section>
 
-<div id="playlists"></div>
-<div id="soundlist"></div>
+<div id="playlists" class="mediachannelFrontpage"></div>
+<div id="soundlist" class="mediachannelFrontpage"></div>
 
 </main>
 <!-- content end -->

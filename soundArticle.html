@@ -43,6 +43,46 @@
                 $('.deck.player').remove(); // this is just the channel frontpage - remove the player
             }
         });
+
+        function onSoundcloudAPIReady() {
+            // Initializing SC
+            SC.initialize({
+              client_id: kb_soundcloud.CLIENTID
+            });
+
+            SC.get('/users/' + kb_soundcloud.CLIENTNAME + '/playlists/' + kb_soundcloud.PLAYLISTID, function (playlist, error) {
+                if (!error && playlist && playlist.tracks && playlist.tracks.length) { // No errors, threre is a playlist, and it has tracks - do the rendering
+                    var sounds = playlist.tracks.map(function (track) {
+                            if (track.id === kb_soundcloud.currentPid) {
+                                // debugger;
+                                $('#featuredPublishedAt').text(kb_soundcloud.datestamp2Text(track.created_at));
+                                $('#featuredTitle').text(track.title);
+                                $('#featuredDescription').text(track.description);
+                            }
+                            return  '<div class="thumb col-xs-6 col-sm-4 col-md-3">' +
+                                        '<a href="soundArticle.html?pid=' + track.id + '">' +
+                                            '<article class="comp video" style="background-image: url(' + track.artwork_url + ')">' +
+                                                '<div class="caption">' +
+                                                    '<span class="glyphicon glyphicon-play-circle pull-right"></span>' +
+                                                    '<h3>' + track.title + '</h3>' +
+                                                '</div>' +
+                                            '</article>' +
+                                        '</a>' +
+                                    '</div>';
+                        });
+                    $('#soundlist').append('<section class="deck mediadeck grid"><div class="container"><div class="row thumbs"><header class="text-center"><h2>' + playlist.title + '</h2><p class="lead"></p></header></div></div></div>');
+                    $('#soundlist .container .thumbs').append(sounds);
+
+                    if ('undefined' !== typeof kb_mediaChannel) {
+                        kb_mediaChannel.countDecksAndThumbs();
+                    }
+                } else {
+                    if ('undefined' !== typeof console) {
+                        console.warn('Error fetching soundcloud playlist.');
+                    }
+                }
+            });
+        }
     </script>
 
     <!-- Google Analytics www.kb.dk -->
@@ -261,7 +301,7 @@
 
 
 
-<section class="deck">
+<section class="deck player">
     <div class="container-fluid">
 
         <article itemscope="itemscope" itemtype="http://schema.org/Article" class="contentPage videoArticle">

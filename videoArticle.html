@@ -51,6 +51,7 @@
                                     return false;
                                 });
                             }
+                            // XXX XXX XXX Den næste linie skal ikke være der, og de kommende 4 linier skal indenfor if(kb_youtube.videoId), og der skal en else på, som fjerner playeren og felterne til description, så listen kommer til at stå øverst! :-6
                             kb_youtube.featuredVideo = featuredVideo; // this is used by the player when the YouTubeIframeAPI has loaded
                             // Markup building starts here
                             if (featuredVideo.snippet.channelId === kb_youtube.KBCHANNELID) {
