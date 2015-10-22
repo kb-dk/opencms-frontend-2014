@@ -212,13 +212,19 @@ var kb_youtube = (function (window, $, undefined) {
     getParams.forEach(function (p) { getParams[p[0]] = p[1]; }); // TODO: A bit of a hack, but it will do fine here since we only look for vid and pid.
     kb_youtube.playlistId = getParams.pid;
     kb_youtube.videoId = getParams.vid;
+    kb_youtube.timeoutCounter = 0; // TODO: Bugger!
 
     window.player = null; // FIXME: Perhaps this shouldn't be global?
 
     window.onYouTubeIframeAPIReady = function () {
         if (!kb_youtube.featuredVideo) {
             // We haven't recieved data on the featuredVideo from the dataAPI yet, wait just a bit and try again
-            setTimeout(onYouTubeIframeAPIReady, 300); // TODO: Poor mans dependency control
+            kb_youtube.timeoutCounter += 1;
+            if (kb_youtube.timeoutCounter < 10) { // TODO: This sets a timeout on the youtube data api fetch. It shouldn't be needed though! :-(
+                kb_youtube.initiateTimer = setTimeout(onYouTubeIframeAPIReady, 300); // TODO: Poor mans dependency control
+            } else {
+                apiIsNotGoingToBeReady();
+            }
             return;
         }
         var maxres = kb_youtube.featuredVideo.snippet.thumbnails.maxres || kb_youtube.featuredVideo.snippet.thumbnails.high || kb_youtube.featuredVideo.snippet.thumbnails['default'];
