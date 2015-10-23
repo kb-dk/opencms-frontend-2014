@@ -230,7 +230,8 @@ var kb_youtube = (function (window, $, undefined) {
         var maxres = kb_youtube.featuredVideo.snippet.thumbnails.maxres || kb_youtube.featuredVideo.snippet.thumbnails.high || kb_youtube.featuredVideo.snippet.thumbnails['default'];
         window.player = new YT.Player('player', {
             playerVars: {
-                showinfo:0
+                showinfo:0,
+                wmode:'transparent'
             },
             height: maxres.height,
             width: maxres.width,
