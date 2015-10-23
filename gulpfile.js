@@ -23,7 +23,7 @@ gulp.task('production', ['clean'], function (cb) {
     }))
     .pipe(gulp.dest('production'));
 
-    gutil.log('Create a bundle of ', gutil.colors.cyan('Kb_youtube_min.js'), 'and', gutil.colors.cyan('Kb_soundcloud_min.js'), 'by typing', gutil.colors.green('gulp bundle'));
+    gutil.log('Create a bundle of ', gutil.colors.cyan('Kb_mediaChannel_min.js'), ',', gutil.colors.cyan('Kb_youtube_min.js'), 'and', gutil.colors.cyan('Kb_soundcloud_min.js'), 'by typing', gutil.colors.green('gulp bundle'));
 
     if (cb) {
         cb();
@@ -33,7 +33,7 @@ gulp.task('production', ['clean'], function (cb) {
 gulp.task('bundle', [], function (cb) {
     gutil.log('Doing', gutil.colors.cyan('postprod'), 'build');
     gutil.log('Concatening youtube and soundcloud minified scripts ...');
-    gulp.src(['production/Kb_youtube_min.js', 'production/Kb_soundcloud_min.js'])
+    gulp.src(['production/Kb_mediaChannel_min.js', 'production/Kb_youtube_min.js', 'production/Kb_soundcloud_min.js'])
     .pipe(concat('Kb_youtubeSoundcĺoudBundle.js'))
     .pipe(gulp.dest('production'));
 
