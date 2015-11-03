@@ -57,7 +57,7 @@
                                 // debugger;
                                 $('#featuredPublishedAt').text(kb_soundcloud.datestamp2Text(track.created_at));
                                 $('#featuredTitle').text(track.title);
-                                $('#featuredDescription').text(track.description);
+                                $('#featuredDescription').append(kb_soundcloud.formatDescription(track.description));
                             }
                             return  '<div class="thumb col-xs-6 col-sm-4 col-md-3">' +
                                         '<a href="soundArticle.html?pid=' + track.id + '">' +

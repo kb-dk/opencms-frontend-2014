@@ -5,6 +5,18 @@ var kb_soundcloud = (function (window, $, undefined) {
         this.LANGUAGE = lang || LANGUAGE;
     };
 
+    /**
+     * Converts an url to a html a tag
+     * @param url {String} The url
+     * @param maxLength {Number} The maximum length of the url to show in the link. Chars beyond this will be cutted off in the text (not the href) and an ellipsis will be appended.
+     * @return {String/html} The a-tag
+     */
+    var url2href = function (url, maxLength) {
+        maxLength = maxLength || 37;
+        var shortUrl = url.length > maxLength ? url.substr(0, maxLength) + '&hellip;' : url;
+        return '<a href="' + url + '" target="_blank">' + shortUrl + '</a>';
+    };
+
     Kb_soundcloud.prototype = {
         //CLIENTNAME: 'cortexcowboy',
         //CLIENTID: 'addc49835216955834db7171a0a41411',
@@ -35,6 +47,14 @@ var kb_soundcloud = (function (window, $, undefined) {
             } else {
                 return 'Published ' + tmpDate.getUTCDate() + '/' + (tmpDate.getUTCMonth()+1) + '/' + tmpDate.getUTCFullYear();
             }
+        },
+
+        /**
+         * Format a text blob as the description is formatted in SoundCloud. This implies all urls converted to <a>-tags and linefeeds converted to <br>-tags
+         */
+        formatDescription : function (desc) {
+            desc = desc.replace(/\b(https?\:\/\/\S*)\b/g, url2href);
+            return desc.replace(/\n/g, '<br>\n');
         }
     };
 
