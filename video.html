@@ -123,12 +123,13 @@
                                                 kb_youtube.log('Skipped video "' + video.snippet.title + ' (id:' + video.snippet.resourceId.videoId + ')" because of lacking thumbs!');
                                                 return '';
                                             }
+                                            var pubDate = video.snippet.publishedAt.substr(0,video.snippet.publishedAt.indexOf('T'));
                                             return  '<div class="thumb col-xs-6 col-sm-4 col-md-3">' +
                                                         '<a href="videoArticle.html?pid=' + playlist.id + '&vid=' + video.snippet.resourceId.videoId + '">' +
                                                             '<article class="comp video" style="background-image: url(' + video.snippet.thumbnails.medium.url + ')">' +
                                                                 '<div class="caption">' +
                                                                     '<span class="glyphicon glyphicon-play-circle pull-right"></span>' +
-                                                                     '<time class="text-uppercase" datetime="20:00">'+video.snippet.publishedAt.substr(0,video.snippet.publishedAt.indexOf('T'))+'</time>' + // skal fjernes eller korrektes
+                                                                     '<time class="text-uppercase" datetime="' + pubDate + '">' + pubDate +'</time>' +
                                                                     '<h3>' + video.snippet.title + '</h3>' +
                                                                 '</div>' +
                                                             '</article>' +
@@ -156,12 +157,13 @@
             SC.get('/users/' + kb_soundcloud.CLIENTNAME + '/playlists/' + kb_soundcloud.PLAYLISTID, function (playlist, error) {
                 if (!error && playlist && playlist.tracks && playlist.tracks.length) { // No errors, threre is a playlist, and it has tracks - do the rendering
                     var sounds = playlist.tracks.map(function (track) {
+                            var pubDate = track.created_at.substr(0, track.created_at.indexOf(' ')).replace(/\//g, '-');
                             return  '<div class="thumb col-xs-6 col-sm-4 col-md-3">' +
                                         '<a href="soundArticle.html?pid=' + track.id + '">' +
                                             '<article class="comp video" style="background-image: url(' + track.artwork_url + ')">' +
                                                 '<div class="caption">' +
                                                     '<span class="glyphicon glyphicon-play-circle pull-right"></span>' +
-                                                    '<time class="text-uppercase" datetime="20:00">' + track.created_at.substr(0, track.created_at.indexOf(' ')).replace(/\//g, '-') + '</time>' +
+                                                    '<time class="text-uppercase" datetime="' + pubDate + '">' + pubDate + '</time>' +
                                                     '<h3>' + track.title + '</h3>' +
                                                 '</div>' +
                                             '</article>' +
