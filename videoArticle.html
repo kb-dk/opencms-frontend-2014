@@ -78,12 +78,13 @@
                                     kb_youtube.log('Skipped video "' + video.snippet.title + ' (id:' + video.snippet.resourceId.videoId + ')" because of lacking thumbs!');
                                     return '';
                                 }
+                                var pubDate = video.snippet.publishedAt.substr(0,video.snippet.publishedAt.indexOf('T'));
                                 return  '<div class="col-xs-6 col-sm-4 col-md-3">' +
                                             '<a href="?pid=' + video.snippet.playlistId + '&vid=' + video.snippet.resourceId.videoId + '">' +
                                                 '<article class="comp video" style="background-image: url(' + video.snippet.thumbnails.medium.url + ')">' +
                                                     '<div class="caption">' +
                                                         '<span class="glyphicon glyphicon-play-circle pull-right"></span>' +
-                                                        //'<time class="text-uppercase" datetime="20:00">4:18</time>' +
+                                                        '<time class="text-uppercase" datetime="' + pubDate + '">' + pubDate +'</time>' +
                                                         '<h3>' + video.snippet.title + '</h3>' +
                                                     '</div>' +
                                                 '</article>' +
