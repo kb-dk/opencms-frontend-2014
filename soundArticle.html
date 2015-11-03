@@ -59,11 +59,13 @@
                                 $('#featuredTitle').text(track.title);
                                 $('#featuredDescription').append(kb_soundcloud.formatDescription(track.description));
                             }
+                            var pubDate = track.created_at.substr(0, track.created_at.indexOf(' ')).replace(/\//g, '-');
                             return  '<div class="thumb col-xs-6 col-sm-4 col-md-3">' +
                                         '<a href="soundArticle.html?pid=' + track.id + '">' +
                                             '<article class="comp video" style="background-image: url(' + track.artwork_url + ')">' +
                                                 '<div class="caption">' +
                                                     '<span class="glyphicon glyphicon-play-circle pull-right"></span>' +
+                                                    '<time class="text-uppercase" datetime="' + pubDate + '">' + pubDate + '</time>' +
                                                     '<h3>' + track.title + '</h3>' +
                                                 '</div>' +
                                             '</article>' +
