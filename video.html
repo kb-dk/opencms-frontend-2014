@@ -161,6 +161,7 @@
                                             '<article class="comp video" style="background-image: url(' + track.artwork_url + ')">' +
                                                 '<div class="caption">' +
                                                     '<span class="glyphicon glyphicon-play-circle pull-right"></span>' +
+                                                    '<time class="text-uppercase" datetime="20:00">' + track.created_at.substr(0, track.created_at.indexOf(' ')).replace(/\//g, '-') + '</time>' +
                                                     '<h3>' + track.title + '</h3>' +
                                                 '</div>' +
                                             '</article>' +
