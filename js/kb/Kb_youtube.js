@@ -1,6 +1,6 @@
 /*global jQuery, gapi, YT, onYouTubeIframeAPIReady*/
 var kb_youtube = (function (window, $, undefined) {
-    var LANGUAGE = 'da'; // Change this to either 'da' or 'en'
+    var LANGUAGE = window.kb_lang || 'da'; // Change this to either 'da' or 'en'
 
     var Kb_youtube = function () { };
     //var loadedPlaylists = [];

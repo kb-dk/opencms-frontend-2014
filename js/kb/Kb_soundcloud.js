@@ -1,6 +1,6 @@
 /*global jQuery, SC*/
 var kb_soundcloud = (function (window, $, undefined) {
-    var LANGUAGE = 'da'; // Change this to either 'da' or 'en'
+    var LANGUAGE = window.kb_lang || 'da'; // Change this to either 'da' or 'en'
     var Kb_soundcloud = function (lang) {
         this.LANGUAGE = lang || LANGUAGE;
     };
