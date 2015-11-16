@@ -12,9 +12,10 @@ var del = require('del');
 var DEVDEST = 'development';
 var PRODDEST = 'production';
 var JSSRC = 'js/kb/*.js';
-var BUNDLEJSSRC = ['js/Kb_mediaChannel_min.js', 'js/Kb_youtube_min.js', 'js/Kb_soundcloud_min.js'];
+var BUNDLEJSSRC = ['js/injectStyles_min.js', 'js/Kb_mediaChannel_min.js', 'js/Kb_youtube_min.js', 'js/Kb_soundcloud_min.js'];
 var LESSSRC = 'less/style.less';
 var MEDIACHANNELLESSSRC = 'less/kb/mediaChannelBundle.less';
+var INTERMEDIATES = [PRODDEST + '/js/Kb_youtube_min.js', PRODDEST + '/js/Kb_soundcloud_min.js', PRODDEST + '/js/Kb_mediaChannel_min.js', PRODDEST + '/js/injectStyles_min.js'];
 
 gulp.task('default', [PRODDEST], function () {});
 
@@ -53,6 +54,7 @@ gulp.task('production', ['clean'], function (cb) {
 });
 
 gulp.task('development', [], function (cb) {
+    gutil.log(gutil.colors.red('Please note that this build has not been updated lately - use production build instead!'));
     gutil.log('Building a ', gutil.colors.cyan('development'), 'build');
     gutil.log('copying youtube and soundcloud scripts');
     gulp.src(['js/kb/Kb_youtube.js', 'js/kb/Kb_soundcloud.js'])
@@ -68,6 +70,36 @@ gulp.task('bundle', [], function (cb) {
     gutil.log('Concatening youtube and soundcloud minified scripts ...');
     gulp.src(BUNDLEJSSRC.map(function (path) { return PRODDEST + '/' + path}))
     .pipe(concat('Kb_youtubeSoundcloudBundle.js'))
+    .pipe(gulp.dest(PRODDEST + '/js'));
+
+    gulp.src([PRODDEST + '/js/injectStyles_min.js', PRODDEST + '/js/Kb_youtube_min.js'])
+    .pipe(concat('Kb_youtubeBundle.js'))
+    .pipe(gulp.dest(PRODDEST + '/js'));
+
+    gulp.src([PRODDEST + '/js/injectStyles_min.js', PRODDEST + '/js/Kb_soundcloud_min.js'])
+    .pipe(concat('Kb_soundcloudBundle.js'))
+    .pipe(gulp.dest(PRODDEST + '/js'));
+
+    gutil.log('Clean intermediares up with ' + gutil.colors.green('gulp cleanup'));
+
+    if (cb) {
+        cb();
+    }
+});
+
+gulp.task('cleanup', [], function (cb) {
+    gutil.log('Cleaning up in the production directory ...');
+    del(INTERMEDIATES, cb);
+});
+
+// XXX XXX XXX XXX This step does not work! You need to figure out how to sync gulp tasks, so the bundles are done AFTER the production files are ready, and the x_min.js are deleted before the bundle.js are renamed! /HAFE
+
+gulp.task('rename', [], function (cb) {
+    gutil.log('Renaming files ...');
+    gulp.src([PRODDEST + '/js/Kb_soundcloudBundle.js', '/js/Kb_youtubeBundle.js'])
+    .pipe(rename(function(path) {
+        path.basename = path.basename.replace('Bundle', '_min');
+    }))
     .pipe(gulp.dest(PRODDEST + '/js'));
 
     if (cb) {
