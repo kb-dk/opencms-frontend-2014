@@ -60,6 +60,7 @@
     <![endif]-->
     <script src="js/kb/kbMenu.js"></script>
     <script src="js/kb/kbListeners.js"></script>
+    <script src="js/kb/injectStyles.js"></script>
     <script src="js/kb/Kb_youtube.js"></script>
     <script src="js/kb/Kb_soundcloud.js"></script>
     <script src="js/kb/Kb_mediaChannel.js"></script>
@@ -111,7 +112,7 @@
                                 kb_youtube.fetchLatestVideos(playlist.id, null, function (videos) {
                                     if (videos && videos.length) {
                                         // Markup building starts here
-                                        var playlistMarkup = $('<section class="deck mediadeck grid"><div class="container"><div class="row thumbs"><header class="text-center"><h2></h2><p class="lead"></p></header></div></div><div class="container"><div class="row moreThumbs"><a class="md-cols-12 text-center" href="videoArticle.html?pid=' + playlist.id + '">Alle...</a></div></div></section>');
+                                        var playlistMarkup = $('<section class="deck mediadeck grid"><div class="container"><div class="row thumbs"><header class="text-center"><h2></h2><p class="lead"></p></header></div></div><div class="container"><div class="row moreThumbs"><a class="md-cols-12 text-center" href="videoArticle.html?pid=' + playlist.id + '">All' + (window.kb_lang !== 'da' ? '' : 'e') + '...</a></div></div></section>');
                                         var playlistTitle = playlistMarkup.find('header h2');
                                         var playlistDescription = playlistMarkup.find('header .lead');
                                         var playlistVideos = playlistMarkup.find('.thumbs');
@@ -170,7 +171,7 @@
                                         '</a>' +
                                     '</div>';
                         });
-                    $('#soundlist').append('<section class="deck mediadeck grid"><div class="container"><div class="row thumbs"><header class="text-center"><h2>' + playlist.title + '</h2><p class="lead">' + playlist.description + '</p></header></div></div><div class="container"><div class="row moreThumbs"><a class="md-cols-12 text-center" href="soundArticle.html">Alle...</a></div></div></div>');
+                    $('#soundlist').append('<section class="deck mediadeck grid"><div class="container"><div class="row thumbs"><header class="text-center"><h2>' + playlist.title + '</h2><p class="lead">' + playlist.description + '</p></header></div></div><div class="container"><div class="row moreThumbs"><a class="md-cols-12 text-center" href="soundArticle.html">All' + (window.kb_lang !== 'da' ? '' : 'e') + '...</a></div></div></div>');
                     $('#soundlist .container .thumbs').append(sounds);
 
                     if ('undefined' !== typeof kb_mediaChannel) {
@@ -436,6 +437,21 @@
 
 <div id="playlists" class="mediachannelFrontpage"></div>
 <div id="soundlist" class="mediachannelFrontpage"></div>
+
+<section class="deck kbBottomLink">
+    <div class="container">
+        <div class="row">
+			<a class="md-cols-12 text-center" href="/da/dia/online/foredrag.html" style="display:block;margin-top:20px;">Flere foredrag</a>
+		</div>
+	</div>
+</section>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+		$('.swiper-container').closest('.deck').addClass('hide'); // hide swiper
+		if (window.kb_lang !== 'da') { $('.kbBottomLink').hide(); } // hide bottom link if english (we don't have it in english)
+    });
+</script>
 
 </main>
 <!-- content end -->
