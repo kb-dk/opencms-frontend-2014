@@ -194,7 +194,9 @@ $(document).ready(function() {
 
         // FIXME: Apparently this is needed to resize swiper properly after resize invoked by window maximize/minimize? It ought not to be necessary, but it does the trick! /HAFE
         $('.swiper-container').css('height', $('.swiper-slide-active img').height());
-        kbSwiper.resizeFix();
+        if (('undefined' !== typeof kbSwiper) && $.isFunction(kbSwiper.resizeFix)) {
+            kbSwiper.resizeFix();
+        }
 
     });
 

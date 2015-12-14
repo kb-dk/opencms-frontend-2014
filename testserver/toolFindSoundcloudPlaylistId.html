@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang='en'>
+<head>
+    <title>Get playlist id from a playlist in soundcloud</title>
+    <meta charset="utf-8">
+    <style type="text/css">
+        .container{
+            width:80%;
+            margin: 0 auto;
+        }
+        dd{
+            font-weight:bold;
+        }
+        h1{
+            font-size:25px;
+            border-bottom:1px solid #ccc;
+        }
+    </style>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//connect.soundcloud.com/sdk-2.0.0.js"></script>
+    <script type="text/javascript">
+
+        // Initializing SC
+        SC.initialize({
+            client_id: 'addc49835216955834db7171a0a41411' // <--- This is my client_id - KB shall have one of its own!
+        });
+
+        $(document).ready(function () {
+            $('form').submit(function() {
+                var username = $('input')[0].value;
+                console.log('searching for /users/' + username + '/playlists ...');
+                SC.get('/users/' + username + '/playlists', function (playlists, error) {
+                    if (!error) {
+                        if (playlists.length) {
+                            var tmpStr = '<h1>Playlists and id\'s for user ' + username + '</h1><dl>';
+                            $.each(playlists, function (index, playlist) {
+                                tmpStr += '<dt><a href="' + playlist.permalink_url + '" target="_blank">' + playlist.title + '</a><dt><dd>' + playlist.id + '</dd>';
+                            });
+                            tmpStr += '</dl>';
+                            $('.result').html(tmpStr);
+                        } else {
+                            $('.result').html('<h1>Error:</h1><p>User ' + username + ' has no playlists defined.</p>');
+                        }
+                    } else {
+                        $('.result').html('<h1>Error:</h1><p>' + error.message + '</p>');
+                    }
+                });
+                return false;
+            });
+            $('input').focus();
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <form>
+            Type soundcloud username: <input type="text" value="cortexcowboy"> <button type="submit">Lookup</button>
+        </form>
+        <hr>
+        <div class="result"></div>
+    </div>
+</body>
+</html>
