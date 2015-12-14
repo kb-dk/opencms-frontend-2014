@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/Det-Kongelige-Bibliotek/opencms-frontend-2014.png?label=ready&title=Ready)](https://waffle.io/Det-Kongelige-Bibliotek/opencms-frontend-2014)
 opencms-frontend-2014
 =====================
 
