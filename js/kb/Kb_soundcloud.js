@@ -20,7 +20,7 @@ var kb_soundcloud = (function (window, $, undefined) {
     Kb_soundcloud.prototype = {
         //CLIENTNAME: 'cortexcowboy',
         //CLIENTID: 'addc49835216955834db7171a0a41411',
-        CLIENTNAME: 'pewakb',
+        CLIENTNAME: 'detkongeligebibliotek',
         CLIENTID: 'a68ddd70609cc8bf03fe519310cfba01',
         //PLAYLIST: '//soundcloud.com/cortexcowboy/sets/kb-playlist',
         PLAYLISTID: '133593086',
